@@ -1,0 +1,66 @@
+|KeyScan
+clk => counter4:U0.clk
+K_scan => counter4:U0.CE
+reset => counter4:U0.reset
+KEYPAD_LIN[0] => mux4:U1.I[0]
+KEYPAD_LIN[1] => mux4:U1.I[1]
+KEYPAD_LIN[2] => mux4:U1.I[2]
+KEYPAD_LIN[3] => mux4:U1.I[3]
+KEYPAD_COL[0] << dec2_4:U2.Y[0]
+KEYPAD_COL[1] << dec2_4:U2.Y[1]
+KEYPAD_COL[2] << dec2_4:U2.Y[2]
+K[0] << comb.DB_MAX_OUTPUT_PORT_TYPE
+K[1] << K[1].DB_MAX_OUTPUT_PORT_TYPE
+K[2] << K[2].DB_MAX_OUTPUT_PORT_TYPE
+K[3] << K[3].DB_MAX_OUTPUT_PORT_TYPE
+K_press << mux4:U1.Y
+
+
+|KeyScan|counter4:U0
+CE => count[0].ENA
+CE => count[3].ENA
+CE => count[2].ENA
+CE => count[1].ENA
+down => count.OUTPUTSELECT
+down => count.OUTPUTSELECT
+down => count.OUTPUTSELECT
+down => count.OUTPUTSELECT
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+reset => count[0].ACLR
+reset => count[1].ACLR
+reset => count[2].ACLR
+reset => count[3].ACLR
+O[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|KeyScan|mux4:U1
+I[0] => Mux0.IN3
+I[1] => Mux0.IN2
+I[2] => Mux0.IN1
+I[3] => Mux0.IN0
+S[0] => Mux0.IN5
+S[1] => Mux0.IN4
+Y <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|KeyScan|dec2_4:U2
+S[0] => Mux0.IN5
+S[0] => Mux1.IN5
+S[0] => Mux2.IN5
+S[0] => Mux3.IN5
+S[1] => Mux0.IN4
+S[1] => Mux1.IN4
+S[1] => Mux2.IN4
+S[1] => Mux3.IN4
+Y[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

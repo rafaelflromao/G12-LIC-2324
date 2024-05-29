@@ -1,0 +1,51 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity KeyDecode is
+   port(
+		clk, reset, k_ack	: in std_logic;		
+		KEYPAD_LIN				: in std_logic_vector(3 downto 0);
+		KEYPAD_COL				: out std_logic_vector(2 downto 0);
+		K							: out std_logic_vector(3 downto 0);
+      K_val					: out std_logic
+   );
+end KeyDecode;
+
+architecture Structural of KeyDecode is
+	
+	component counter4 is
+		port(
+			CE, clk, reset	: in std_logic;
+			O					: out std_logic_vector(3 downto 0) 
+		);
+	end component counter4;
+	
+	component mux4 is
+		port (
+		I	: in std_logic_vector(3 downto 0);
+		S	: in std_logic_vector(1 downto 0);
+		Y	: out std_logic
+		);
+	end component mux4;
+	
+	component dec2_4 is
+		port (
+		S	: in std_logic_vector(1 downto 0);
+		Y	: out std_logic_vector(3 downto 0)
+		);
+	end component dec2_4;
+	
+	signal Q 				: std_logic_vector(3 downto 0);
+	signal Y 				: std_logic;
+	signal KEYPAD_COL_b 	: std_logic_vector(3 downto 0);
+
+begin
+	U0: counter4 port map(CE => K_scan, reset => reset, clk => clk, O => Q);
+	U1: mux4 port map(I => KEYPAD_LIN, S => Q(1 downto 0), Y => Y);
+	U2: dec2_4 port map(S => Q(3 downto 2), Y => KEYPAD_COL_b);
+	
+	KEYPAD_COL <= not KEYPAD_COL_b(2 downto 0);
+	K_press <= not Y;
+end Structural;

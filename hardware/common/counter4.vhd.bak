@@ -1,0 +1,25 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity DFF is
+   port(
+      CE		: in std_logic;
+		Clk	: in std_logic;
+		reset	: in std_logic;  
+      O		: out std_logic_vector(3 downto 0);   
+   );
+end DFF;
+
+architecture Behavioral of DFF is
+begin
+	process(reset,clk)
+	begin
+		if(reset='1') then
+			Q <= 0;
+		elsif(rising_edge(clk)) then
+			Q <= D;
+		end if;
+	end process;
+end Behavioral;

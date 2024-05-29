@@ -1,0 +1,31 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+
+entity traffic_signals is
+	port(
+		clk, k_ack, k_press: in std_ulogic;
+		start_timer, major_green, minor_green: out std_ulogic
+	);
+end entity traffic_signals;
+
+architecture asm of traffic_signals is
+
+begin
+	process(clock, timed, car) is
+		type state_type is (G, R);
+		variable state: state_type;
+	begin
+		start_timer <= ‘0’;
+		if (rising_edge(clock)) then
+			case state is
+				when G =>
+					major_green <= ‘1’; minor_green <= ‘0’;
+					if( car = ‘1’) then start_timer = ‘1’; state := R; end if;
+				when R =>
+					major_green <= ‘0’; minor_green <= ‘1’;
+					if( timed = ‘1’) then state := G; end if;
+			end case;
+		end if;
+	end process;
+end architecture asm;
