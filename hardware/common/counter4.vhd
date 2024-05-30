@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.all;
 entity counter4 is
    port(
       CE, down, clk, reset : in std_logic;
-      O              : out unsigned(3 downto 0)
+      O              : out std_logic_vector(3 downto 0)
    );
 end counter4;
 
@@ -26,5 +26,5 @@ begin
             end if;
         end if;
     end process;
-    O <= count; -- Output the current count
+    O <= std_logic_vector(count); -- Output the current count
 end Behavioral;
