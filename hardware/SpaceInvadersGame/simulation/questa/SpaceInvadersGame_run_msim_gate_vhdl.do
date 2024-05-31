@@ -7,9 +7,9 @@ vmap work gate_work
 
 vcom -93 -work work {SpaceInvadersGame.vho}
 
-vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd}
 
-vsim -t 1ps -L altera -L altera_lnsim -L fiftyfivenm -L gate_work -L work -voptargs="+acc"  OutputBuffer_tb
+vsim -t 1ps -L altera -L altera_lnsim -L fiftyfivenm -L gate_work -L work -voptargs="+acc"  KeyboardReader_tb
 
 add wave *
 view structure

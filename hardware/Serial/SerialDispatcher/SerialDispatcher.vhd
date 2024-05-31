@@ -14,7 +14,7 @@ entity SerialDispatcher is
 end entity SerialDispatcher;
 
 architecture Behavioral of SerialDispatcher is
-	signal Din_b : std_logic_vector(data_width - 1 downto 0);
+	signal Din_b : std_logic_vector(data_width - 1 downto 0) := (others => '0');
 	signal dval_reg : std_logic;
 	type STATE_TYPE is (IDLE, SEND, ACK);
 	signal CurrentState, NextState : STATE_TYPE := IDLE;
@@ -51,7 +51,7 @@ begin
 						NextState <= IDLE;
 					
 					when IDLE =>
-						if dval_reg = '1' then
+						if dval_reg = '0' then
 							Din_b <= Din;
 							NextState <= SEND;
 						end if;
@@ -62,9 +62,9 @@ begin
 			end if;
     end process;
 
-    -- Output Logic
-    wrD  <= '1' when CurrentState = SEND else '0';
-    Dout <= Din_b;
-	 done <= '1' when CurrentState = ACK else '0';
+   -- Output Logic
+   wrD  <= '1' when CurrentState = SEND else '0';
+   Dout <= Din_b;
+	done <= '1' when CurrentState = ACK else '0';
 
 end architecture Behavioral;

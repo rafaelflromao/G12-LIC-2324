@@ -69,9 +69,11 @@ begin
         KEYPAD_LIN <= "1111";  -- Release key
         wait for CLK_PERIOD * 2;
         
+        assert K_val = '1' report "Error: expected K_val = '1'" severity error;
         k_ack <= '1';          -- Acknowledge key press
         wait for CLK_PERIOD;
         
+        assert K_val = '0' report "Error: expected K_val = '0'" severity error;
         k_ack <= '0';
         wait for CLK_PERIOD * 2;
         
@@ -82,9 +84,11 @@ begin
         KEYPAD_LIN <= "1111";  -- Release key
         wait for CLK_PERIOD * 2;
         
+        assert K_val = '1' report "Error: expected K_val = '1'" severity error;
         k_ack <= '1';          -- Acknowledge key press
         wait for CLK_PERIOD;
         
+        assert K_val = '0' report "Error: expected K_val = '0'" severity error;
         k_ack <= '0';
         wait for CLK_PERIOD * 2;
         

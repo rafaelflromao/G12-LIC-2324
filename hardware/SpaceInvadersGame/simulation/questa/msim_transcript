@@ -24,73 +24,128 @@
 # Copying c:/intelfpga_lite/23.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 03:13:02 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd 
+# Start time: 07:36:50 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity OutputBuffer
-# -- Compiling architecture Structural of OutputBuffer
-# End time: 03:13:02 on May 31,2024, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SerialController
+# -- Compiling architecture Structural of SerialController
+# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 03:13:02 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd 
+# Start time: 07:36:50 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity BufferControl
-# -- Compiling architecture behavioral of BufferControl
-# End time: 03:13:02 on May 31,2024, Elapsed time: 0:00:00
+# -- Compiling entity SerialDispatcher
+# -- Compiling architecture Behavioral of SerialDispatcher
+# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 03:13:02 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd 
+# Start time: 07:36:50 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity OutputRegister
-# -- Compiling architecture Behavioral of OutputRegister
-# End time: 03:13:02 on May 31,2024, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SerialReceiver
+# -- Compiling architecture Structural of SerialReceiver
+# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 07:36:50 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SerialControl
+# -- Compiling architecture Behavioral of SerialControl
+# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 07:36:50 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ParityCheck
+# -- Compiling architecture behavioral of ParityCheck
+# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 07:36:51 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ShiftRegister
+# -- Compiling architecture Behavioral of ShiftRegister
+# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 07:36:51 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity counter
+# -- Compiling architecture Behavioral of counter
+# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 03:13:02 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd 
+# Start time: 07:36:51 on May 31,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity OutputBuffer_tb
-# -- Compiling architecture Behavioral of OutputBuffer_tb
-# End time: 03:13:02 on May 31,2024, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SerialController_tb
+# -- Compiling architecture Behavioral of SerialController_tb
+# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  OutputBuffer_tb
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" OutputBuffer_tb 
-# Start time: 03:13:02 on May 31,2024
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  SerialController_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" SerialController_tb 
+# Start time: 07:36:51 on May 31,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "BufferControl(behavioral)".
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "SerialControl(Behavioral)".
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "SerialDispatcher(Behavioral)".
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.outputbuffer_tb(behavioral)#1
-# Loading work.outputbuffer(structural)#1
-# Loading work.outputregister(behavioral)#1
-# Loading work.buffercontrol(behavioral)#1
+# Loading ieee.numeric_std(body)
+# Loading work.serialcontroller_tb(behavioral)#1
+# Loading work.serialcontroller(structural)#1
+# Loading work.serialreceiver(structural)#1
+# Loading work.counter(behavioral)#1
+# Loading work.paritycheck(behavioral)#1
+# Loading work.serialcontrol(behavioral)#1
+# Loading work.shiftregister(behavioral)#1
+# Loading work.serialdispatcher(behavioral)#1
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: zebon  Hostname: LAPTOP-D31BHLK4  ProcessID: 43548
-#           Attempting to use alternate WLF file "./wlfth340d2".
+#           Attempting to use alternate WLF file "./wlftyzjrn0".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfth340d2
+#           Using alternate file: ./wlftyzjrn0
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -98,5 +153,5 @@
 # run -all
 # Break key hit
 # Simulation stop requested.
-# End time: 03:30:31 on May 31,2024, Elapsed time: 0:17:29
+# End time: 07:39:35 on May 31,2024, Elapsed time: 0:02:44
 # Errors: 0, Warnings: 3

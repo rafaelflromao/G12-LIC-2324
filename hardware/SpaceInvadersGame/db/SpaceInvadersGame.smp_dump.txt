@@ -1,6 +1,14 @@
 
-State Machine - |OutputBuffer|BufferControl:U1|CurrentState
-Name CurrentState.STATE_SEND_WAIT CurrentState.STATE_RECEIVING CurrentState.STATE_IDLE 
-CurrentState.STATE_IDLE 0 0 0 
-CurrentState.STATE_RECEIVING 0 1 1 
-CurrentState.STATE_SEND_WAIT 1 0 1 
+State Machine - |SerialController|SerialDispatcher:U1|CurrentState
+Name CurrentState.ACK CurrentState.SEND CurrentState.IDLE 
+CurrentState.IDLE 0 0 0 
+CurrentState.SEND 0 1 1 
+CurrentState.ACK 1 0 1 
+
+State Machine - |SerialController|SerialReceiver:U0|SerialControl:U2|CurrentState
+Name CurrentState.SEND_WAIT CurrentState.RECEIVED CurrentState.RECEIVING CurrentState.RECEIVING_INIT CurrentState.IDLE 
+CurrentState.IDLE 0 0 0 0 0 
+CurrentState.RECEIVING_INIT 0 0 0 1 1 
+CurrentState.RECEIVING 0 0 1 0 1 
+CurrentState.RECEIVED 0 1 0 0 1 
+CurrentState.SEND_WAIT 1 0 0 0 1 

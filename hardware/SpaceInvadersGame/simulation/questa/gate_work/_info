@@ -4,6 +4,8 @@ z2
 Z0 !s12c _opt3
 Z1 !s99 nomlopt
 R0
+R1
+R0
 Z2 !s99 mlopt
 R0
 R1
@@ -81,7 +83,7 @@ n@_opt2
 R10
 R5
 Ehard_block
-Z11 w1717121530
+Z11 w1717127339
 Z12 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
 Z13 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 ]nHm7g1n:;>@ERYP0V1:12
 Z14 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
@@ -98,9 +100,9 @@ VC]QzC1lzaMiZ?]<W7nWSM3
 !s100 VElgA1dWj2[U]541P5]HZ0
 Z20 OL;C;2023.3;77
 31
-Z21 !s110 1717121537
+Z21 !s110 1717127346
 !i10b 1
-Z22 !s108 1717121537.000000
+Z22 !s108 1717127346.000000
 Z23 !s90 -reportprogress|300|-93|-work|work|SpaceInvadersGame.vho|
 Z24 !s107 SpaceInvadersGame.vho|
 !i113 0
@@ -129,7 +131,7 @@ R24
 !i113 0
 R25
 R26
-Eoutputbuffer
+Ekeyboardreader
 R11
 R13
 R17
@@ -145,8 +147,8 @@ R18
 R19
 l0
 L91 1
-V8?oS_6n9DfV9EoZ7b>b543
-!s100 W8J4<J4`:@h3KiTGhB5>h0
+VH9]VEnlNFHlkV3JA5:okW0
+!s100 lX<A3FVY3e^k@oa;Xk1GE2
 R20
 31
 R21
@@ -166,12 +168,12 @@ R14
 R15
 R16
 R28
-DEx4 work 12 outputbuffer 0 22 8?oS_6n9DfV9EoZ7b>b543
+DEx4 work 14 keyboardreader 0 22 H9]VEnlNFHlkV3JA5:okW0
 !i122 0
-l187
-L121 619
-V7E8;@^m]LDEW@fJ@Tm8z00
-!s100 Y<i?=YFhVlG@5?=Q@8bkz0
+l313
+L121 2760
+VICkHcf=<O33O@Q`egONX?1
+!s100 j9iYb:hnCc]B9FEU73l5N0
 R20
 31
 R21
@@ -182,44 +184,44 @@ R24
 !i113 0
 R25
 R26
-Eoutputbuffer_tb
-Z29 w1717121508
+Ekeyboardreader_tb
+Z29 w1717127315
 R15
 R16
 !i122 1
 R5
-Z30 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd
-Z31 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd
+Z30 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd
+Z31 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd
 l0
 L4 1
-V6?hE5Q>`>C1A3YXJOgY7D3
-!s100 jC08iH<G?VA[41ifn>hXm1
+VKkZoJRo<]]bMIO<hR=2YE1
+!s100 <bzUbcngTei`5YY76lBHi2
 R20
 31
 R21
 !i10b 1
 R22
-Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
-!s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd|
+!s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd|
 !i113 0
 R25
 R26
 Abehavioral
 R15
 R16
-DEx4 work 15 outputbuffer_tb 0 22 6?hE5Q>`>C1A3YXJOgY7D3
+DEx4 work 17 keyboardreader_tb 0 22 KkZoJRo<]]bMIO<hR=2YE1
 !i122 1
-l27
-L7 64
-Vh1YGQiaU4>LzRXSEH<E490
-!s100 IH8]UGzT127dCL_[?zZOo2
+l29
+L7 71
+V^5e2JTMC4jTjPTQlY0:PD1
+!s100 LA0N`>a<Q_f`j[f6RI0k51
 R20
 31
 R21
 !i10b 1
 R22
 R32
-Z33 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
+Z33 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd|
 !i113 0
 R25
 R26

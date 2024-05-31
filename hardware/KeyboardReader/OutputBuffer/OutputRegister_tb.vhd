@@ -47,12 +47,16 @@ begin
     begin
         D <= "0000";  -- Initial input data
         wait for CLK_PERIOD;
+        assert Q = "0000" report "Error: expected Q = 0000" severity error;
         D <= "1111";  -- Change input data
         wait for CLK_PERIOD;
+        assert Q = "1111" report "Error: expected Q = 1111" severity error;
         D <= "0101";  -- Change input data
         wait for CLK_PERIOD;
+        assert Q = "0101" report "Error: expected Q = 0101" severity error;
         D <= "1000";  -- Change input data
         wait for CLK_PERIOD;
+        assert Q = "1000" report "Error: expected Q = 1000" severity error;
         
         wait;
     end process stimulus_process;

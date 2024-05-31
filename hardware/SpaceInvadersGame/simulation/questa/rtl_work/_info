@@ -12,178 +12,352 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 dC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/simulation/questa
 T_opt
-!s110 1717121583
-ViV[;5X@4gj7e?eJE@kzIL0
-04 15 10 work outputbuffer_tb behavioral 1
-=1-bcf4d4a537eb-6659322f-10d-7120
+!s110 1717137412
+VZkI5Rm^Nn8lef7dP>cEeF0
+04 19 10 work serialcontroller_tb behavioral 1
+=1-bcf4d4a537eb-66597004-54-173c
 R0
 !s12b OEM100
-!s124 OEM10U4 
+!s124 OEM10U8 
 o-quiet -auto_acc_if_foreign -work work -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work +acc
 tCvgOpt 0
 n@_opt
 OL;O;2023.3;77
-Ebuffercontrol
-Z2 w1717117527
-Z3 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
-Z4 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
-!i122 1
+Ecounter
+Z2 w1717112900
+Z3 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+Z4 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z5 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 6
 R1
-Z5 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd
-Z6 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd
+Z6 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd
+Z7 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd
 l0
-L4 1
-VNo_:?BQ4?jQB:]61`GZX>2
-!s100 ef=8GP@lE3GCWXQg74`G63
-Z7 OL;C;2023.3;77
+L5 1
+V:hOja2N5JDFS^oSXfDlTQ2
+!s100 b8noRodRh><k<`;9jP7MA2
+Z8 OL;C;2023.3;77
 31
-Z8 !s110 1717121582
+Z9 !s110 1717137411
 !i10b 1
-Z9 !s108 1717121582.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd|
-Z11 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd|
+Z10 !s108 1717137411.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd|
+Z12 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd|
 !i113 0
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
 Abehavioral
 R3
 R4
-DEx4 work 13 buffercontrol 0 22 No_:?BQ4?jQB:]61`GZX>2
-!i122 1
-l19
-L10 47
-V;SEfm`dCDVmi`j:KD5E@f3
-!s100 9RAR3T]n[21OiFW_7X5o20
-R7
-31
+R5
+DEx4 work 7 counter 0 22 :hOja2N5JDFS^oSXfDlTQ2
+!i122 6
+l15
+L13 19
+VNLO:?ALo=[`RZo>]WmR4^1
+!s100 iEWA8m2V<5<hQXiWCPz5a1
 R8
-!i10b 1
+31
 R9
+!i10b 1
 R10
 R11
-!i113 0
 R12
+!i113 0
 R13
-Eoutputbuffer
-Z14 w1716978128
-R3
+R14
+Eparitycheck
+Z15 w1717023634
 R4
-!i122 0
+R5
+!i122 4
 R1
-Z15 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd
-Z16 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd
+Z16 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd
+Z17 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd
 l0
 L4 1
-V1aa1eS^biQFQY>5eg7[no1
-!s100 A0gf9RYG9Z1<`BR6Fk<^:3
-R7
-31
+V`OiS1jzIO`?dUG;o>2cUT2
+!s100 Z>QM7m6[CB>CHFVk;I^zZ2
 R8
-!i10b 1
+31
 R9
-Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd|
-Z18 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd|
+!i10b 1
+Z18 !s108 1717137410.000000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd|
+Z20 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd|
 !i113 0
-R12
 R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 11 paritycheck 0 22 `OiS1jzIO`?dUG;o>2cUT2
+!i122 4
+l13
+L11 13
+VaMnk`AO?J]bn]:VLMmaS93
+!s100 8XE]2aIl8m0[mV[S]e8:[2
+R8
+31
+R9
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R13
+R14
+Eserialcontrol
+Z21 w1717063540
+R4
+R5
+!i122 3
+R1
+Z22 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd
+Z23 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd
+l0
+L4 1
+Vg:7gOc[=JYA8Va3oF;<;F1
+!s100 fLaE]b:bQlC=<1O9=7@2z0
+R8
+31
+Z24 !s110 1717137410
+!i10b 1
+R18
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd|
+Z26 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd|
+!i113 0
+R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 13 serialcontrol 0 22 g:7gOc[=JYA8Va3oF;<;F1
+!i122 3
+l16
+L11 70
+VY?>4g:Fa55g?`nZm1fUf12
+!s100 XcK9hVIA:OAl3=<A3NRe53
+R8
+31
+R24
+!i10b 1
+R18
+R25
+R26
+!i113 0
+R13
+R14
+Eserialcontroller
+Z27 w1717060182
+R3
+R4
+R5
+!i122 0
+R1
+Z28 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd
+Z29 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd
+l0
+L5 1
+V9VV9]=hU62CcEjF6Ye@G43
+!s100 :IbZ=[41J;gUQ@R[hL0GS3
+R8
+31
+R24
+!i10b 1
+R18
+Z30 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd|
+Z31 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd|
+!i113 0
+R13
+R14
 Astructural
 R3
 R4
-DEx4 work 12 outputbuffer 0 22 1aa1eS^biQFQY>5eg7[no1
+R5
+DEx4 work 16 serialcontroller 0 22 9VV9]=hU62CcEjF6Ye@G43
 !i122 0
-l31
-L12 29
-VWGgB1mX:PmITEPV28]aQ@1
-!s100 abzHP5?nQ4R:<ETcNajf_3
-R7
-31
+l42
+L16 43
+VCl9zVbUZz:W]V1IZkmSf71
+!s100 ;4GjRe[W]?YOVMZQVzQYJ2
 R8
+31
+R24
 !i10b 1
-R9
-R17
 R18
+R30
+R31
 !i113 0
-R12
 R13
-Eoutputbuffer_tb
-Z19 w1717121508
+R14
+Eserialcontroller_tb
+Z32 w1717137180
 R3
 R4
-!i122 3
+R5
+!i122 7
 R1
-Z20 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd
-Z21 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd
+Z33 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd
+Z34 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd
 l0
-L4 1
-V6?hE5Q>`>C1A3YXJOgY7D3
-!s100 jC08iH<G?VA[41ifn>hXm1
-R7
-31
+L5 1
+V4nF`EznlBm58NZZh;6[2J1
+!s100 eUool9`fjNdVg3X>iOiU<3
 R8
-!i10b 1
+31
 R9
-Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
-Z23 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
+!i10b 1
+R10
+Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd|
+Z36 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd|
 !i113 0
-R12
 R13
+R14
 Abehavioral
 R3
 R4
-DEx4 work 15 outputbuffer_tb 0 22 6?hE5Q>`>C1A3YXJOgY7D3
-!i122 3
-l27
-L7 64
-Vh1YGQiaU4>LzRXSEH<E490
-!s100 IH8]UGzT127dCL_[?zZOo2
-R7
-31
+R5
+DEx4 work 19 serialcontroller_tb 0 22 4nF`EznlBm58NZZh;6[2J1
+!i122 7
+l30
+L8 104
+VM?X;P[IUlH0_<1;a8`01J3
+!s100 lOBzIJ^:<I>D;7S7mfB2Q0
 R8
-!i10b 1
+31
 R9
-R22
-R23
+!i10b 1
+R10
+R35
+R36
 !i113 0
-R12
 R13
-Eoutputregister
-Z24 w1716974286
-R3
+R14
+Eserialdispatcher
+Z37 w1717136106
 R4
-!i122 2
+R5
+!i122 1
 R1
-Z25 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd
-Z26 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd
+Z38 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd
+Z39 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd
 l0
 L4 1
-VmHF6?R^<X2M;=VoE3`jda3
-!s100 RglhlVKjYQGKOzi[C=U?b0
-R7
-31
+VP0hVnS0dYU5ekEzOR?iB=1
+!s100 MiniDPi_IL7JbTN27C94z2
 R8
+31
+R24
 !i10b 1
-R9
-Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd|
-Z28 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd|
+R18
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd|
+Z41 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd|
 !i113 0
-R12
 R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 16 serialdispatcher 0 22 P0hVnS0dYU5ekEzOR?iB=1
+!i122 1
+l21
+L16 55
+V9Pe:>LYd^FkMHPaNQB?CH2
+!s100 Lic0J7D2c8<Yn^BDl?[^X2
+R8
+31
+R24
+!i10b 1
+R18
+R40
+R41
+!i113 0
+R13
+R14
+Eserialreceiver
+Z42 w1717112916
+R3
+R4
+R5
+!i122 2
+R1
+Z43 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd
+Z44 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd
+l0
+L5 1
+VV5Y?2iiiS^@Wk8OUgE6af3
+!s100 OL2a1MbP1<e<Ej24UQgn50
+R8
+31
+R24
+!i10b 1
+R18
+Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd|
+Z46 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd|
+!i113 0
+R13
+R14
+Astructural
+R3
+R4
+R5
+DEx4 work 14 serialreceiver 0 22 V5Y?2iiiS^@Wk8OUgE6af3
+!i122 2
+l52
+L16 59
+V[iIH:H[XODHdCIzUdU[^J1
+!s100 n61:EgJ;L:LngeonAYIaT2
+R8
+31
+R24
+!i10b 1
+R18
+R45
+R46
+!i113 0
+R13
+R14
+Eshiftregister
+Z47 w1717130803
+R3
+R4
+R5
+!i122 5
+R1
+Z48 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd
+Z49 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd
+l0
+L5 1
+VC7?LPB9b4l4AcJR8[81O@0
+!s100 6jVNC9Om2D:lKWNZCRQMl2
+R8
+31
+R9
+!i10b 1
+R10
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd|
+Z51 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd|
+!i113 0
+R13
+R14
 Abehavioral
 R3
 R4
-DEx4 work 14 outputregister 0 22 mHF6?R^<X2M;=VoE3`jda3
-!i122 2
-l14
-L12 11
-VQITV]`l3Qo5hR[;2bUbhl0
-!s100 j6HehP42ge^FgJ[PEiW1P0
-R7
-31
+R5
+DEx4 work 13 shiftregister 0 22 C7?LPB9b4l4AcJR8[81O@0
+!i122 5
+l17
+L15 14
+VPhH;_GGLM^efQQa@eSDYC2
+!s100 NfBi:7o?^ghXKn8GU6jBc2
 R8
-!i10b 1
+31
 R9
-R27
-R28
+!i10b 1
+R10
+R50
+R51
 !i113 0
-R12
 R13
+R14

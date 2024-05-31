@@ -13,7 +13,7 @@ entity ShiftRegister is
 end ShiftRegister;
 
 architecture Behavioral of ShiftRegister is
-    signal data_b : unsigned(data_width - 1 downto 0);
+    signal data_b : unsigned(data_width - 1 downto 0) := (others => '0');
 begin
     process(clk)
     begin

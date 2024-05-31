@@ -1,0 +1,91 @@
+[N
+9
+4
+10 data_width
+5
+13 shiftregister
+6
+14 serialreceiver
+8
+16 serialdispatcher
+2
+7 counter
+3
+10 behavioral
+1
+95 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/simulation/questa/rtl_work
+7
+10 structural
+9
+16 serialcontroller
+]
+[G
+1
+9
+7
+1
+4
+1
+0
+9
+0
+0 0
+0
+0
+]
+[G
+1
+5
+3
+1
+4
+1
+0
+9
+0
+0 0
+0
+0
+]
+[G
+1
+8
+3
+1
+4
+1
+0
+9
+0
+0 0
+0
+0
+]
+[G
+1
+2
+3
+1
+4
+1
+0
+4
+0
+0 0
+0
+0
+]
+[G
+1
+6
+7
+1
+4
+1
+0
+9
+0
+0 0
+0
+0
+]

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpaceInvadersGame
-Fri May 31 03:11:58 2024
+Fri May 31 07:36:02 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,11 +13,21 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |OutputBuffer|BufferControl:U1|CurrentState
-  9. General Register Statistics
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |SerialController|SerialDispatcher:U1|CurrentState
+  9. State Machine - |SerialController|SerialReceiver:U0|SerialControl:U2|CurrentState
+ 10. User-Specified and Inferred Latches
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |SerialController
+ 15. Parameter Settings for User Entity Instance: SerialReceiver:U0
+ 16. Parameter Settings for User Entity Instance: SerialReceiver:U0|counter:U0
+ 17. Parameter Settings for User Entity Instance: SerialReceiver:U0|ShiftRegister:U3
+ 18. Parameter Settings for User Entity Instance: SerialDispatcher:U1
+ 19. Port Connectivity Checks: "SerialReceiver:U0|counter:U0"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +54,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 31 03:11:58 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri May 31 07:36:02 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; SpaceInvadersGame                              ;
-; Top-level Entity Name              ; OutputBuffer                                   ;
+; Top-level Entity Name              ; SerialController                               ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 7                                              ;
-;     Total combinational functions  ; 3                                              ;
-;     Dedicated logic registers      ; 7                                              ;
-; Total registers                    ; 7                                              ;
-; Total pins                         ; 14                                             ;
+; Total logic elements               ; 43                                             ;
+;     Total combinational functions  ; 30                                             ;
+;     Dedicated logic registers      ; 24                                             ;
+; Total registers                    ; 24                                             ;
+; Total pins                         ; 15                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -69,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C6GES   ;                    ;
-; Top-level entity name                                            ; OutputBuffer       ; SpaceInvadersGame  ;
+; Top-level entity name                                            ; SerialController   ; SpaceInvadersGame  ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -166,71 +176,112 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
-+---------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                      ; Library ;
-+---------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
-; ../KeyboardReader/OutputBuffer/OutputBuffer.vhd   ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd   ;         ;
-; ../KeyboardReader/OutputBuffer/BufferControl.vhd  ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd  ;         ;
-; ../KeyboardReader/OutputBuffer/OutputRegister.vhd ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd ;         ;
-+---------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++-------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                    ; Library ;
++-------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------+
+; ../Serial/SerialController.vhd                  ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd                  ;         ;
+; ../Serial/SerialDispatcher/SerialDispatcher.vhd ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd ;         ;
+; ../Serial/SerialReceiver/SerialReceiver.vhd     ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd     ;         ;
+; ../Serial/SerialReceiver/SerialControl.vhd      ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd      ;         ;
+; ../Serial/SerialReceiver/ParityCheck.vhd        ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd        ;         ;
+; ../Serial/SerialReceiver/ShiftRegister.vhd      ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd      ;         ;
+; ../common/counter.vhd                           ; yes             ; User VHDL File  ; C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd                           ;         ;
++-------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                 ;
-+---------------------------------------------+-----------------------------------------------+
-; Resource                                    ; Usage                                         ;
-+---------------------------------------------+-----------------------------------------------+
-; Estimated Total logic elements              ; 7                                             ;
-;                                             ;                                               ;
-; Total combinational functions               ; 3                                             ;
-; Logic element usage by number of LUT inputs ;                                               ;
-;     -- 4 input functions                    ; 1                                             ;
-;     -- 3 input functions                    ; 1                                             ;
-;     -- <=2 input functions                  ; 1                                             ;
-;                                             ;                                               ;
-; Logic elements by mode                      ;                                               ;
-;     -- normal mode                          ; 3                                             ;
-;     -- arithmetic mode                      ; 0                                             ;
-;                                             ;                                               ;
-; Total registers                             ; 7                                             ;
-;     -- Dedicated logic registers            ; 7                                             ;
-;     -- I/O registers                        ; 0                                             ;
-;                                             ;                                               ;
-; I/O pins                                    ; 14                                            ;
-;                                             ;                                               ;
-; Embedded Multiplier 9-bit elements          ; 0                                             ;
-;                                             ;                                               ;
-; Maximum fan-out node                        ; BufferControl:U1|CurrentState.STATE_RECEIVING ;
-; Maximum fan-out                             ; 5                                             ;
-; Total fan-out                               ; 46                                            ;
-; Average fan-out                             ; 1.21                                          ;
-+---------------------------------------------+-----------------------------------------------+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 43         ;
+;                                             ;            ;
+; Total combinational functions               ; 30         ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 6          ;
+;     -- 3 input functions                    ; 13         ;
+;     -- <=2 input functions                  ; 11         ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 30         ;
+;     -- arithmetic mode                      ; 0          ;
+;                                             ;            ;
+; Total registers                             ; 24         ;
+;     -- Dedicated logic registers            ; 24         ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 15         ;
+;                                             ;            ;
+; Embedded Multiplier 9-bit elements          ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; sclk~input ;
+; Maximum fan-out                             ; 14         ;
+; Total fan-out                               ; 187        ;
+; Average fan-out                             ; 2.23       ;
++---------------------------------------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------+----------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name             ; Entity Name    ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------+----------------+--------------+
-; |OutputBuffer              ; 3 (0)               ; 7 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 14   ; 0            ; 0          ; |OutputBuffer                   ; OutputBuffer   ; work         ;
-;    |BufferControl:U1|      ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OutputBuffer|BufferControl:U1  ; BufferControl  ; work         ;
-;    |OutputRegister:U0|     ; 0 (0)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OutputBuffer|OutputRegister:U0 ; OutputRegister ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------+----------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                  ; Entity Name      ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------+------------------+--------------+
+; |SerialController          ; 30 (0)              ; 24 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 15   ; 0            ; 0          ; |SerialController                                    ; SerialController ; work         ;
+;    |SerialDispatcher:U1|   ; 13 (13)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SerialController|SerialDispatcher:U1                ; SerialDispatcher ; work         ;
+;    |SerialReceiver:U0|     ; 17 (0)              ; 20 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SerialController|SerialReceiver:U0                  ; SerialReceiver   ; work         ;
+;       |ParityCheck:U1|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SerialController|SerialReceiver:U0|ParityCheck:U1   ; ParityCheck      ; work         ;
+;       |SerialControl:U2|   ; 12 (12)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SerialController|SerialReceiver:U0|SerialControl:U2 ; SerialControl    ; work         ;
+;       |ShiftRegister:U3|   ; 0 (0)               ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SerialController|SerialReceiver:U0|ShiftRegister:U3 ; ShiftRegister    ; work         ;
+;       |counter:U0|         ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SerialController|SerialReceiver:U0|counter:U0       ; counter          ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------+
-; State Machine - |OutputBuffer|BufferControl:U1|CurrentState                                                          ;
-+------------------------------+------------------------------+------------------------------+-------------------------+
-; Name                         ; CurrentState.STATE_SEND_WAIT ; CurrentState.STATE_RECEIVING ; CurrentState.STATE_IDLE ;
-+------------------------------+------------------------------+------------------------------+-------------------------+
-; CurrentState.STATE_IDLE      ; 0                            ; 0                            ; 0                       ;
-; CurrentState.STATE_RECEIVING ; 0                            ; 1                            ; 1                       ;
-; CurrentState.STATE_SEND_WAIT ; 1                            ; 0                            ; 1                       ;
-+------------------------------+------------------------------+------------------------------+-------------------------+
++------------------------------------------------------------------------------+
+; State Machine - |SerialController|SerialDispatcher:U1|CurrentState           ;
++-------------------+------------------+-------------------+-------------------+
+; Name              ; CurrentState.ACK ; CurrentState.SEND ; CurrentState.IDLE ;
++-------------------+------------------+-------------------+-------------------+
+; CurrentState.IDLE ; 0                ; 0                 ; 0                 ;
+; CurrentState.SEND ; 0                ; 1                 ; 1                 ;
+; CurrentState.ACK  ; 1                ; 0                 ; 1                 ;
++-------------------+------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SerialController|SerialReceiver:U0|SerialControl:U2|CurrentState                                                                       ;
++-----------------------------+------------------------+-----------------------+------------------------+-----------------------------+-------------------+
+; Name                        ; CurrentState.SEND_WAIT ; CurrentState.RECEIVED ; CurrentState.RECEIVING ; CurrentState.RECEIVING_INIT ; CurrentState.IDLE ;
++-----------------------------+------------------------+-----------------------+------------------------+-----------------------------+-------------------+
+; CurrentState.IDLE           ; 0                      ; 0                     ; 0                      ; 0                           ; 0                 ;
+; CurrentState.RECEIVING_INIT ; 0                      ; 0                     ; 0                      ; 1                           ; 1                 ;
+; CurrentState.RECEIVING      ; 0                      ; 0                     ; 1                      ; 0                           ; 1                 ;
+; CurrentState.RECEIVED       ; 0                      ; 1                     ; 0                      ; 0                           ; 1                 ;
+; CurrentState.SEND_WAIT      ; 1                      ; 0                     ; 0                      ; 0                           ; 1                 ;
++-----------------------------+------------------------+-----------------------+------------------------+-----------------------------+-------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                        ;
++----------------------------------------------------+------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal          ; Free of Timing Hazards ;
++----------------------------------------------------+------------------------------+------------------------+
+; SerialDispatcher:U1|Din_b[0]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[1]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[2]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[3]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[4]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[5]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[6]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[7]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; SerialDispatcher:U1|Din_b[8]                       ; SerialDispatcher:U1|Din_b[8] ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                              ;                        ;
++----------------------------------------------------+------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -238,14 +289,94 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 7     ;
+; Total registers                              ; 24    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 3     ;
+; Number of registers using Asynchronous Clear ; 15    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 17    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------------+
+; Inverted Register Statistics                           ;
++----------------------------------------------+---------+
+; Inverted Register                            ; Fan out ;
++----------------------------------------------+---------+
+; SerialReceiver:U0|SerialControl:U2|nEnRx_reg ; 1       ;
+; Total number of inverted registers = 1       ;         ;
++----------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; 10:1               ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |SerialController|SerialReceiver:U0|SerialControl:U2|NextState.RECEIVING_INIT ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |SerialController|SerialReceiver:U0|SerialControl:U2|NextState.IDLE           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |SerialController ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; data_width     ; 9     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialReceiver:U0 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; data_width     ; 9     ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialReceiver:U0|counter:U0 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; data_width     ; 4     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialReceiver:U0|ShiftRegister:U3 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; data_width     ; 9     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialDispatcher:U1 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; data_width     ; 9     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "SerialReceiver:U0|counter:U0" ;
++------+-------+----------+--------------------------------+
+; Port ; Type  ; Severity ; Details                        ;
++------+-------+----------+--------------------------------+
+; ce   ; Input ; Info     ; Stuck at VCC                   ;
+; down ; Input ; Info     ; Stuck at GND                   ;
++------+-------+----------+--------------------------------+
 
 
 +-----------------------------------------------------+
@@ -253,19 +384,20 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
-; cycloneiii_ff         ; 7                           ;
-;     CLR               ; 3                           ;
-;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 4                           ;
-;     normal            ; 4                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 1                           ;
+; boundary_port         ; 15                          ;
+; cycloneiii_ff         ; 24                          ;
+;     CLR               ; 7                           ;
+;     ENA               ; 9                           ;
+;     ENA CLR           ; 8                           ;
+; cycloneiii_lcell_comb ; 30                          ;
+;     normal            ; 30                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 6                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.47                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.57                        ;
 +-----------------------+-----------------------------+
 
 
@@ -284,7 +416,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri May 31 03:11:53 2024
+    Info: Processing started: Fri May 31 07:35:55 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpaceInvadersGame -c SpaceInvadersGame
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 32 processors detected
@@ -294,24 +426,42 @@ Info (12021): Found 2 design units, including 1 entities, in source file spacein
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/usbport/usbport.vhd
     Info (12022): Found design unit 1: UsbPort-bdf_type File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 33
     Info (12023): Found entity 1: UsbPort File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialcontroller_tb.vhd
+    Info (12022): Found design unit 1: SerialController_tb-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController_tb.vhd Line: 8
+    Info (12023): Found entity 1: SerialController_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController_tb.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialcontroller.vhd
     Info (12022): Found design unit 1: SerialController-Structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 16
     Info (12023): Found entity 1: SerialController File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/paritycheck.vhd
-    Info (12022): Found design unit 1: ParityCheck-behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd Line: 11
-    Info (12023): Found entity 1: ParityCheck File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/serialcontrol.vhd
-    Info (12022): Found design unit 1: SerialControl-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 11
-    Info (12023): Found entity 1: SerialControl File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/serialreceiver.vhd
-    Info (12022): Found design unit 1: SerialReceiver-Structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 16
-    Info (12023): Found entity 1: SerialReceiver File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/shiftregister.vhd
-    Info (12022): Found design unit 1: ShiftRegister-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd Line: 15
-    Info (12023): Found entity 1: ShiftRegister File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialdispatcher/serialdispatcher_tb.vhd
+    Info (12022): Found design unit 1: SerialDispatcher_tb-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher_tb.vhd Line: 8
+    Info (12023): Found entity 1: SerialDispatcher_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher_tb.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialdispatcher/serialdispatcher.vhd
     Info (12022): Found design unit 1: SerialDispatcher-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 16
     Info (12023): Found entity 1: SerialDispatcher File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/serialreceiver_tb.vhd
+    Info (12022): Found design unit 1: SerialReceiver_tb-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver_tb.vhd Line: 8
+    Info (12023): Found entity 1: SerialReceiver_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver_tb.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/serialreceiver.vhd
+    Info (12022): Found design unit 1: SerialReceiver-Structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 16
+    Info (12023): Found entity 1: SerialReceiver File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/serialcontrol_tb.vhd
+    Info (12022): Found design unit 1: SerialControl_tb-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl_tb.vhd Line: 7
+    Info (12023): Found entity 1: SerialControl_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/serialcontrol.vhd
+    Info (12022): Found design unit 1: SerialControl-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 11
+    Info (12023): Found entity 1: SerialControl File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/paritycheck_tb.vhd
+    Info (12022): Found design unit 1: ParityCheck_tb-behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck_tb.vhd Line: 7
+    Info (12023): Found entity 1: ParityCheck_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/paritycheck.vhd
+    Info (12022): Found design unit 1: ParityCheck-behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd Line: 11
+    Info (12023): Found entity 1: ParityCheck File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/shiftregister_tb.vhd
+    Info (12022): Found design unit 1: ShiftRegister_tb-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister_tb.vhd Line: 8
+    Info (12023): Found entity 1: ShiftRegister_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister_tb.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/serial/serialreceiver/shiftregister.vhd
+    Info (12022): Found design unit 1: ShiftRegister-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd Line: 15
+    Info (12023): Found entity 1: ShiftRegister File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/scoredisplay/scoredisplay.vhd
     Info (12022): Found design unit 1: scoreDisplay-structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd Line: 33
     Info (12023): Found entity 1: scoreDisplay File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd Line: 20
@@ -327,6 +477,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/scoredisplay/dec_3_8.vhd
     Info (12022): Found design unit 1: dec_3_8-structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/dec_3_8.vhd Line: 27
     Info (12023): Found entity 1: dec_3_8 File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/dec_3_8.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/keyboardreader/keyboardreader_tb.vhd
+    Info (12022): Found design unit 1: KeyboardReader_tb-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader_tb.vhd Line: 7
+    Info (12023): Found entity 1: KeyboardReader_tb File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/keyboardreader/keyboardreader.vhd
     Info (12022): Found design unit 1: KeyboardReader-Structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 14
     Info (12023): Found entity 1: KeyboardReader File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 4
@@ -396,20 +549,39 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/common/counter.vhd
     Info (12022): Found design unit 1: counter-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd Line: 13
     Info (12023): Found entity 1: counter File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd Line: 5
-Info (12127): Elaborating entity "OutputBuffer" for the top level hierarchy
-Info (12128): Elaborating entity "OutputRegister" for hierarchy "OutputRegister:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd Line: 32
-Info (12128): Elaborating entity "BufferControl" for hierarchy "BufferControl:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd Line: 36
+Info (12127): Elaborating entity "SerialController" for the top level hierarchy
+Info (12128): Elaborating entity "SerialReceiver" for hierarchy "SerialReceiver:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 43
+Info (12128): Elaborating entity "counter" for hierarchy "SerialReceiver:U0|counter:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 53
+Info (12128): Elaborating entity "ParityCheck" for hierarchy "SerialReceiver:U0|ParityCheck:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 60
+Info (12128): Elaborating entity "SerialControl" for hierarchy "SerialReceiver:U0|SerialControl:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 64
+Warning (10492): VHDL Process Statement warning at SerialControl.vhd(65): signal "nEnRx_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 65
+Info (12128): Elaborating entity "ShiftRegister" for hierarchy "SerialReceiver:U0|ShiftRegister:U3" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 68
+Info (12128): Elaborating entity "SerialDispatcher" for hierarchy "SerialDispatcher:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at SerialDispatcher.vhd(54): signal "dval_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 54
+Warning (10492): VHDL Process Statement warning at SerialDispatcher.vhd(55): signal "Din" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 55
+Warning (10631): VHDL Process Statement warning at SerialDispatcher.vhd(42): inferring latch(es) for signal or variable "Din_b", which holds its previous value in one or more paths through the process File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[0]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[1]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[2]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[3]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[4]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[5]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[6]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[7]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (10041): Inferred latch for "Din_b[8]" at SerialDispatcher.vhd(42) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 42
+Info (13000): Registers with preset signals will power-up high File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 12
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 21 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 7 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4890 megabytes
-    Info: Processing ended: Fri May 31 03:11:58 2024
-    Info: Elapsed time: 00:00:05
+Info (21057): Implemented 58 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 43 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4878 megabytes
+    Info: Processing ended: Fri May 31 07:36:02 2024
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:07
 
 

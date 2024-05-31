@@ -1,5 +1,5 @@
 Flow report for SpaceInvadersGame
-Fri May 31 03:12:10 2024
+Fri May 31 07:36:15 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Fri May 31 03:12:10 2024          ;
+; Flow Status                        ; Successful - Fri May 31 07:36:15 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; SpaceInvadersGame                              ;
-; Top-level Entity Name              ; OutputBuffer                                   ;
+; Top-level Entity Name              ; SerialController                               ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C6GES                               ;
 ; Timing Models                      ; Preliminary                                    ;
-; Total logic elements               ; 9 / 49,760 ( < 1 % )                           ;
-;     Total combinational functions  ; 4 / 49,760 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 7 / 49,760 ( < 1 % )                           ;
-; Total registers                    ; 7                                              ;
-; Total pins                         ; 14 / 360 ( 4 % )                               ;
+; Total logic elements               ; 38 / 49,760 ( < 1 % )                          ;
+;     Total combinational functions  ; 31 / 49,760 ( < 1 % )                          ;
+;     Dedicated logic registers      ; 24 / 49,760 ( < 1 % )                          ;
+; Total registers                    ; 24                                             ;
+; Total pins                         ; 15 / 360 ( 4 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
@@ -67,74 +67,102 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/31/2024 03:11:53 ;
+; Start date & time ; 05/31/2024 07:35:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SpaceInvadersGame   ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                       ;
-+--------------------------------------+----------------------------------------------------------+-------------------+--------------+-----------------------------------+
-; Assignment Name                      ; Value                                                    ; Default Value     ; Entity Name  ; Section Id                        ;
-+--------------------------------------+----------------------------------------------------------+-------------------+--------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 1096407302305.171712151329596                            ; --                ; --           ; --                                ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; MAC_tb                            ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; OutputBuffer_tb                   ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; KeyDecode_tb                      ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; BufferControl_tb                  ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; KeyControl_tb                     ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; OutputRegister_tb                 ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; KeyScan_tb                        ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; RBC_tb                            ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --           ; RingBuffer_tb                     ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --           ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --           ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --           ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --           ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; OutputBuffer_tb                                          ; --                ; --           ; eda_simulation                    ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                                     ; --                ; --           ; eda_simulation                    ;
-; EDA_RUN_TOOL_AUTOMATICALLY           ; On                                                       ; --                ; --           ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (VHDL)                                 ; <None>            ; --           ; --                                ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                                          ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/RingBuffer/MAC_tb.vhd                  ; --                ; --           ; MAC_tb                            ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd       ; --                ; --           ; OutputBuffer_tb                   ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyDecode/KeyDecode_tb.vhd             ; --                ; --           ; KeyDecode_tb                      ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/OutputBuffer/BufferControl_tb.vhd      ; --                ; --           ; BufferControl_tb                  ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyDecode/KeyControl/KeyControl_tb.vhd ; --                ; --           ; KeyControl_tb                     ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/OutputBuffer/OutputRegister_tb.vhd     ; --                ; --           ; OutputRegister_tb                 ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyDecode/KeyScan/KeyScan_tb.vhd       ; --                ; --           ; KeyScan_tb                        ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/RingBuffer/RBC_tb.vhd                  ; --                ; --           ; RBC_tb                            ;
-; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/RingBuffer/RingBuffer_tb.vhd           ; --                ; --           ; RingBuffer_tb                     ;
-; EDA_TEST_BENCH_MODULE_NAME           ; MAC_tb                                                   ; --                ; --           ; MAC_tb                            ;
-; EDA_TEST_BENCH_MODULE_NAME           ; OutputBuffer_tb                                          ; --                ; --           ; OutputBuffer_tb                   ;
-; EDA_TEST_BENCH_MODULE_NAME           ; KeyDecode_tb                                             ; --                ; --           ; KeyDecode_tb                      ;
-; EDA_TEST_BENCH_MODULE_NAME           ; BufferControl_tb                                         ; --                ; --           ; BufferControl_tb                  ;
-; EDA_TEST_BENCH_MODULE_NAME           ; KeyControl_tb                                            ; --                ; --           ; KeyControl_tb                     ;
-; EDA_TEST_BENCH_MODULE_NAME           ; OutputRegister_tb                                        ; --                ; --           ; OutputRegister_tb                 ;
-; EDA_TEST_BENCH_MODULE_NAME           ; KeyScan_tb                                               ; --                ; --           ; KeyScan_tb                        ;
-; EDA_TEST_BENCH_MODULE_NAME           ; RBC_tb                                                   ; --                ; --           ; RBC_tb                            ;
-; EDA_TEST_BENCH_MODULE_NAME           ; RingBuffer_tb                                            ; --                ; --           ; RingBuffer_tb                     ;
-; EDA_TEST_BENCH_NAME                  ; KeyScan_tb                                               ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; KeyControl_tb                                            ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; KeyDecode_tb                                             ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; MAC_tb                                                   ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; RBC_tb                                                   ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; RingBuffer_tb                                            ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; OutputRegister_tb                                        ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; BufferControl_tb                                         ; --                ; --           ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; OutputBuffer_tb                                          ; --                ; --           ; eda_simulation                    ;
-; EDA_TIME_SCALE                       ; 1 ps                                                     ; --                ; --           ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                                       ; --                ; --           ; --                                ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                                        ; --                ; --           ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family)                   ; --                ; OutputBuffer ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family)                   ; --                ; OutputBuffer ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family)                   ; --                ; OutputBuffer ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                                      ; --                ; --           ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                    ; --                ; --           ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                                             ; --                ; --           ; --                                ;
-; TOP_LEVEL_ENTITY                     ; OutputBuffer                                             ; SpaceInvadersGame ; --           ; --                                ;
-+--------------------------------------+----------------------------------------------------------+-------------------+--------------+-----------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                           ;
++--------------------------------------+----------------------------------------------------------+-------------------+------------------+-----------------------------------+
+; Assignment Name                      ; Value                                                    ; Default Value     ; Entity Name      ; Section Id                        ;
++--------------------------------------+----------------------------------------------------------+-------------------+------------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                ; 1096407302305.171713735506280                            ; --                ; --               ; --                                ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; KeyboardReader_tb                 ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; MAC_tb                            ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; ParityCheck_tb                    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; OutputBuffer_tb                   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; KeyDecode_tb                      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; BufferControl_tb                  ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; KeyControl_tb                     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; OutputRegister_tb                 ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; SerialDispatcher_tb               ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; SerialControl_tb                  ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; SerialReceiver_tb                 ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; ShiftRegister_tb                  ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; KeyScan_tb                        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; SerialController_tb               ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; RBC_tb                            ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                                       ; --                ; --               ; RingBuffer_tb                     ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --               ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --               ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --               ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                                      ; --                ; --               ; eda_board_design_symbol           ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; SerialController_tb                                      ; --                ; --               ; eda_simulation                    ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                                     ; --                ; --               ; eda_simulation                    ;
+; EDA_RUN_TOOL_AUTOMATICALLY           ; Off                                                      ; --                ; --               ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (VHDL)                                 ; <None>            ; --               ; --                                ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                                          ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyboardReader_tb.vhd                  ; --                ; --               ; KeyboardReader_tb                 ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/RingBuffer/MAC_tb.vhd                  ; --                ; --               ; MAC_tb                            ;
+; EDA_TEST_BENCH_FILE                  ; ../Serial/SerialReceiver/ParityCheck_tb.vhd              ; --                ; --               ; ParityCheck_tb                    ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd       ; --                ; --               ; OutputBuffer_tb                   ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyDecode/KeyDecode_tb.vhd             ; --                ; --               ; KeyDecode_tb                      ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/OutputBuffer/BufferControl_tb.vhd      ; --                ; --               ; BufferControl_tb                  ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyDecode/KeyControl/KeyControl_tb.vhd ; --                ; --               ; KeyControl_tb                     ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/OutputBuffer/OutputRegister_tb.vhd     ; --                ; --               ; OutputRegister_tb                 ;
+; EDA_TEST_BENCH_FILE                  ; ../Serial/SerialDispatcher/SerialDispatcher_tb.vhd       ; --                ; --               ; SerialDispatcher_tb               ;
+; EDA_TEST_BENCH_FILE                  ; ../Serial/SerialReceiver/SerialControl_tb.vhd            ; --                ; --               ; SerialControl_tb                  ;
+; EDA_TEST_BENCH_FILE                  ; ../Serial/SerialReceiver/SerialReceiver.vhd              ; --                ; --               ; SerialReceiver_tb                 ;
+; EDA_TEST_BENCH_FILE                  ; ../Serial/SerialReceiver/ShiftRegister_tb.vhd            ; --                ; --               ; ShiftRegister_tb                  ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/KeyDecode/KeyScan/KeyScan_tb.vhd       ; --                ; --               ; KeyScan_tb                        ;
+; EDA_TEST_BENCH_FILE                  ; ../Serial/SerialController_tb.vhd                        ; --                ; --               ; SerialController_tb               ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/RingBuffer/RBC_tb.vhd                  ; --                ; --               ; RBC_tb                            ;
+; EDA_TEST_BENCH_FILE                  ; ../KeyboardReader/RingBuffer/RingBuffer_tb.vhd           ; --                ; --               ; RingBuffer_tb                     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; KeyboardReader_tb                                        ; --                ; --               ; KeyboardReader_tb                 ;
+; EDA_TEST_BENCH_MODULE_NAME           ; MAC_tb                                                   ; --                ; --               ; MAC_tb                            ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ParityCheck_tb                                           ; --                ; --               ; ParityCheck_tb                    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; OutputBuffer_tb                                          ; --                ; --               ; OutputBuffer_tb                   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; KeyDecode_tb                                             ; --                ; --               ; KeyDecode_tb                      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; BufferControl_tb                                         ; --                ; --               ; BufferControl_tb                  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; KeyControl_tb                                            ; --                ; --               ; KeyControl_tb                     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; OutputRegister_tb                                        ; --                ; --               ; OutputRegister_tb                 ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SerialDispatcher_tb                                      ; --                ; --               ; SerialDispatcher_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SerialControl_tb                                         ; --                ; --               ; SerialControl_tb                  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SerialReceiver_tb                                        ; --                ; --               ; SerialReceiver_tb                 ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ShiftRegister_tb                                         ; --                ; --               ; ShiftRegister_tb                  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; KeyScan_tb                                               ; --                ; --               ; KeyScan_tb                        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SerialController_tb                                      ; --                ; --               ; SerialController_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; RBC_tb                                                   ; --                ; --               ; RBC_tb                            ;
+; EDA_TEST_BENCH_MODULE_NAME           ; RingBuffer_tb                                            ; --                ; --               ; RingBuffer_tb                     ;
+; EDA_TEST_BENCH_NAME                  ; KeyScan_tb                                               ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; KeyControl_tb                                            ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; KeyDecode_tb                                             ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; MAC_tb                                                   ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; RBC_tb                                                   ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; RingBuffer_tb                                            ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; OutputRegister_tb                                        ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; BufferControl_tb                                         ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; OutputBuffer_tb                                          ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; KeyboardReader_tb                                        ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; ShiftRegister_tb                                         ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; ParityCheck_tb                                           ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; SerialControl_tb                                         ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; SerialReceiver_tb                                        ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; SerialDispatcher_tb                                      ; --                ; --               ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; SerialController_tb                                      ; --                ; --               ; eda_simulation                    ;
+; EDA_TIME_SCALE                       ; 1 ps                                                     ; --                ; --               ; eda_simulation                    ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                                       ; --                ; --               ; --                                ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                                        ; --                ; --               ; --                                ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family)                   ; --                ; SerialController ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family)                   ; --                ; SerialController ; Top                               ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family)                   ; --                ; SerialController ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                                      ; --                ; --               ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                    ; --                ; --               ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                                             ; --                ; --               ; --                                ;
+; TOP_LEVEL_ENTITY                     ; SerialController                                         ; SpaceInvadersGame ; --               ; --                                ;
++--------------------------------------+----------------------------------------------------------+-------------------+------------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -142,12 +170,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4890 MB             ; 00:00:07                           ;
-; Fitter               ; 00:00:05     ; 1.1                     ; 6604 MB             ; 00:00:05                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4732 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:01     ; 1.2                     ; 4929 MB             ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4878 MB             ; 00:00:07                           ;
+; Fitter               ; 00:00:06     ; 1.1                     ; 6604 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4724 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.1                     ; 4938 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4640 MB             ; 00:00:00                           ;
-; Total                ; 00:00:12     ; --                      ; --                  ; 00:00:14                           ;
+; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

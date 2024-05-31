@@ -4,47 +4,43 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Q[0]",
+					"name" : "wr",
 					"strict" : false
 				},
 				{
-					"name" : "Q[1]",
+					"name" : "Dout[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Q[2]",
+					"name" : "Dout[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Q[3]",
+					"name" : "Dout[2]",
 					"strict" : false
 				},
 				{
-					"name" : "OB_free",
+					"name" : "Dout[3]",
 					"strict" : false
 				},
 				{
-					"name" : "D_val",
+					"name" : "Dout[4]",
 					"strict" : false
 				},
 				{
-					"name" : "D[0]",
+					"name" : "Dout[5]",
 					"strict" : false
 				},
 				{
-					"name" : "D[1]",
+					"name" : "Dout[6]",
 					"strict" : false
 				},
 				{
-					"name" : "D[2]",
+					"name" : "Dout[7]",
 					"strict" : false
 				},
 				{
-					"name" : "D[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Ack",
+					"name" : "Dout[8]",
 					"strict" : false
 				},
 				{
@@ -56,7 +52,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "Load",
+					"name" : "nSS",
+					"strict" : false
+				},
+				{
+					"name" : "sclk",
+					"strict" : false
+				},
+				{
+					"name" : "sdx",
 					"strict" : false
 				}
 			]

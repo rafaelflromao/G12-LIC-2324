@@ -83,6 +83,7 @@ begin
         end loop;
 
         -- Check if full
+        assert full = '1' report "Buffer is not full" severity error;
         wait for CLK_PERIOD*2;
 
         -- Empty the buffer
@@ -94,6 +95,7 @@ begin
         end loop;
 
         -- Check if empty
+        assert empty = '1' report "Buffer is not empty" severity error;
         wait for CLK_PERIOD*2;
 
         -- End simulation

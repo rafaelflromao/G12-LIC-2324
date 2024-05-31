@@ -1,46 +1,170 @@
-|OutputBuffer
-reset => BufferControl:U1.reset
-Load => BufferControl:U1.load
-Ack => BufferControl:U1.Ack
-clk => BufferControl:U1.clk
-D[0] => OutputRegister:U0.D[0]
-D[1] => OutputRegister:U0.D[1]
-D[2] => OutputRegister:U0.D[2]
-D[3] => OutputRegister:U0.D[3]
-Q[0] << OutputRegister:U0.Q[0]
-Q[1] << OutputRegister:U0.Q[1]
-Q[2] << OutputRegister:U0.Q[2]
-Q[3] << OutputRegister:U0.Q[3]
-OB_free << BufferControl:U1.OB_free
-D_val << BufferControl:U1.D_val
+|SerialController
+clk => SerialReceiver:U0.clk
+clk => SerialDispatcher:U1.clk
+reset => SerialReceiver:U0.reset
+reset => SerialDispatcher:U1.reset
+nSS => SerialReceiver:U0.nSS
+sdx => SerialReceiver:U0.sdx
+sclk => SerialReceiver:U0.sclk
+wr <= SerialDispatcher:U1.wrD
+Dout[0] <= SerialDispatcher:U1.Dout[0]
+Dout[1] <= SerialDispatcher:U1.Dout[1]
+Dout[2] <= SerialDispatcher:U1.Dout[2]
+Dout[3] <= SerialDispatcher:U1.Dout[3]
+Dout[4] <= SerialDispatcher:U1.Dout[4]
+Dout[5] <= SerialDispatcher:U1.Dout[5]
+Dout[6] <= SerialDispatcher:U1.Dout[6]
+Dout[7] <= SerialDispatcher:U1.Dout[7]
+Dout[8] <= SerialDispatcher:U1.Dout[8]
 
 
-|OutputBuffer|OutputRegister:U0
-CLK => buff[0].CLK
-CLK => buff[1].CLK
-CLK => buff[2].CLK
-CLK => buff[3].CLK
-D[0] => buff[0].DATAIN
-D[1] => buff[1].DATAIN
-D[2] => buff[2].DATAIN
-D[3] => buff[3].DATAIN
-Q[0] <= buff[0].DB_MAX_OUTPUT_PORT_TYPE
-Q[1] <= buff[1].DB_MAX_OUTPUT_PORT_TYPE
-Q[2] <= buff[2].DB_MAX_OUTPUT_PORT_TYPE
-Q[3] <= buff[3].DB_MAX_OUTPUT_PORT_TYPE
+|SerialController|SerialReceiver:U0
+clk => SerialControl:U2.clk
+reset => SerialControl:U2.reset
+sdx => ParityCheck:U1.data
+sdx => ShiftRegister:U3.data
+sclk => counter:U0.clk
+sclk => ParityCheck:U1.clk
+sclk => ShiftRegister:U3.clk
+nSS => SerialControl:U2.nEnRx
+accept => SerialControl:U2.accept
+DX_val <= SerialControl:U2.dx_val
+D[0] <= ShiftRegister:U3.O[0]
+D[1] <= ShiftRegister:U3.O[1]
+D[2] <= ShiftRegister:U3.O[2]
+D[3] <= ShiftRegister:U3.O[3]
+D[4] <= ShiftRegister:U3.O[4]
+D[5] <= ShiftRegister:U3.O[5]
+D[6] <= ShiftRegister:U3.O[6]
+D[7] <= ShiftRegister:U3.O[7]
+D[8] <= ShiftRegister:U3.O[8]
 
 
-|OutputBuffer|BufferControl:U1
-reset => CurrentState~3.DATAIN
-Load => NextState.OUTPUTSELECT
-Load => NextState.OUTPUTSELECT
-Load => NextState.OUTPUTSELECT
-Ack => NextState.OUTPUTSELECT
-Ack => NextState.OUTPUTSELECT
-Ack => NextState.OUTPUTSELECT
+|SerialController|SerialReceiver:U0|counter:U0
+CE => count[0].ENA
+CE => count[3].ENA
+CE => count[2].ENA
+CE => count[1].ENA
+down => count.OUTPUTSELECT
+down => count.OUTPUTSELECT
+down => count.OUTPUTSELECT
+down => count.OUTPUTSELECT
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+reset => count[0].ACLR
+reset => count[1].ACLR
+reset => count[2].ACLR
+reset => count[3].ACLR
+O[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialController|SerialReceiver:U0|ParityCheck:U1
+data => q.ENA
+clk => q.CLK
+init => q.ACLR
+err <= q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialController|SerialReceiver:U0|SerialControl:U2
+clk => nEnRx_reg.CLK
 clk => CurrentState~1.DATAIN
-W_reg <= W_reg.DB_MAX_OUTPUT_PORT_TYPE
-OB_free <= OB_free.DB_MAX_OUTPUT_PORT_TYPE
-D_val <= D_val.DB_MAX_OUTPUT_PORT_TYPE
+reset => process_1.IN0
+reset => nEnRx_reg.PRESET
+nEnRx => process_1.IN1
+nEnRx => nEnRx_reg.DATAIN
+nEnRx => NextState.IDLE.OUTPUTSELECT
+nEnRx => NextState.RECEIVING_INIT.OUTPUTSELECT
+nEnRx => NextState.RECEIVING.OUTPUTSELECT
+nEnRx => NextState.RECEIVED.OUTPUTSELECT
+nEnRx => NextState.SEND_WAIT.OUTPUTSELECT
+accept => NextState.OUTPUTSELECT
+accept => NextState.OUTPUTSELECT
+accept => NextState.OUTPUTSELECT
+accept => NextState.OUTPUTSELECT
+accept => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+dFlag => NextState.OUTPUTSELECT
+dFlag => NextState.OUTPUTSELECT
+dFlag => NextState.OUTPUTSELECT
+dFlag => NextState.OUTPUTSELECT
+dFlag => NextState.OUTPUTSELECT
+RX_err => NextState.DATAB
+RX_err => NextState.DATAB
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+init <= init.DB_MAX_OUTPUT_PORT_TYPE
+dx_val <= dx_val.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialController|SerialReceiver:U0|ShiftRegister:U3
+data => data_b[8].DATAIN
+en => data_b[0].ENA
+en => data_b[1].ENA
+en => data_b[2].ENA
+en => data_b[3].ENA
+en => data_b[4].ENA
+en => data_b[5].ENA
+en => data_b[6].ENA
+en => data_b[7].ENA
+en => data_b[8].ENA
+clk => data_b[0].CLK
+clk => data_b[1].CLK
+clk => data_b[2].CLK
+clk => data_b[3].CLK
+clk => data_b[4].CLK
+clk => data_b[5].CLK
+clk => data_b[6].CLK
+clk => data_b[7].CLK
+clk => data_b[8].CLK
+O[0] <= data_b[0].DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= data_b[1].DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= data_b[2].DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= data_b[3].DB_MAX_OUTPUT_PORT_TYPE
+O[4] <= data_b[4].DB_MAX_OUTPUT_PORT_TYPE
+O[5] <= data_b[5].DB_MAX_OUTPUT_PORT_TYPE
+O[6] <= data_b[6].DB_MAX_OUTPUT_PORT_TYPE
+O[7] <= data_b[7].DB_MAX_OUTPUT_PORT_TYPE
+O[8] <= data_b[8].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialController|SerialDispatcher:U1
+clk => dval_reg.CLK
+clk => CurrentState~1.DATAIN
+reset => process_1.IN0
+reset => dval_reg.ACLR
+D_val => NextState.IDLE.OUTPUTSELECT
+D_val => NextState.SEND.OUTPUTSELECT
+D_val => NextState.ACK.OUTPUTSELECT
+D_val => Din_b[8].IN1
+D_val => dval_reg.DATAIN
+D_val => process_1.IN1
+Din[0] => Din_b[0].DATAIN
+Din[1] => Din_b[1].DATAIN
+Din[2] => Din_b[2].DATAIN
+Din[3] => Din_b[3].DATAIN
+Din[4] => Din_b[4].DATAIN
+Din[5] => Din_b[5].DATAIN
+Din[6] => Din_b[6].DATAIN
+Din[7] => Din_b[7].DATAIN
+Din[8] => Din_b[8].DATAIN
+done <= done.DB_MAX_OUTPUT_PORT_TYPE
+wrD <= wrD.DB_MAX_OUTPUT_PORT_TYPE
+Dout[0] <= Din_b[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Din_b[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Din_b[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Din_b[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Din_b[4].DB_MAX_OUTPUT_PORT_TYPE
+Dout[5] <= Din_b[5].DB_MAX_OUTPUT_PORT_TYPE
+Dout[6] <= Din_b[6].DB_MAX_OUTPUT_PORT_TYPE
+Dout[7] <= Din_b[7].DB_MAX_OUTPUT_PORT_TYPE
+Dout[8] <= Din_b[8].DB_MAX_OUTPUT_PORT_TYPE
 
 

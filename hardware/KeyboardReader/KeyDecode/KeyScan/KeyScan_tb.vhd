@@ -26,7 +26,7 @@ architecture behavior of KeyScan_tb is
     signal clk        : std_logic := '0';
     signal K_scan     : std_logic := '0';
     signal reset      : std_logic := '0';
-    signal KEYPAD_LIN : std_logic_vector(3 downto 0) := (others => '0');
+    signal KEYPAD_LIN : std_logic_vector(3 downto 0) := (others => '1');
 
     -- Outputs
     signal KEYPAD_COL : std_logic_vector(2 downto 0);
@@ -71,16 +71,16 @@ begin
 
         -- Start Key Scan
         K_scan <= '1';
-        KEYPAD_LIN <= "0001";
+        KEYPAD_LIN <= "1110";
         wait for 30 ns;
 
-        KEYPAD_LIN <= "0010";
+        KEYPAD_LIN <= "1101";
         wait for 30 ns;
 
-        KEYPAD_LIN <= "0100";
+        KEYPAD_LIN <= "1011";
         wait for 30 ns;
 
-        KEYPAD_LIN <= "1000";
+        KEYPAD_LIN <= "0111";
         wait for 30 ns;
 
         K_scan <= '0';
