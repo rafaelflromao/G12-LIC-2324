@@ -10,14 +10,15 @@ end mac;
 
 ARCHITECTURE Structural OF mac IS
 
-	component counter4 is
-		port(
-			CE, down, clk, reset	: in std_logic;
-			O					: out std_logic_vector(3 downto 0) 
-		);
-	end component counter4;
+	component counter is
+		   generic (data_width : integer := 4);
+			port(
+				CE, down, clk, reset : in std_logic;
+				O              : out std_logic_vector(data_width - 1 downto 0)
+			);
+	end component counter;
 	
-	signal idxPut, idxGet : std_logic_vector(2 downto 0);
+	signal idxPut, idxGet: std_logic_vector(2 downto 0);
 	signal sRCount: std_logic_vector(3 downto 0);
 	signal sizeCE, putCE, getCE, sFull, sEmpty: std_logic;
 
@@ -29,12 +30,12 @@ begin
 	getCE <= incGet and not sEmpty;
 	
 	sizeCE <= putCE or getCE;
-	U0: counter4 port map(CE => incPut, down => '0', reset => reset, clk => mclk, O(2 downto 0) => idxPut);
-	U1: counter4 port map(CE => incGet, down => '0', reset => reset, clk => mclk, O(2 downto 0) => idxGet);
-	U2: counter4 port map(CE => sizeCE, down => getCE, reset => reset, clk => mclk, O => sRCount);
+	U0: counter generic map(data_width => 3) port map(CE => incPut, down => '0', reset => reset, clk => mclk, O => idxPut);
+	U1: counter generic map(data_width => 3) port map(CE => incGet, down => '0', reset => reset, clk => mclk, O => idxGet);
+	U2: counter port map(CE => sizeCE, down => getCE, reset => reset, clk => mclk, O => sRCount);
 
 
-	A <= idxPut when putGet = '1' else idxGet;
+	A <= idxPut(2 downto 0) when putGet = '1' else idxGet(2 downto 0);
 	full <= sFull;
 	empty <= sEmpty;
 	

@@ -44,7 +44,7 @@ architecture Structural of RingBuffer is
 begin
 	U0: rbc Port map (
 		reset => reset, DAV => dav, full => full, empty => empty, CTS => cts, CLK => clk,
-		Wr => wr, selPG => selPG, Wreg => W_REg, DAC => DAC, incPut => incput, incGet => incGet
+		Wr => wr, selPG => selPG, Wreg => W_REg, DAC => dac, incPut => incput, incGet => incGet
 	 );
 	U1: mac port map (
 		putGet => selPG, incPut => incPut, incGet => incGet, mclk => clk, reset => '0', full => full, empty => empty, A => A

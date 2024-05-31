@@ -1,0 +1,70 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity OutputBuffer_tb is
+end OutputBuffer_tb;
+
+architecture Behavioral of OutputBuffer_tb is
+    -- Constants
+    constant CLK_PERIOD : time := 20 ns;  -- Clock period
+    
+    -- Signals
+    signal CLK, reset, Load, Ack : std_logic := '0';  -- Control signals
+    signal OB_free, D_val : std_logic;   -- Data signals
+	 signal D : std_logic_vector(3 downto 0) := (others => '0');
+	 signal Q : std_logic_vector(3 downto 0);
+    
+    -- Instantiate the UUT (Unit Under Test)
+    component OutputBuffer
+        port (
+            reset, Load, Ack, clk : in std_logic;
+            D : in std_logic_vector(3 downto 0);
+            Q : out std_logic_vector(3 downto 0);
+            OB_free, D_val : out std_logic
+        );
+    end component;
+    
+begin
+    -- Instantiate the UUT
+    UUT : OutputBuffer
+        port map (
+            reset => reset,
+            Load => Load,
+            Ack => Ack,
+            clk => CLK,
+            D => D,
+            Q => Q,
+            OB_free => OB_free,
+            D_val => D_val
+        );
+
+    -- Clock process (generate clock signal)
+    Clock_Generation_Process : process
+    begin
+        while true loop
+            CLK <= '0';
+            wait for CLK_PERIOD / 2;
+            CLK <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process Clock_Generation_Process;
+
+    -- Stimulus process (generate control signals and data)
+    Stimulus_Process : process
+    begin
+        reset <= '1';  -- Reset active
+        wait for CLK_PERIOD;
+        reset <= '0';  -- De-assert reset
+        wait for CLK_PERIOD * 2;
+        Load <= '1';   -- Load data
+        D <= "1010";   -- Example data
+        wait for CLK_PERIOD * 2;
+        Load <= '0';   -- De-assert load
+        wait for CLK_PERIOD;
+        Ack <= '1';    -- Acknowledge
+        wait for CLK_PERIOD * 2;
+        Ack <= '0';    -- De-assert acknowledge
+        wait;
+    end process Stimulus_Process;
+
+end Behavioral;

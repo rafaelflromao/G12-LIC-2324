@@ -31,6 +31,7 @@ begin
     GenerateNextState:
     process (CurrentState,	Load, Ack)
     begin
+	     NextState <= CurrentState;
         case CurrentState is
             when STATE_RECEIVING =>
 					NextState <= STATE_SEND_WAIT;
@@ -38,15 +39,11 @@ begin
 				when STATE_SEND_WAIT =>
 					if (ack = '1') then
 						NextState <= STATE_IDLE;
-					else
-						NextState <= STATE_SEND_WAIT;
 					end if;
 					
             when others =>
 					if (Load = '1') then
                     NextState <= STATE_RECEIVING;
-					else
-                    NextState <= STATE_IDLE;
 					end if;
         end case;
     end process;

@@ -10,7 +10,7 @@ entity OutputRegister is
 end OutputRegister;
 
 architecture Behavioral of OutputRegister is
-    signal buff : std_logic_vector(3 downto 0);
+    signal buff : std_logic_vector(3 downto 0) := (others => '0');
 begin
     process(clk)
     begin

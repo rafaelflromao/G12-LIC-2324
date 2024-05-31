@@ -38,18 +38,19 @@ architecture Structural of SerialReceiver is
 		);
 	end component ParityCheck;
 	
-	component counter4 is
+	component counter is
+		generic (data_width : integer := 4);
 		port(
 			CE, down, clk, reset : in std_logic;
-			O              : out std_logic_vector(3 downto 0)
+			O              : out std_logic_vector(data_width - 1 downto 0)
 		);
-	end component counter4;
+	end component counter;
 	
 	signal count_b : std_logic_vector(3 downto 0);
 	signal O_b : std_logic_vector(data_width - 1 downto 0);
 	signal wr, init, dFlag, pFlag, RXerror : std_logic;
 begin
-	U0: counter4 port map(
+	U0: counter port map(
 		clk => sclk, reset => init, down => '0', CE => '1', O => count_b
    );
 	

@@ -33,6 +33,7 @@ begin
     GenerateNextState:
     process (CurrentState, DAV, empty, full, CTS)
     begin
+		  NextState <= CurrentState;
         case CurrentState is
             when STATE_STORING =>
                 NextState <= STATE_STORED_WAIT;
@@ -40,20 +41,17 @@ begin
             when STATE_STORED_WAIT =>
                 if (DAV = '0') then
                     NextState <= STATE_IDLE;
-                else
-                    NextState <= STATE_STORED_WAIT;
                 end if;
                 
             when STATE_RETRIEVING =>
 					 if (CTS = '0') then
 						NextState <= STATE_RETRIEVED;
-                else
-						NextState <= STATE_RETRIEVING;
 					 end if;
+					 
             when STATE_RETRIEVED =>
                 NextState <= STATE_IDLE;
                 
-            when others =>
+            when STATE_IDLE =>
                 if (empty = '0' and CTS = '1') then
                     NextState <= STATE_RETRIEVING;
                 elsif (DAV = '1' and full = '0') then
@@ -61,6 +59,8 @@ begin
                 else
                     NextState <= STATE_IDLE;
                 end if;
+				when others =>
+					NextState <= STATE_IDLE;
         end case;
     end process;
     

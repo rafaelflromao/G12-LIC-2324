@@ -2,20 +2,21 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity counter4 is
+entity counter is
+    genric (data_width : integer := 4)
    port(
       CE, down, clk, reset : in std_logic;
       O              : out std_logic_vector(3 downto 0)
    );
-end counter4;
+end counter;
 
-architecture Behavioral of counter4 is
-    signal count : unsigned(3 downto 0) := "0000";
+architecture Behavioral of counter is
+    signal count : unsigned(data_width - 1 downto 0) := (others => '0');
 begin
     process(reset, clk)
     begin
         if reset = '1' then
-            count <= (others => '0'); -- Reset count to 0000
+            count <= (others => '0');
         elsif rising_edge(clk) then
             if CE = '1' then
                 if down = '1' then

@@ -1,0 +1,225 @@
+m255
+K4
+z2
+Z0 !s12c _opt3
+Z1 !s99 nomlopt
+R0
+Z2 !s99 mlopt
+R0
+R1
+R0
+R1
+Z3 !s12c _opt2
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+Z4 !s12c _opt1
+R1
+R4
+R1
+R3
+R2
+R4
+R1
+!s12c _opt
+R1
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z5 dC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/simulation/questa
+T_opt
+!s110 1717107243
+VA@hzjK43ihXP7W1;98BkF3
+04 10 8 work keyscan_tb behavior 1
+=1-bcf4d4a537eb-6658fa2a-1c1-aa1c
+R1
+Z6 !s12b OEM100
+Z7 !s124 OEM10U3 
+Z8 o-quiet -auto_acc_if_foreign -work work -L altera -L altera_lnsim -L fiftyfivenm -L gate_work -L work +acc
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2023.3;77
+R5
+T_opt1
+!s110 1717108880
+V>ad`2cO;8[IZRWLdWVPPR1
+04 13 10 work keycontrol_tb behavioral 1
+=1-bcf4d4a537eb-66590090-236-983c
+R1
+R6
+R7
+R8
+R9
+n@_opt1
+R10
+R5
+T_opt2
+!s110 1717115465
+V;18UbP`A4RISFO<>RjK;U2
+04 13 10 work ringbuffer_tb behavioral 1
+=1-bcf4d4a537eb-66591a49-e9-b338
+R1
+R6
+R7
+R8
+R9
+n@_opt2
+R10
+R5
+Ehard_block
+Z11 w1717121530
+Z12 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z13 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 ]nHm7g1n:;>@ERYP0V1:12
+Z14 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z15 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z16 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z17 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 AakaBWG`@zPL?7MNGaciF0
+!i122 0
+R5
+Z18 8SpaceInvadersGame.vho
+Z19 FSpaceInvadersGame.vho
+l0
+L35 1
+VC]QzC1lzaMiZ?]<W7nWSM3
+!s100 VElgA1dWj2[U]541P5]HZ0
+Z20 OL;C;2023.3;77
+31
+Z21 !s110 1717121537
+!i10b 1
+Z22 !s108 1717121537.000000
+Z23 !s90 -reportprogress|300|-93|-work|work|SpaceInvadersGame.vho|
+Z24 !s107 SpaceInvadersGame.vho|
+!i113 0
+Z25 o-93 -work work
+Z26 tExplicit 1 CvgOpt 0
+Astructure
+R12
+R13
+R14
+R15
+R16
+R17
+DEx4 work 10 hard_block 0 22 C]QzC1lzaMiZ?]<W7nWSM3
+!i122 0
+l76
+L54 28
+VL?1c?7KgE8;^6cdPNAg>Q2
+!s100 <T2c`Y^anI^[@LXJ`fGLU3
+R20
+31
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R25
+R26
+Eoutputbuffer
+R11
+R13
+R17
+R12
+Z27 DPx6 altera 11 dffeas_pack 0 22 mB4IFnUT3:DoZN@NS]Gzg0
+R14
+R15
+R16
+Z28 DPx6 altera 28 altera_primitives_components 0 22 >1_OP3SHemAi5ZBLF?7g43
+!i122 0
+R5
+R18
+R19
+l0
+L91 1
+V8?oS_6n9DfV9EoZ7b>b543
+!s100 W8J4<J4`:@h3KiTGhB5>h0
+R20
+31
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R25
+R26
+Astructure
+R13
+R17
+R12
+R27
+R14
+R15
+R16
+R28
+DEx4 work 12 outputbuffer 0 22 8?oS_6n9DfV9EoZ7b>b543
+!i122 0
+l187
+L121 619
+V7E8;@^m]LDEW@fJ@Tm8z00
+!s100 Y<i?=YFhVlG@5?=Q@8bkz0
+R20
+31
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R25
+R26
+Eoutputbuffer_tb
+Z29 w1717121508
+R15
+R16
+!i122 1
+R5
+Z30 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd
+Z31 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd
+l0
+L4 1
+V6?hE5Q>`>C1A3YXJOgY7D3
+!s100 jC08iH<G?VA[41ifn>hXm1
+R20
+31
+R21
+!i10b 1
+R22
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
+!s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
+!i113 0
+R25
+R26
+Abehavioral
+R15
+R16
+DEx4 work 15 outputbuffer_tb 0 22 6?hE5Q>`>C1A3YXJOgY7D3
+!i122 1
+l27
+L7 64
+Vh1YGQiaU4>LzRXSEH<E490
+!s100 IH8]UGzT127dCL_[?zZOo2
+R20
+31
+R21
+!i10b 1
+R22
+R32
+Z33 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/OutputBuffer/OutputBuffer_tb.vhd|
+!i113 0
+R25
+R26
