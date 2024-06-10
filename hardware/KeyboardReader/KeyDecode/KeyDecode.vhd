@@ -30,13 +30,14 @@ architecture Structural of KeyDecode is
     );
 	end component KeyControl;
 	
-	signal K_press, K_scan 				: std_logic;
+	signal K_press, K_scan, nCLK 				: std_logic;
 
 begin
 	U0: KeyScan port map(
 		clk => clk, K_scan => K_scan, reset => reset, KEYPAD_LIN => KEYPAD_LIN, KEYPAD_COL => KEYPAD_COL, K => K, K_press => K_press
    );
 	U1: KeyControl port map(
-		K_press => k_press, K_ack => k_ack, clk => clk, reset => reset, K_val => k_val, K_scan => k_scan
+		K_press => k_press, K_ack => k_ack, clk => nCLK, reset => reset, K_val => k_val, K_scan => k_scan
    );
+	nCLK <= not clk;
 end Structural;
