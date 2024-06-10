@@ -24,78 +24,66 @@
 # Copying c:/intelfpga_lite/23.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:50 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd 
+# Start time: 08:11:52 on Jun 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity SerialController
-# -- Compiling architecture Structural of SerialController
-# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
+# -- Compiling entity KeyDecode
+# -- Compiling architecture Structural of KeyDecode
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyControl/KeyControl.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:50 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd 
+# Start time: 08:11:52 on Jun 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyControl/KeyControl.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity SerialDispatcher
-# -- Compiling architecture Behavioral of SerialDispatcher
-# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
+# -- Compiling entity KeyControl
+# -- Compiling architecture Behavioral of KeyControl
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:50 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd 
+# Start time: 08:11:52 on Jun 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity SerialReceiver
-# -- Compiling architecture Structural of SerialReceiver
-# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity KeyScan
+# -- Compiling architecture Structural of KeyScan
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/mux4.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:50 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd 
+# Start time: 08:11:52 on Jun 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/mux4.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity SerialControl
-# -- Compiling architecture Behavioral of SerialControl
-# End time: 07:36:50 on May 31,2024, Elapsed time: 0:00:00
+# -- Compiling entity mux4
+# -- Compiling architecture Behavioral of mux4
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:50 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd 
+# Start time: 08:11:52 on Jun 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity ParityCheck
-# -- Compiling architecture behavioral of ParityCheck
-# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd}
-# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:51 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity ShiftRegister
-# -- Compiling architecture Behavioral of ShiftRegister
-# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:00
+# -- Compiling entity dec2_4
+# -- Compiling architecture Behavioral of dec2_4
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:51 on May 31,2024
+# Start time: 08:11:52 on Jun 10,2024
 # vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -103,55 +91,56 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity counter
 # -- Compiling architecture Behavioral of counter
-# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:00
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd}
+# vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyDecode/KeyDecode_tb.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 07:36:51 on May 31,2024
-# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd 
+# Start time: 08:11:52 on Jun 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyDecode/KeyDecode_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity SerialController_tb
-# -- Compiling architecture Behavioral of SerialController_tb
-# End time: 07:36:51 on May 31,2024, Elapsed time: 0:00:00
+# -- Compiling entity KeyDecode_tb
+# -- Compiling architecture Behavioral of KeyDecode_tb
+# End time: 08:11:52 on Jun 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  SerialController_tb
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" SerialController_tb 
-# Start time: 07:36:51 on May 31,2024
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  KeyDecode_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" KeyDecode_tb 
+# Start time: 08:11:54 on Jun 10,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "SerialControl(Behavioral)".
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "SerialDispatcher(Behavioral)".
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "KeyControl(Behavioral)".
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
+# Loading work.keydecode_tb(behavioral)#1
+# Loading work.keydecode(structural)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.keyscan(structural)#1
 # Loading ieee.numeric_std(body)
-# Loading work.serialcontroller_tb(behavioral)#1
-# Loading work.serialcontroller(structural)#1
-# Loading work.serialreceiver(structural)#1
 # Loading work.counter(behavioral)#1
-# Loading work.paritycheck(behavioral)#1
-# Loading work.serialcontrol(behavioral)#1
-# Loading work.shiftregister(behavioral)#1
-# Loading work.serialdispatcher(behavioral)#1
+# Loading work.mux4(behavioral)#1
+# Loading work.dec2_4(behavioral)#1
+# Loading work.keycontrol(behavioral)#1
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: zebon  Hostname: LAPTOP-D31BHLK4  ProcessID: 43548
-#           Attempting to use alternate WLF file "./wlftyzjrn0".
+#           Attempting to use alternate WLF file "./wlft22gi05".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftyzjrn0
+#           Using alternate file: ./wlft22gi05
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
+# ** Error: Error: expected K_val = '1'
+#    Time: 110 ns  Iteration: 0  Instance: /keydecode_tb
 # Break key hit
 # Simulation stop requested.
-# End time: 07:39:35 on May 31,2024, Elapsed time: 0:02:44
-# Errors: 0, Warnings: 3
+# End time: 09:59:19 on Jun 10,2024, Elapsed time: 1:47:25
+# Errors: 1, Warnings: 3

@@ -4,43 +4,35 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "wr",
+					"name" : "KEYPAD_COL[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[0]",
+					"name" : "KEYPAD_COL[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[1]",
+					"name" : "KEYPAD_COL[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[2]",
+					"name" : "K[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[3]",
+					"name" : "K[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[4]",
+					"name" : "K[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[5]",
+					"name" : "K[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Dout[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Dout[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Dout[8]",
+					"name" : "K_val",
 					"strict" : false
 				},
 				{
@@ -52,15 +44,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "nSS",
+					"name" : "k_ack",
 					"strict" : false
 				},
 				{
-					"name" : "sclk",
+					"name" : "KEYPAD_LIN[2]",
 					"strict" : false
 				},
 				{
-					"name" : "sdx",
+					"name" : "KEYPAD_LIN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "KEYPAD_LIN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "KEYPAD_LIN[1]",
 					"strict" : false
 				}
 			]

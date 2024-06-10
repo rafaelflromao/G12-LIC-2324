@@ -68,8 +68,8 @@ architecture Structural of SpaceInvadersGame is
 begin
 
     UsbPortC: UsbPort port map ( 
-        inputPort => inputBuf, 
-        outputPort => outputBuf 
+        inputPort => outputBuf, 
+        outputPort => inputBuf 
     );
 
     SLCDC: SerialController generic map ( 
@@ -114,14 +114,14 @@ begin
     KBD: KeyboardReader port map (
         clk => clk, 
         reset => '0', 
-        ack => inputBuf(7),    
+        ack => inputBuf(7),
         KEYPAD_LIN => KEYPAD_LIN,
         KEYPAD_COL => KEYPAD_COL,
         Q => kbd_output(3 downto 0),
         D_val => kbd_output(4)
     );
 
-    inputBuf <= inputPort;
-    outputPort <= outputBuf or kbd_output;
+    outputPort <= inputBuf;
+    outputBuf <= inputPort or kbd_output;
 
 end Structural;

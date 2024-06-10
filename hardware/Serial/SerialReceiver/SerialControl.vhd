@@ -24,7 +24,7 @@ begin
         end if;
     end process;
     -- State Transition Process
-    process (clk, reset, nEnRx)
+    process (clk, reset)
     begin
         if nEnRx = '1' or reset = '1' then
             CurrentState <= IDLE;
@@ -39,8 +39,6 @@ begin
         NextState <= CurrentState;
         if nEnRx = '0' then
             case CurrentState is
-					when RECEIVING_INIT =>
-						NextState <= RECEIVING;
 					
 					when RECEIVING =>
 						if dFlag = '1' then
@@ -63,7 +61,7 @@ begin
 					
 					when IDLE =>
 						if nEnRx_reg = '1' then
-							NextState <= RECEIVING_INIT;
+							NextState <= RECEIVING;
 						end if;
 						
 					when others =>
@@ -73,7 +71,7 @@ begin
     end process;
 
     -- Output Logic
-    init   <= '1' when CurrentState = RECEIVING_INIT else '0';
+    init   <= '1' when CurrentState = IDLE else '0';
     wr     <= '1' when CurrentState = RECEIVING else '0';
     dx_val <= '1' when CurrentState = SEND_WAIT else '0';
 

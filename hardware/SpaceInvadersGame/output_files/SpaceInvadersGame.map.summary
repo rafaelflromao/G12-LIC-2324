@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Fri May 31 07:36:02 2024
+Analysis & Synthesis Status : Successful - Mon Jun 10 08:11:16 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : SpaceInvadersGame
-Top-level Entity Name : SerialController
+Top-level Entity Name : KeyDecode
 Family : MAX 10
-Total logic elements : 43
-    Total combinational functions : 30
-    Dedicated logic registers : 24
-Total registers : 24
+Total logic elements : 11
+    Total combinational functions : 11
+    Dedicated logic registers : 5
+Total registers : 5
 Total pins : 15
 Total virtual pins : 0
 Total memory bits : 0

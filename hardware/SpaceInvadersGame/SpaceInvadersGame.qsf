@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C6GES
-set_global_assignment -name TOP_LEVEL_ENTITY SerialController
+set_global_assignment -name TOP_LEVEL_ENTITY KeyDecode
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:44:16  MAY 29, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -140,7 +140,7 @@ set_location_assignment PIN_AA9 -to KEYPAD_COL[2]
 set_location_assignment PIN_P11 -to CLK
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH SerialController_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH KeyDecode_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME KeyScan_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id KeyScan_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME KeyScan_tb -section_id KeyScan_tb
@@ -229,6 +229,11 @@ set_global_assignment -name VHDL_FILE ../KeyboardReader/KeyDecode/KeyScan/KeySca
 set_global_assignment -name VHDL_FILE ../KeyboardReader/KeyDecode/KeyScan/mux4.vhd
 set_global_assignment -name VHDL_FILE ../KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd
 set_global_assignment -name VHDL_FILE ../common/counter.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME SerialController_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SerialController_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SerialController_tb -section_id SerialController_tb
+set_global_assignment -name STATE_MACHINE_PROCESSING AUTO
+set_global_assignment -name SAFE_STATE_MACHINE OFF
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -247,8 +252,5 @@ set_global_assignment -name EDA_TEST_BENCH_FILE ../Serial/SerialReceiver/ParityC
 set_global_assignment -name EDA_TEST_BENCH_FILE ../Serial/SerialReceiver/SerialControl_tb.vhd -section_id SerialControl_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE ../Serial/SerialReceiver/SerialReceiver.vhd -section_id SerialReceiver_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE ../Serial/SerialDispatcher/SerialDispatcher_tb.vhd -section_id SerialDispatcher_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME SerialController_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SerialController_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SerialController_tb -section_id SerialController_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE ../Serial/SerialController_tb.vhd -section_id SerialController_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

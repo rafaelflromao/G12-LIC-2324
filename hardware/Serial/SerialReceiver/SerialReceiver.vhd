@@ -54,8 +54,8 @@ begin
 		clk => sclk, reset => init, down => '0', CE => '1', O => count_b
    );
 	
-	pFlag <= '1' when count_b = std_logic_vector(to_unsigned(data_width + 1, 4)) else '0';
-	dFlag <= '1' when count_b = std_logic_vector(to_unsigned(data_width, 4)) else '0';
+	pFlag <= '1' when count_b = std_logic_vector(to_unsigned(data_width + 1, 4)) and sclk = '0' else '0';
+	dFlag <= '1' when count_b = std_logic_vector(to_unsigned(data_width, 4)) and sclk = '0' else '0';
 	
 	U1: ParityCheck port map(
 		clk => sclk, init => init, data => sdx, err => rxerror

@@ -12,13 +12,13 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 dC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/simulation/questa
 T_opt
-!s110 1717137412
-VZkI5Rm^Nn8lef7dP>cEeF0
-04 19 10 work serialcontroller_tb behavioral 1
-=1-bcf4d4a537eb-66597004-54-173c
+!s110 1718003519
+V6mMJ>d=84ToFGghB7E60e3
+04 12 10 work keydecode_tb behavioral 1
+=1-c87f54cd31b6-6666a73b-274-1d9c
 R0
 !s12b OEM100
-!s124 OEM10U8 
+!s124 OEM10U7 
 o-quiet -auto_acc_if_foreign -work work -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work +acc
 tCvgOpt 0
 n@_opt
@@ -28,7 +28,7 @@ Z2 w1717112900
 Z3 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
 Z4 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
 Z5 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
-!i122 6
+!i122 5
 R1
 Z6 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd
 Z7 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd
@@ -38,9 +38,9 @@ V:hOja2N5JDFS^oSXfDlTQ2
 !s100 b8noRodRh><k<`;9jP7MA2
 Z8 OL;C;2023.3;77
 31
-Z9 !s110 1717137411
+Z9 !s110 1718003512
 !i10b 1
-Z10 !s108 1717137411.000000
+Z10 !s108 1718003512.000000
 Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd|
 Z12 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd|
 !i113 0
@@ -51,7 +51,7 @@ R3
 R4
 R5
 DEx4 work 7 counter 0 22 :hOja2N5JDFS^oSXfDlTQ2
-!i122 6
+!i122 5
 l15
 L13 19
 VNLO:?ALo=[`RZo>]WmR4^1
@@ -66,298 +66,253 @@ R12
 !i113 0
 R13
 R14
-Eparitycheck
-Z15 w1717023634
+Edec2_4
+Z15 w1716951183
 R4
 R5
 !i122 4
 R1
-Z16 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd
-Z17 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd
+Z16 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd
+Z17 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd
 l0
 L4 1
-V`OiS1jzIO`?dUG;o>2cUT2
-!s100 Z>QM7m6[CB>CHFVk;I^zZ2
+VLMdVHGZ0gSzA?ZkH2Pz;H3
+!s100 j_4fbc<f[_>mO:SbainnU0
 R8
 31
 R9
 !i10b 1
-Z18 !s108 1717137410.000000
-Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd|
-Z20 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd|
+R10
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd|
+Z19 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/dec2_4.vhd|
 !i113 0
 R13
 R14
 Abehavioral
 R4
 R5
-DEx4 work 11 paritycheck 0 22 `OiS1jzIO`?dUG;o>2cUT2
+DEx4 work 6 dec2_4 0 22 LMdVHGZ0gSzA?ZkH2Pz;H3
 !i122 4
-l13
-L11 13
-VaMnk`AO?J]bn]:VLMmaS93
-!s100 8XE]2aIl8m0[mV[S]e8:[2
+l12
+L11 10
+VeehEP2GV<5`UKgSNNbOES2
+!s100 `=GK]Dh3k4jGHl<HQT6L60
 R8
 31
 R9
 !i10b 1
+R10
 R18
 R19
-R20
 !i113 0
 R13
 R14
-Eserialcontrol
-Z21 w1717063540
+Ekeycontrol
+Z20 w1717996811
 R4
 R5
-!i122 3
+!i122 1
 R1
-Z22 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd
-Z23 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd
+Z21 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyControl/KeyControl.vhd
+Z22 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyControl/KeyControl.vhd
 l0
 L4 1
-Vg:7gOc[=JYA8Va3oF;<;F1
-!s100 fLaE]b:bQlC=<1O9=7@2z0
+VJ8Ram[NMJ>e:W=2YB5n1P2
+!s100 zOlU=CEk^9=>9i_S7VhJM3
 R8
 31
-Z24 !s110 1717137410
+R9
 !i10b 1
-R18
-Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd|
-Z26 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd|
+R10
+Z23 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyControl/KeyControl.vhd|
+Z24 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyControl/KeyControl.vhd|
 !i113 0
 R13
 R14
 Abehavioral
 R4
 R5
-DEx4 work 13 serialcontrol 0 22 g:7gOc[=JYA8Va3oF;<;F1
-!i122 3
+DEx4 work 10 keycontrol 0 22 J8Ram[NMJ>e:W=2YB5n1P2
+!i122 1
 l16
-L11 70
-VY?>4g:Fa55g?`nZm1fUf12
-!s100 XcK9hVIA:OAl3=<A3NRe53
+L11 42
+VSeISSFQRW8jBf=nj6S<5<2
+!s100 KE2UzUElozkIRQW4MMaVU2
 R8
 31
-R24
+R9
 !i10b 1
-R18
-R25
-R26
+R10
+R23
+R24
 !i113 0
 R13
 R14
-Eserialcontroller
-Z27 w1717060182
-R3
+Ekeydecode
+Z25 w1718003467
 R4
 R5
 !i122 0
 R1
-Z28 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd
-Z29 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd
+Z26 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd
+Z27 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd
 l0
-L5 1
-V9VV9]=hU62CcEjF6Ye@G43
-!s100 :IbZ=[41J;gUQ@R[hL0GS3
+L4 1
+VjjA?7NDTNlSicNnK0f]l73
+!s100 2KML`N[532h`D=bzelA`^2
 R8
 31
-R24
+R9
 !i10b 1
-R18
-Z30 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd|
-Z31 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd|
+R10
+Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd|
+Z29 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd|
 !i113 0
 R13
 R14
 Astructural
-R3
 R4
 R5
-DEx4 work 16 serialcontroller 0 22 9VV9]=hU62CcEjF6Ye@G43
+DEx4 work 9 keydecode 0 22 jjA?7NDTNlSicNnK0f]l73
 !i122 0
-l42
-L16 43
-VCl9zVbUZz:W]V1IZkmSf71
-!s100 ;4GjRe[W]?YOVMZQVzQYJ2
-R8
-31
-R24
-!i10b 1
-R18
-R30
-R31
-!i113 0
-R13
-R14
-Eserialcontroller_tb
-Z32 w1717137180
-R3
-R4
-R5
-!i122 7
-R1
-Z33 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd
-Z34 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd
-l0
-L5 1
-V4nF`EznlBm58NZZh;6[2J1
-!s100 eUool9`fjNdVg3X>iOiU<3
+l35
+L14 30
+V21`SCNES>A4L8dIUl3W440
+!s100 eATb^ioJCXlOgBRXzKTTY0
 R8
 31
 R9
 !i10b 1
 R10
-Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd|
-Z36 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../Serial/SerialController_tb.vhd|
+R28
+R29
 !i113 0
 R13
 R14
-Abehavioral
-R3
+Ekeydecode_tb
+Z30 w1717131939
 R4
 R5
-DEx4 work 19 serialcontroller_tb 0 22 4nF`EznlBm58NZZh;6[2J1
-!i122 7
-l30
-L8 104
-VM?X;P[IUlH0_<1;a8`01J3
-!s100 lOBzIJ^:<I>D;7S7mfB2Q0
-R8
-31
-R9
-!i10b 1
-R10
-R35
-R36
-!i113 0
-R13
-R14
-Eserialdispatcher
-Z37 w1717136106
-R4
-R5
-!i122 1
+!i122 6
 R1
-Z38 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd
-Z39 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd
+Z31 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyDecode/KeyDecode_tb.vhd
+Z32 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyDecode/KeyDecode_tb.vhd
 l0
 L4 1
-VP0hVnS0dYU5ekEzOR?iB=1
-!s100 MiniDPi_IL7JbTN27C94z2
+V8=C_SIEA6?=J4PH[KhUSi2
+!s100 aD@3^2J<WIYPjm6leYNCf0
 R8
 31
-R24
+R9
 !i10b 1
-R18
-Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd|
-Z41 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd|
+R10
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyDecode/KeyDecode_tb.vhd|
+Z34 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyDecode/KeyDecode_tb.vhd|
 !i113 0
 R13
 R14
 Abehavioral
 R4
 R5
-DEx4 work 16 serialdispatcher 0 22 P0hVnS0dYU5ekEzOR?iB=1
-!i122 1
-l21
-L16 55
-V9Pe:>LYd^FkMHPaNQB?CH2
-!s100 Lic0J7D2c8<Yn^BDl?[^X2
+DEx4 work 12 keydecode_tb 0 22 8=C_SIEA6?=J4PH[KhUSi2
+!i122 6
+l30
+L7 92
+V@0RiW500FaO^NTT^9?ZLO1
+!s100 mdkkQQ63QLlobj9TZm4ih0
 R8
 31
-R24
+R9
 !i10b 1
-R18
+R10
+R33
+R34
+!i113 0
+R13
+R14
+Ekeyscan
+Z35 w1717112894
+Z36 DPx4 ieee 18 std_logic_unsigned 0 22 o4hn5gYc0WVo72BSL@Ta50
+Z37 DPx4 ieee 15 std_logic_arith 0 22 B[jVX6I8iRX2o6WYW0BB>3
+R4
+R5
+!i122 2
+R1
+Z38 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd
+Z39 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd
+l0
+L6 1
+V?m<2FikR[[`VQFDhMzTfU2
+!s100 Fm3NBPVM9=nMeI87hXhjo1
+R8
+31
+R9
+!i10b 1
+R10
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd|
+Z41 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd|
+!i113 0
+R13
+R14
+Astructural
+R36
+R37
+R4
+R5
+DEx4 work 7 keyscan 0 22 ?m<2FikR[[`VQFDhMzTfU2
+!i122 2
+l45
+L16 38
+VYWC;7HI3L23`iW;0J^eiH1
+!s100 XY]:=SWf`2<F89@mKU7KG0
+R8
+31
+R9
+!i10b 1
+R10
 R40
 R41
 !i113 0
 R13
 R14
-Eserialreceiver
-Z42 w1717112916
-R3
+Emux4
+Z42 w1716949487
 R4
 R5
-!i122 2
+!i122 3
 R1
-Z43 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd
-Z44 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd
+Z43 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/mux4.vhd
+Z44 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/mux4.vhd
 l0
-L5 1
-VV5Y?2iiiS^@Wk8OUgE6af3
-!s100 OL2a1MbP1<e<Ej24UQgn50
-R8
-31
-R24
-!i10b 1
-R18
-Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd|
-Z46 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd|
-!i113 0
-R13
-R14
-Astructural
-R3
-R4
-R5
-DEx4 work 14 serialreceiver 0 22 V5Y?2iiiS^@Wk8OUgE6af3
-!i122 2
-l52
-L16 59
-V[iIH:H[XODHdCIzUdU[^J1
-!s100 n61:EgJ;L:LngeonAYIaT2
-R8
-31
-R24
-!i10b 1
-R18
-R45
-R46
-!i113 0
-R13
-R14
-Eshiftregister
-Z47 w1717130803
-R3
-R4
-R5
-!i122 5
-R1
-Z48 8C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd
-Z49 FC:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd
-l0
-L5 1
-VC7?LPB9b4l4AcJR8[81O@0
-!s100 6jVNC9Om2D:lKWNZCRQMl2
+L4 1
+Vkm4kkG:ND?dQ_Wj9MDSo52
+!s100 LH2l]K4dz`JIKc?Xl4k<o3
 R8
 31
 R9
 !i10b 1
 R10
-Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd|
-Z51 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd|
+Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/mux4.vhd|
+Z46 !s107 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/mux4.vhd|
 !i113 0
 R13
 R14
 Abehavioral
-R3
 R4
 R5
-DEx4 work 13 shiftregister 0 22 C7?LPB9b4l4AcJR8[81O@0
-!i122 5
-l17
-L15 14
-VPhH;_GGLM^efQQa@eSDYC2
-!s100 NfBi:7o?^ghXKn8GU6jBc2
+DEx4 work 4 mux4 0 22 km4kkG:ND?dQ_Wj9MDSo52
+!i122 3
+l13
+L12 10
+VhG`KHNkH1;8?;VZ3iB:3b2
+!s100 c2U>k[HX=:@znkEJ[1D^12
 R8
 31
 R9
 !i10b 1
 R10
-R50
-R51
+R45
+R46
 !i113 0
 R13
 R14

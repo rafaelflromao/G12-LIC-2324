@@ -105,6 +105,38 @@ begin
         -- Simulate data acceptance
         wait for CLK_PERIOD * 2;
         nSS <= '1';
+		  
+		  -- Enable Reception
+        nSS <= '1';
+        wait for CLK_PERIOD * 2;
+        nSS <= '0';
+        wait for CLK_PERIOD * 2;
+
+        -- Simulate receiving data
+        sdx <= '1';  -- Bit 0
+        wait for SCLK_PERIOD;
+        sdx <= '1';  -- Bit 1
+        wait for SCLK_PERIOD;
+        sdx <= '0';  -- Bit 2
+        wait for SCLK_PERIOD;
+        sdx <= '1';  -- Bit 3
+        wait for SCLK_PERIOD;
+        sdx <= '0';  -- Bit 4
+        wait for SCLK_PERIOD;
+        sdx <= '1';  -- Bit 5
+        wait for SCLK_PERIOD;
+        sdx <= '0';  -- Bit 6
+        wait for SCLK_PERIOD;
+        sdx <= '0';  -- Bit 7
+        wait for SCLK_PERIOD;
+        sdx <= '0';  -- Bit 8
+        wait for SCLK_PERIOD;
+        sdx <= '0';  -- Bit 9 (parity bit)
+        wait for SCLK_PERIOD;
+
+        -- Simulate data acceptance
+        wait for CLK_PERIOD * 2;
+        nSS <= '1';
 
         wait;
     end process;
