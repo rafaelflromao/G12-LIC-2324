@@ -14,6 +14,7 @@ entity SerialDispatcher is
 end entity SerialDispatcher;
 
 architecture Behavioral of SerialDispatcher is
+
 	signal Din_b : std_logic_vector(data_width - 1 downto 0) := (others => '0');
 	signal dval_reg : std_logic;
 	type STATE_TYPE is (IDLE, SEND, ACK);

@@ -1,0 +1,93 @@
+[N
+10
+4
+10 data_width
+9
+3 bhv
+2
+7 counter
+3
+10 behavioral
+5
+3 ram
+10
+3 div
+8
+12 clockdivider
+7
+10 DATA_WIDTH
+1
+95 C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/simulation/questa/rtl_work
+6
+13 ADDRESS_WIDTH
+]
+[G
+1
+8
+9
+1
+10
+0
+0
+2
+0
+0 0
+0
+0
+]
+[G
+1
+2
+3
+1
+4
+1
+0
+4
+0
+0 0
+0
+0
+]
+[G
+1
+2
+3
+2
+4
+1
+0
+3
+0
+0 0
+0
+0
+]
+[G
+1
+5
+3
+1
+6
+1
+0
+3
+0
+0 0
+0
+0
+]
+[G
+1
+5
+3
+1
+7
+1
+0
+4
+0
+0 0
+0
+0
+]

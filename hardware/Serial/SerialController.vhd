@@ -37,15 +37,29 @@ architecture Structural of SerialController is
 		);
 	end component SerialDispatcher;
 	
+	component ClockDivider is
+		generic (div : integer := 12);
+		port ( clk,reset: in std_logic;
+			clock_out: out std_logic);
+	end component ClockDivider;
+	
 	signal D : std_logic_vector(data_width - 1 downto 0);
-	signal done, dx_val : std_logic;
+	signal done, dx_val, dclk : std_logic;
+	signal nSSsync : std_logic;
 begin
+	process (clk)
+    begin
+		  if rising_edge(clk) then
+            nSSsync <= sclk;
+        end if;
+    end process;
+
 	U0: SerialReceiver
 	generic map (
             data_width => data_width
     )
 	port map(
-		clk => clk, reset => reset, sdx => sdx, sclk => sclk, nSS => nss, accept => done, DX_val => dx_val, D => D
+		clk => clk, reset => reset, sdx => sdx, sclk => nSSsync, nSS => nSS, accept => done, DX_val => dx_val, D => D
    );
 	
 	U1: SerialDispatcher
@@ -53,6 +67,12 @@ begin
 			data_width => data_width
 	)
 	port map(
-		clk => clk, reset => reset, D_val => Dx_val, Din => D, done =>  done, wrd => wr, Dout => Dout
+		clk => dclk, reset => reset, D_val => Dx_val, Din => D, done =>  done, wrd => wr, Dout => Dout
    );
+	
+	U2: ClockDivider
+	port map (
+		clk => clk, reset => reset, clock_out => dclk
+	);
+	
 end Structural;

@@ -41,12 +41,18 @@ architecture Structural of KeyboardReader is
 		);
 	end component OutputBuffer;
 	
-	signal DAC, OB_free, w_reg, k_val	: std_logic;
+	component ClockDivider is
+		generic (div : integer := 1000);
+		port ( clk,reset: in std_logic;
+			clock_out: out std_logic);
+	end component ClockDivider;
+	
+	signal dclk, DAC, OB_free, w_reg, k_val	: std_logic;
 	signal k, q_0										: std_logic_vector(3 downto 0);
 
 begin
 	U0: KeyDecode port map(
-		clk => clk, reset => reset, k_ack => DAC, KEYPAD_LIN => KEYPAD_LIN, KEYPAD_COL => KEYPAD_COL, K => k, k_val => k_val
+		clk => dclk, reset => reset, k_ack => DAC, KEYPAD_LIN => KEYPAD_LIN, KEYPAD_COL => KEYPAD_COL, K => k, k_val => k_val
    );
 	U1: RingBuffer port map(
 		clk => clk, reset => reset, dav => k_val, cts => ob_free, D => k, Q => q_0, w_reg => w_reg, dac => dac
@@ -54,4 +60,9 @@ begin
 	U2: OutputBuffer port map(
 		clk => clk, reset => reset, load => w_reg, ack => ack, D => q_0, Q => q, OB_free => OB_free, d_val => d_val
    );
+	U3: ClockDivider
+	generic map (div => 1000)
+	port map (
+		clk => clk, reset => reset, clock_out => dclk
+	);
 end Structural;

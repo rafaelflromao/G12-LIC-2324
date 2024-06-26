@@ -122,6 +122,6 @@ begin
     );
 
     outputPort <= inputBuf;
-    outputBuf <= inputPort or kbd_output;
+    outputBuf <= kbd_output;
 
 end Structural;

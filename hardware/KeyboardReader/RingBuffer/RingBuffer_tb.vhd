@@ -59,7 +59,7 @@ begin
         dav <= '0';
         cts <= '0';
         D <= "0000";
-        wait for CLK_PERIOD*2;
+        wait for CLK_PERIOD*3;
 
         reset <= '0';
         wait for CLK_PERIOD;
@@ -70,27 +70,27 @@ begin
         wait for CLK_PERIOD;
 
         dav <= '0';
-        wait for CLK_PERIOD*2;
+        wait for CLK_PERIOD*3;
 
         D <= "0010";
         dav <= '1';
         wait for CLK_PERIOD;
 
         dav <= '0';
-        wait for CLK_PERIOD*2;
+        wait for CLK_PERIOD*3;
 
         -- Test retrieving data from the ring buffer
         cts <= '1';
         wait for CLK_PERIOD;
 
         cts <= '0';
-        wait for CLK_PERIOD*2;
+        wait for CLK_PERIOD*3;
 		  
         cts <= '1';
         wait for CLK_PERIOD;
 
         cts <= '0';
-        wait for CLK_PERIOD*2;
+        wait for CLK_PERIOD*3;
 
         -- Test full condition
         -- Continue to add more values to fill the buffer
@@ -100,14 +100,14 @@ begin
             D <= std_logic_vector(to_unsigned(i, D'length));
             wait for CLK_PERIOD;
             dav <= '0';
-            wait for CLK_PERIOD*2;
+            wait for CLK_PERIOD*3;
         end loop;
 		  
 		  dav <= '1';
         D <= "1000";
         wait for CLK_PERIOD;
         dav <= '0';
-        wait for CLK_PERIOD*2;
+        wait for CLK_PERIOD*3;
 		  
         -- Test empty condition
         -- Retrieving more values until the buffer is empty
@@ -116,14 +116,14 @@ begin
 			  cts <= '1';
 			  wait for CLK_PERIOD;
 			  cts <= '0';
-			  wait for CLK_PERIOD*2;
+			  wait for CLK_PERIOD*3;
         end loop;
         -- End simulation
 		  
 		  cts <= '1';
 		  wait for CLK_PERIOD;
 		  cts <= '0';
-		  wait for CLK_PERIOD*2;
+		  wait for CLK_PERIOD*3;
 		  
         wait;
     end process;

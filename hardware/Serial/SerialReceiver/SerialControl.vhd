@@ -18,28 +18,21 @@ begin
 	 process (clk, reset)
     begin
         if reset = '1' then
-            nEnRx_reg <= '1';
+            currentState <= IDLE;
         elsif rising_edge(clk) then
-            nEnRx_reg <= nEnRx;
-        end if;
-    end process;
-    -- State Transition Process
-    process (clk, reset)
-    begin
-        if nEnRx = '1' or reset = '1' then
-            CurrentState <= IDLE;
-        elsif rising_edge(clk) then
-            CurrentState <= NextState;
+            currentState <= NextState;
         end if;
     end process;
 
     -- Next State Logic
     process (CurrentState, nEnRx, accept, pFlag, dFlag, RX_err)
     begin
-        NextState <= CurrentState;
-        if nEnRx = '0' then
             case CurrentState is
-					
+					when IDLE =>
+						if nEnRx_reg = '1' then
+							NextState <= RECEIVING;
+						end if;
+						
 					when RECEIVING =>
 						if dFlag = '1' then
 							NextState <= RECEIVED;
@@ -58,16 +51,10 @@ begin
 						if accept = '1' then
 							NextState <= IDLE;
 						end if;
-					
-					when IDLE =>
-						if nEnRx_reg = '1' then
-							NextState <= RECEIVING;
-						end if;
 						
 					when others =>
 						NextState <= IDLE;
 				end case;
-			end if;
     end process;
 
     -- Output Logic

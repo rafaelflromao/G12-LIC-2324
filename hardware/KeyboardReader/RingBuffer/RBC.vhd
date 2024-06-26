@@ -10,7 +10,8 @@ end rbc;
 architecture behavioral of rbc is
     type STATE_TYPE is (
         STATE_IDLE,         
-        STATE_STORING,      
+        STATE_STORING_STAGE1,
+		  STATE_STORING_STAGE2,		  
         STATE_STORED_WAIT,  
         STATE_RETRIEVING,
         STATE_RETRIEVED
@@ -35,17 +36,23 @@ begin
     begin
 		  NextState <= CurrentState;
         case CurrentState is
-            when STATE_STORING =>
-                NextState <= STATE_STORED_WAIT;
-                
+            when STATE_STORING_STAGE1 =>
+                NextState <= STATE_STORING_STAGE2;
+					 
+            when STATE_STORING_STAGE2 =>
+                NextState <= STATE_STORED_WAIT;                
             when STATE_STORED_WAIT =>
                 if (DAV = '0') then
                     NextState <= STATE_IDLE;
+					 else
+						NextState <= STATE_STORED_WAIT;
                 end if;
                 
             when STATE_RETRIEVING =>
 					 if (CTS = '0') then
 						NextState <= STATE_RETRIEVED;
+					 else
+						NextState <= STATE_RETRIEVING;
 					 end if;
 					 
             when STATE_RETRIEVED =>
@@ -55,7 +62,7 @@ begin
                 if (empty = '0' and CTS = '1') then
                     NextState <= STATE_RETRIEVING;
                 elsif (DAV = '1' and full = '0') then
-                    NextState <= STATE_STORING;
+                    NextState <= STATE_STORING_STAGE1;
                 else
                     NextState <= STATE_IDLE;
                 end if;
@@ -65,11 +72,11 @@ begin
     end process;
     
     -- Generate Outputs 
-    Wr     <= '1' when (CurrentState = STATE_STORING) else '0';
-    selPG  <= '1' when (CurrentState = STATE_STORING) else '0';
+    Wr     <= '1' when (CurrentState = STATE_STORING_STAGE2) else '0';
+    selPG  <= '1' when (CurrentState = STATE_STORING_STAGE1 OR currentState = STATE_STORING_STAGE2) else '0';
     Wreg   <= '1' when (CurrentState = STATE_RETRIEVING) else '0';
     DAC    <= '1' when (CurrentState = STATE_STORED_WAIT) else '0';
-    incPut <= '1' when (CurrentState = STATE_STORING) else '0';
+    incPut <= '1' when (CurrentState = STATE_STORING_STAGE2) else '0';
     incGet <= '1' when (CurrentState = STATE_RETRIEVED) else '0';
         
 end behavioral;

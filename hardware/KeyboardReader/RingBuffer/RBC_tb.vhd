@@ -58,7 +58,7 @@ begin
         full <= '0';
         empty <= '1';
         CTS <= '0';
-        wait for CLK_PERIOD * 2;
+        wait for CLK_PERIOD * 4;
         
         reset <= '0';
         wait for CLK_PERIOD;
@@ -67,14 +67,14 @@ begin
         DAV <= '1';
         wait for CLK_PERIOD;
         DAV <= '0';
-        wait for CLK_PERIOD * 2;
+        wait for CLK_PERIOD * 4;
 
         -- Test retrieving data
         CTS <= '1';
         empty <= '0';
         wait for CLK_PERIOD;
         CTS <= '0';
-        wait for CLK_PERIOD * 2;
+        wait for CLK_PERIOD * 4;
 
         -- Test the full condition
         full <= '1';
@@ -89,7 +89,7 @@ begin
         CTS <= '1';
         wait for CLK_PERIOD;
         CTS <= '0';
-        wait for CLK_PERIOD * 2;
+        wait for CLK_PERIOD * 4;
 		  empty <= '0';
 
         -- End simulation

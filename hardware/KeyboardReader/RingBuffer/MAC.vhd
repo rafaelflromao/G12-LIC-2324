@@ -23,19 +23,19 @@ ARCHITECTURE Structural OF mac IS
 	signal sizeCE, putCE, getCE, sFull, sEmpty: std_logic;
 
 begin
-	sFull <= '1' when sRCOunt = "1000" else '0';
-	sEmpty <= '1' when sRCOunt = "0000" else '0';
+	sFull <= '1' when sRCount = "1000" else '0';
+	sEmpty <= '1' when sRCount = "0000" else '0';
 
 	putCE <= incPut and not sFull;
 	getCE <= incGet and not sEmpty;
 	
 	sizeCE <= putCE or getCE;
-	U0: counter generic map(data_width => 3) port map(CE => incPut, down => '0', reset => reset, clk => mclk, O => idxPut);
-	U1: counter generic map(data_width => 3) port map(CE => incGet, down => '0', reset => reset, clk => mclk, O => idxGet);
+	U0: counter generic map(data_width => 3) port map(CE => putCE, down => '0', reset => reset, clk => mclk, O => idxPut);
+	U1: counter generic map(data_width => 3) port map(CE => getCE, down => '0', reset => reset, clk => mclk, O => idxGet);
 	U2: counter port map(CE => sizeCE, down => getCE, reset => reset, clk => mclk, O => sRCount);
 
 
-	A <= idxPut(2 downto 0) when putGet = '1' else idxGet(2 downto 0);
+	A <= idxPut when putGet = '1' else idxGet;
 	full <= sFull;
 	empty <= sEmpty;
 	

@@ -55,37 +55,37 @@ begin
     begin
         -- Reset the system
         reset <= '1';
-        wait for CLK_PERIOD;
+        wait for CLK_PERIOD*2;
         reset <= '0';
-        wait for CLK_PERIOD;
+        wait for CLK_PERIOD*2;
         assert D_val = '0' report "Error: expected D_val = '0'" severity error;
         assert Q = "0000" report "Error: expected Q = 0000" severity error;
         
         -- Simulate key press on KEYPAD_LIN
         KEYPAD_LIN <= "0111"; -- Key press
-        wait for CLK_PERIOD*4;
-		KEYPAD_LIN <= "1111"; -- Unhold key
-		wait for CLK_PERIOD*3;
+        wait for CLK_PERIOD*10;
+		  KEYPAD_LIN <= "1111"; -- Unhold key
+		  wait for CLK_PERIOD*20;
 		  
 		  -- Simulate key press on KEYPAD_LIN
         KEYPAD_LIN <= "1011"; -- Key press
-        wait for CLK_PERIOD*4;
+        wait for CLK_PERIOD*20;
 		  KEYPAD_LIN <= "1111"; -- Unhold key
-		  wait for CLK_PERIOD*3;
+		  wait for CLK_PERIOD*20;
 
         assert D_val = '1' report "Error: expected D_val = '1'" severity error;
         -- Simulate ack signal
         ack <= '1';
-        wait for CLK_PERIOD;
+        wait for CLK_PERIOD*6;
         ack <= '0';
-        wait for CLK_PERIOD*7;
+        wait for CLK_PERIOD*14;
 		  
-		assert D_val = '1' report "Error: expected D_val = '1'" severity error;
-		-- Simulate ack signal
+		  assert D_val = '1' report "Error: expected D_val = '1'" severity error;
+		  -- Simulate ack signal
         ack <= '1';
-        wait for CLK_PERIOD;
+        wait for CLK_PERIOD*6;
         ack <= '0';
-        wait for CLK_PERIOD;
+        wait for CLK_PERIOD*14;
 
         assert D_val = '0' report "Error: expected D_val = '0'" severity error;
 
