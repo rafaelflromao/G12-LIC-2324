@@ -10,7 +10,7 @@ object SerialEmitter {
     private const val CLK_MASK = 0x10
     private const val DATA_MASK = 0x08
 
-    private const val HALF_PERIOD = 5L // Duração de cada transição de clock em milissegundos (Devido ao atraso na comunicação, pode ser desativado)
+    private const val HALF_PERIOD = 0L // Duração de cada transição de clock em milissegundos (Devido ao atraso na comunicação, pode ser desativado)
 
     // Inicia o objeto
     fun init() {

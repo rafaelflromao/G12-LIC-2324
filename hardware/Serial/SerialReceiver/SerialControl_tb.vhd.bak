@@ -1,0 +1,92 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity SerialControl_tb is
+end SerialControl_tb;
+
+architecture Behavioral of SerialControl_tb is
+    -- Constants
+    constant CLK_PERIOD : time := 10 ns;
+
+    -- Signals
+    signal clk, reset, nEnRx, accept, pFlag, dFlag, RX_err : std_logic := '0';
+    signal wr, init, dx_val : std_logic;
+
+    -- Component instantiation
+    component SerialControl is
+        port(
+            clk, reset, nEnRx, accept, pFlag, dFlag, RX_err : in std_logic;
+            wr, init, dx_val : out std_logic
+        );
+    end component;
+
+begin
+    -- Instantiate the DUT
+    DUT : SerialControl
+        port map (
+            clk => clk,
+            reset => reset,
+            nEnRx => nEnRx,
+            accept => accept,
+            pFlag => pFlag,
+            dFlag => dFlag,
+            RX_err => RX_err,
+            wr => wr,
+            init => init,
+            dx_val => dx_val
+        );
+
+    -- Clock process
+    clk_process : process
+    begin
+        while true loop
+            clk <= '0';
+            wait for CLK_PERIOD / 2;
+            clk <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process;
+
+    -- Stimulus process
+    stimulus_process : process
+    begin
+        -- Reset the system
+        reset <= '1';
+        wait for CLK_PERIOD * 2;
+        reset <= '0';
+        wait for CLK_PERIOD * 2;
+
+        -- Test scenario 1: Enable Reception and simulate receiving data
+        nEnRx <= '1';
+        wait for CLK_PERIOD * 2;
+        nEnRx <= '0';
+        wait for CLK_PERIOD * 2;
+        dFlag <= '1';
+        RX_err <= '0';
+        wait for CLK_PERIOD * 2;
+        dFlag <= '0';
+        pFlag <= '1';
+        RX_err <= '0';
+        wait for CLK_PERIOD * 2;
+        pFlag <= '0';
+        wait for CLK_PERIOD * 2;
+        accept <= '1';
+        wait for CLK_PERIOD * 2;
+        accept <= '0';
+
+        -- Test scenario 2: Simulate reception error
+        nEnRx <= '1';
+        wait for CLK_PERIOD * 2;
+        nEnRx <= '0';
+        wait for CLK_PERIOD * 2;
+        dFlag <= '1';
+        RX_err <= '0';
+        wait for CLK_PERIOD * 2;
+        dFlag <= '0';
+        pFlag <= '1';
+        RX_err <= '1';
+        wait for CLK_PERIOD * 2;
+        pFlag <= '0';
+        wait for CLK_PERIOD * 2;
+    end process;
+end Behavioral;

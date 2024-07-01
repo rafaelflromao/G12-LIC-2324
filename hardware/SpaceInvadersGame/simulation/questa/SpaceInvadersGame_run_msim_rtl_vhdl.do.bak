@@ -1,0 +1,31 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/reg_4bit.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/FFD.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/dec2hex.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/dec_3_8.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputRegister.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RAM.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/MAC.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RBC.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter4.vhd}
+

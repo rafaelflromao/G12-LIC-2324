@@ -68,7 +68,7 @@ begin
    );
 	
 	U2: SerialControl port map(
-		clk => clk, reset => reset, init => init, nEnRx => nSS, accept => accept, pFlag => pFlag and not sclk, dFlag => dFlag and not sclk, RX_err => rxerror, wr => wr, dx_val => dx_val
+		clk => clk, reset => reset, init => init, nEnRx => nSS, accept => accept, pFlag => pFlag, dFlag => dFlag, RX_err => rxerror, wr => wr, dx_val => dx_val
    );
 	
 	U3: ShiftRegister generic map (
@@ -80,13 +80,11 @@ begin
 	U4: comparator generic map (data_width => 4)
 		port map(
 			A => std_logic_vector(to_unsigned(data_width + 1, 4)), B => count_b,
-			Eq => pFlagBuf
+			Eq => pFlag
 		);
 	U5: comparator generic map (data_width => 4)
 		port map(
 			A => std_logic_vector(to_unsigned(data_width, 4)), B => count_b,
-			Eq => dFlagBuf
+			Eq => dFlag
 		);
-	pFlag <=  pFlagBuf and not sclk;
-	dFlag <=  dFlagBuf and not sclk;
 end Structural;

@@ -9,18 +9,17 @@ entity SerialControl is
 end entity SerialControl;
 
 architecture Behavioral of SerialControl is
-	signal nEnRx_reg : std_logic;
-
     type STATE_TYPE is (IDLE, RECEIVING_INIT, RECEIVING, RECEIVED, SEND_WAIT);
     signal CurrentState, NextState : STATE_TYPE := IDLE;
 begin
 
-	 process (clk, reset)
+    -- State Transition Process
+    process (clk, reset)
     begin
         if reset = '1' then
-            currentState <= IDLE;
+            CurrentState <= IDLE;
         elsif rising_edge(clk) then
-            currentState <= NextState;
+            CurrentState <= NextState;
         end if;
     end process;
 
@@ -28,27 +27,41 @@ begin
     process (CurrentState, nEnRx, accept, pFlag, dFlag, RX_err)
     begin
             case CurrentState is
-					when IDLE =>
-						if nEnRx_reg = '1' then
-							NextState <= RECEIVING;
-						end if;
-						
 					when RECEIVING =>
-						if dFlag = '1' then
+						if nEnRx = '1' then
+							NextState <= IDLE;
+						elsif dFlag = '1' then
 							NextState <= RECEIVED;
+						else
+							NextState <= RECEIVING;
 						end if;
 					
 					when RECEIVED =>
-						if pFlag = '1' then
+						if nEnRx = '1' then
+							NextState <= IDLE;
+						elsif pFlag = '1' then
 							if RX_err = '0' then
 								NextState <= SEND_WAIT;
 							else
 								NextState <= IDLE;
 							end if;
+						else
+							NextState <= RECEIVED;
 						end if;
 					
 					when SEND_WAIT =>
-						if accept = '1' then
+						if nEnRx = '1' then
+							NextState <= IDLE;
+						elsif accept = '1' then
+							NextState <= IDLE;
+						else
+							NextState <= SEND_WAIT;
+						end if;
+					
+					when IDLE =>
+						if nEnRx = '0' then
+							NextState <= RECEIVING;
+						else
 							NextState <= IDLE;
 						end if;
 						

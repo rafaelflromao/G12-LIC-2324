@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpaceInvadersGame
-Tue Jun 25 19:52:44 2024
+Fri Jun 28 20:31:21 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -25,63 +25,62 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  17. Registers Removed During Synthesis
  18. General Register Statistics
  19. Inverted Register Statistics
- 20. Multiplexer Restructuring Statistics (Restructuring Performed)
- 21. Parameter Settings for User Entity Instance: UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst
- 22. Parameter Settings for User Entity Instance: SerialController:SLCDC
- 23. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0
- 24. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|counter:U0
- 25. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|ShiftRegister:U3
- 26. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|comparator:U4
- 27. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|comparator:U5
- 28. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialDispatcher:U1
- 29. Parameter Settings for User Entity Instance: SerialController:SLCDC|ClockDivider:U2
- 30. Parameter Settings for User Entity Instance: SerialController:SSC
- 31. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0
- 32. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|counter:U0
- 33. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|ShiftRegister:U3
- 34. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|comparator:U4
- 35. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|comparator:U5
- 36. Parameter Settings for User Entity Instance: SerialController:SSC|SerialDispatcher:U1
- 37. Parameter Settings for User Entity Instance: SerialController:SSC|ClockDivider:U2
- 38. Parameter Settings for User Entity Instance: KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|counter:U0
- 39. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0
- 40. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U1
- 41. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U2
- 42. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|RAM:U2
- 43. Parameter Settings for User Entity Instance: KeyboardReader:KBD|ClockDivider:U3
- 44. Port Connectivity Checks: "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U1"
- 45. Port Connectivity Checks: "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0"
- 46. Port Connectivity Checks: "KeyboardReader:KBD|RingBuffer:U1|mac:U1"
- 47. Port Connectivity Checks: "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|dec2_4:U2"
- 48. Port Connectivity Checks: "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|counter:U0"
- 49. Port Connectivity Checks: "KeyboardReader:KBD"
- 50. Port Connectivity Checks: "scoreDisplay:Score|FFD:clear_reg"
- 51. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:5:out_reg"
- 52. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:5:in_reg"
- 53. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:4:out_reg"
- 54. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:4:in_reg"
- 55. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:3:out_reg"
- 56. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:3:in_reg"
- 57. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:2:out_reg"
- 58. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:2:in_reg"
- 59. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:1:out_reg"
- 60. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:1:in_reg"
- 61. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:0:out_reg"
- 62. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:0:in_reg"
- 63. Port Connectivity Checks: "scoreDisplay:Score|dec_3_8:decoder"
- 64. Port Connectivity Checks: "SerialController:SSC|SerialReceiver:U0|comparator:U5"
- 65. Port Connectivity Checks: "SerialController:SSC|SerialReceiver:U0|comparator:U4"
- 66. Port Connectivity Checks: "SerialController:SSC|SerialReceiver:U0|counter:U0"
- 67. Port Connectivity Checks: "SerialController:SSC"
- 68. Port Connectivity Checks: "SerialController:SLCDC|SerialReceiver:U0|comparator:U5"
- 69. Port Connectivity Checks: "SerialController:SLCDC|SerialReceiver:U0|comparator:U4"
- 70. Port Connectivity Checks: "SerialController:SLCDC|SerialReceiver:U0|counter:U0"
- 71. Port Connectivity Checks: "SerialController:SLCDC"
- 72. Port Connectivity Checks: "UsbPort:UsbPortC"
- 73. Virtual JTAG Settings
- 74. Post-Synthesis Netlist Statistics for Top Partition
- 75. Elapsed Time Per Partition
- 76. Analysis & Synthesis Messages
+ 20. Parameter Settings for User Entity Instance: UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst
+ 21. Parameter Settings for User Entity Instance: SerialController:SLCDC
+ 22. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0
+ 23. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|counter:U0
+ 24. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|ShiftRegister:U3
+ 25. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|comparator:U4
+ 26. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialReceiver:U0|comparator:U5
+ 27. Parameter Settings for User Entity Instance: SerialController:SLCDC|SerialDispatcher:U1
+ 28. Parameter Settings for User Entity Instance: SerialController:SLCDC|ClockDivider:U2
+ 29. Parameter Settings for User Entity Instance: SerialController:SSC
+ 30. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0
+ 31. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|counter:U0
+ 32. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|ShiftRegister:U3
+ 33. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|comparator:U4
+ 34. Parameter Settings for User Entity Instance: SerialController:SSC|SerialReceiver:U0|comparator:U5
+ 35. Parameter Settings for User Entity Instance: SerialController:SSC|SerialDispatcher:U1
+ 36. Parameter Settings for User Entity Instance: SerialController:SSC|ClockDivider:U2
+ 37. Parameter Settings for User Entity Instance: KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|counter:U0
+ 38. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0
+ 39. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U1
+ 40. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U2
+ 41. Parameter Settings for User Entity Instance: KeyboardReader:KBD|RingBuffer:U1|RAM:U2
+ 42. Parameter Settings for User Entity Instance: KeyboardReader:KBD|ClockDivider:U3
+ 43. Port Connectivity Checks: "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U1"
+ 44. Port Connectivity Checks: "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0"
+ 45. Port Connectivity Checks: "KeyboardReader:KBD|RingBuffer:U1|mac:U1"
+ 46. Port Connectivity Checks: "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|dec2_4:U2"
+ 47. Port Connectivity Checks: "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|counter:U0"
+ 48. Port Connectivity Checks: "KeyboardReader:KBD"
+ 49. Port Connectivity Checks: "scoreDisplay:Score|FFD:clear_reg"
+ 50. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:5:out_reg"
+ 51. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:5:in_reg"
+ 52. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:4:out_reg"
+ 53. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:4:in_reg"
+ 54. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:3:out_reg"
+ 55. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:3:in_reg"
+ 56. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:2:out_reg"
+ 57. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:2:in_reg"
+ 58. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:1:out_reg"
+ 59. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:1:in_reg"
+ 60. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:0:out_reg"
+ 61. Port Connectivity Checks: "scoreDisplay:Score|reg_4bit:\circuit_gen:0:in_reg"
+ 62. Port Connectivity Checks: "scoreDisplay:Score|dec_3_8:decoder"
+ 63. Port Connectivity Checks: "SerialController:SSC|SerialReceiver:U0|comparator:U5"
+ 64. Port Connectivity Checks: "SerialController:SSC|SerialReceiver:U0|comparator:U4"
+ 65. Port Connectivity Checks: "SerialController:SSC|SerialReceiver:U0|counter:U0"
+ 66. Port Connectivity Checks: "SerialController:SSC"
+ 67. Port Connectivity Checks: "SerialController:SLCDC|SerialReceiver:U0|comparator:U5"
+ 68. Port Connectivity Checks: "SerialController:SLCDC|SerialReceiver:U0|comparator:U4"
+ 69. Port Connectivity Checks: "SerialController:SLCDC|SerialReceiver:U0|counter:U0"
+ 70. Port Connectivity Checks: "SerialController:SLCDC"
+ 71. Port Connectivity Checks: "UsbPort:UsbPortC"
+ 72. Virtual JTAG Settings
+ 73. Post-Synthesis Netlist Statistics for Top Partition
+ 74. Elapsed Time Per Partition
+ 75. Analysis & Synthesis Messages
 
 
 
@@ -108,15 +107,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 25 19:52:44 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 28 20:31:21 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; SpaceInvadersGame                              ;
 ; Top-level Entity Name              ; SpaceInvadersGame                              ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 574                                            ;
-;     Total combinational functions  ; 505                                            ;
-;     Dedicated logic registers      ; 265                                            ;
-; Total registers                    ; 265                                            ;
+; Total logic elements               ; 573                                            ;
+;     Total combinational functions  ; 502                                            ;
+;     Dedicated logic registers      ; 267                                            ;
+; Total registers                    ; 267                                            ;
 ; Total pins                         ; 82                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -290,20 +289,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 574                      ;
+; Estimated Total logic elements              ; 573                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 505                      ;
+; Total combinational functions               ; 502                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 179                      ;
-;     -- 3 input functions                    ; 119                      ;
-;     -- <=2 input functions                  ; 207                      ;
+;     -- 4 input functions                    ; 175                      ;
+;     -- 3 input functions                    ; 123                      ;
+;     -- <=2 input functions                  ; 204                      ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 433                      ;
+;     -- normal mode                          ; 430                      ;
 ;     -- arithmetic mode                      ; 72                       ;
 ;                                             ;                          ;
-; Total registers                             ; 265                      ;
-;     -- Dedicated logic registers            ; 265                      ;
+; Total registers                             ; 267                      ;
+;     -- Dedicated logic registers            ; 267                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 82                       ;
@@ -312,8 +311,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 107                      ;
-; Total fan-out                               ; 2324                     ;
-; Average fan-out                             ; 2.46                     ;
+; Total fan-out                               ; 2312                     ;
+; Average fan-out                             ; 2.45                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -322,8 +321,8 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                           ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |SpaceInvadersGame                                                                                                                      ; 505 (10)            ; 265 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 82   ; 0            ; 0          ; |SpaceInvadersGame                                                                                                                                                                                                                                                                                                                                            ; SpaceInvadersGame                 ; work         ;
-;    |KeyboardReader:KBD|                                                                                                                 ; 146 (0)             ; 55 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD                                                                                                                                                                                                                                                                                                                         ; KeyboardReader                    ; work         ;
+; |SpaceInvadersGame                                                                                                                      ; 502 (10)            ; 267 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 82   ; 0            ; 0          ; |SpaceInvadersGame                                                                                                                                                                                                                                                                                                                                            ; SpaceInvadersGame                 ; work         ;
+;    |KeyboardReader:KBD|                                                                                                                 ; 145 (0)             ; 55 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD                                                                                                                                                                                                                                                                                                                         ; KeyboardReader                    ; work         ;
 ;       |ClockDivider:U3|                                                                                                                 ; 48 (48)             ; 31 (31)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|ClockDivider:U3                                                                                                                                                                                                                                                                                                         ; ClockDivider                      ; work         ;
 ;       |KeyDecode:U0|                                                                                                                    ; 12 (0)              ; 5 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0                                                                                                                                                                                                                                                                                                            ; KeyDecode                         ; work         ;
 ;          |KeyControl:U1|                                                                                                                ; 2 (2)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1                                                                                                                                                                                                                                                                                              ; KeyControl                        ; work         ;
@@ -334,28 +333,30 @@ https://fpgasoftware.intel.com/eula.
 ;       |OutputBuffer:U2|                                                                                                                 ; 5 (0)               ; 6 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2                                                                                                                                                                                                                                                                                                         ; OutputBuffer                      ; work         ;
 ;          |BufferControl:U1|                                                                                                             ; 5 (5)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2|BufferControl:U1                                                                                                                                                                                                                                                                                        ; BufferControl                     ; work         ;
 ;          |OutputRegister:U0|                                                                                                            ; 0 (0)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2|OutputRegister:U0                                                                                                                                                                                                                                                                                       ; OutputRegister                    ; work         ;
-;       |RingBuffer:U1|                                                                                                                   ; 81 (0)              ; 13 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1                                                                                                                                                                                                                                                                                                           ; RingBuffer                        ; work         ;
+;       |RingBuffer:U1|                                                                                                                   ; 80 (0)              ; 13 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1                                                                                                                                                                                                                                                                                                           ; RingBuffer                        ; work         ;
 ;          |RAM:U2|                                                                                                                       ; 52 (52)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|RAM:U2                                                                                                                                                                                                                                                                                                    ; RAM                               ; work         ;
-;          |mac:U1|                                                                                                                       ; 20 (8)              ; 10 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1                                                                                                                                                                                                                                                                                                    ; mac                               ; work         ;
+;          |mac:U1|                                                                                                                       ; 19 (7)              ; 10 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1                                                                                                                                                                                                                                                                                                    ; mac                               ; work         ;
 ;             |counter:U0|                                                                                                                ; 4 (4)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
 ;             |counter:U1|                                                                                                                ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U1                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
 ;             |counter:U2|                                                                                                                ; 5 (5)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U2                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
 ;          |rbc:U0|                                                                                                                       ; 9 (9)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|rbc:U0                                                                                                                                                                                                                                                                                                    ; rbc                               ; work         ;
-;    |SerialController:SLCDC|                                                                                                             ; 68 (0)              ; 55 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC                                                                                                                                                                                                                                                                                                                     ; SerialController                  ; work         ;
+;    |SerialController:SLCDC|                                                                                                             ; 67 (0)              ; 56 (3)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC                                                                                                                                                                                                                                                                                                                     ; SerialController                  ; work         ;
 ;       |ClockDivider:U2|                                                                                                                 ; 36 (36)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|ClockDivider:U2                                                                                                                                                                                                                                                                                                     ; ClockDivider                      ; work         ;
 ;       |SerialDispatcher:U1|                                                                                                             ; 12 (12)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialDispatcher:U1                                                                                                                                                                                                                                                                                                 ; SerialDispatcher                  ; work         ;
-;       |SerialReceiver:U0|                                                                                                               ; 20 (1)              ; 18 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0                                                                                                                                                                                                                                                                                                   ; SerialReceiver                    ; work         ;
+;       |SerialReceiver:U0|                                                                                                               ; 19 (0)              ; 17 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0                                                                                                                                                                                                                                                                                                   ; SerialReceiver                    ; work         ;
 ;          |ParityCheck:U1|                                                                                                               ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|ParityCheck:U1                                                                                                                                                                                                                                                                                    ; ParityCheck                       ; work         ;
-;          |SerialControl:U2|                                                                                                             ; 14 (14)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2                                                                                                                                                                                                                                                                                  ; SerialControl                     ; work         ;
+;          |SerialControl:U2|                                                                                                             ; 13 (13)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2                                                                                                                                                                                                                                                                                  ; SerialControl                     ; work         ;
 ;          |ShiftRegister:U3|                                                                                                             ; 0 (0)               ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|ShiftRegister:U3                                                                                                                                                                                                                                                                                  ; ShiftRegister                     ; work         ;
+;          |comparator:U5|                                                                                                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|comparator:U5                                                                                                                                                                                                                                                                                     ; comparator                        ; work         ;
 ;          |counter:U0|                                                                                                                   ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|counter:U0                                                                                                                                                                                                                                                                                        ; counter                           ; work         ;
-;    |SerialController:SSC|                                                                                                               ; 43 (0)              ; 20 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC                                                                                                                                                                                                                                                                                                                       ; SerialController                  ; work         ;
+;    |SerialController:SSC|                                                                                                               ; 42 (0)              ; 21 (2)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC                                                                                                                                                                                                                                                                                                                       ; SerialController                  ; work         ;
 ;       |ClockDivider:U2|                                                                                                                 ; 12 (12)             ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|ClockDivider:U2                                                                                                                                                                                                                                                                                                       ; ClockDivider                      ; work         ;
 ;       |SerialDispatcher:U1|                                                                                                             ; 11 (11)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialDispatcher:U1                                                                                                                                                                                                                                                                                                   ; SerialDispatcher                  ; work         ;
-;       |SerialReceiver:U0|                                                                                                               ; 20 (2)              ; 15 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0                                                                                                                                                                                                                                                                                                     ; SerialReceiver                    ; work         ;
+;       |SerialReceiver:U0|                                                                                                               ; 19 (0)              ; 15 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0                                                                                                                                                                                                                                                                                                     ; SerialReceiver                    ; work         ;
 ;          |ParityCheck:U1|                                                                                                               ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|ParityCheck:U1                                                                                                                                                                                                                                                                                      ; ParityCheck                       ; work         ;
 ;          |SerialControl:U2|                                                                                                             ; 13 (13)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|SerialControl:U2                                                                                                                                                                                                                                                                                    ; SerialControl                     ; work         ;
 ;          |ShiftRegister:U3|                                                                                                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|ShiftRegister:U3                                                                                                                                                                                                                                                                                    ; ShiftRegister                     ; work         ;
+;          |comparator:U5|                                                                                                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|comparator:U5                                                                                                                                                                                                                                                                                       ; comparator                        ; work         ;
 ;          |counter:U0|                                                                                                                   ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|counter:U0                                                                                                                                                                                                                                                                                          ; counter                           ; work         ;
 ;    |scoreDisplay:Score|                                                                                                                 ; 117 (0)             ; 49 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|scoreDisplay:Score                                                                                                                                                                                                                                                                                                                         ; scoreDisplay                      ; work         ;
 ;       |FFD:clear_reg|                                                                                                                   ; 2 (2)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|scoreDisplay:Score|FFD:clear_reg                                                                                                                                                                                                                                                                                                           ; FFD                               ; work         ;
@@ -613,48 +614,48 @@ Encoding Type: Safe Gray Encoding
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                  ;
-+-------------------------------------------------------------------+---------------------------------------------------------------------------------+
-; Register name                                                     ; Reason for Removal                                                              ;
-+-------------------------------------------------------------------+---------------------------------------------------------------------------------+
-; SerialController:SSC|SerialReceiver:U0|SerialControl:U2|nEnRx_reg ; Merged with SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2|nEnRx_reg ;
-; SerialController:SSC|ClockDivider:U2|count[31]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[31]                    ;
-; SerialController:SSC|ClockDivider:U2|count[30]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[30]                    ;
-; SerialController:SSC|ClockDivider:U2|count[29]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[29]                    ;
-; SerialController:SSC|ClockDivider:U2|count[28]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[28]                    ;
-; SerialController:SSC|ClockDivider:U2|count[27]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[27]                    ;
-; SerialController:SSC|ClockDivider:U2|count[26]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[26]                    ;
-; SerialController:SSC|ClockDivider:U2|count[25]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[25]                    ;
-; SerialController:SSC|ClockDivider:U2|count[24]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[24]                    ;
-; SerialController:SSC|ClockDivider:U2|count[23]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[23]                    ;
-; SerialController:SSC|ClockDivider:U2|count[22]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[22]                    ;
-; SerialController:SSC|ClockDivider:U2|count[21]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[21]                    ;
-; SerialController:SSC|ClockDivider:U2|count[20]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[20]                    ;
-; SerialController:SSC|ClockDivider:U2|count[19]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[19]                    ;
-; SerialController:SSC|ClockDivider:U2|count[18]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[18]                    ;
-; SerialController:SSC|ClockDivider:U2|count[17]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[17]                    ;
-; SerialController:SSC|ClockDivider:U2|count[16]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[16]                    ;
-; SerialController:SSC|ClockDivider:U2|count[15]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[15]                    ;
-; SerialController:SSC|ClockDivider:U2|count[14]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[14]                    ;
-; SerialController:SSC|ClockDivider:U2|count[13]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[13]                    ;
-; SerialController:SSC|ClockDivider:U2|count[12]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[12]                    ;
-; SerialController:SSC|ClockDivider:U2|count[11]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[11]                    ;
-; SerialController:SSC|ClockDivider:U2|count[10]                    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[10]                    ;
-; SerialController:SSC|ClockDivider:U2|count[9]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[9]                     ;
-; SerialController:SSC|ClockDivider:U2|count[8]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[8]                     ;
-; SerialController:SSC|ClockDivider:U2|count[7]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[7]                     ;
-; SerialController:SSC|ClockDivider:U2|count[6]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[6]                     ;
-; SerialController:SSC|ClockDivider:U2|count[5]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[5]                     ;
-; SerialController:SSC|ClockDivider:U2|count[4]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[4]                     ;
-; SerialController:SSC|ClockDivider:U2|count[1]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[1]                     ;
-; SerialController:SSC|ClockDivider:U2|count[0]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[0]                     ;
-; SerialController:SSC|ClockDivider:U2|count[3]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[3]                     ;
-; SerialController:SSC|ClockDivider:U2|count[2]                     ; Merged with SerialController:SLCDC|ClockDivider:U2|count[2]                     ;
-; KeyboardReader:KBD|ClockDivider:U3|count[0]                       ; Merged with SerialController:SLCDC|ClockDivider:U2|count[0]                     ;
-; KeyboardReader:KBD|ClockDivider:U3|count[1]                       ; Merged with SerialController:SLCDC|ClockDivider:U2|count[1]                     ;
-; Total Number of Removed Registers = 35                            ;                                                                                 ;
-+-------------------------------------------------------------------+---------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                            ;
++------------------------------------------------+--------------------------------------------------------------+
+; Register name                                  ; Reason for Removal                                           ;
++------------------------------------------------+--------------------------------------------------------------+
+; SerialController:SSC|ClockDivider:U2|count[31] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[31] ;
+; SerialController:SSC|ClockDivider:U2|count[30] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[30] ;
+; SerialController:SSC|ClockDivider:U2|count[29] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[29] ;
+; SerialController:SSC|ClockDivider:U2|count[28] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[28] ;
+; SerialController:SSC|ClockDivider:U2|count[27] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[27] ;
+; SerialController:SSC|ClockDivider:U2|count[26] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[26] ;
+; SerialController:SSC|ClockDivider:U2|count[25] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[25] ;
+; SerialController:SSC|ClockDivider:U2|count[24] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[24] ;
+; SerialController:SSC|ClockDivider:U2|count[23] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[23] ;
+; SerialController:SSC|ClockDivider:U2|count[22] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[22] ;
+; SerialController:SSC|ClockDivider:U2|count[21] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[21] ;
+; SerialController:SSC|ClockDivider:U2|count[20] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[20] ;
+; SerialController:SSC|ClockDivider:U2|count[19] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[19] ;
+; SerialController:SSC|ClockDivider:U2|count[18] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[18] ;
+; SerialController:SSC|ClockDivider:U2|count[17] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[17] ;
+; SerialController:SSC|ClockDivider:U2|count[16] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[16] ;
+; SerialController:SSC|ClockDivider:U2|count[15] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[15] ;
+; SerialController:SSC|ClockDivider:U2|count[14] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[14] ;
+; SerialController:SSC|ClockDivider:U2|count[13] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[13] ;
+; SerialController:SSC|ClockDivider:U2|count[12] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[12] ;
+; SerialController:SSC|ClockDivider:U2|count[11] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[11] ;
+; SerialController:SSC|ClockDivider:U2|count[10] ; Merged with SerialController:SLCDC|ClockDivider:U2|count[10] ;
+; SerialController:SSC|ClockDivider:U2|count[9]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[9]  ;
+; SerialController:SSC|ClockDivider:U2|count[8]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[8]  ;
+; SerialController:SSC|ClockDivider:U2|count[7]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[7]  ;
+; SerialController:SSC|ClockDivider:U2|count[6]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[6]  ;
+; SerialController:SSC|ClockDivider:U2|count[5]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[5]  ;
+; SerialController:SSC|ClockDivider:U2|count[4]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[4]  ;
+; SerialController:SSC|ClockDivider:U2|count[1]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[1]  ;
+; SerialController:SSC|ClockDivider:U2|count[0]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[0]  ;
+; SerialController:SSC|ClockDivider:U2|count[3]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[3]  ;
+; SerialController:SSC|ClockDivider:U2|count[2]  ; Merged with SerialController:SLCDC|ClockDivider:U2|count[2]  ;
+; SerialController:SSC|sdxSync                   ; Merged with SerialController:SLCDC|sdxSync                   ;
+; KeyboardReader:KBD|ClockDivider:U3|count[0]    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[0]  ;
+; KeyboardReader:KBD|ClockDivider:U3|count[1]    ; Merged with SerialController:SLCDC|ClockDivider:U2|count[1]  ;
+; Total Number of Removed Registers = 35         ;                                                              ;
++------------------------------------------------+--------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -662,10 +663,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 265   ;
+; Total registers                              ; 267   ;
 ; Number of registers using Synchronous Clear  ; 12    ;
 ; Number of registers using Synchronous Load   ; 10    ;
-; Number of registers using Asynchronous Clear ; 53    ;
+; Number of registers using Asynchronous Clear ; 47    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 129   ;
 ; Number of registers using Preset             ; 0     ;
@@ -732,18 +733,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
 ; Total number of inverted registers = 53                                                                                                                                                                                                                                                                                         ;         ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------+
-; 10:1               ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|SerialControl:U2|NextState.RECEIVED    ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|SerialControl:U2|NextState.IDLE        ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2|NextState.RECEIVED  ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2|NextState.SEND_WAIT ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------+
@@ -1258,13 +1247,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+-------------------------+
 
 
-+---------------------------------------------------+
-; Port Connectivity Checks: "UsbPort:UsbPortC"      ;
-+-----------------+-------+----------+--------------+
-; Port            ; Type  ; Severity ; Details      ;
-+-----------------+-------+----------+--------------+
-; inputport[7..5] ; Input ; Info     ; Stuck at GND ;
-+-----------------+-------+----------+--------------+
++------------------------------------------------+
+; Port Connectivity Checks: "UsbPort:UsbPortC"   ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; inputport[5] ; Input ; Info     ; Stuck at GND ;
++--------------+-------+----------+--------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1282,24 +1271,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 121                         ;
-; cycloneiii_ff         ; 179                         ;
-;     CLR               ; 18                          ;
+; cycloneiii_ff         ; 181                         ;
+;     CLR               ; 12                          ;
 ;     ENA               ; 69                          ;
 ;     ENA CLR           ; 2                           ;
-;     plain             ; 90                          ;
-; cycloneiii_lcell_comb ; 386                         ;
+;     plain             ; 98                          ;
+; cycloneiii_lcell_comb ; 383                         ;
 ;     arith             ; 64                          ;
 ;         2 data inputs ; 61                          ;
 ;         3 data inputs ; 3                           ;
-;     normal            ; 322                         ;
+;     normal            ; 319                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 35                          ;
-;         2 data inputs ; 74                          ;
-;         3 data inputs ; 84                          ;
-;         4 data inputs ; 127                         ;
+;         2 data inputs ; 71                          ;
+;         3 data inputs ; 88                          ;
+;         4 data inputs ; 123                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.63                        ;
+; Average LUT depth     ; 2.62                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1318,13 +1307,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Jun 25 19:52:29 2024
+    Info: Processing started: Fri Jun 28 20:31:07 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpaceInvadersGame -c SpaceInvadersGame
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 32 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file spaceinvadersgame.vhd
-    Info (12022): Found design unit 1: SpaceInvadersGame-Structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 15
-    Info (12023): Found entity 1: SpaceInvadersGame File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 4
+    Info (12022): Found design unit 1: SpaceInvadersGame-Structural File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 16
+    Info (12023): Found entity 1: SpaceInvadersGame File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/zebon/downloads/lic/g12-lic-2324/hardware/usbport/usbport.vhd
     Info (12022): Found design unit 1: UsbPort-bdf_type File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 33
     Info (12023): Found entity 1: UsbPort File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 25
@@ -1458,8 +1447,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: counter-Behavioral File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd Line: 13
     Info (12023): Found entity 1: counter File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd Line: 5
 Info (12127): Elaborating entity "SpaceInvadersGame" for the top level hierarchy
-Warning (10873): Using initial value X (don't care) for net "kbd_output[7..5]" at SpaceInvadersGame.vhd(67) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 67
-Info (12128): Elaborating entity "UsbPort" for hierarchy "UsbPort:UsbPortC" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 70
+Info (12128): Elaborating entity "UsbPort" for hierarchy "UsbPort:UsbPortC" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 71
 Info (12128): Elaborating entity "sld_virtual_jtag" for hierarchy "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 80
 Info (12130): Elaborated megafunction instantiation "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 80
 Info (12133): Instantiated megafunction "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst" with the following parameter: File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd Line: 80
@@ -1476,16 +1464,14 @@ Info (12128): Elaborating entity "sld_virtual_jtag_impl" for hierarchy "UsbPort:
 Info (12131): Elaborated megafunction instantiation "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst", which is child of megafunction instantiation "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 152
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 415
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "UsbPort:UsbPortC|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
-Info (12128): Elaborating entity "SerialController" for hierarchy "SerialController:SLCDC" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 75
-Info (12128): Elaborating entity "SerialReceiver" for hierarchy "SerialController:SLCDC|SerialReceiver:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 57
+Info (12128): Elaborating entity "SerialController" for hierarchy "SerialController:SLCDC" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 76
+Info (12128): Elaborating entity "SerialReceiver" for hierarchy "SerialController:SLCDC|SerialReceiver:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 59
 Info (12128): Elaborating entity "counter" for hierarchy "SerialController:SLCDC|SerialReceiver:U0|counter:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 62
 Info (12128): Elaborating entity "ParityCheck" for hierarchy "SerialController:SLCDC|SerialReceiver:U0|ParityCheck:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 66
 Info (12128): Elaborating entity "SerialControl" for hierarchy "SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 70
-Warning (10492): VHDL Process Statement warning at SerialControl.vhd(29): signal "nEnRx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 29
-Warning (10492): VHDL Process Statement warning at SerialControl.vhd(63): signal "nEnRx_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 63
 Info (12128): Elaborating entity "ShiftRegister" for hierarchy "SerialController:SLCDC|SerialReceiver:U0|ShiftRegister:U3" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 74
 Info (12128): Elaborating entity "comparator" for hierarchy "SerialController:SLCDC|SerialReceiver:U0|comparator:U4" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 80
-Info (12128): Elaborating entity "SerialDispatcher" for hierarchy "SerialController:SLCDC|SerialDispatcher:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 65
+Info (12128): Elaborating entity "SerialDispatcher" for hierarchy "SerialController:SLCDC|SerialDispatcher:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 67
 Warning (10492): VHDL Process Statement warning at SerialDispatcher.vhd(55): signal "dval_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 55
 Warning (10492): VHDL Process Statement warning at SerialDispatcher.vhd(56): signal "Din" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 56
 Warning (10631): VHDL Process Statement warning at SerialDispatcher.vhd(43): inferring latch(es) for signal or variable "Din_b", which holds its previous value in one or more paths through the process File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
@@ -1498,12 +1484,12 @@ Info (10041): Inferred latch for "Din_b[5]" at SerialDispatcher.vhd(43) File: C:
 Info (10041): Inferred latch for "Din_b[6]" at SerialDispatcher.vhd(43) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
 Info (10041): Inferred latch for "Din_b[7]" at SerialDispatcher.vhd(43) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
 Info (10041): Inferred latch for "Din_b[8]" at SerialDispatcher.vhd(43) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
-Info (12128): Elaborating entity "ClockDivider" for hierarchy "SerialController:SLCDC|ClockDivider:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 73
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "SerialController:SLCDC|ClockDivider:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 75
 Warning (10492): VHDL Process Statement warning at ClockDivider.vhd(29): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/ClockDivider.vhd Line: 29
-Info (12128): Elaborating entity "SerialController" for hierarchy "SerialController:SSC" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 90
-Info (12128): Elaborating entity "SerialReceiver" for hierarchy "SerialController:SSC|SerialReceiver:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 57
+Info (12128): Elaborating entity "SerialController" for hierarchy "SerialController:SSC" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 91
+Info (12128): Elaborating entity "SerialReceiver" for hierarchy "SerialController:SSC|SerialReceiver:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 59
 Info (12128): Elaborating entity "ShiftRegister" for hierarchy "SerialController:SSC|SerialReceiver:U0|ShiftRegister:U3" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd Line: 74
-Info (12128): Elaborating entity "SerialDispatcher" for hierarchy "SerialController:SSC|SerialDispatcher:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 65
+Info (12128): Elaborating entity "SerialDispatcher" for hierarchy "SerialController:SSC|SerialDispatcher:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd Line: 67
 Warning (10492): VHDL Process Statement warning at SerialDispatcher.vhd(55): signal "dval_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 55
 Warning (10492): VHDL Process Statement warning at SerialDispatcher.vhd(56): signal "Din" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 56
 Warning (10631): VHDL Process Statement warning at SerialDispatcher.vhd(43): inferring latch(es) for signal or variable "Din_b", which holds its previous value in one or more paths through the process File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
@@ -1514,21 +1500,22 @@ Info (10041): Inferred latch for "Din_b[3]" at SerialDispatcher.vhd(43) File: C:
 Info (10041): Inferred latch for "Din_b[4]" at SerialDispatcher.vhd(43) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
 Info (10041): Inferred latch for "Din_b[5]" at SerialDispatcher.vhd(43) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
 Info (10041): Inferred latch for "Din_b[6]" at SerialDispatcher.vhd(43) File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 43
-Info (12128): Elaborating entity "scoreDisplay" for hierarchy "scoreDisplay:Score" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 102
+Info (12128): Elaborating entity "scoreDisplay" for hierarchy "scoreDisplay:Score" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 103
 Info (12128): Elaborating entity "dec_3_8" for hierarchy "scoreDisplay:Score|dec_3_8:decoder" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd Line: 77
 Info (12128): Elaborating entity "reg_4bit" for hierarchy "scoreDisplay:Score|reg_4bit:\circuit_gen:0:in_reg" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd Line: 80
 Info (12128): Elaborating entity "FFD" for hierarchy "scoreDisplay:Score|reg_4bit:\circuit_gen:0:in_reg|FFD:u0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/reg_4bit.vhd Line: 42
 Info (12128): Elaborating entity "dec2hex" for hierarchy "scoreDisplay:Score|dec2hex:\circuit_gen:0:hex_digit" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd Line: 82
-Info (12128): Elaborating entity "KeyboardReader" for hierarchy "KeyboardReader:KBD" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 114
+Info (12128): Elaborating entity "KeyboardReader" for hierarchy "KeyboardReader:KBD" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 115
 Info (12128): Elaborating entity "KeyDecode" for hierarchy "KeyboardReader:KBD|KeyDecode:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 54
 Info (12128): Elaborating entity "KeyScan" for hierarchy "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd Line: 36
 Info (12128): Elaborating entity "mux4" for hierarchy "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|mux4:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd Line: 47
 Info (12128): Elaborating entity "dec2_4" for hierarchy "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|dec2_4:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd Line: 48
 Info (12128): Elaborating entity "KeyControl" for hierarchy "KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd Line: 39
 Info (12128): Elaborating entity "RingBuffer" for hierarchy "KeyboardReader:KBD|RingBuffer:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 57
+Warning (10036): Verilog HDL or VHDL warning at RingBuffer.vhd(41): object "nclk" assigned a value but never read File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 41
 Info (12128): Elaborating entity "rbc" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|rbc:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 45
 Info (12128): Elaborating entity "mac" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|mac:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 49
-Info (12128): Elaborating entity "counter" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/MAC.vhd Line: 33
+Info (12128): Elaborating entity "counter" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/MAC.vhd Line: 30
 Info (12128): Elaborating entity "RAM" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|RAM:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 52
 Warning (10492): VHDL Process Statement warning at RAM.vhd(43): signal "ram" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RAM.vhd Line: 43
 Warning (10492): VHDL Process Statement warning at RAM.vhd(46): signal "din" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RAM.vhd Line: 46
@@ -1538,7 +1525,7 @@ Info (12128): Elaborating entity "BufferControl" for hierarchy "KeyboardReader:K
 Info (12128): Elaborating entity "ClockDivider" for hierarchy "KeyboardReader:KBD|ClockDivider:U3" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 63
 Warning (10492): VHDL Process Statement warning at ClockDivider.vhd(29): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/ClockDivider.vhd Line: 29
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2024.06.25.19:52:37 Progress: Loading slddd6c895e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2024.06.28.20:31:14 Progress: Loading slddd6c895e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1564,36 +1551,34 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/ip/s
 Info (284007): State machine "|SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2|BufferControl:U1|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd Line: 18
 Info (284007): State machine "|SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|rbc:U0|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RBC.vhd Line: 20
 Info (284007): State machine "|SpaceInvadersGame|SerialController:SSC|SerialDispatcher:U1|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 21
-Info (284007): State machine "|SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|SerialControl:U2|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 15
+Info (284007): State machine "|SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|SerialControl:U2|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 13
 Info (284007): State machine "|SpaceInvadersGame|SerialController:SLCDC|SerialDispatcher:U1|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 21
-Info (284007): State machine "|SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 15
+Info (284007): State machine "|SpaceInvadersGame|SerialController:SLCDC|SerialReceiver:U0|SerialControl:U2|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 13
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
-    Warning (13410): Pin "HEX1[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
-    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
-    Warning (13410): Pin "HEX3[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
-    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
-    Warning (13410): Pin "HEX5[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 9
+    Warning (13410): Pin "HEX1[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 9
+    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 9
+    Warning (13410): Pin "HEX3[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 9
+    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 9
+    Warning (13410): Pin "HEX5[7]" is stuck at VCC File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 9
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "inputPort[0]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[1]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[2]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[3]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[4]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[5]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[6]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-    Warning (15610): No output dependent on input pin "inputPort[7]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 7
-Info (21057): Implemented 666 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "inputPort[2]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+    Warning (15610): No output dependent on input pin "inputPort[3]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+    Warning (15610): No output dependent on input pin "inputPort[4]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+    Warning (15610): No output dependent on input pin "inputPort[5]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+    Warning (15610): No output dependent on input pin "inputPort[6]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+    Warning (15610): No output dependent on input pin "inputPort[7]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
+Info (21057): Implemented 665 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 70 output pins
-    Info (21061): Implemented 579 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
-    Info: Peak virtual memory: 4900 megabytes
-    Info: Processing ended: Tue Jun 25 19:52:44 2024
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:16
+    Info (21061): Implemented 578 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4896 megabytes
+    Info: Processing ended: Fri Jun 28 20:31:21 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:15
 
 

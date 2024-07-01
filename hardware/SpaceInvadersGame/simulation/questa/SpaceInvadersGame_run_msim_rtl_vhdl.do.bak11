@@ -5,6 +5,20 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/UsbPort/UsbPort.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialController.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialReceiver.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/Comparator.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ParityCheck.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/ShiftRegister.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/scoreDisplay.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/reg_4bit.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/FFD.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/dec2hex.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/ScoreDisplay/dec_3_8.vhd}
 vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd}
 vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/OutputBuffer.vhd}
 vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd}
@@ -21,9 +35,9 @@ vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Keyboard
 vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/ClockDivider.vhd}
 vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/counter.vhd}
 
-vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/KeyboardReader_tb.vhd}
+vcom -93 -work work {C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/../KeyboardReader/RingBuffer/RingBuffer_tb.vhd}
 
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  KeyboardReader_tb
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  RingBuffer_tb
 
 add wave *
 view structure

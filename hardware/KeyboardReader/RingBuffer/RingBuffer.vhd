@@ -38,7 +38,7 @@ architecture Structural of RingBuffer is
 		);
 	end component RAM;
 	
-	signal full, empty, selPG, Wr, incPut, incGet : std_logic;
+	signal full, empty, selPG, Wr, incPut, incGet, nclk : std_logic;
 	signal A : std_LOGIC_vector(2 downto 0);
 
 begin
@@ -52,4 +52,5 @@ begin
 	U2: ram port map (
 		address => A, wr => wr, din => D, dout => Q
 	);
+	nclk <= not clk;
 end Structural;

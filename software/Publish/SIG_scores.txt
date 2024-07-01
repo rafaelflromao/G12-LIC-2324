@@ -1,6 +1,8 @@
+123;A
 107;Pedro
 49;Diego
 44;Nuno
 28;Rui
 21;David
 11;Rogerio
+8;A

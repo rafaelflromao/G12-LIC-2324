@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
 
 entity SpaceInvadersGame is
     port(
@@ -92,7 +93,7 @@ begin
     ) port map(
         clk => clk, 
         reset => '0', 
-        nSS => inputBuf(0), 
+        nSS => inputBuf(1), 
         sdx => inputBuf(3), 
         sclk => inputBuf(4), 
         wr => set_score, 
@@ -122,6 +123,6 @@ begin
     );
 
     outputPort <= inputBuf;
-    outputBuf <= kbd_output;
+    outputBuf <= (kbd_output and "00011111") or (inputPort(1 downtO 0) & "000000" and "11000000");
 
 end Structural;

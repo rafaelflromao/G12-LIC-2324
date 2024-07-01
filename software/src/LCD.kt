@@ -25,13 +25,14 @@ object LCD {
     private const val ENTRY_MODE_SET = 0x06
     // Comando para ligar o mostrador.
     private const val DISPLAY_ON = 0x0C
-
+    // Comando para ligar o mostrador. (PISCAR)
+    private const val DISPLAY_ON_BLINK = 0x0F
     // Char data
     private const val CHAR_DATA_SIZE = 8
 
     // Caracteres personalizados
     const val SPACESHIP = '\u0000'
-
+    const val INVADER = '\u0001'
 
     private fun writeByteParallel(rs: Boolean, byte: Int) {
         // set RS
@@ -78,6 +79,7 @@ object LCD {
 
     private fun registerSymbols() {
         registerSymbol(SPACESHIP.code, intArrayOf(30, 24, 28, 31, 28, 24, 30, 0))
+        registerSymbol(INVADER.code, intArrayOf(31, 31, 21, 31, 31, 17, 17, 0))
     }
 
     fun initDisplay() {
@@ -113,8 +115,8 @@ object LCD {
         writeCMD(cmd)
     }
 
-    fun displayOn() {
-        writeCMD(DISPLAY_ON)
+    fun displayOn(blink: Boolean = false) {
+        writeCMD(if(!blink) DISPLAY_ON else DISPLAY_ON_BLINK)
     }
 
     fun displayOff() {

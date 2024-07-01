@@ -140,7 +140,7 @@ set_location_assignment PIN_AA9 -to KEYPAD_COL[2]
 set_location_assignment PIN_P11 -to CLK
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH KeyboardReader_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH RingBuffer_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME KeyScan_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id KeyScan_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME KeyScan_tb -section_id KeyScan_tb

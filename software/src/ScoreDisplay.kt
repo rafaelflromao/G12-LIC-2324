@@ -1,3 +1,4 @@
+import isel.leic.utils.Time
 import kotlin.math.pow
 
 // Controla o mostrador de pontuação.
@@ -29,7 +30,11 @@ object ScoreDisplay {
     private const val DATA_MASK = (1 shl DATA_WIDTH) - 1 // Máscara para os bits de dados.
     // Mascaras - Fim
 
+    private const val ANIM_DELAY = 200L
+
     private var score = 0x0 // Pontuação atual.
+    private var scoreAnimTime = Time.getTimeInMillis()
+    private var animStep = 0
 
 
     // Inicia o objeto, estabelecendo os valores iniciais.
@@ -42,8 +47,40 @@ object ScoreDisplay {
         SerialEmitter.send(SerialEmitter.Destination.SCORE, (index and CMD_MASK) or ((value and DATA_MASK) shl CMD_WIDTH), SCORE_WIDTH) // Envia o novo valor do digito de indice i para o mostrador
     }
 
+    private fun setDigitByStep(index: Int, step: Int) {
+        val vStep = 0xA + ((index + step) % 5)
+        setDigit(index, vStep)
+    }
+
+    fun scoreAnimUpdate() {
+        if (scoreAnimTime <= Time.getTimeInMillis()) {
+            for (i in 0..<MAX_DIGITS) {
+                setDigitByStep(i, animStep)
+            }
+            update()
+            scoreAnimTime += ANIM_DELAY
+            ++animStep
+        }
+    }
+
+    fun blink(timeout: Long, step: Int) {
+        val instant = timeout + Time.getTimeInMillis()
+        while (Time.getTimeInMillis() < instant) {
+            off(true)
+            Time.sleep(step.toLong())
+            off(false)
+            Time.sleep(step.toLong())
+        }
+    }
+
+    private fun update () {
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, DISPLAY_UPDATE, SCORE_WIDTH) // Atualiza o mostrador
+    }
+
+
+
     // Envia comando para atualizar o valor do mostrador de pontuação
-    fun setScore(value: Int, useCache: Boolean = true) {
+    fun setScore(value: Int, useCache: Boolean = false) {
         var valueAux = value // Cria uma cópia do valor numa variável auxiliar
         var currentScore = score // Cria uma cópia da pontuação numa variável auxiliar
 
@@ -59,7 +96,7 @@ object ScoreDisplay {
             currentScore /= DIVISOR // Remove a casa de menor peso da pontuação
         }
 
-        SerialEmitter.send(SerialEmitter.Destination.SCORE, DISPLAY_UPDATE, SCORE_WIDTH) // Atualiza o mostrador
+        update()
         score = value // Atualiza o valor da pontuação
     }
 

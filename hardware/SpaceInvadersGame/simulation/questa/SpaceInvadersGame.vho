@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition"
 
--- DATE "06/25/2024 19:52:56"
+-- DATE "06/28/2024 20:31:32"
 
 -- 
 -- Device: Altera 10M50DAF484C6GES Package FBGA484
@@ -58,8 +58,6 @@ ENTITY 	SpaceInvadersGame IS
 END SpaceInvadersGame;
 
 -- Design Ports Information
--- inputPort[0]	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- inputPort[1]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- inputPort[2]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- inputPort[3]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- inputPort[4]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -135,6 +133,8 @@ END SpaceInvadersGame;
 -- KEYPAD_COL[0]	=>  Location: PIN_AB11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- KEYPAD_COL[1]	=>  Location: PIN_AB10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- KEYPAD_COL[2]	=>  Location: PIN_AA9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- inputPort[0]	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- inputPort[1]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- CLK	=>  Location: PIN_P11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- KEYPAD_LIN[2]	=>  Location: PIN_W12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- KEYPAD_LIN[1]	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -177,8 +177,8 @@ SIGNAL ww_KEYPAD_COL : std_logic_vector(2 DOWNTO 0);
 SIGNAL \~QUARTUS_CREATED_ADC1~_CHSEL_bus\ : std_logic_vector(4 DOWNTO 0);
 SIGNAL \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ : std_logic_vector(4 DOWNTO 0);
 SIGNAL \SSC|U1|Din_b[6]~0clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \SSC|nSSsync~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \SLCDC|nSSsync~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \SSC|sclkSync~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \SLCDC|sclkSync~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \SSC|U1|CurrentState.SEND~0clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \SLCDC|U1|Din_b[8]~0clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \rtl~5clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
@@ -195,7 +195,7 @@ SIGNAL \rtl~6clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \SLCDC|U2|tmp~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \rtl~7clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \SSC|U2|tmp~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \SLCDC|U0|U2|CurrentState.IDLE~1clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~1_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~0_combout\ : std_logic;
@@ -204,8 +204,6 @@ SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jt
 SIGNAL \auto_hub|~GND~combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~_wirecell_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[0]~_wirecell_combout\ : std_logic;
-SIGNAL \inputPort[0]~input_o\ : std_logic;
-SIGNAL \inputPort[1]~input_o\ : std_logic;
 SIGNAL \inputPort[2]~input_o\ : std_logic;
 SIGNAL \inputPort[3]~input_o\ : std_logic;
 SIGNAL \inputPort[4]~input_o\ : std_logic;
@@ -227,54 +225,44 @@ SIGNAL \~QUARTUS_CREATED_ADC2~~eoc\ : std_logic;
 SIGNAL \altera_reserved_tms~input_o\ : std_logic;
 SIGNAL \altera_reserved_tck~input_o\ : std_logic;
 SIGNAL \altera_reserved_tdi~input_o\ : std_logic;
-SIGNAL \altera_internal_jtag~TDIUTAP\ : std_logic;
 SIGNAL \altera_internal_jtag~TMSUTAP\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~2_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~6_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~7_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~4_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[15]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~2_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~6_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~7_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~4_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~5_combout\ : std_logic;
-SIGNAL \~QIC_CREATED_GND~I_combout\ : std_logic;
 SIGNAL \CLK~input_o\ : std_logic;
 SIGNAL \CLK~inputclkctrl_outclk\ : std_logic;
-SIGNAL \~GND~combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\ : std_logic;
-SIGNAL \KBD|U1|U0|CurrentState.state_bit_0~1_combout\ : std_logic;
+SIGNAL \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U0|CurrentState.state_bit_2~1_combout\ : std_logic;
+SIGNAL \KBD|U1|U0|CurrentState.state_bit_2~q\ : std_logic;
 SIGNAL \KBD|U1|U1|getCE~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|Equal0~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[0]~11_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[1]~4_cout\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[1]~5_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|sizeCE~combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[1]~6\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[2]~7_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[2]~8\ : std_logic;
+SIGNAL \KBD|U1|U1|U2|count[3]~9_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|Equal1~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U0|CurrentState.state_bit_2~0_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~0_combout\ : std_logic;
 SIGNAL \SLCDC|U2|count[0]~2_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~1\ : std_logic;
@@ -334,12 +322,12 @@ SIGNAL \KBD|U3|Add0~46_combout\ : std_logic;
 SIGNAL \KBD|U3|Add0~47\ : std_logic;
 SIGNAL \KBD|U3|Add0~48_combout\ : std_logic;
 SIGNAL \KBD|U3|Equal0~2_combout\ : std_logic;
-SIGNAL \KBD|U3|Equal0~3_combout\ : std_logic;
-SIGNAL \KBD|U3|Equal0~4_combout\ : std_logic;
-SIGNAL \KBD|U3|Equal0~7_combout\ : std_logic;
 SIGNAL \KBD|U3|Equal0~6_combout\ : std_logic;
+SIGNAL \KBD|U3|Equal0~7_combout\ : std_logic;
 SIGNAL \KBD|U3|Equal0~5_combout\ : std_logic;
+SIGNAL \KBD|U3|Equal0~4_combout\ : std_logic;
 SIGNAL \KBD|U3|Equal0~8_combout\ : std_logic;
+SIGNAL \KBD|U3|Equal0~3_combout\ : std_logic;
 SIGNAL \KBD|U3|Add0~49\ : std_logic;
 SIGNAL \KBD|U3|Add0~50_combout\ : std_logic;
 SIGNAL \KBD|U3|Add0~51\ : std_logic;
@@ -348,204 +336,184 @@ SIGNAL \KBD|U3|Add0~53\ : std_logic;
 SIGNAL \KBD|U3|Add0~54_combout\ : std_logic;
 SIGNAL \KBD|U3|Add0~55\ : std_logic;
 SIGNAL \KBD|U3|Add0~56_combout\ : std_logic;
-SIGNAL \KBD|U3|Equal0~0_combout\ : std_logic;
 SIGNAL \KBD|U3|Add0~57\ : std_logic;
 SIGNAL \KBD|U3|Add0~58_combout\ : std_logic;
 SIGNAL \KBD|U3|Add0~59\ : std_logic;
 SIGNAL \KBD|U3|Add0~60_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~0_combout\ : std_logic;
+SIGNAL \KBD|U3|Equal0~0_combout\ : std_logic;
 SIGNAL \KBD|U3|Equal0~1_combout\ : std_logic;
 SIGNAL \KBD|U3|Equal0~9_combout\ : std_logic;
 SIGNAL \KBD|U3|tmp~0_combout\ : std_logic;
 SIGNAL \KBD|U3|tmp~q\ : std_logic;
 SIGNAL \KBD|U3|tmp~clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U0|U1|CurrentState~0_combout\ : std_logic;
+SIGNAL \KEYPAD_LIN[2]~input_o\ : std_logic;
 SIGNAL \KEYPAD_LIN[3]~input_o\ : std_logic;
+SIGNAL \KEYPAD_LIN[1]~input_o\ : std_logic;
 SIGNAL \KBD|U0|U0|U0|count[0]~4_combout\ : std_logic;
 SIGNAL \KBD|U0|U0|U0|count[1]~3_combout\ : std_logic;
 SIGNAL \KEYPAD_LIN[0]~input_o\ : std_logic;
-SIGNAL \KEYPAD_LIN[1]~input_o\ : std_logic;
 SIGNAL \KBD|U0|U0|U1|Mux0~0_combout\ : std_logic;
-SIGNAL \KEYPAD_LIN[2]~input_o\ : std_logic;
 SIGNAL \KBD|U0|U0|U1|Mux0~1_combout\ : std_logic;
+SIGNAL \KBD|U0|U1|CurrentState~0_combout\ : std_logic;
 SIGNAL \KBD|U0|U1|CurrentState~1_combout\ : std_logic;
 SIGNAL \KBD|U0|U1|CurrentState~q\ : std_logic;
 SIGNAL \KBD|U1|U0|CurrentState.state_bit_1~0_combout\ : std_logic;
 SIGNAL \KBD|U1|U0|CurrentState.state_bit_1~1_combout\ : std_logic;
 SIGNAL \KBD|U1|U0|CurrentState.state_bit_1~q\ : std_logic;
-SIGNAL \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|Equal0~0_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[0]~11_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[1]~4_cout\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[1]~5_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|sizeCE~0_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|sizeCE~combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[1]~6\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[2]~7_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[2]~8\ : std_logic;
-SIGNAL \KBD|U1|U1|U2|count[3]~9_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|Equal1~0_combout\ : std_logic;
-SIGNAL \KBD|U1|U0|CurrentState.state_bit_2~0_combout\ : std_logic;
-SIGNAL \KBD|U1|U0|CurrentState.state_bit_2~1_combout\ : std_logic;
-SIGNAL \KBD|U1|U0|CurrentState.state_bit_2~q\ : std_logic;
 SIGNAL \KBD|U1|U0|CurrentState.state_bit_0~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U0|CurrentState.state_bit_0~1_combout\ : std_logic;
 SIGNAL \KBD|U1|U0|CurrentState.state_bit_0~2_combout\ : std_logic;
 SIGNAL \KBD|U1|U0|CurrentState.state_bit_0~q\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.state_bit_0~0_combout\ : std_logic;
-SIGNAL \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\ : std_logic;
+SIGNAL \inputPort[1]~input_o\ : std_logic;
+SIGNAL \altera_internal_jtag~TDIUTAP\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~5_combout\ : std_logic;
+SIGNAL \~QIC_CREATED_GND~I_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U1|count[0]~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U0|selPG~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U0|count[0]~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|A[0]~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U0|count[1]~1_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U0|count[2]~2_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U0|count[2]~3_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U1|count[1]~1_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|U1|count[2]~2_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|A[2]~2_combout\ : std_logic;
+SIGNAL \KBD|U1|U1|A[1]~1_combout\ : std_logic;
+SIGNAL \rtl~4_combout\ : std_logic;
+SIGNAL \rtl~4clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~20_combout\ : std_logic;
+SIGNAL \rtl~6_combout\ : std_logic;
+SIGNAL \rtl~6clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~16_combout\ : std_logic;
+SIGNAL \rtl~5_combout\ : std_logic;
+SIGNAL \rtl~5clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~24_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~32_combout\ : std_logic;
+SIGNAL \rtl~7_combout\ : std_logic;
+SIGNAL \rtl~7clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~28_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~33_combout\ : std_logic;
+SIGNAL \rtl~3_combout\ : std_logic;
+SIGNAL \rtl~3clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~12_combout\ : std_logic;
+SIGNAL \rtl~1_combout\ : std_logic;
+SIGNAL \rtl~1clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~4_combout\ : std_logic;
+SIGNAL \rtl~2_combout\ : std_logic;
+SIGNAL \rtl~2clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~0_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~34_combout\ : std_logic;
+SIGNAL \rtl~0_combout\ : std_logic;
+SIGNAL \rtl~0clkctrl_outclk\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~8_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~35_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~36_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~7_combout\ : std_logic;
+SIGNAL \KBD|U0|U0|U0|count[2]~2_combout\ : std_logic;
+SIGNAL \KBD|U0|U0|U0|count[3]~0_combout\ : std_logic;
+SIGNAL \KBD|U0|U0|U0|count[3]~1_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~23_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~31_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~27_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~19_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~47_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~48_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~15_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~11_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~3_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~7_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~49_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~50_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~51_combout\ : std_logic;
+SIGNAL \~GND~combout\ : std_logic;
+SIGNAL \inputPort[0]~input_o\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~12_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~11_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~10_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~6_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~9_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~2_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~3_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~4_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~q\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~5_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg_proc~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~q\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.state_bit_0~1_combout\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.state_bit_0~q\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.state_bit_1~0_combout\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.state_bit_1~q\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\ : std_logic;
 SIGNAL \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U1|U1|count[0]~0_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U1|count[1]~1_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U1|count[2]~2_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U0|count[0]~2_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U0|count[1]~3_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U0|count[2]~5_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|U0|count[2]~4_combout\ : std_logic;
-SIGNAL \KBD|U1|U0|selPG~combout\ : std_logic;
-SIGNAL \KBD|U1|U1|A[2]~2_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|A[1]~1_combout\ : std_logic;
-SIGNAL \KBD|U1|U1|A[0]~0_combout\ : std_logic;
-SIGNAL \rtl~2_combout\ : std_logic;
-SIGNAL \rtl~2clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~0_combout\ : std_logic;
-SIGNAL \rtl~1_combout\ : std_logic;
-SIGNAL \rtl~1clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~4_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~34_combout\ : std_logic;
-SIGNAL \rtl~0_combout\ : std_logic;
-SIGNAL \rtl~0clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~8_combout\ : std_logic;
-SIGNAL \rtl~3_combout\ : std_logic;
-SIGNAL \rtl~3clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~12_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~35_combout\ : std_logic;
-SIGNAL \rtl~4_combout\ : std_logic;
-SIGNAL \rtl~4clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~20_combout\ : std_logic;
-SIGNAL \rtl~7_combout\ : std_logic;
-SIGNAL \rtl~7clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~28_combout\ : std_logic;
-SIGNAL \rtl~5_combout\ : std_logic;
-SIGNAL \rtl~5clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~24_combout\ : std_logic;
-SIGNAL \rtl~6_combout\ : std_logic;
-SIGNAL \rtl~6clkctrl_outclk\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~16_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~32_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~33_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~36_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~1_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~13_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~5_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~39_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~9_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~40_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~29_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~25_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~17_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~37_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~21_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~38_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~41_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~7_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8_combout\ : std_logic;
-SIGNAL \KBD|U0|U0|U0|count[2]~2_combout\ : std_logic;
-SIGNAL \KBD|U0|U0|U0|count[3]~0_combout\ : std_logic;
-SIGNAL \KBD|U0|U0|U0|count[3]~1_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~31_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~19_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~27_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~47_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~23_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~48_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~7_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~3_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~49_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~15_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~11_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~50_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~51_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~12_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~11_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~10_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~6_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~9_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~22_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~18_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~26_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~42_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~30_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~22_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~43_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~10_combout\ : std_logic;
-SIGNAL \KBD|U1|U2|ram~2_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~6_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~2_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~44_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~14_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~10_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~45_combout\ : std_logic;
 SIGNAL \KBD|U1|U2|ram~46_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~2_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~3_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~4_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~q\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~5_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg_proc~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~q\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~15\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~9_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~1_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~5_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~13_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~39_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~40_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~29_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~21_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~17_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~25_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~37_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~38_combout\ : std_logic;
+SIGNAL \KBD|U1|U2|ram~41_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~12\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~13_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~2_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~17\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~10\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~12\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~14\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~8\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~10\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~12\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~13_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~4_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~6_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\ : std_logic;
@@ -561,38 +529,69 @@ SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jt
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[1]~feeder_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~10_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~11_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[1]~1_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~12_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~13_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[2]~2_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[3]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[3]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[3]~3_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_proc~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~4_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~10\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~12\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~15\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~17\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~5_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~6_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2_combout\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~q\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~1_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~3_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~7_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo~q\ : std_logic;
 SIGNAL \altera_internal_jtag~TCKUTAP\ : std_logic;
 SIGNAL \altera_internal_jtag~TCKUTAPclkctrl_outclk\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~q\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][2]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][2]~q\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\ : std_logic;
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][5]~feeder_combout\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][5]~q\ : std_logic;
@@ -641,6 +640,7 @@ SIGNAL \SLCDC|U2|Add0~39\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~40_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~41\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~42_combout\ : std_logic;
+SIGNAL \SSC|U2|Equal0~4_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~43\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~44_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~45\ : std_logic;
@@ -649,6 +649,7 @@ SIGNAL \SLCDC|U2|Add0~47\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~48_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~49\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~50_combout\ : std_logic;
+SIGNAL \SSC|U2|Equal0~3_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~51\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~52_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~53\ : std_logic;
@@ -657,18 +658,16 @@ SIGNAL \SLCDC|U2|Add0~55\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~56_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~57\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~58_combout\ : std_logic;
-SIGNAL \SSC|U2|Equal0~1_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~59\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~60_combout\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~61\ : std_logic;
 SIGNAL \SLCDC|U2|Add0~62_combout\ : std_logic;
+SIGNAL \SSC|U2|Equal0~1_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~2_combout\ : std_logic;
-SIGNAL \SSC|U2|Equal0~3_combout\ : std_logic;
-SIGNAL \SSC|U2|Equal0~4_combout\ : std_logic;
-SIGNAL \SSC|U2|Equal0~8_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~6_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~5_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~7_combout\ : std_logic;
+SIGNAL \SSC|U2|Equal0~8_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~9_combout\ : std_logic;
 SIGNAL \SSC|U2|Equal0~10_combout\ : std_logic;
 SIGNAL \SLCDC|U2|tmp~q\ : std_logic;
@@ -678,66 +677,70 @@ SIGNAL \SLCDC|U1|CurrentState.state_bit_0~0_combout\ : std_logic;
 SIGNAL \SLCDC|U1|CurrentState.state_bit_0~q\ : std_logic;
 SIGNAL \SLCDC|U1|CurrentState.SEND~0_combout\ : std_logic;
 SIGNAL \SLCDC|U1|CurrentState.state_bit_1~q\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_1~2_combout\ : std_logic;
-SIGNAL \SLCDC|nSSsync~q\ : std_logic;
-SIGNAL \SLCDC|nSSsync~clkctrl_outclk\ : std_logic;
+SIGNAL \SLCDC|nssSync~q\ : std_logic;
+SIGNAL \SLCDC|U0|U2|Selector3~0_combout\ : std_logic;
+SIGNAL \SLCDC|sclkSync~feeder_combout\ : std_logic;
+SIGNAL \SLCDC|sclkSync~q\ : std_logic;
+SIGNAL \SLCDC|sclkSync~clkctrl_outclk\ : std_logic;
 SIGNAL \SLCDC|U0|U0|count[0]~3_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.IDLE~1_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U0|count[1]~0_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U0|count[2]~2_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U0|count[3]~1_combout\ : std_logic;
-SIGNAL \SLCDC|U0|comb~0_combout\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|nEnRx_reg~q\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_0~2_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U0|count[2]~2_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U0|count[3]~0_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U5|Equal0~0_combout\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_0~3_combout\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl_outclk\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_0~q\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_1~3_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.IDLE~1_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.IDLE~1clkctrl_outclk\ : std_logic;
+SIGNAL \SLCDC|U0|U0|count[1]~1_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U1|q~0_combout\ : std_logic;
+SIGNAL \SLCDC|sdxSync~feeder_combout\ : std_logic;
+SIGNAL \SLCDC|sdxSync~q\ : std_logic;
+SIGNAL \SLCDC|U0|U1|q~q\ : std_logic;
+SIGNAL \SLCDC|U0|U2|Selector0~0_combout\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U1|q~0_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U1|q~q\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_1~4_combout\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_1~q\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.IDLE~0_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~2_combout\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~3_combout\ : std_logic;
 SIGNAL \SLCDC|U0|U2|CurrentState.state_bit_2~q\ : std_logic;
 SIGNAL \SLCDC|U1|Din_b[8]~0_combout\ : std_logic;
 SIGNAL \SLCDC|U1|Din_b[8]~0clkctrl_outclk\ : std_logic;
+SIGNAL \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\ : std_logic;
 SIGNAL \SSC|U2|tmp~0_combout\ : std_logic;
 SIGNAL \SSC|U2|tmp~q\ : std_logic;
 SIGNAL \SSC|U2|tmp~clkctrl_outclk\ : std_logic;
 SIGNAL \SSC|U1|CurrentState.state_bit_1~0_combout\ : std_logic;
-SIGNAL \SSC|U1|CurrentState.state_bit_1~q\ : std_logic;
-SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~2_combout\ : std_logic;
-SIGNAL \SSC|nSSsync~q\ : std_logic;
-SIGNAL \SSC|nSSsync~clkctrl_outclk\ : std_logic;
-SIGNAL \SSC|U0|U0|count[0]~3_combout\ : std_logic;
+SIGNAL \SSC|nssSync~feeder_combout\ : std_logic;
+SIGNAL \SSC|nssSync~q\ : std_logic;
+SIGNAL \SSC|U0|U2|Selector3~0_combout\ : std_logic;
+SIGNAL \SSC|U0|U2|CurrentState.IDLE~0_combout\ : std_logic;
+SIGNAL \SSC|sclkSync~feeder_combout\ : std_logic;
+SIGNAL \SSC|sclkSync~q\ : std_logic;
+SIGNAL \SSC|sclkSync~clkctrl_outclk\ : std_logic;
+SIGNAL \SSC|U0|U1|q~0_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.IDLE~1_combout\ : std_logic;
+SIGNAL \SSC|U0|U1|q~q\ : std_logic;
+SIGNAL \SSC|U0|U0|count[0]~3_combout\ : std_logic;
 SIGNAL \SSC|U0|U0|count[1]~2_combout\ : std_logic;
 SIGNAL \SSC|U0|U0|count[2]~1_combout\ : std_logic;
 SIGNAL \SSC|U0|U0|count[3]~0_combout\ : std_logic;
-SIGNAL \SSC|U0|comb~0_combout\ : std_logic;
+SIGNAL \SSC|U0|U2|CurrentState.state_bit_2~0_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~0_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~1_combout\ : std_logic;
-SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~3_combout\ : std_logic;
-SIGNAL \SSC|U0|U1|q~0_combout\ : std_logic;
-SIGNAL \SSC|U0|U1|q~q\ : std_logic;
-SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~4_combout\ : std_logic;
+SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~2_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_1~q\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_0~0_combout\ : std_logic;
-SIGNAL \SSC|U0|comb~1_combout\ : std_logic;
+SIGNAL \SSC|U0|U5|Equal0~0_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_0~1_combout\ : std_logic;
-SIGNAL \SSC|U0|U2|CurrentState.state_bit_0~2_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_0~q\ : std_logic;
-SIGNAL \SSC|U0|U2|CurrentState.IDLE~0_combout\ : std_logic;
-SIGNAL \SSC|U0|U2|CurrentState.state_bit_2~0_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_2~1_combout\ : std_logic;
+SIGNAL \SSC|U0|U2|CurrentState.state_bit_2~2_combout\ : std_logic;
+SIGNAL \SSC|U0|U2|CurrentState.state_bit_2~3_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.state_bit_2~q\ : std_logic;
+SIGNAL \SSC|U1|CurrentState.state_bit_1~q\ : std_logic;
 SIGNAL \SSC|U1|dval_reg~q\ : std_logic;
 SIGNAL \SSC|U1|CurrentState.state_bit_0~0_combout\ : std_logic;
 SIGNAL \SSC|U1|CurrentState.state_bit_0~q\ : std_logic;
@@ -747,28 +750,27 @@ SIGNAL \SSC|U0|U3|data_b[6]~feeder_combout\ : std_logic;
 SIGNAL \SSC|U0|U2|CurrentState.RECEIVING~0_combout\ : std_logic;
 SIGNAL \SSC|U0|U3|data_b[5]~feeder_combout\ : std_logic;
 SIGNAL \SSC|U0|U3|data_b[4]~feeder_combout\ : std_logic;
-SIGNAL \SSC|U0|U3|data_b[3]~feeder_combout\ : std_logic;
 SIGNAL \SSC|U1|Din_b[6]~0_combout\ : std_logic;
 SIGNAL \SSC|U1|Din_b[6]~0clkctrl_outclk\ : std_logic;
-SIGNAL \Score|clear_reg|q~0_combout\ : std_logic;
-SIGNAL \Score|clear_reg|q~1_combout\ : std_logic;
-SIGNAL \Score|clear_reg|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:0:in_reg|u1|q~0_combout\ : std_logic;
+SIGNAL \SSC|U0|U3|data_b[3]~feeder_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:0:in_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|decoder|dout[6]~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:0:out_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:0:in_reg|u2|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:0:in_reg|u2|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:0:out_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:0:in_reg|u0|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:in_reg|u0|q~q\ : std_logic;
-SIGNAL \Score|decoder|dout[6]~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:out_reg|u0|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:0:in_reg|u1|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:0:in_reg|u1|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:0:out_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:0:in_reg|u3|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:in_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:0:out_reg|u3|q~feeder_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:out_reg|u3|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:0:in_reg|u2|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:0:in_reg|u2|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:0:out_reg|u2|q~feeder_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:0:out_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\ : std_logic;
+SIGNAL \Score|clear_reg|q~0_combout\ : std_logic;
+SIGNAL \Score|clear_reg|q~1_combout\ : std_logic;
+SIGNAL \Score|clear_reg|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[0]~1_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[1]~3_combout\ : std_logic;
@@ -782,20 +784,21 @@ SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[5]~10_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[5]~11_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[6]~12_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:0:hex_digit|Ndout[6]~13_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:1:in_reg|u0|q~0_combout\ : std_logic;
-SIGNAL \Score|decoder|dout[1]~1_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:1:in_reg|u0|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:1:out_reg|u0|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:1:in_reg|u2|q~0_combout\ : std_logic;
+SIGNAL \Score|decoder|dout[1]~1_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:in_reg|u2|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:1:out_reg|u2|q~feeder_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:out_reg|u2|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:1:in_reg|u1|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:1:in_reg|u1|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:1:out_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:1:in_reg|u3|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:in_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:out_reg|u3|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:1:in_reg|u1|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:1:in_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:1:out_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:1:in_reg|u0|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:1:in_reg|u0|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:1:out_reg|u0|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[0]~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[0]~1_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\ : std_logic;
@@ -810,17 +813,17 @@ SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[5]~11_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:1:hex_digit|Ndout[6]~13_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:2:in_reg|u0|q~0_combout\ : std_logic;
-SIGNAL \Score|decoder|dout[2]~2_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:2:in_reg|u0|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:2:out_reg|u0|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:2:in_reg|u1|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:2:in_reg|u1|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:2:out_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:2:in_reg|u2|q~0_combout\ : std_logic;
+SIGNAL \Score|decoder|dout[2]~2_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:2:in_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:2:out_reg|u2|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:2:in_reg|u1|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:2:in_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:2:out_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:2:in_reg|u0|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:2:in_reg|u0|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:2:out_reg|u0|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:2:in_reg|u3|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:2:in_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:2:out_reg|u3|q~feeder_combout\ : std_logic;
@@ -839,19 +842,19 @@ SIGNAL \Score|circuit_gen:2:hex_digit|Ndout[5]~10_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:2:hex_digit|Ndout[5]~11_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:2:hex_digit|Ndout[6]~12_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:2:hex_digit|Ndout[6]~13_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:3:in_reg|u3|q~0_combout\ : std_logic;
-SIGNAL \Score|decoder|dout[3]~3_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:3:in_reg|u3|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:3:out_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:3:in_reg|u2|q~0_combout\ : std_logic;
+SIGNAL \Score|decoder|dout[3]~3_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:in_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:3:out_reg|u2|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:3:in_reg|u1|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:3:in_reg|u1|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:3:out_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:3:in_reg|u3|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:3:in_reg|u3|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:3:out_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:3:in_reg|u0|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:in_reg|u0|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:3:out_reg|u0|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:3:in_reg|u1|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:3:in_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:3:out_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[0]~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[0]~1_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\ : std_logic;
@@ -866,19 +869,19 @@ SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[5]~11_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:3:hex_digit|Ndout[6]~13_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:4:in_reg|u2|q~0_combout\ : std_logic;
-SIGNAL \Score|decoder|dout[4]~4_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:4:in_reg|u2|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:4:out_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:4:in_reg|u3|q~0_combout\ : std_logic;
+SIGNAL \Score|decoder|dout[4]~4_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:4:in_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:4:out_reg|u3|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:4:in_reg|u1|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:4:in_reg|u1|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:4:out_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:4:in_reg|u0|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:4:in_reg|u0|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:4:out_reg|u0|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:4:in_reg|u2|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:4:in_reg|u2|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:4:out_reg|u2|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:4:in_reg|u1|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:4:in_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:4:out_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:4:hex_digit|Ndout[0]~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:4:hex_digit|Ndout[0]~1_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:4:hex_digit|Ndout[1]~2_combout\ : std_logic;
@@ -897,15 +900,15 @@ SIGNAL \Score|circuit_gen:5:in_reg|u1|q~0_combout\ : std_logic;
 SIGNAL \Score|decoder|dout[5]~5_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:5:in_reg|u1|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:5:out_reg|u1|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:5:in_reg|u2|q~0_combout\ : std_logic;
+SIGNAL \Score|circuit_gen:5:in_reg|u2|q~q\ : std_logic;
+SIGNAL \Score|circuit_gen:5:out_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:5:in_reg|u3|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:5:in_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:5:out_reg|u3|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:5:in_reg|u0|q~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:5:in_reg|u0|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:5:out_reg|u0|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:5:in_reg|u2|q~0_combout\ : std_logic;
-SIGNAL \Score|circuit_gen:5:in_reg|u2|q~q\ : std_logic;
-SIGNAL \Score|circuit_gen:5:out_reg|u2|q~q\ : std_logic;
 SIGNAL \Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:5:hex_digit|Ndout[0]~1_combout\ : std_logic;
 SIGNAL \Score|circuit_gen:5:hex_digit|Ndout[1]~2_combout\ : std_logic;
@@ -924,40 +927,39 @@ SIGNAL \KBD|U0|U0|U2|Mux3~0_combout\ : std_logic;
 SIGNAL \KBD|U0|U0|U2|Mux2~0_combout\ : std_logic;
 SIGNAL \KBD|U0|U0|U2|Mux1~0_combout\ : std_logic;
 SIGNAL \altera_internal_jtag~TDO\ : std_logic;
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \KBD|U1|U1|U2|count\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \KBD|U1|U1|U0|count\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \SLCDC|U0|U0|count\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \KBD|U0|U0|U0|count\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \SLCDC|U0|U3|data_b\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \SLCDC|U2|count\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \KBD|U2|U0|buff\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \SLCDC|U0|U0|count\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \SLCDC|U0|U3|data_b\ : std_logic_vector(8 DOWNTO 0);
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\ : std_logic_vector(8 DOWNTO 0);
+SIGNAL \KBD|U1|U1|U2|count\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \KBD|U0|U0|U0|count\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \KBD|U1|U1|U0|count\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \KBD|U1|U1|U1|count\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\ : std_logic_vector(4 DOWNTO 0);
 SIGNAL \SLCDC|U1|Din_b\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Score|decoder|dout\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \KBD|U1|U1|U1|count\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \SSC|U0|U0|count\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \SSC|U0|U3|data_b\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \KBD|U3|count\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \SSC|U0|U0|count\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \SSC|U1|Din_b\ : std_logic_vector(6 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\ : std_logic_vector(8 DOWNTO 0);
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\ : std_logic_vector(4 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\ : std_logic_vector(4 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|splitter_nodes_receive_0\ : std_logic_vector(30 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\ : std_logic;
+SIGNAL \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\ : std_logic;
 SIGNAL \KBD|U3|ALT_INV_tmp~clkctrl_outclk\ : std_logic;
 SIGNAL \ALT_INV_altera_internal_jtag~TCKUTAPclkctrl_outclk\ : std_logic;
 SIGNAL \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\ : std_logic;
 SIGNAL \ALT_INV_altera_internal_jtag~TMSUTAP\ : std_logic;
 SIGNAL \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\ : std_logic;
-SIGNAL \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\ : std_logic;
 SIGNAL \KBD|U0|U0|U2|ALT_INV_Mux1~0_combout\ : std_logic;
 SIGNAL \KBD|U0|U0|U2|ALT_INV_Mux2~0_combout\ : std_logic;
 
@@ -991,9 +993,9 @@ ww_devpor <= devpor;
 
 \SSC|U1|Din_b[6]~0clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SSC|U1|Din_b[6]~0_combout\);
 
-\SSC|nSSsync~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SSC|nSSsync~q\);
+\SSC|sclkSync~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SSC|sclkSync~q\);
 
-\SLCDC|nSSsync~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SLCDC|nSSsync~q\);
+\SLCDC|sclkSync~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SLCDC|sclkSync~q\);
 
 \SSC|U1|CurrentState.SEND~0clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SSC|U1|CurrentState.SEND~0_combout\);
 
@@ -1027,19 +1029,17 @@ ww_devpor <= devpor;
 
 \SSC|U2|tmp~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SSC|U2|tmp~q\);
 
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & 
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\);
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\ <= NOT \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl_outclk\;
+\SLCDC|U0|U2|CurrentState.IDLE~1clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \SLCDC|U0|U2|CurrentState.IDLE~1_combout\);
+\SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\ <= NOT \SLCDC|U0|U2|CurrentState.IDLE~1clkctrl_outclk\;
 \KBD|U3|ALT_INV_tmp~clkctrl_outclk\ <= NOT \KBD|U3|tmp~clkctrl_outclk\;
 \ALT_INV_altera_internal_jtag~TCKUTAPclkctrl_outclk\ <= NOT \altera_internal_jtag~TCKUTAPclkctrl_outclk\;
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\ <= NOT \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~q\;
 \ALT_INV_altera_internal_jtag~TMSUTAP\ <= NOT \altera_internal_jtag~TMSUTAP\;
 \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\ <= NOT \SSC|U0|U2|CurrentState.IDLE~1_combout\;
-\SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\ <= NOT \SLCDC|U0|U2|CurrentState.IDLE~1_combout\;
 \KBD|U0|U0|U2|ALT_INV_Mux1~0_combout\ <= NOT \KBD|U0|U0|U2|Mux1~0_combout\;
 \KBD|U0|U0|U2|ALT_INV_Mux2~0_combout\ <= NOT \KBD|U0|U0|U2|Mux2~0_combout\;
 
--- Location: FF_X42_Y30_N3
+-- Location: FF_X50_Y24_N1
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|splitter_nodes_receive_0[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1054,61 +1054,61 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|splitter_nodes_receive_0\(3));
 
--- Location: LCCOMB_X42_Y30_N26
+-- Location: LCCOMB_X46_Y24_N0
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111011110000000",
+	lut_mask => "1111100001110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
 	datab => \altera_internal_jtag~TMSUTAP\,
-	datac => \altera_internal_jtag~TDIUTAP\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datad => \altera_internal_jtag~TDIUTAP\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~0_combout\);
 
--- Location: LCCOMB_X42_Y30_N28
+-- Location: LCCOMB_X46_Y24_N28
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001000000110000",
+	lut_mask => "0000010001000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~0_combout\,
-	datad => \altera_internal_jtag~TMSUTAP\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~0_combout\,
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~1_combout\);
 
--- Location: LCCOMB_X42_Y30_N22
+-- Location: LCCOMB_X50_Y24_N28
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101000000000",
+	lut_mask => "1100110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
 	datad => \altera_internal_jtag~TMSUTAP\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~0_combout\);
 
--- Location: LCCOMB_X42_Y30_N0
+-- Location: LCCOMB_X49_Y24_N2
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~2\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111011000000",
+	lut_mask => "1100110010101000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15),
 	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~0_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~0_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~2_combout\);
 
--- Location: LCCOMB_X42_Y30_N2
+-- Location: LCCOMB_X50_Y24_N0
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~3\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -1122,7 +1122,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~2_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena~3_combout\);
 
--- Location: LCCOMB_X44_Y50_N8
+-- Location: LCCOMB_X44_Y52_N8
 \~QUARTUS_CREATED_GND~I\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \~QUARTUS_CREATED_GND~I_combout\ = GND
@@ -2023,245 +2023,19 @@ PORT MAP (
 	tckutap => \altera_internal_jtag~TCKUTAP\,
 	tdiutap => \altera_internal_jtag~TDIUTAP\);
 
--- Location: LCCOMB_X41_Y30_N16
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110011111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(12),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(13),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12_combout\);
-
--- Location: FF_X41_Y30_N17
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[13]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12_combout\,
-	sclr => \altera_internal_jtag~TMSUTAP\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(13));
-
--- Location: LCCOMB_X41_Y30_N30
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(13),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13_combout\);
-
--- Location: FF_X41_Y30_N31
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[14]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(14));
-
--- Location: LCCOMB_X41_Y30_N8
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1_combout\);
-
--- Location: FF_X41_Y30_N9
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[9]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(9));
-
--- Location: LCCOMB_X41_Y30_N2
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(9),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9_combout\);
-
--- Location: FF_X41_Y30_N3
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[10]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(10));
-
--- Location: LCCOMB_X41_Y30_N6
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(14),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(10),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10_combout\);
-
--- Location: FF_X41_Y30_N7
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[11]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10_combout\,
-	sclr => \altera_internal_jtag~TMSUTAP\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11));
-
--- Location: LCCOMB_X41_Y30_N4
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(10),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11_combout\);
-
--- Location: FF_X41_Y30_N5
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[12]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(12));
-
--- Location: LCCOMB_X41_Y30_N26
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(12),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(14),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\);
-
--- Location: LCCOMB_X41_Y30_N24
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[15]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[15]~feeder_combout\);
-
--- Location: FF_X41_Y30_N25
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[15]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[15]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15));
-
--- Location: LCCOMB_X42_Y30_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\);
-
--- Location: FF_X42_Y31_N27
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[8]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\,
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8));
-
--- Location: LCCOMB_X41_Y30_N22
+-- Location: LCCOMB_X50_Y23_N12
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100000000",
+	lut_mask => "0000101000001010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	dataa => \altera_internal_jtag~TMSUTAP\,
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(0),
-	datad => \altera_internal_jtag~TMSUTAP\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~1_combout\);
 
--- Location: FF_X41_Y30_N23
+-- Location: FF_X50_Y23_N13
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2275,7 +2049,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(0));
 
--- Location: LCCOMB_X40_Y34_N10
+-- Location: LCCOMB_X50_Y23_N10
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~2\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -2287,7 +2061,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~2_combout\);
 
--- Location: FF_X40_Y34_N11
+-- Location: FF_X50_Y23_N11
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2302,7 +2076,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(1));
 
--- Location: LCCOMB_X40_Y34_N16
+-- Location: LCCOMB_X50_Y23_N24
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -2315,7 +2089,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt~0_combout\);
 
--- Location: FF_X40_Y34_N17
+-- Location: FF_X50_Y23_N25
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2330,21 +2104,47 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(2));
 
--- Location: LCCOMB_X41_Y30_N18
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X49_Y23_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001000011111111",
+	lut_mask => "1111000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(2),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(9),
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1_combout\);
+
+-- Location: FF_X49_Y23_N11
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[9]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|node_ena_proc~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(9));
+
+-- Location: LCCOMB_X49_Y23_N4
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101010101110101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \altera_internal_jtag~TMSUTAP\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|tms_cnt\(2),
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	datad => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(9),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~0_combout\);
 
--- Location: FF_X41_Y30_N19
+-- Location: FF_X49_Y23_N5
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2358,117 +2158,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0));
 
--- Location: LCCOMB_X41_Y30_N0
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111111011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1_combout\);
-
--- Location: FF_X41_Y30_N1
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1_combout\,
-	sclr => \altera_internal_jtag~TMSUTAP\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1));
-
--- Location: LCCOMB_X41_Y30_N12
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2_combout\);
-
--- Location: FF_X41_Y30_N13
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2));
-
--- Location: LCCOMB_X42_Y30_N6
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2),
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3_combout\);
-
--- Location: FF_X42_Y30_N7
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3));
-
--- Location: LCCOMB_X42_Y30_N24
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datab => \altera_internal_jtag~TMSUTAP\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5_combout\);
-
--- Location: FF_X42_Y30_N25
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[5]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5));
-
--- Location: LCCOMB_X41_Y30_N28
+-- Location: LCCOMB_X49_Y23_N28
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~6\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -2480,7 +2170,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~6_combout\);
 
--- Location: FF_X41_Y30_N29
+-- Location: FF_X49_Y23_N29
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2495,19 +2185,19 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(6));
 
--- Location: LCCOMB_X41_Y30_N14
+-- Location: LCCOMB_X49_Y23_N24
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~7\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110000000000",
+	lut_mask => "1111000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(6),
-	datad => \altera_internal_jtag~TMSUTAP\,
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(6),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~7_combout\);
 
--- Location: FF_X41_Y30_N15
+-- Location: FF_X49_Y23_N25
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2521,7 +2211,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7));
 
--- Location: LCCOMB_X41_Y30_N10
+-- Location: LCCOMB_X49_Y23_N18
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~4\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -2529,12 +2219,12 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~4_combout\);
 
--- Location: FF_X41_Y30_N11
+-- Location: FF_X49_Y23_N19
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2549,31 +2239,304 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4));
 
--- Location: LCCOMB_X42_Y30_N8
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~5\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X50_Y24_N30
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101011110000",
+	lut_mask => "1110000011100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \altera_internal_jtag~TDIUTAP\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~5_combout\);
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datac => \altera_internal_jtag~TMSUTAP\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5_combout\);
 
--- Location: LCCOMB_X42_Y30_N30
-\~QIC_CREATED_GND~I\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \~QIC_CREATED_GND~I_combout\ = GND
-
+-- Location: FF_X50_Y24_N31
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000000000",
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5));
+
+-- Location: LCCOMB_X50_Y24_N14
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110010001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	combout => \~QIC_CREATED_GND~I_combout\);
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5),
+	datab => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\);
+
+-- Location: FF_X46_Y24_N21
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[8]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8));
+
+-- Location: LCCOMB_X49_Y23_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(12),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(13),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12_combout\);
+
+-- Location: FF_X49_Y23_N9
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[13]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~12_combout\,
+	sclr => \altera_internal_jtag~TMSUTAP\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(13));
+
+-- Location: LCCOMB_X49_Y23_N16
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(13),
+	datac => \altera_internal_jtag~TMSUTAP\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13_combout\);
+
+-- Location: FF_X49_Y23_N17
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[14]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~13_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(14));
+
+-- Location: LCCOMB_X49_Y23_N20
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(9),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9_combout\);
+
+-- Location: FF_X49_Y23_N21
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[10]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~9_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(10));
+
+-- Location: LCCOMB_X49_Y23_N22
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(14),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(10),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10_combout\);
+
+-- Location: FF_X49_Y23_N23
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[11]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~10_combout\,
+	sclr => \altera_internal_jtag~TMSUTAP\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11));
+
+-- Location: LCCOMB_X49_Y23_N30
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110000011100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(10),
+	datac => \altera_internal_jtag~TMSUTAP\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11_combout\);
+
+-- Location: FF_X49_Y23_N31
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[12]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~11_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(12));
+
+-- Location: LCCOMB_X49_Y23_N2
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110000011100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(12),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(14),
+	datac => \altera_internal_jtag~TMSUTAP\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\);
+
+-- Location: FF_X49_Y23_N3
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[15]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15));
+
+-- Location: LCCOMB_X49_Y23_N0
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1_combout\);
+
+-- Location: FF_X49_Y23_N1
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~1_combout\,
+	sclr => \altera_internal_jtag~TMSUTAP\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1));
+
+-- Location: LCCOMB_X49_Y23_N6
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(15),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2_combout\);
+
+-- Location: FF_X49_Y23_N7
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2));
+
+-- Location: LCCOMB_X46_Y24_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(2),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3_combout\);
+
+-- Location: FF_X46_Y24_N11
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3));
 
 -- Location: IOIBUF_X34_Y0_N29
 \CLK~input\ : fiftyfivenm_io_ibuf
@@ -2600,470 +2563,299 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \CLK~inputclkctrl_outclk\);
 
--- Location: LCCOMB_X43_Y31_N6
-\~GND\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X49_Y8_N28
+\KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \~GND~combout\ = GND
+-- \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\ = (\KBD|U2|U1|CurrentState.state_bit_1~q\ & \KBD|U2|U1|CurrentState.state_bit_0~q\)
 
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	combout => \~GND~combout\);
-
--- Location: LCCOMB_X43_Y31_N16
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datad => \~GND~combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13_combout\);
-
--- Location: LCCOMB_X40_Y30_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \altera_internal_jtag~TDIUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder_combout\);
-
--- Location: FF_X40_Y30_N21
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(9));
-
--- Location: FF_X40_Y30_N23
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[8]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(9),
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	sload => VCC,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(8));
-
--- Location: LCCOMB_X40_Y30_N0
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(8),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder_combout\);
-
--- Location: FF_X40_Y30_N1
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(7));
-
--- Location: LCCOMB_X40_Y30_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(7),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder_combout\);
-
--- Location: FF_X40_Y30_N11
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(6));
-
--- Location: FF_X40_Y30_N15
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[5]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(6),
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	sload => VCC,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(5));
-
--- Location: LCCOMB_X40_Y30_N24
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(5),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder_combout\);
-
--- Location: FF_X40_Y30_N25
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(4));
-
--- Location: LCCOMB_X40_Y30_N12
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(4),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder_combout\);
-
--- Location: FF_X40_Y30_N13
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(3));
-
--- Location: LCCOMB_X40_Y30_N18
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0_combout\);
-
--- Location: FF_X40_Y30_N19
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(2));
-
--- Location: LCCOMB_X40_Y30_N28
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder_combout\);
-
--- Location: FF_X40_Y30_N29
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1));
-
--- Location: LCCOMB_X40_Y30_N30
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1_combout\);
-
--- Location: FF_X40_Y30_N31
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(0));
-
--- Location: LCCOMB_X40_Y30_N14
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(4),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(5),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\);
-
--- Location: LCCOMB_X40_Y30_N22
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(9),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(6),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(8),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(7),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\);
-
--- Location: LCCOMB_X40_Y30_N8
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0_combout\);
-
--- Location: FF_X40_Y30_N9
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\);
-
--- Location: LCCOMB_X43_Y31_N30
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(0),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\);
-
--- Location: LCCOMB_X41_Y31_N8
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\);
-
--- Location: FF_X43_Y31_N17
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[7]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(7));
-
--- Location: LCCOMB_X43_Y31_N22
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(7),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder_combout\);
-
--- Location: LCCOMB_X42_Y30_N12
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datad => \altera_internal_jtag~TMSUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\);
-
--- Location: LCCOMB_X43_Y30_N26
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
 	lut_mask => "1010101000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\);
+	dataa => \KBD|U2|U1|CurrentState.state_bit_1~q\,
+	datad => \KBD|U2|U1|CurrentState.state_bit_0~q\,
+	combout => \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\);
 
--- Location: FF_X43_Y31_N23
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]\ : dffeas
+-- Location: LCCOMB_X49_Y8_N16
+\KBD|U1|U0|CurrentState.state_bit_2~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U0|CurrentState.state_bit_2~1_combout\ = (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & ((\KBD|U1|U0|CurrentState.state_bit_2~q\ & ((\KBD|U1|U0|CurrentState.state_bit_1~q\))) # (!\KBD|U1|U0|CurrentState.state_bit_2~q\ & 
+-- (\KBD|U1|U0|CurrentState.state_bit_2~0_combout\ & !\KBD|U1|U0|CurrentState.state_bit_1~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000000000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\,
+	datac => \KBD|U1|U0|CurrentState.state_bit_2~q\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	combout => \KBD|U1|U0|CurrentState.state_bit_2~1_combout\);
+
+-- Location: FF_X49_Y8_N17
+\KBD|U1|U0|CurrentState.state_bit_2\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\,
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U0|CurrentState.state_bit_2~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\);
+	q => \KBD|U1|U0|CurrentState.state_bit_2~q\);
 
--- Location: LCCOMB_X44_Y19_N22
-\KBD|U1|U0|CurrentState.state_bit_0~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U0|CurrentState.state_bit_0~1_combout\ = (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\ & ((\KBD|U2|U1|CurrentState.state_bit_0~q\) # (\KBD|U2|U1|CurrentState.state_bit_1~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000010100000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
-	datac => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
-	datad => \KBD|U2|U1|CurrentState.state_bit_1~q\,
-	combout => \KBD|U1|U0|CurrentState.state_bit_0~1_combout\);
-
--- Location: LCCOMB_X44_Y19_N0
+-- Location: LCCOMB_X47_Y8_N28
 \KBD|U1|U1|getCE~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U1|getCE~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\ & (\KBD|U1|U0|CurrentState.state_bit_2~q\ & !\KBD|U1|U1|Equal1~0_combout\))
+-- \KBD|U1|U1|getCE~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U1|U1|Equal1~0_combout\ & \KBD|U1|U0|CurrentState.state_bit_2~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000100000001000",
+	lut_mask => "0000110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~q\,
 	datac => \KBD|U1|U1|Equal1~0_combout\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
 	combout => \KBD|U1|U1|getCE~0_combout\);
 
--- Location: LCCOMB_X46_Y34_N0
+-- Location: LCCOMB_X47_Y8_N20
+\KBD|U1|U1|Equal0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|Equal0~0_combout\ = (\KBD|U1|U1|U2|count\(3) & (!\KBD|U1|U1|U2|count\(1) & (!\KBD|U1|U1|U2|count\(2) & !\KBD|U1|U1|U2|count\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|U2|count\(3),
+	datab => \KBD|U1|U1|U2|count\(1),
+	datac => \KBD|U1|U1|U2|count\(2),
+	datad => \KBD|U1|U1|U2|count\(0),
+	combout => \KBD|U1|U1|Equal0~0_combout\);
+
+-- Location: LCCOMB_X47_Y8_N8
+\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_1~q\ & (\KBD|U1|U0|CurrentState.state_bit_0~q\ & !\KBD|U1|U0|CurrentState.state_bit_2~q\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~q\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
+	combout => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\);
+
+-- Location: LCCOMB_X47_Y8_N18
+\KBD|U1|U1|U2|count[0]~11\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U2|count[0]~11_combout\ = \KBD|U1|U1|U2|count\(0) $ (((\KBD|U1|U1|getCE~0_combout\) # ((!\KBD|U1|U1|Equal0~0_combout\ & \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111110110100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|Equal0~0_combout\,
+	datab => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datac => \KBD|U1|U1|U2|count\(0),
+	datad => \KBD|U1|U1|getCE~0_combout\,
+	combout => \KBD|U1|U1|U2|count[0]~11_combout\);
+
+-- Location: FF_X47_Y8_N19
+\KBD|U1|U1|U2|count[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U2|count[0]~11_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U2|count\(0));
+
+-- Location: LCCOMB_X47_Y8_N0
+\KBD|U1|U1|U2|count[1]~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U2|count[1]~4_cout\ = CARRY(\KBD|U1|U1|U2|count\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U1|U1|U2|count\(0),
+	datad => VCC,
+	cout => \KBD|U1|U1|U2|count[1]~4_cout\);
+
+-- Location: LCCOMB_X47_Y8_N2
+\KBD|U1|U1|U2|count[1]~5\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U2|count[1]~5_combout\ = (\KBD|U1|U1|U2|count\(1) & ((\KBD|U1|U1|getCE~0_combout\ & (\KBD|U1|U1|U2|count[1]~4_cout\ & VCC)) # (!\KBD|U1|U1|getCE~0_combout\ & (!\KBD|U1|U1|U2|count[1]~4_cout\)))) # (!\KBD|U1|U1|U2|count\(1) & 
+-- ((\KBD|U1|U1|getCE~0_combout\ & (!\KBD|U1|U1|U2|count[1]~4_cout\)) # (!\KBD|U1|U1|getCE~0_combout\ & ((\KBD|U1|U1|U2|count[1]~4_cout\) # (GND)))))
+-- \KBD|U1|U1|U2|count[1]~6\ = CARRY((\KBD|U1|U1|U2|count\(1) & (!\KBD|U1|U1|getCE~0_combout\ & !\KBD|U1|U1|U2|count[1]~4_cout\)) # (!\KBD|U1|U1|U2|count\(1) & ((!\KBD|U1|U1|U2|count[1]~4_cout\) # (!\KBD|U1|U1|getCE~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000010111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|U2|count\(1),
+	datab => \KBD|U1|U1|getCE~0_combout\,
+	datad => VCC,
+	cin => \KBD|U1|U1|U2|count[1]~4_cout\,
+	combout => \KBD|U1|U1|U2|count[1]~5_combout\,
+	cout => \KBD|U1|U1|U2|count[1]~6\);
+
+-- Location: LCCOMB_X47_Y8_N14
+\KBD|U1|U1|sizeCE\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|sizeCE~combout\ = (\KBD|U1|U1|getCE~0_combout\) # ((\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|Equal0~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011111100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U1|U1|getCE~0_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|Equal0~0_combout\,
+	combout => \KBD|U1|U1|sizeCE~combout\);
+
+-- Location: FF_X47_Y8_N3
+\KBD|U1|U1|U2|count[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U2|count[1]~5_combout\,
+	ena => \KBD|U1|U1|sizeCE~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U2|count\(1));
+
+-- Location: LCCOMB_X47_Y8_N4
+\KBD|U1|U1|U2|count[2]~7\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U2|count[2]~7_combout\ = ((\KBD|U1|U1|U2|count\(2) $ (\KBD|U1|U1|getCE~0_combout\ $ (!\KBD|U1|U1|U2|count[1]~6\)))) # (GND)
+-- \KBD|U1|U1|U2|count[2]~8\ = CARRY((\KBD|U1|U1|U2|count\(2) & ((\KBD|U1|U1|getCE~0_combout\) # (!\KBD|U1|U1|U2|count[1]~6\))) # (!\KBD|U1|U1|U2|count\(2) & (\KBD|U1|U1|getCE~0_combout\ & !\KBD|U1|U1|U2|count[1]~6\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100110001110",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|U2|count\(2),
+	datab => \KBD|U1|U1|getCE~0_combout\,
+	datad => VCC,
+	cin => \KBD|U1|U1|U2|count[1]~6\,
+	combout => \KBD|U1|U1|U2|count[2]~7_combout\,
+	cout => \KBD|U1|U1|U2|count[2]~8\);
+
+-- Location: FF_X47_Y8_N5
+\KBD|U1|U1|U2|count[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U2|count[2]~7_combout\,
+	ena => \KBD|U1|U1|sizeCE~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U2|count\(2));
+
+-- Location: LCCOMB_X47_Y8_N6
+\KBD|U1|U1|U2|count[3]~9\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U2|count[3]~9_combout\ = \KBD|U1|U1|U2|count\(3) $ (\KBD|U1|U1|U2|count[2]~8\ $ (\KBD|U1|U1|getCE~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010101011010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|U2|count\(3),
+	datad => \KBD|U1|U1|getCE~0_combout\,
+	cin => \KBD|U1|U1|U2|count[2]~8\,
+	combout => \KBD|U1|U1|U2|count[3]~9_combout\);
+
+-- Location: FF_X47_Y8_N7
+\KBD|U1|U1|U2|count[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U2|count[3]~9_combout\,
+	ena => \KBD|U1|U1|sizeCE~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U2|count\(3));
+
+-- Location: LCCOMB_X47_Y8_N30
+\KBD|U1|U1|Equal1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|Equal1~0_combout\ = (!\KBD|U1|U1|U2|count\(3) & (!\KBD|U1|U1|U2|count\(1) & (!\KBD|U1|U1|U2|count\(2) & !\KBD|U1|U1|U2|count\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|U2|count\(3),
+	datab => \KBD|U1|U1|U2|count\(1),
+	datac => \KBD|U1|U1|U2|count\(2),
+	datad => \KBD|U1|U1|U2|count\(0),
+	combout => \KBD|U1|U1|Equal1~0_combout\);
+
+-- Location: LCCOMB_X49_Y8_N4
+\KBD|U1|U0|CurrentState.state_bit_2~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U0|CurrentState.state_bit_2~0_combout\ = (!\KBD|U1|U1|Equal1~0_combout\ & ((\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\) # ((!\KBD|U2|U1|CurrentState.state_bit_1~q\ & !\KBD|U2|U1|CurrentState.state_bit_0~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U2|U1|CurrentState.state_bit_1~q\,
+	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
+	datac => \KBD|U1|U1|Equal1~0_combout\,
+	datad => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
+	combout => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\);
+
+-- Location: LCCOMB_X36_Y32_N0
 \SLCDC|U2|Add0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~0_combout\ = \SLCDC|U2|count\(0) $ (GND)
@@ -3080,21 +2872,21 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~0_combout\,
 	cout => \SLCDC|U2|Add0~1\);
 
--- Location: LCCOMB_X47_Y33_N0
+-- Location: LCCOMB_X35_Y32_N10
 \SLCDC|U2|count[0]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|count[0]~2_combout\ = !\SLCDC|U2|Add0~0_combout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011111111",
+	lut_mask => "0000111100001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \SLCDC|U2|Add0~0_combout\,
+	datac => \SLCDC|U2|Add0~0_combout\,
 	combout => \SLCDC|U2|count[0]~2_combout\);
 
--- Location: FF_X47_Y33_N1
+-- Location: FF_X35_Y32_N11
 \SLCDC|U2|count[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3108,7 +2900,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(0));
 
--- Location: LCCOMB_X46_Y34_N2
+-- Location: LCCOMB_X36_Y32_N2
 \SLCDC|U2|Add0~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~2_combout\ = (\SLCDC|U2|count\(1) & (!\SLCDC|U2|Add0~1\)) # (!\SLCDC|U2|count\(1) & ((\SLCDC|U2|Add0~1\) # (GND)))
@@ -3126,7 +2918,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~2_combout\,
 	cout => \SLCDC|U2|Add0~3\);
 
--- Location: FF_X46_Y34_N3
+-- Location: FF_X36_Y32_N3
 \SLCDC|U2|count[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3140,23 +2932,23 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(1));
 
--- Location: LCCOMB_X46_Y32_N2
+-- Location: LCCOMB_X36_Y30_N2
 \KBD|U3|Add0~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|Add0~1_cout\ = CARRY((!\SLCDC|U2|count\(0) & \SLCDC|U2|count\(1)))
+-- \KBD|U3|Add0~1_cout\ = CARRY((\SLCDC|U2|count\(1) & !\SLCDC|U2|count\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000001000100",
+	lut_mask => "0000000000100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U2|count\(0),
-	datab => \SLCDC|U2|count\(1),
+	dataa => \SLCDC|U2|count\(1),
+	datab => \SLCDC|U2|count\(0),
 	datad => VCC,
 	cout => \KBD|U3|Add0~1_cout\);
 
--- Location: LCCOMB_X46_Y32_N4
+-- Location: LCCOMB_X36_Y30_N4
 \KBD|U3|Add0~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~2_combout\ = (\KBD|U3|count\(2) & (!\KBD|U3|Add0~1_cout\)) # (!\KBD|U3|count\(2) & ((\KBD|U3|Add0~1_cout\) # (GND)))
@@ -3174,7 +2966,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~2_combout\,
 	cout => \KBD|U3|Add0~3\);
 
--- Location: FF_X46_Y32_N5
+-- Location: FF_X36_Y30_N5
 \KBD|U3|count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3188,7 +2980,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(2));
 
--- Location: LCCOMB_X46_Y32_N6
+-- Location: LCCOMB_X36_Y30_N6
 \KBD|U3|Add0~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~4_combout\ = (\KBD|U3|count\(3) & (\KBD|U3|Add0~3\ $ (GND))) # (!\KBD|U3|count\(3) & (!\KBD|U3|Add0~3\ & VCC))
@@ -3206,22 +2998,22 @@ PORT MAP (
 	combout => \KBD|U3|Add0~4_combout\,
 	cout => \KBD|U3|Add0~5\);
 
--- Location: LCCOMB_X47_Y32_N18
+-- Location: LCCOMB_X35_Y30_N6
 \KBD|U3|count~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|count~5_combout\ = (!\KBD|U3|Equal0~9_combout\ & \KBD|U3|Add0~4_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000000110000",
+	lut_mask => "0011001100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	datab => \KBD|U3|Equal0~9_combout\,
-	datac => \KBD|U3|Add0~4_combout\,
+	datad => \KBD|U3|Add0~4_combout\,
 	combout => \KBD|U3|count~5_combout\);
 
--- Location: FF_X47_Y32_N19
+-- Location: FF_X35_Y30_N7
 \KBD|U3|count[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3235,7 +3027,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(3));
 
--- Location: LCCOMB_X46_Y32_N8
+-- Location: LCCOMB_X36_Y30_N8
 \KBD|U3|Add0~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~6_combout\ = (\KBD|U3|count\(4) & (!\KBD|U3|Add0~5\)) # (!\KBD|U3|count\(4) & ((\KBD|U3|Add0~5\) # (GND)))
@@ -3253,7 +3045,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~6_combout\,
 	cout => \KBD|U3|Add0~7\);
 
--- Location: FF_X46_Y32_N9
+-- Location: FF_X36_Y30_N9
 \KBD|U3|count[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3267,7 +3059,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(4));
 
--- Location: LCCOMB_X46_Y32_N10
+-- Location: LCCOMB_X36_Y30_N10
 \KBD|U3|Add0~8\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~8_combout\ = (\KBD|U3|count\(5) & (\KBD|U3|Add0~7\ $ (GND))) # (!\KBD|U3|count\(5) & (!\KBD|U3|Add0~7\ & VCC))
@@ -3285,22 +3077,22 @@ PORT MAP (
 	combout => \KBD|U3|Add0~8_combout\,
 	cout => \KBD|U3|Add0~9\);
 
--- Location: LCCOMB_X47_Y31_N14
+-- Location: LCCOMB_X35_Y30_N4
 \KBD|U3|count~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|count~4_combout\ = (\KBD|U3|Add0~8_combout\ & !\KBD|U3|Equal0~9_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011001100",
+	lut_mask => "0000000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U3|Add0~8_combout\,
+	datac => \KBD|U3|Add0~8_combout\,
 	datad => \KBD|U3|Equal0~9_combout\,
 	combout => \KBD|U3|count~4_combout\);
 
--- Location: FF_X47_Y31_N15
+-- Location: FF_X35_Y30_N5
 \KBD|U3|count[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3314,7 +3106,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(5));
 
--- Location: LCCOMB_X46_Y32_N12
+-- Location: LCCOMB_X36_Y30_N12
 \KBD|U3|Add0~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~10_combout\ = (\KBD|U3|count\(6) & (!\KBD|U3|Add0~9\)) # (!\KBD|U3|count\(6) & ((\KBD|U3|Add0~9\) # (GND)))
@@ -3322,17 +3114,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110000111111",
+	lut_mask => "0101101001011111",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U3|count\(6),
+	dataa => \KBD|U3|count\(6),
 	datad => VCC,
 	cin => \KBD|U3|Add0~9\,
 	combout => \KBD|U3|Add0~10_combout\,
 	cout => \KBD|U3|Add0~11\);
 
--- Location: LCCOMB_X47_Y31_N18
+-- Location: LCCOMB_X35_Y30_N16
 \KBD|U3|count~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|count~3_combout\ = (\KBD|U3|Add0~10_combout\ & !\KBD|U3|Equal0~9_combout\)
@@ -3347,7 +3139,7 @@ PORT MAP (
 	datad => \KBD|U3|Equal0~9_combout\,
 	combout => \KBD|U3|count~3_combout\);
 
--- Location: FF_X47_Y31_N19
+-- Location: FF_X35_Y30_N17
 \KBD|U3|count[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3361,7 +3153,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(6));
 
--- Location: LCCOMB_X46_Y32_N14
+-- Location: LCCOMB_X36_Y30_N14
 \KBD|U3|Add0~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~12_combout\ = (\KBD|U3|count\(7) & (\KBD|U3|Add0~11\ $ (GND))) # (!\KBD|U3|count\(7) & (!\KBD|U3|Add0~11\ & VCC))
@@ -3379,7 +3171,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~12_combout\,
 	cout => \KBD|U3|Add0~13\);
 
--- Location: LCCOMB_X47_Y31_N16
+-- Location: LCCOMB_X35_Y30_N22
 \KBD|U3|count~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|count~2_combout\ = (\KBD|U3|Add0~12_combout\ & !\KBD|U3|Equal0~9_combout\)
@@ -3394,7 +3186,7 @@ PORT MAP (
 	datad => \KBD|U3|Equal0~9_combout\,
 	combout => \KBD|U3|count~2_combout\);
 
--- Location: FF_X47_Y31_N17
+-- Location: FF_X35_Y30_N23
 \KBD|U3|count[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3408,7 +3200,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(7));
 
--- Location: LCCOMB_X46_Y32_N16
+-- Location: LCCOMB_X36_Y30_N16
 \KBD|U3|Add0~14\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~14_combout\ = (\KBD|U3|count\(8) & (!\KBD|U3|Add0~13\)) # (!\KBD|U3|count\(8) & ((\KBD|U3|Add0~13\) # (GND)))
@@ -3426,22 +3218,22 @@ PORT MAP (
 	combout => \KBD|U3|Add0~14_combout\,
 	cout => \KBD|U3|Add0~15\);
 
--- Location: LCCOMB_X47_Y31_N22
+-- Location: LCCOMB_X35_Y30_N12
 \KBD|U3|count~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|count~1_combout\ = (\KBD|U3|Add0~14_combout\ & !\KBD|U3|Equal0~9_combout\)
+-- \KBD|U3|count~1_combout\ = (!\KBD|U3|Equal0~9_combout\ & \KBD|U3|Add0~14_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010101010",
+	lut_mask => "0011001100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U3|Add0~14_combout\,
-	datad => \KBD|U3|Equal0~9_combout\,
+	datab => \KBD|U3|Equal0~9_combout\,
+	datad => \KBD|U3|Add0~14_combout\,
 	combout => \KBD|U3|count~1_combout\);
 
--- Location: FF_X47_Y31_N23
+-- Location: FF_X35_Y30_N13
 \KBD|U3|count[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3455,7 +3247,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(8));
 
--- Location: LCCOMB_X46_Y32_N18
+-- Location: LCCOMB_X36_Y30_N18
 \KBD|U3|Add0~16\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~16_combout\ = (\KBD|U3|count\(9) & (\KBD|U3|Add0~15\ $ (GND))) # (!\KBD|U3|count\(9) & (!\KBD|U3|Add0~15\ & VCC))
@@ -3463,32 +3255,32 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100001100001100",
+	lut_mask => "1010010100001010",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U3|count\(9),
+	dataa => \KBD|U3|count\(9),
 	datad => VCC,
 	cin => \KBD|U3|Add0~15\,
 	combout => \KBD|U3|Add0~16_combout\,
 	cout => \KBD|U3|Add0~17\);
 
--- Location: LCCOMB_X47_Y31_N12
+-- Location: LCCOMB_X35_Y30_N26
 \KBD|U3|count~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|count~0_combout\ = (\KBD|U3|Add0~16_combout\ & !\KBD|U3|Equal0~9_combout\)
+-- \KBD|U3|count~0_combout\ = (!\KBD|U3|Equal0~9_combout\ & \KBD|U3|Add0~16_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010101010",
+	lut_mask => "0011001100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U3|Add0~16_combout\,
-	datad => \KBD|U3|Equal0~9_combout\,
+	datab => \KBD|U3|Equal0~9_combout\,
+	datad => \KBD|U3|Add0~16_combout\,
 	combout => \KBD|U3|count~0_combout\);
 
--- Location: FF_X47_Y31_N13
+-- Location: FF_X35_Y30_N27
 \KBD|U3|count[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3502,7 +3294,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(9));
 
--- Location: LCCOMB_X46_Y32_N20
+-- Location: LCCOMB_X36_Y30_N20
 \KBD|U3|Add0~18\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~18_combout\ = (\KBD|U3|count\(10) & (!\KBD|U3|Add0~17\)) # (!\KBD|U3|count\(10) & ((\KBD|U3|Add0~17\) # (GND)))
@@ -3520,7 +3312,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~18_combout\,
 	cout => \KBD|U3|Add0~19\);
 
--- Location: FF_X46_Y32_N21
+-- Location: FF_X36_Y30_N21
 \KBD|U3|count[10]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3534,7 +3326,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(10));
 
--- Location: LCCOMB_X46_Y32_N22
+-- Location: LCCOMB_X36_Y30_N22
 \KBD|U3|Add0~20\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~20_combout\ = (\KBD|U3|count\(11) & (\KBD|U3|Add0~19\ $ (GND))) # (!\KBD|U3|count\(11) & (!\KBD|U3|Add0~19\ & VCC))
@@ -3552,7 +3344,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~20_combout\,
 	cout => \KBD|U3|Add0~21\);
 
--- Location: FF_X46_Y32_N23
+-- Location: FF_X36_Y30_N23
 \KBD|U3|count[11]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3566,7 +3358,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(11));
 
--- Location: LCCOMB_X46_Y32_N24
+-- Location: LCCOMB_X36_Y30_N24
 \KBD|U3|Add0~22\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~22_combout\ = (\KBD|U3|count\(12) & (!\KBD|U3|Add0~21\)) # (!\KBD|U3|count\(12) & ((\KBD|U3|Add0~21\) # (GND)))
@@ -3584,7 +3376,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~22_combout\,
 	cout => \KBD|U3|Add0~23\);
 
--- Location: FF_X46_Y32_N25
+-- Location: FF_X36_Y30_N25
 \KBD|U3|count[12]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3598,7 +3390,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(12));
 
--- Location: LCCOMB_X46_Y32_N26
+-- Location: LCCOMB_X36_Y30_N26
 \KBD|U3|Add0~24\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~24_combout\ = (\KBD|U3|count\(13) & (\KBD|U3|Add0~23\ $ (GND))) # (!\KBD|U3|count\(13) & (!\KBD|U3|Add0~23\ & VCC))
@@ -3616,7 +3408,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~24_combout\,
 	cout => \KBD|U3|Add0~25\);
 
--- Location: FF_X46_Y32_N27
+-- Location: FF_X36_Y30_N27
 \KBD|U3|count[13]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3630,7 +3422,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(13));
 
--- Location: LCCOMB_X46_Y32_N28
+-- Location: LCCOMB_X36_Y30_N28
 \KBD|U3|Add0~26\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~26_combout\ = (\KBD|U3|count\(14) & (!\KBD|U3|Add0~25\)) # (!\KBD|U3|count\(14) & ((\KBD|U3|Add0~25\) # (GND)))
@@ -3648,7 +3440,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~26_combout\,
 	cout => \KBD|U3|Add0~27\);
 
--- Location: FF_X46_Y32_N29
+-- Location: FF_X36_Y30_N29
 \KBD|U3|count[14]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3662,7 +3454,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(14));
 
--- Location: LCCOMB_X46_Y32_N30
+-- Location: LCCOMB_X36_Y30_N30
 \KBD|U3|Add0~28\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~28_combout\ = (\KBD|U3|count\(15) & (\KBD|U3|Add0~27\ $ (GND))) # (!\KBD|U3|count\(15) & (!\KBD|U3|Add0~27\ & VCC))
@@ -3680,7 +3472,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~28_combout\,
 	cout => \KBD|U3|Add0~29\);
 
--- Location: FF_X46_Y32_N31
+-- Location: FF_X36_Y30_N31
 \KBD|U3|count[15]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3694,7 +3486,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(15));
 
--- Location: LCCOMB_X46_Y31_N0
+-- Location: LCCOMB_X36_Y29_N0
 \KBD|U3|Add0~30\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~30_combout\ = (\KBD|U3|count\(16) & (!\KBD|U3|Add0~29\)) # (!\KBD|U3|count\(16) & ((\KBD|U3|Add0~29\) # (GND)))
@@ -3712,7 +3504,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~30_combout\,
 	cout => \KBD|U3|Add0~31\);
 
--- Location: FF_X46_Y31_N1
+-- Location: FF_X36_Y29_N1
 \KBD|U3|count[16]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3726,7 +3518,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(16));
 
--- Location: LCCOMB_X46_Y31_N2
+-- Location: LCCOMB_X36_Y29_N2
 \KBD|U3|Add0~32\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~32_combout\ = (\KBD|U3|count\(17) & (\KBD|U3|Add0~31\ $ (GND))) # (!\KBD|U3|count\(17) & (!\KBD|U3|Add0~31\ & VCC))
@@ -3744,7 +3536,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~32_combout\,
 	cout => \KBD|U3|Add0~33\);
 
--- Location: FF_X46_Y31_N3
+-- Location: FF_X36_Y29_N3
 \KBD|U3|count[17]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3758,7 +3550,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(17));
 
--- Location: LCCOMB_X46_Y31_N4
+-- Location: LCCOMB_X36_Y29_N4
 \KBD|U3|Add0~34\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~34_combout\ = (\KBD|U3|count\(18) & (!\KBD|U3|Add0~33\)) # (!\KBD|U3|count\(18) & ((\KBD|U3|Add0~33\) # (GND)))
@@ -3776,7 +3568,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~34_combout\,
 	cout => \KBD|U3|Add0~35\);
 
--- Location: FF_X46_Y31_N5
+-- Location: FF_X36_Y29_N5
 \KBD|U3|count[18]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3790,7 +3582,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(18));
 
--- Location: LCCOMB_X46_Y31_N6
+-- Location: LCCOMB_X36_Y29_N6
 \KBD|U3|Add0~36\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~36_combout\ = (\KBD|U3|count\(19) & (\KBD|U3|Add0~35\ $ (GND))) # (!\KBD|U3|count\(19) & (!\KBD|U3|Add0~35\ & VCC))
@@ -3808,7 +3600,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~36_combout\,
 	cout => \KBD|U3|Add0~37\);
 
--- Location: FF_X46_Y31_N7
+-- Location: FF_X36_Y29_N7
 \KBD|U3|count[19]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3822,7 +3614,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(19));
 
--- Location: LCCOMB_X46_Y31_N8
+-- Location: LCCOMB_X36_Y29_N8
 \KBD|U3|Add0~38\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~38_combout\ = (\KBD|U3|count\(20) & (!\KBD|U3|Add0~37\)) # (!\KBD|U3|count\(20) & ((\KBD|U3|Add0~37\) # (GND)))
@@ -3840,7 +3632,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~38_combout\,
 	cout => \KBD|U3|Add0~39\);
 
--- Location: FF_X46_Y31_N9
+-- Location: FF_X36_Y29_N9
 \KBD|U3|count[20]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3854,7 +3646,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(20));
 
--- Location: LCCOMB_X46_Y31_N10
+-- Location: LCCOMB_X36_Y29_N10
 \KBD|U3|Add0~40\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~40_combout\ = (\KBD|U3|count\(21) & (\KBD|U3|Add0~39\ $ (GND))) # (!\KBD|U3|count\(21) & (!\KBD|U3|Add0~39\ & VCC))
@@ -3872,7 +3664,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~40_combout\,
 	cout => \KBD|U3|Add0~41\);
 
--- Location: FF_X46_Y31_N11
+-- Location: FF_X36_Y29_N11
 \KBD|U3|count[21]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3886,7 +3678,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(21));
 
--- Location: LCCOMB_X46_Y31_N12
+-- Location: LCCOMB_X36_Y29_N12
 \KBD|U3|Add0~42\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~42_combout\ = (\KBD|U3|count\(22) & (!\KBD|U3|Add0~41\)) # (!\KBD|U3|count\(22) & ((\KBD|U3|Add0~41\) # (GND)))
@@ -3904,7 +3696,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~42_combout\,
 	cout => \KBD|U3|Add0~43\);
 
--- Location: FF_X46_Y31_N13
+-- Location: FF_X36_Y29_N13
 \KBD|U3|count[22]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3918,7 +3710,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(22));
 
--- Location: LCCOMB_X46_Y31_N14
+-- Location: LCCOMB_X36_Y29_N14
 \KBD|U3|Add0~44\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~44_combout\ = (\KBD|U3|count\(23) & (\KBD|U3|Add0~43\ $ (GND))) # (!\KBD|U3|count\(23) & (!\KBD|U3|Add0~43\ & VCC))
@@ -3936,7 +3728,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~44_combout\,
 	cout => \KBD|U3|Add0~45\);
 
--- Location: FF_X46_Y31_N15
+-- Location: FF_X36_Y29_N15
 \KBD|U3|count[23]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3950,7 +3742,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(23));
 
--- Location: LCCOMB_X46_Y31_N16
+-- Location: LCCOMB_X36_Y29_N16
 \KBD|U3|Add0~46\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~46_combout\ = (\KBD|U3|count\(24) & (!\KBD|U3|Add0~45\)) # (!\KBD|U3|count\(24) & ((\KBD|U3|Add0~45\) # (GND)))
@@ -3968,7 +3760,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~46_combout\,
 	cout => \KBD|U3|Add0~47\);
 
--- Location: FF_X46_Y31_N17
+-- Location: FF_X36_Y29_N17
 \KBD|U3|count[24]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3982,7 +3774,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(24));
 
--- Location: LCCOMB_X46_Y31_N18
+-- Location: LCCOMB_X36_Y29_N18
 \KBD|U3|Add0~48\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~48_combout\ = (\KBD|U3|count\(25) & (\KBD|U3|Add0~47\ $ (GND))) # (!\KBD|U3|count\(25) & (!\KBD|U3|Add0~47\ & VCC))
@@ -4000,7 +3792,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~48_combout\,
 	cout => \KBD|U3|Add0~49\);
 
--- Location: FF_X46_Y31_N19
+-- Location: FF_X36_Y29_N19
 \KBD|U3|count[25]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4014,10 +3806,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(25));
 
--- Location: LCCOMB_X47_Y31_N30
+-- Location: LCCOMB_X37_Y29_N0
 \KBD|U3|Equal0~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|Equal0~2_combout\ = (!\KBD|U3|count\(23) & (!\KBD|U3|count\(25) & (!\KBD|U3|count\(24) & !\KBD|U3|count\(22))))
+-- \KBD|U3|Equal0~2_combout\ = (!\KBD|U3|count\(22) & (!\KBD|U3|count\(25) & (!\KBD|U3|count\(24) & !\KBD|U3|count\(23))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4025,16 +3817,101 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U3|count\(23),
+	dataa => \KBD|U3|count\(22),
 	datab => \KBD|U3|count\(25),
 	datac => \KBD|U3|count\(24),
-	datad => \KBD|U3|count\(22),
+	datad => \KBD|U3|count\(23),
 	combout => \KBD|U3|Equal0~2_combout\);
 
--- Location: LCCOMB_X47_Y31_N0
+-- Location: LCCOMB_X35_Y30_N10
+\KBD|U3|Equal0~6\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U3|Equal0~6_combout\ = (\KBD|U3|count\(7) & (\KBD|U3|count\(6) & (\KBD|U3|count\(9) & \KBD|U3|count\(8))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U3|count\(7),
+	datab => \KBD|U3|count\(6),
+	datac => \KBD|U3|count\(9),
+	datad => \KBD|U3|count\(8),
+	combout => \KBD|U3|Equal0~6_combout\);
+
+-- Location: LCCOMB_X35_Y30_N0
+\KBD|U3|Equal0~7\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U3|Equal0~7_combout\ = (\KBD|U3|count\(3) & (\KBD|U3|count\(5) & (!\KBD|U3|count\(4) & !\KBD|U3|count\(2))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U3|count\(3),
+	datab => \KBD|U3|count\(5),
+	datac => \KBD|U3|count\(4),
+	datad => \KBD|U3|count\(2),
+	combout => \KBD|U3|Equal0~7_combout\);
+
+-- Location: LCCOMB_X36_Y30_N0
+\KBD|U3|Equal0~5\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U3|Equal0~5_combout\ = (!\KBD|U3|count\(13) & (!\KBD|U3|count\(10) & (!\KBD|U3|count\(11) & !\KBD|U3|count\(12))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U3|count\(13),
+	datab => \KBD|U3|count\(10),
+	datac => \KBD|U3|count\(11),
+	datad => \KBD|U3|count\(12),
+	combout => \KBD|U3|Equal0~5_combout\);
+
+-- Location: LCCOMB_X35_Y30_N24
+\KBD|U3|Equal0~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U3|Equal0~4_combout\ = (!\KBD|U3|count\(16) & (!\KBD|U3|count\(17) & (!\KBD|U3|count\(15) & !\KBD|U3|count\(14))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U3|count\(16),
+	datab => \KBD|U3|count\(17),
+	datac => \KBD|U3|count\(15),
+	datad => \KBD|U3|count\(14),
+	combout => \KBD|U3|Equal0~4_combout\);
+
+-- Location: LCCOMB_X35_Y30_N18
+\KBD|U3|Equal0~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U3|Equal0~8_combout\ = (\KBD|U3|Equal0~6_combout\ & (\KBD|U3|Equal0~7_combout\ & (\KBD|U3|Equal0~5_combout\ & \KBD|U3|Equal0~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U3|Equal0~6_combout\,
+	datab => \KBD|U3|Equal0~7_combout\,
+	datac => \KBD|U3|Equal0~5_combout\,
+	datad => \KBD|U3|Equal0~4_combout\,
+	combout => \KBD|U3|Equal0~8_combout\);
+
+-- Location: LCCOMB_X38_Y29_N4
 \KBD|U3|Equal0~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|Equal0~3_combout\ = (!\KBD|U3|count\(21) & (!\KBD|U3|count\(19) & (!\KBD|U3|count\(18) & !\KBD|U3|count\(20))))
+-- \KBD|U3|Equal0~3_combout\ = (!\KBD|U3|count\(21) & (!\KBD|U3|count\(20) & (!\KBD|U3|count\(18) & !\KBD|U3|count\(19))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4043,97 +3920,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \KBD|U3|count\(21),
-	datab => \KBD|U3|count\(19),
+	datab => \KBD|U3|count\(20),
 	datac => \KBD|U3|count\(18),
-	datad => \KBD|U3|count\(20),
+	datad => \KBD|U3|count\(19),
 	combout => \KBD|U3|Equal0~3_combout\);
 
--- Location: LCCOMB_X47_Y31_N10
-\KBD|U3|Equal0~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U3|Equal0~4_combout\ = (!\KBD|U3|count\(17) & (!\KBD|U3|count\(14) & (!\KBD|U3|count\(16) & !\KBD|U3|count\(15))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U3|count\(17),
-	datab => \KBD|U3|count\(14),
-	datac => \KBD|U3|count\(16),
-	datad => \KBD|U3|count\(15),
-	combout => \KBD|U3|Equal0~4_combout\);
-
--- Location: LCCOMB_X46_Y32_N0
-\KBD|U3|Equal0~7\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U3|Equal0~7_combout\ = (!\KBD|U3|count\(4) & (!\KBD|U3|count\(2) & (\KBD|U3|count\(5) & \KBD|U3|count\(3))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U3|count\(4),
-	datab => \KBD|U3|count\(2),
-	datac => \KBD|U3|count\(5),
-	datad => \KBD|U3|count\(3),
-	combout => \KBD|U3|Equal0~7_combout\);
-
--- Location: LCCOMB_X47_Y31_N20
-\KBD|U3|Equal0~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U3|Equal0~6_combout\ = (\KBD|U3|count\(9) & (\KBD|U3|count\(7) & (\KBD|U3|count\(8) & \KBD|U3|count\(6))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U3|count\(9),
-	datab => \KBD|U3|count\(7),
-	datac => \KBD|U3|count\(8),
-	datad => \KBD|U3|count\(6),
-	combout => \KBD|U3|Equal0~6_combout\);
-
--- Location: LCCOMB_X47_Y32_N8
-\KBD|U3|Equal0~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U3|Equal0~5_combout\ = (!\KBD|U3|count\(12) & (!\KBD|U3|count\(11) & (!\KBD|U3|count\(13) & !\KBD|U3|count\(10))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U3|count\(12),
-	datab => \KBD|U3|count\(11),
-	datac => \KBD|U3|count\(13),
-	datad => \KBD|U3|count\(10),
-	combout => \KBD|U3|Equal0~5_combout\);
-
--- Location: LCCOMB_X47_Y31_N8
-\KBD|U3|Equal0~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U3|Equal0~8_combout\ = (\KBD|U3|Equal0~4_combout\ & (\KBD|U3|Equal0~7_combout\ & (\KBD|U3|Equal0~6_combout\ & \KBD|U3|Equal0~5_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U3|Equal0~4_combout\,
-	datab => \KBD|U3|Equal0~7_combout\,
-	datac => \KBD|U3|Equal0~6_combout\,
-	datad => \KBD|U3|Equal0~5_combout\,
-	combout => \KBD|U3|Equal0~8_combout\);
-
--- Location: LCCOMB_X46_Y31_N20
+-- Location: LCCOMB_X36_Y29_N20
 \KBD|U3|Add0~50\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~50_combout\ = (\KBD|U3|count\(26) & (!\KBD|U3|Add0~49\)) # (!\KBD|U3|count\(26) & ((\KBD|U3|Add0~49\) # (GND)))
@@ -4151,7 +3943,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~50_combout\,
 	cout => \KBD|U3|Add0~51\);
 
--- Location: FF_X46_Y31_N21
+-- Location: FF_X36_Y29_N21
 \KBD|U3|count[26]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4165,7 +3957,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(26));
 
--- Location: LCCOMB_X46_Y31_N22
+-- Location: LCCOMB_X36_Y29_N22
 \KBD|U3|Add0~52\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~52_combout\ = (\KBD|U3|count\(27) & (\KBD|U3|Add0~51\ $ (GND))) # (!\KBD|U3|count\(27) & (!\KBD|U3|Add0~51\ & VCC))
@@ -4183,7 +3975,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~52_combout\,
 	cout => \KBD|U3|Add0~53\);
 
--- Location: FF_X46_Y31_N23
+-- Location: FF_X36_Y29_N23
 \KBD|U3|count[27]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4197,7 +3989,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(27));
 
--- Location: LCCOMB_X46_Y31_N24
+-- Location: LCCOMB_X36_Y29_N24
 \KBD|U3|Add0~54\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~54_combout\ = (\KBD|U3|count\(28) & (!\KBD|U3|Add0~53\)) # (!\KBD|U3|count\(28) & ((\KBD|U3|Add0~53\) # (GND)))
@@ -4215,7 +4007,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~54_combout\,
 	cout => \KBD|U3|Add0~55\);
 
--- Location: FF_X46_Y31_N25
+-- Location: FF_X36_Y29_N25
 \KBD|U3|count[28]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4229,7 +4021,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(28));
 
--- Location: LCCOMB_X46_Y31_N26
+-- Location: LCCOMB_X36_Y29_N26
 \KBD|U3|Add0~56\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~56_combout\ = (\KBD|U3|count\(29) & (\KBD|U3|Add0~55\ $ (GND))) # (!\KBD|U3|count\(29) & (!\KBD|U3|Add0~55\ & VCC))
@@ -4247,7 +4039,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~56_combout\,
 	cout => \KBD|U3|Add0~57\);
 
--- Location: FF_X46_Y31_N27
+-- Location: FF_X36_Y29_N27
 \KBD|U3|count[29]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4261,24 +4053,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(29));
 
--- Location: LCCOMB_X47_Y31_N26
-\KBD|U3|Equal0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U3|Equal0~0_combout\ = (!\KBD|U3|count\(26) & (!\KBD|U3|count\(28) & (!\KBD|U3|count\(29) & !\KBD|U3|count\(27))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U3|count\(26),
-	datab => \KBD|U3|count\(28),
-	datac => \KBD|U3|count\(29),
-	datad => \KBD|U3|count\(27),
-	combout => \KBD|U3|Equal0~0_combout\);
-
--- Location: LCCOMB_X46_Y31_N28
+-- Location: LCCOMB_X36_Y29_N28
 \KBD|U3|Add0~58\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~58_combout\ = (\KBD|U3|count\(30) & (!\KBD|U3|Add0~57\)) # (!\KBD|U3|count\(30) & ((\KBD|U3|Add0~57\) # (GND)))
@@ -4296,7 +4071,7 @@ PORT MAP (
 	combout => \KBD|U3|Add0~58_combout\,
 	cout => \KBD|U3|Add0~59\);
 
--- Location: FF_X46_Y31_N29
+-- Location: FF_X36_Y29_N29
 \KBD|U3|count[30]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4310,7 +4085,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(30));
 
--- Location: LCCOMB_X46_Y31_N30
+-- Location: LCCOMB_X36_Y29_N30
 \KBD|U3|Add0~60\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|Add0~60_combout\ = \KBD|U3|count\(31) $ (!\KBD|U3|Add0~59\)
@@ -4325,7 +4100,7 @@ PORT MAP (
 	cin => \KBD|U3|Add0~59\,
 	combout => \KBD|U3|Add0~60_combout\);
 
--- Location: FF_X46_Y31_N31
+-- Location: FF_X36_Y29_N31
 \KBD|U3|count[31]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4339,42 +4114,59 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|count\(31));
 
--- Location: LCCOMB_X47_Y33_N18
+-- Location: LCCOMB_X35_Y32_N28
 \SSC|U2|Equal0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~0_combout\ = (!\SLCDC|U2|count\(1) & \SLCDC|U2|count\(0))
+-- \SSC|U2|Equal0~0_combout\ = (\SLCDC|U2|count\(0) & !\SLCDC|U2|count\(1))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011001100000000",
+	lut_mask => "0000000010101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SLCDC|U2|count\(1),
-	datad => \SLCDC|U2|count\(0),
+	dataa => \SLCDC|U2|count\(0),
+	datad => \SLCDC|U2|count\(1),
 	combout => \SSC|U2|Equal0~0_combout\);
 
--- Location: LCCOMB_X47_Y31_N28
-\KBD|U3|Equal0~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X38_Y29_N24
+\KBD|U3|Equal0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|Equal0~1_combout\ = (\KBD|U3|Equal0~0_combout\ & (!\KBD|U3|count\(31) & (!\KBD|U3|count\(30) & \SSC|U2|Equal0~0_combout\)))
+-- \KBD|U3|Equal0~0_combout\ = (!\KBD|U3|count\(29) & (!\KBD|U3|count\(26) & (!\KBD|U3|count\(28) & !\KBD|U3|count\(27))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000001000000000",
+	lut_mask => "0000000000000001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U3|Equal0~0_combout\,
-	datab => \KBD|U3|count\(31),
+	dataa => \KBD|U3|count\(29),
+	datab => \KBD|U3|count\(26),
+	datac => \KBD|U3|count\(28),
+	datad => \KBD|U3|count\(27),
+	combout => \KBD|U3|Equal0~0_combout\);
+
+-- Location: LCCOMB_X38_Y29_N10
+\KBD|U3|Equal0~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U3|Equal0~1_combout\ = (!\KBD|U3|count\(31) & (\SSC|U2|Equal0~0_combout\ & (!\KBD|U3|count\(30) & \KBD|U3|Equal0~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000010000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U3|count\(31),
+	datab => \SSC|U2|Equal0~0_combout\,
 	datac => \KBD|U3|count\(30),
-	datad => \SSC|U2|Equal0~0_combout\,
+	datad => \KBD|U3|Equal0~0_combout\,
 	combout => \KBD|U3|Equal0~1_combout\);
 
--- Location: LCCOMB_X47_Y31_N2
+-- Location: LCCOMB_X35_Y30_N20
 \KBD|U3|Equal0~9\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U3|Equal0~9_combout\ = (\KBD|U3|Equal0~2_combout\ & (\KBD|U3|Equal0~3_combout\ & (\KBD|U3|Equal0~8_combout\ & \KBD|U3|Equal0~1_combout\)))
+-- \KBD|U3|Equal0~9_combout\ = (\KBD|U3|Equal0~2_combout\ & (\KBD|U3|Equal0~8_combout\ & (\KBD|U3|Equal0~3_combout\ & \KBD|U3|Equal0~1_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4383,12 +4175,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \KBD|U3|Equal0~2_combout\,
-	datab => \KBD|U3|Equal0~3_combout\,
-	datac => \KBD|U3|Equal0~8_combout\,
+	datab => \KBD|U3|Equal0~8_combout\,
+	datac => \KBD|U3|Equal0~3_combout\,
 	datad => \KBD|U3|Equal0~1_combout\,
 	combout => \KBD|U3|Equal0~9_combout\);
 
--- Location: LCCOMB_X47_Y31_N24
+-- Location: LCCOMB_X32_Y38_N16
 \KBD|U3|tmp~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U3|tmp~0_combout\ = \KBD|U3|tmp~q\ $ (\KBD|U3|Equal0~9_combout\)
@@ -4403,7 +4195,7 @@ PORT MAP (
 	datad => \KBD|U3|Equal0~9_combout\,
 	combout => \KBD|U3|tmp~0_combout\);
 
--- Location: FF_X47_Y31_N25
+-- Location: FF_X32_Y38_N17
 \KBD|U3|tmp\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4417,7 +4209,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U3|tmp~q\);
 
--- Location: CLKCTRL_G7
+-- Location: CLKCTRL_G1
 \KBD|U3|tmp~clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -4430,22 +4222,17 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \KBD|U3|tmp~clkctrl_outclk\);
 
--- Location: LCCOMB_X44_Y18_N8
-\KBD|U0|U1|CurrentState~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U0|U1|CurrentState~0_combout\ = ((!\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U1|U0|CurrentState.state_bit_2~q\ & \KBD|U1|U0|CurrentState.state_bit_1~q\))) # (!\KBD|U0|U1|CurrentState~q\)
-
+-- Location: IOIBUF_X46_Y0_N8
+\KEYPAD_LIN[2]~input\ : fiftyfivenm_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011011100110011",
-	sum_lutc_input => "datac")
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U0|U1|CurrentState~q\,
-	datac => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
-	combout => \KBD|U0|U1|CurrentState~0_combout\);
+	i => ww_KEYPAD_LIN(2),
+	o => \KEYPAD_LIN[2]~input_o\);
 
 -- Location: IOIBUF_X40_Y0_N22
 \KEYPAD_LIN[3]~input\ : fiftyfivenm_io_ibuf
@@ -4459,7 +4246,19 @@ PORT MAP (
 	i => ww_KEYPAD_LIN(3),
 	o => \KEYPAD_LIN[3]~input_o\);
 
--- Location: LCCOMB_X44_Y18_N24
+-- Location: IOIBUF_X51_Y0_N22
+\KEYPAD_LIN[1]~input\ : fiftyfivenm_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_KEYPAD_LIN(1),
+	o => \KEYPAD_LIN[1]~input_o\);
+
+-- Location: LCCOMB_X45_Y8_N28
 \KBD|U0|U0|U0|count[0]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U0|U0|U0|count[0]~4_combout\ = \KBD|U0|U0|U0|count\(0) $ (!\KBD|U0|U1|CurrentState~q\)
@@ -4474,7 +4273,7 @@ PORT MAP (
 	datad => \KBD|U0|U1|CurrentState~q\,
 	combout => \KBD|U0|U0|U0|count[0]~4_combout\);
 
--- Location: FF_X44_Y18_N25
+-- Location: FF_X45_Y8_N29
 \KBD|U0|U0|U0|count[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4488,23 +4287,23 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U0|U0|U0|count\(0));
 
--- Location: LCCOMB_X43_Y18_N12
+-- Location: LCCOMB_X45_Y8_N2
 \KBD|U0|U0|U0|count[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U0|U0|U0|count[1]~3_combout\ = \KBD|U0|U0|U0|count\(1) $ (((\KBD|U0|U0|U0|count\(0) & !\KBD|U0|U1|CurrentState~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000001011010",
+	lut_mask => "1111000000111100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(0),
+	datab => \KBD|U0|U0|U0|count\(0),
 	datac => \KBD|U0|U0|U0|count\(1),
 	datad => \KBD|U0|U1|CurrentState~q\,
 	combout => \KBD|U0|U0|U0|count[1]~3_combout\);
 
--- Location: FF_X43_Y18_N13
+-- Location: FF_X45_Y8_N3
 \KBD|U0|U0|U0|count[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4530,80 +4329,73 @@ PORT MAP (
 	i => ww_KEYPAD_LIN(0),
 	o => \KEYPAD_LIN[0]~input_o\);
 
--- Location: IOIBUF_X51_Y0_N22
-\KEYPAD_LIN[1]~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_KEYPAD_LIN(1),
-	o => \KEYPAD_LIN[1]~input_o\);
-
--- Location: LCCOMB_X44_Y18_N4
+-- Location: LCCOMB_X45_Y8_N30
 \KBD|U0|U0|U1|Mux0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U0|U1|Mux0~0_combout\ = (\KBD|U0|U0|U0|count\(1) & (\KBD|U0|U0|U0|count\(0))) # (!\KBD|U0|U0|U0|count\(1) & ((\KBD|U0|U0|U0|count\(0) & ((\KEYPAD_LIN[1]~input_o\))) # (!\KBD|U0|U0|U0|count\(0) & (\KEYPAD_LIN[0]~input_o\))))
+-- \KBD|U0|U0|U1|Mux0~0_combout\ = (\KBD|U0|U0|U0|count\(1) & (((\KBD|U0|U0|U0|count\(0))))) # (!\KBD|U0|U0|U0|count\(1) & ((\KBD|U0|U0|U0|count\(0) & (\KEYPAD_LIN[1]~input_o\)) # (!\KBD|U0|U0|U0|count\(0) & ((\KEYPAD_LIN[0]~input_o\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1101110010011000",
+	lut_mask => "1110111000110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datab => \KBD|U0|U0|U0|count\(0),
+	dataa => \KEYPAD_LIN[1]~input_o\,
+	datab => \KBD|U0|U0|U0|count\(1),
 	datac => \KEYPAD_LIN[0]~input_o\,
-	datad => \KEYPAD_LIN[1]~input_o\,
+	datad => \KBD|U0|U0|U0|count\(0),
 	combout => \KBD|U0|U0|U1|Mux0~0_combout\);
 
--- Location: IOIBUF_X46_Y0_N8
-\KEYPAD_LIN[2]~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_KEYPAD_LIN(2),
-	o => \KEYPAD_LIN[2]~input_o\);
-
--- Location: LCCOMB_X44_Y18_N14
+-- Location: LCCOMB_X45_Y8_N8
 \KBD|U0|U0|U1|Mux0~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U0|U1|Mux0~1_combout\ = (\KBD|U0|U0|U1|Mux0~0_combout\ & ((\KEYPAD_LIN[3]~input_o\) # ((!\KBD|U0|U0|U0|count\(1))))) # (!\KBD|U0|U0|U1|Mux0~0_combout\ & (((\KEYPAD_LIN[2]~input_o\ & \KBD|U0|U0|U0|count\(1)))))
+-- \KBD|U0|U0|U1|Mux0~1_combout\ = (\KBD|U0|U0|U1|Mux0~0_combout\ & (((\KEYPAD_LIN[3]~input_o\) # (!\KBD|U0|U0|U0|count\(1))))) # (!\KBD|U0|U0|U1|Mux0~0_combout\ & (\KEYPAD_LIN[2]~input_o\ & ((\KBD|U0|U0|U0|count\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011100011001100",
+	lut_mask => "1100101011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KEYPAD_LIN[3]~input_o\,
-	datab => \KBD|U0|U0|U1|Mux0~0_combout\,
-	datac => \KEYPAD_LIN[2]~input_o\,
+	dataa => \KEYPAD_LIN[2]~input_o\,
+	datab => \KEYPAD_LIN[3]~input_o\,
+	datac => \KBD|U0|U0|U1|Mux0~0_combout\,
 	datad => \KBD|U0|U0|U0|count\(1),
 	combout => \KBD|U0|U0|U1|Mux0~1_combout\);
 
--- Location: LCCOMB_X44_Y18_N18
-\KBD|U0|U1|CurrentState~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X47_Y8_N22
+\KBD|U0|U1|CurrentState~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U1|CurrentState~1_combout\ = (!\KBD|U0|U0|U1|Mux0~1_combout\) # (!\KBD|U0|U1|CurrentState~0_combout\)
+-- \KBD|U0|U1|CurrentState~0_combout\ = ((\KBD|U1|U0|CurrentState.state_bit_1~q\ & (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & !\KBD|U1|U0|CurrentState.state_bit_2~q\))) # (!\KBD|U0|U1|CurrentState~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111100111111",
+	lut_mask => "0000111100101111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U0|U1|CurrentState~0_combout\,
-	datac => \KBD|U0|U0|U1|Mux0~1_combout\,
+	dataa => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~q\,
+	datac => \KBD|U0|U1|CurrentState~q\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
+	combout => \KBD|U0|U1|CurrentState~0_combout\);
+
+-- Location: LCCOMB_X46_Y8_N8
+\KBD|U0|U1|CurrentState~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U0|U1|CurrentState~1_combout\ = (!\KBD|U0|U1|CurrentState~0_combout\) # (!\KBD|U0|U0|U1|Mux0~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101010111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U1|Mux0~1_combout\,
+	datad => \KBD|U0|U1|CurrentState~0_combout\,
 	combout => \KBD|U0|U1|CurrentState~1_combout\);
 
--- Location: FF_X44_Y18_N19
+-- Location: FF_X46_Y8_N9
 \KBD|U0|U1|CurrentState\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4617,7 +4409,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U0|U1|CurrentState~q\);
 
--- Location: LCCOMB_X44_Y18_N12
+-- Location: LCCOMB_X47_Y8_N26
 \KBD|U1|U0|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U0|CurrentState.state_bit_1~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_1~q\ & (((!\KBD|U0|U1|CurrentState~q\ & !\KBD|U1|U0|CurrentState.state_bit_2~q\)))) # (!\KBD|U1|U0|CurrentState.state_bit_1~q\ & 
@@ -4625,17 +4417,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000001101010101",
+	lut_mask => "0001000100011011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\,
-	datab => \KBD|U0|U1|CurrentState~q\,
-	datac => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	dataa => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\,
+	datac => \KBD|U0|U1|CurrentState~q\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
 	combout => \KBD|U1|U0|CurrentState.state_bit_1~0_combout\);
 
--- Location: LCCOMB_X44_Y19_N10
+-- Location: LCCOMB_X47_Y8_N10
 \KBD|U1|U0|CurrentState.state_bit_1~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U0|CurrentState.state_bit_1~1_combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\ & (((!\KBD|U1|U0|CurrentState.state_bit_2~q\)))) # (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U1|U0|CurrentState.state_bit_1~0_combout\ & 
@@ -4643,17 +4435,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001000010111011",
+	lut_mask => "0001000011011101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_1~0_combout\,
+	dataa => \KBD|U1|U0|CurrentState.state_bit_1~0_combout\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~q\,
 	datac => \KBD|U1|U0|CurrentState.state_bit_1~q\,
 	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
 	combout => \KBD|U1|U0|CurrentState.state_bit_1~1_combout\);
 
--- Location: FF_X44_Y19_N11
+-- Location: FF_X47_Y8_N11
 \KBD|U1|U0|CurrentState.state_bit_1\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4667,320 +4459,59 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U1|U0|CurrentState.state_bit_1~q\);
 
--- Location: LCCOMB_X44_Y18_N10
-\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U1|U0|CurrentState.state_bit_2~q\ & \KBD|U1|U0|CurrentState.state_bit_1~q\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datac => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
-	combout => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\);
-
--- Location: LCCOMB_X45_Y19_N24
-\KBD|U1|U1|Equal0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|Equal0~0_combout\ = (\KBD|U1|U1|U2|count\(3) & (!\KBD|U1|U1|U2|count\(2) & (!\KBD|U1|U1|U2|count\(0) & !\KBD|U1|U1|U2|count\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|U2|count\(3),
-	datab => \KBD|U1|U1|U2|count\(2),
-	datac => \KBD|U1|U1|U2|count\(0),
-	datad => \KBD|U1|U1|U2|count\(1),
-	combout => \KBD|U1|U1|Equal0~0_combout\);
-
--- Location: LCCOMB_X45_Y19_N30
-\KBD|U1|U1|U2|count[0]~11\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U2|count[0]~11_combout\ = \KBD|U1|U1|U2|count\(0) $ (((\KBD|U1|U1|getCE~0_combout\) # ((\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|Equal0~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101000011110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|getCE~0_combout\,
-	datab => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datac => \KBD|U1|U1|U2|count\(0),
-	datad => \KBD|U1|U1|Equal0~0_combout\,
-	combout => \KBD|U1|U1|U2|count[0]~11_combout\);
-
--- Location: FF_X45_Y19_N31
-\KBD|U1|U1|U2|count[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U2|count[0]~11_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U2|count\(0));
-
--- Location: LCCOMB_X45_Y19_N0
-\KBD|U1|U1|U2|count[1]~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U2|count[1]~4_cout\ = CARRY(\KBD|U1|U1|U2|count\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|U2|count\(0),
-	datad => VCC,
-	cout => \KBD|U1|U1|U2|count[1]~4_cout\);
-
--- Location: LCCOMB_X45_Y19_N2
-\KBD|U1|U1|U2|count[1]~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U2|count[1]~5_combout\ = (\KBD|U1|U1|getCE~0_combout\ & ((\KBD|U1|U1|U2|count\(1) & (\KBD|U1|U1|U2|count[1]~4_cout\ & VCC)) # (!\KBD|U1|U1|U2|count\(1) & (!\KBD|U1|U1|U2|count[1]~4_cout\)))) # (!\KBD|U1|U1|getCE~0_combout\ & 
--- ((\KBD|U1|U1|U2|count\(1) & (!\KBD|U1|U1|U2|count[1]~4_cout\)) # (!\KBD|U1|U1|U2|count\(1) & ((\KBD|U1|U1|U2|count[1]~4_cout\) # (GND)))))
--- \KBD|U1|U1|U2|count[1]~6\ = CARRY((\KBD|U1|U1|getCE~0_combout\ & (!\KBD|U1|U1|U2|count\(1) & !\KBD|U1|U1|U2|count[1]~4_cout\)) # (!\KBD|U1|U1|getCE~0_combout\ & ((!\KBD|U1|U1|U2|count[1]~4_cout\) # (!\KBD|U1|U1|U2|count\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|getCE~0_combout\,
-	datab => \KBD|U1|U1|U2|count\(1),
-	datad => VCC,
-	cin => \KBD|U1|U1|U2|count[1]~4_cout\,
-	combout => \KBD|U1|U1|U2|count[1]~5_combout\,
-	cout => \KBD|U1|U1|U2|count[1]~6\);
-
--- Location: LCCOMB_X45_Y19_N12
-\KBD|U1|U1|sizeCE~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|sizeCE~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_2~q\ & \KBD|U1|U0|CurrentState.state_bit_0~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	combout => \KBD|U1|U1|sizeCE~0_combout\);
-
--- Location: LCCOMB_X45_Y19_N14
-\KBD|U1|U1|sizeCE\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|sizeCE~combout\ = (\KBD|U1|U1|Equal1~0_combout\ & (!\KBD|U1|U1|Equal0~0_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\))) # (!\KBD|U1|U1|Equal1~0_combout\ & ((\KBD|U1|U1|sizeCE~0_combout\) # ((!\KBD|U1|U1|Equal0~0_combout\ 
--- & \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111010100110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|Equal1~0_combout\,
-	datab => \KBD|U1|U1|Equal0~0_combout\,
-	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datad => \KBD|U1|U1|sizeCE~0_combout\,
-	combout => \KBD|U1|U1|sizeCE~combout\);
-
--- Location: FF_X45_Y19_N3
-\KBD|U1|U1|U2|count[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U2|count[1]~5_combout\,
-	ena => \KBD|U1|U1|sizeCE~combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U2|count\(1));
-
--- Location: LCCOMB_X45_Y19_N4
-\KBD|U1|U1|U2|count[2]~7\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U2|count[2]~7_combout\ = ((\KBD|U1|U1|getCE~0_combout\ $ (\KBD|U1|U1|U2|count\(2) $ (!\KBD|U1|U1|U2|count[1]~6\)))) # (GND)
--- \KBD|U1|U1|U2|count[2]~8\ = CARRY((\KBD|U1|U1|getCE~0_combout\ & ((\KBD|U1|U1|U2|count\(2)) # (!\KBD|U1|U1|U2|count[1]~6\))) # (!\KBD|U1|U1|getCE~0_combout\ & (\KBD|U1|U1|U2|count\(2) & !\KBD|U1|U1|U2|count[1]~6\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|getCE~0_combout\,
-	datab => \KBD|U1|U1|U2|count\(2),
-	datad => VCC,
-	cin => \KBD|U1|U1|U2|count[1]~6\,
-	combout => \KBD|U1|U1|U2|count[2]~7_combout\,
-	cout => \KBD|U1|U1|U2|count[2]~8\);
-
--- Location: FF_X45_Y19_N5
-\KBD|U1|U1|U2|count[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U2|count[2]~7_combout\,
-	ena => \KBD|U1|U1|sizeCE~combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U2|count\(2));
-
--- Location: LCCOMB_X45_Y19_N6
-\KBD|U1|U1|U2|count[3]~9\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U2|count[3]~9_combout\ = \KBD|U1|U1|getCE~0_combout\ $ (\KBD|U1|U1|U2|count[2]~8\ $ (\KBD|U1|U1|U2|count\(3)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010101011010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|getCE~0_combout\,
-	datad => \KBD|U1|U1|U2|count\(3),
-	cin => \KBD|U1|U1|U2|count[2]~8\,
-	combout => \KBD|U1|U1|U2|count[3]~9_combout\);
-
--- Location: FF_X45_Y19_N7
-\KBD|U1|U1|U2|count[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U2|count[3]~9_combout\,
-	ena => \KBD|U1|U1|sizeCE~combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U2|count\(3));
-
--- Location: LCCOMB_X45_Y19_N10
-\KBD|U1|U1|Equal1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|Equal1~0_combout\ = (!\KBD|U1|U1|U2|count\(3) & (!\KBD|U1|U1|U2|count\(2) & (!\KBD|U1|U1|U2|count\(0) & !\KBD|U1|U1|U2|count\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|U2|count\(3),
-	datab => \KBD|U1|U1|U2|count\(2),
-	datac => \KBD|U1|U1|U2|count\(0),
-	datad => \KBD|U1|U1|U2|count\(1),
-	combout => \KBD|U1|U1|Equal1~0_combout\);
-
--- Location: LCCOMB_X44_Y19_N4
-\KBD|U1|U0|CurrentState.state_bit_2~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U0|CurrentState.state_bit_2~0_combout\ = (!\KBD|U1|U1|Equal1~0_combout\ & ((\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\) # ((!\KBD|U2|U1|CurrentState.state_bit_0~q\ & !\KBD|U2|U1|CurrentState.state_bit_1~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000101000001011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
-	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
-	datac => \KBD|U1|U1|Equal1~0_combout\,
-	datad => \KBD|U2|U1|CurrentState.state_bit_1~q\,
-	combout => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\);
-
--- Location: LCCOMB_X44_Y19_N20
-\KBD|U1|U0|CurrentState.state_bit_2~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U0|CurrentState.state_bit_2~1_combout\ = (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & ((\KBD|U1|U0|CurrentState.state_bit_2~q\ & ((\KBD|U1|U0|CurrentState.state_bit_1~q\))) # (!\KBD|U1|U0|CurrentState.state_bit_2~q\ & 
--- (\KBD|U1|U0|CurrentState.state_bit_2~0_combout\ & !\KBD|U1|U0|CurrentState.state_bit_1~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\,
-	datac => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
-	combout => \KBD|U1|U0|CurrentState.state_bit_2~1_combout\);
-
--- Location: FF_X44_Y19_N21
-\KBD|U1|U0|CurrentState.state_bit_2\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U0|CurrentState.state_bit_2~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U0|CurrentState.state_bit_2~q\);
-
--- Location: LCCOMB_X44_Y19_N30
+-- Location: LCCOMB_X47_Y8_N16
 \KBD|U1|U0|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U0|CurrentState.state_bit_0~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\) # ((\KBD|U0|U1|CurrentState~q\ & (!\KBD|U1|U0|CurrentState.state_bit_2~0_combout\ & !\KBD|U1|U1|Equal0~0_combout\)))
+-- \KBD|U1|U0|CurrentState.state_bit_0~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\) # ((\KBD|U0|U1|CurrentState~q\ & (!\KBD|U1|U1|Equal0~0_combout\ & !\KBD|U1|U0|CurrentState.state_bit_2~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000011110010",
+	lut_mask => "1111111100000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \KBD|U0|U1|CurrentState~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\,
-	datac => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datad => \KBD|U1|U1|Equal0~0_combout\,
+	datab => \KBD|U1|U1|Equal0~0_combout\,
+	datac => \KBD|U1|U0|CurrentState.state_bit_2~0_combout\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_0~q\,
 	combout => \KBD|U1|U0|CurrentState.state_bit_0~0_combout\);
 
--- Location: LCCOMB_X44_Y19_N8
-\KBD|U1|U0|CurrentState.state_bit_0~2\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X49_Y8_N8
+\KBD|U1|U0|CurrentState.state_bit_0~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U0|CurrentState.state_bit_0~2_combout\ = (\KBD|U1|U0|CurrentState.state_bit_2~q\ & (\KBD|U1|U0|CurrentState.state_bit_0~1_combout\ & ((\KBD|U1|U0|CurrentState.state_bit_1~q\)))) # (!\KBD|U1|U0|CurrentState.state_bit_2~q\ & 
--- (((\KBD|U1|U0|CurrentState.state_bit_0~0_combout\ & !\KBD|U1|U0|CurrentState.state_bit_1~q\))))
+-- \KBD|U1|U0|CurrentState.state_bit_0~1_combout\ = (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\ & ((\KBD|U2|U1|CurrentState.state_bit_1~q\) # (\KBD|U2|U1|CurrentState.state_bit_0~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000100000110000",
+	lut_mask => "0000000000001110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~1_combout\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datac => \KBD|U1|U0|CurrentState.state_bit_0~0_combout\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	dataa => \KBD|U2|U1|CurrentState.state_bit_1~q\,
+	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
+	datac => \KBD|U1|U0|CurrentState.state_bit_0~q\,
+	datad => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
+	combout => \KBD|U1|U0|CurrentState.state_bit_0~1_combout\);
+
+-- Location: LCCOMB_X49_Y8_N22
+\KBD|U1|U0|CurrentState.state_bit_0~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U0|CurrentState.state_bit_0~2_combout\ = (\KBD|U1|U0|CurrentState.state_bit_1~q\ & (((\KBD|U1|U0|CurrentState.state_bit_0~1_combout\ & \KBD|U1|U0|CurrentState.state_bit_2~q\)))) # (!\KBD|U1|U0|CurrentState.state_bit_1~q\ & 
+-- (\KBD|U1|U0|CurrentState.state_bit_0~0_combout\ & ((!\KBD|U1|U0|CurrentState.state_bit_2~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010000001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~0_combout\,
+	datac => \KBD|U1|U0|CurrentState.state_bit_0~1_combout\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
 	combout => \KBD|U1|U0|CurrentState.state_bit_0~2_combout\);
 
--- Location: FF_X44_Y19_N9
+-- Location: FF_X49_Y8_N23
 \KBD|U1|U0|CurrentState.state_bit_0\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4994,10 +4525,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U1|U0|CurrentState.state_bit_0~q\);
 
--- Location: LCCOMB_X44_Y19_N18
+-- Location: LCCOMB_X49_Y8_N26
 \KBD|U2|U1|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U2|U1|CurrentState.state_bit_0~0_combout\ = (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & (!\KBD|U2|U1|CurrentState.state_bit_0~q\ & (!\KBD|U2|U1|CurrentState.state_bit_1~q\ & \KBD|U1|U0|CurrentState.state_bit_2~q\)))
+-- \KBD|U2|U1|CurrentState.state_bit_0~0_combout\ = (!\KBD|U2|U1|CurrentState.state_bit_1~q\ & (!\KBD|U2|U1|CurrentState.state_bit_0~q\ & (!\KBD|U1|U0|CurrentState.state_bit_0~q\ & \KBD|U1|U0|CurrentState.state_bit_2~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -5005,138 +4536,68 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
+	dataa => \KBD|U2|U1|CurrentState.state_bit_1~q\,
 	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
-	datac => \KBD|U2|U1|CurrentState.state_bit_1~q\,
+	datac => \KBD|U1|U0|CurrentState.state_bit_0~q\,
 	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
 	combout => \KBD|U2|U1|CurrentState.state_bit_0~0_combout\);
 
--- Location: LCCOMB_X44_Y19_N28
-\KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\ = (\KBD|U2|U1|CurrentState.state_bit_1~q\ & \KBD|U2|U1|CurrentState.state_bit_0~q\)
-
+-- Location: IOIBUF_X51_Y54_N22
+\inputPort[1]~input\ : fiftyfivenm_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110000000000",
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_inputPort(1),
+	o => \inputPort[1]~input_o\);
+
+-- Location: LCCOMB_X49_Y24_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~5\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U2|U1|CurrentState.state_bit_1~q\,
-	datad => \KBD|U2|U1|CurrentState.state_bit_0~q\,
-	combout => \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\);
+	dataa => \altera_internal_jtag~TDIUTAP\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~5_combout\);
 
--- Location: LCCOMB_X44_Y19_N24
-\KBD|U2|U1|CurrentState.state_bit_0~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X49_Y24_N30
+\~QIC_CREATED_GND~I\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U2|U1|CurrentState.state_bit_0~1_combout\ = (\KBD|U2|U1|CurrentState.state_bit_0~0_combout\) # ((\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\) # 
--- ((!\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\ & 
--- \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\)))
+-- \~QIC_CREATED_GND~I_combout\ = GND
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111111011100",
+	lut_mask => "0000000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\,
-	datab => \KBD|U2|U1|CurrentState.state_bit_0~0_combout\,
-	datac => \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\,
-	datad => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
-	combout => \KBD|U2|U1|CurrentState.state_bit_0~1_combout\);
+	combout => \~QIC_CREATED_GND~I_combout\);
 
--- Location: FF_X44_Y19_N25
-\KBD|U2|U1|CurrentState.state_bit_0\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U2|U1|CurrentState.state_bit_0~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U2|U1|CurrentState.state_bit_0~q\);
-
--- Location: LCCOMB_X44_Y19_N2
-\KBD|U2|U1|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U2|U1|CurrentState.state_bit_1~0_combout\ = (\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\) # ((\KBD|U2|U1|CurrentState.state_bit_1~q\ & 
--- ((\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\) # (\KBD|U2|U1|CurrentState.state_bit_0~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\,
-	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
-	datac => \KBD|U2|U1|CurrentState.state_bit_1~q\,
-	datad => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
-	combout => \KBD|U2|U1|CurrentState.state_bit_1~0_combout\);
-
--- Location: FF_X44_Y19_N3
-\KBD|U2|U1|CurrentState.state_bit_1\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U2|U1|CurrentState.state_bit_1~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U2|U1|CurrentState.state_bit_1~q\);
-
--- Location: LCCOMB_X44_Y19_N26
-\KBD|U2|U1|CurrentState.STATE_RECEIVING~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\ = LCELL((!\KBD|U2|U1|CurrentState.state_bit_1~q\ & \KBD|U2|U1|CurrentState.state_bit_0~q\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U2|U1|CurrentState.state_bit_1~q\,
-	datad => \KBD|U2|U1|CurrentState.state_bit_0~q\,
-	combout => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\);
-
--- Location: CLKCTRL_G18
-\KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\);
-
--- Location: LCCOMB_X45_Y19_N16
+-- Location: LCCOMB_X47_Y8_N24
 \KBD|U1|U1|U1|count[0]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U1|U1|count[0]~0_combout\ = \KBD|U1|U1|U1|count\(0) $ (((\KBD|U1|U0|CurrentState.state_bit_0~q\ & (\KBD|U1|U0|CurrentState.state_bit_2~q\ & !\KBD|U1|U1|Equal1~0_combout\))))
+-- \KBD|U1|U1|U1|count[0]~0_combout\ = \KBD|U1|U1|U1|count\(0) $ (((!\KBD|U1|U1|Equal1~0_combout\ & (\KBD|U1|U0|CurrentState.state_bit_0~q\ & \KBD|U1|U0|CurrentState.state_bit_2~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000001111000",
+	lut_mask => "1011010011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~q\,
+	dataa => \KBD|U1|U1|Equal1~0_combout\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~q\,
 	datac => \KBD|U1|U1|U1|count\(0),
-	datad => \KBD|U1|U1|Equal1~0_combout\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
 	combout => \KBD|U1|U1|U1|count[0]~0_combout\);
 
--- Location: FF_X45_Y19_N17
+-- Location: FF_X47_Y8_N25
 \KBD|U1|U1|U1|count[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -5150,7 +4611,146 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U1|U1|U1|count\(0));
 
--- Location: LCCOMB_X45_Y19_N22
+-- Location: LCCOMB_X47_Y8_N12
+\KBD|U1|U0|selPG~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U0|selPG~0_combout\ = (\KBD|U1|U0|CurrentState.state_bit_1~q\ & ((!\KBD|U1|U0|CurrentState.state_bit_2~q\))) # (!\KBD|U1|U0|CurrentState.state_bit_1~q\ & (\KBD|U1|U0|CurrentState.state_bit_0~q\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100010011101110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U0|CurrentState.state_bit_1~q\,
+	datab => \KBD|U1|U0|CurrentState.state_bit_0~q\,
+	datad => \KBD|U1|U0|CurrentState.state_bit_2~q\,
+	combout => \KBD|U1|U0|selPG~0_combout\);
+
+-- Location: LCCOMB_X47_Y12_N24
+\KBD|U1|U1|U0|count[0]~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U0|count[0]~0_combout\ = \KBD|U1|U1|U0|count\(0) $ (((!\KBD|U1|U1|Equal0~0_combout\ & \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011010010110100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|Equal0~0_combout\,
+	datab => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datac => \KBD|U1|U1|U0|count\(0),
+	combout => \KBD|U1|U1|U0|count[0]~0_combout\);
+
+-- Location: FF_X47_Y12_N25
+\KBD|U1|U1|U0|count[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U0|count[0]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U0|count\(0));
+
+-- Location: LCCOMB_X47_Y12_N10
+\KBD|U1|U1|A[0]~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|A[0]~0_combout\ = (\KBD|U1|U0|selPG~0_combout\ & ((\KBD|U1|U1|U0|count\(0)))) # (!\KBD|U1|U0|selPG~0_combout\ & (\KBD|U1|U1|U1|count\(0)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U1|U1|U1|count\(0),
+	datac => \KBD|U1|U0|selPG~0_combout\,
+	datad => \KBD|U1|U1|U0|count\(0),
+	combout => \KBD|U1|U1|A[0]~0_combout\);
+
+-- Location: LCCOMB_X47_Y12_N12
+\KBD|U1|U1|U0|count[1]~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U0|count[1]~1_combout\ = \KBD|U1|U1|U0|count\(1) $ (((!\KBD|U1|U1|Equal0~0_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & \KBD|U1|U1|U0|count\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011010011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|Equal0~0_combout\,
+	datab => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datac => \KBD|U1|U1|U0|count\(1),
+	datad => \KBD|U1|U1|U0|count\(0),
+	combout => \KBD|U1|U1|U0|count[1]~1_combout\);
+
+-- Location: FF_X47_Y12_N13
+\KBD|U1|U1|U0|count[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U0|count[1]~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U0|count\(1));
+
+-- Location: LCCOMB_X47_Y12_N16
+\KBD|U1|U1|U0|count[2]~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U0|count[2]~2_combout\ = (\KBD|U1|U1|Equal0~0_combout\) # (!\KBD|U1|U1|U0|count\(1))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \KBD|U1|U1|Equal0~0_combout\,
+	datad => \KBD|U1|U1|U0|count\(1),
+	combout => \KBD|U1|U1|U0|count[2]~2_combout\);
+
+-- Location: LCCOMB_X47_Y12_N26
+\KBD|U1|U1|U0|count[2]~3\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U1|U0|count[2]~3_combout\ = \KBD|U1|U1|U0|count\(2) $ (((\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (!\KBD|U1|U1|U0|count[2]~2_combout\ & \KBD|U1|U1|U0|count\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101001011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datab => \KBD|U1|U1|U0|count[2]~2_combout\,
+	datac => \KBD|U1|U1|U0|count\(2),
+	datad => \KBD|U1|U1|U0|count\(0),
+	combout => \KBD|U1|U1|U0|count[2]~3_combout\);
+
+-- Location: FF_X47_Y12_N27
+\KBD|U1|U1|U0|count[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U1|U1|U0|count[2]~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U1|U1|U0|count\(2));
+
+-- Location: LCCOMB_X47_Y12_N6
 \KBD|U1|U1|U1|count[1]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U1|U1|count[1]~1_combout\ = \KBD|U1|U1|U1|count\(1) $ (((\KBD|U1|U1|getCE~0_combout\ & \KBD|U1|U1|U1|count\(0))))
@@ -5166,7 +4766,7 @@ PORT MAP (
 	datad => \KBD|U1|U1|U1|count\(0),
 	combout => \KBD|U1|U1|U1|count[1]~1_combout\);
 
--- Location: FF_X45_Y19_N23
+-- Location: FF_X47_Y12_N7
 \KBD|U1|U1|U1|count[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -5180,7 +4780,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U1|U1|U1|count\(1));
 
--- Location: LCCOMB_X45_Y19_N26
+-- Location: LCCOMB_X47_Y12_N28
 \KBD|U1|U1|U1|count[2]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U1|U1|count[2]~2_combout\ = \KBD|U1|U1|U1|count\(2) $ (((\KBD|U1|U1|getCE~0_combout\ & (\KBD|U1|U1|U1|count\(0) & \KBD|U1|U1|U1|count\(1)))))
@@ -5197,7 +4797,7 @@ PORT MAP (
 	datad => \KBD|U1|U1|U1|count\(1),
 	combout => \KBD|U1|U1|U1|count[2]~2_combout\);
 
--- Location: FF_X45_Y19_N27
+-- Location: FF_X47_Y12_N29
 \KBD|U1|U1|U1|count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -5211,415 +4811,56 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U1|U1|U1|count\(2));
 
--- Location: LCCOMB_X44_Y19_N6
-\KBD|U1|U1|U0|count[0]~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U0|count[0]~2_combout\ = \KBD|U1|U1|U0|count\(0) $ (((\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|Equal0~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000001011010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datac => \KBD|U1|U1|U0|count\(0),
-	datad => \KBD|U1|U1|Equal0~0_combout\,
-	combout => \KBD|U1|U1|U0|count[0]~2_combout\);
-
--- Location: FF_X44_Y19_N7
-\KBD|U1|U1|U0|count[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U0|count[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U0|count\(0));
-
--- Location: LCCOMB_X44_Y19_N14
-\KBD|U1|U1|U0|count[1]~3\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U0|count[1]~3_combout\ = \KBD|U1|U1|U0|count\(1) $ (((\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (!\KBD|U1|U1|Equal0~0_combout\ & \KBD|U1|U1|U0|count\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101001011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|Equal0~0_combout\,
-	datac => \KBD|U1|U1|U0|count\(1),
-	datad => \KBD|U1|U1|U0|count\(0),
-	combout => \KBD|U1|U1|U0|count[1]~3_combout\);
-
--- Location: FF_X44_Y19_N15
-\KBD|U1|U1|U0|count[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U0|count[1]~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U0|count\(1));
-
--- Location: LCCOMB_X44_Y19_N12
-\KBD|U1|U1|U0|count[2]~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U0|count[2]~5_combout\ = ((\KBD|U1|U0|CurrentState.state_bit_2~q\) # ((!\KBD|U1|U0|CurrentState.state_bit_1~q\) # (!\KBD|U1|U1|U0|count\(1)))) # (!\KBD|U1|U0|CurrentState.state_bit_0~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datac => \KBD|U1|U1|U0|count\(1),
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
-	combout => \KBD|U1|U1|U0|count[2]~5_combout\);
-
--- Location: LCCOMB_X45_Y19_N8
-\KBD|U1|U1|U0|count[2]~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|U0|count[2]~4_combout\ = \KBD|U1|U1|U0|count\(2) $ (((!\KBD|U1|U1|U0|count[2]~5_combout\ & (\KBD|U1|U1|U0|count\(0) & !\KBD|U1|U1|Equal0~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010110100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|U0|count[2]~5_combout\,
-	datab => \KBD|U1|U1|U0|count\(0),
-	datac => \KBD|U1|U1|U0|count\(2),
-	datad => \KBD|U1|U1|Equal0~0_combout\,
-	combout => \KBD|U1|U1|U0|count[2]~4_combout\);
-
--- Location: FF_X45_Y19_N9
-\KBD|U1|U1|U0|count[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	d => \KBD|U1|U1|U0|count[2]~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U1|U1|U0|count\(2));
-
--- Location: LCCOMB_X45_Y19_N18
-\KBD|U1|U0|selPG\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U0|selPG~combout\ = (\KBD|U1|U0|CurrentState.state_bit_0~q\ & ((!\KBD|U1|U0|CurrentState.state_bit_1~q\) # (!\KBD|U1|U0|CurrentState.state_bit_2~q\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010001010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.state_bit_0~q\,
-	datab => \KBD|U1|U0|CurrentState.state_bit_2~q\,
-	datad => \KBD|U1|U0|CurrentState.state_bit_1~q\,
-	combout => \KBD|U1|U0|selPG~combout\);
-
--- Location: LCCOMB_X45_Y19_N20
+-- Location: LCCOMB_X47_Y12_N30
 \KBD|U1|U1|A[2]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U1|A[2]~2_combout\ = (\KBD|U1|U0|selPG~combout\ & ((\KBD|U1|U1|U0|count\(2)))) # (!\KBD|U1|U0|selPG~combout\ & (\KBD|U1|U1|U1|count\(2)))
+-- \KBD|U1|U1|A[2]~2_combout\ = (\KBD|U1|U0|selPG~0_combout\ & (\KBD|U1|U1|U0|count\(2))) # (!\KBD|U1|U0|selPG~0_combout\ & ((\KBD|U1|U1|U1|count\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000010101010",
+	lut_mask => "1010110010101100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U1|U1|count\(2),
-	datac => \KBD|U1|U1|U0|count\(2),
-	datad => \KBD|U1|U0|selPG~combout\,
+	dataa => \KBD|U1|U1|U0|count\(2),
+	datab => \KBD|U1|U1|U1|count\(2),
+	datac => \KBD|U1|U0|selPG~0_combout\,
 	combout => \KBD|U1|U1|A[2]~2_combout\);
 
--- Location: LCCOMB_X44_Y19_N16
+-- Location: LCCOMB_X47_Y12_N8
 \KBD|U1|U1|A[1]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U1|A[1]~1_combout\ = (\KBD|U1|U0|selPG~combout\ & (\KBD|U1|U1|U0|count\(1))) # (!\KBD|U1|U0|selPG~combout\ & ((\KBD|U1|U1|U1|count\(1))))
+-- \KBD|U1|U1|A[1]~1_combout\ = (\KBD|U1|U0|selPG~0_combout\ & ((\KBD|U1|U1|U0|count\(1)))) # (!\KBD|U1|U0|selPG~0_combout\ & (\KBD|U1|U1|U1|count\(1)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111000000",
+	lut_mask => "1111101000001010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U1|U0|selPG~combout\,
-	datac => \KBD|U1|U1|U0|count\(1),
-	datad => \KBD|U1|U1|U1|count\(1),
+	dataa => \KBD|U1|U1|U1|count\(1),
+	datac => \KBD|U1|U0|selPG~0_combout\,
+	datad => \KBD|U1|U1|U0|count\(1),
 	combout => \KBD|U1|U1|A[1]~1_combout\);
 
--- Location: LCCOMB_X45_Y19_N28
-\KBD|U1|U1|A[0]~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U1|A[0]~0_combout\ = (\KBD|U1|U0|selPG~combout\ & ((\KBD|U1|U1|U0|count\(0)))) # (!\KBD|U1|U0|selPG~combout\ & (\KBD|U1|U1|U1|count\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U1|U1|U1|count\(0),
-	datac => \KBD|U1|U1|U0|count\(0),
-	datad => \KBD|U1|U0|selPG~combout\,
-	combout => \KBD|U1|U1|A[0]~0_combout\);
-
--- Location: LCCOMB_X45_Y20_N22
-\rtl~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \rtl~2_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (!\KBD|U1|U1|A[1]~1_combout\ & !\KBD|U1|U1|A[0]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \rtl~2_combout\);
-
--- Location: CLKCTRL_G8
-\rtl~2clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rtl~2clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rtl~2clkctrl_outclk\);
-
--- Location: LCCOMB_X45_Y20_N6
-\KBD|U1|U2|ram~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~0_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(0),
-	datac => \rtl~2clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~0_combout\,
-	combout => \KBD|U1|U2|ram~0_combout\);
-
--- Location: LCCOMB_X45_Y20_N4
-\rtl~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \rtl~1_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (!\KBD|U1|U1|A[1]~1_combout\ & \KBD|U1|U1|A[0]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \rtl~1_combout\);
-
--- Location: CLKCTRL_G17
-\rtl~1clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rtl~1clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rtl~1clkctrl_outclk\);
-
--- Location: LCCOMB_X44_Y18_N16
-\KBD|U1|U2|ram~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~4_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(0),
-	datac => \rtl~1clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~4_combout\,
-	combout => \KBD|U1|U2|ram~4_combout\);
-
--- Location: LCCOMB_X45_Y20_N30
-\KBD|U1|U2|ram~34\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~34_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~4_combout\))) # (!\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U2|ram~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~0_combout\,
-	datab => \KBD|U1|U2|ram~4_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \KBD|U1|U2|ram~34_combout\);
-
--- Location: LCCOMB_X45_Y20_N18
-\rtl~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \rtl~0_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U1|A[1]~1_combout\ & !\KBD|U1|U1|A[0]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \rtl~0_combout\);
-
--- Location: CLKCTRL_G2
-\rtl~0clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rtl~0clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rtl~0clkctrl_outclk\);
-
--- Location: LCCOMB_X45_Y20_N20
-\KBD|U1|U2|ram~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~8_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~8_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \rtl~0clkctrl_outclk\,
-	datab => \KBD|U0|U0|U0|count\(0),
-	datad => \KBD|U1|U2|ram~8_combout\,
-	combout => \KBD|U1|U2|ram~8_combout\);
-
--- Location: LCCOMB_X45_Y20_N16
-\rtl~3\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \rtl~3_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U1|A[1]~1_combout\ & \KBD|U1|U1|A[0]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \rtl~3_combout\);
-
--- Location: CLKCTRL_G1
-\rtl~3clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rtl~3clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rtl~3clkctrl_outclk\);
-
--- Location: LCCOMB_X44_Y18_N26
-\KBD|U1|U2|ram~12\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~12_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~12_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(0),
-	datac => \KBD|U1|U2|ram~12_combout\,
-	datad => \rtl~3clkctrl_outclk\,
-	combout => \KBD|U1|U2|ram~12_combout\);
-
--- Location: LCCOMB_X45_Y20_N8
-\KBD|U1|U2|ram~35\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~35_combout\ = (\KBD|U1|U2|ram~34_combout\ & (((\KBD|U1|U2|ram~12_combout\) # (!\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U2|ram~34_combout\ & (\KBD|U1|U2|ram~8_combout\ & (\KBD|U1|U1|A[1]~1_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101001001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~34_combout\,
-	datab => \KBD|U1|U2|ram~8_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U2|ram~12_combout\,
-	combout => \KBD|U1|U2|ram~35_combout\);
-
--- Location: LCCOMB_X45_Y20_N26
+-- Location: LCCOMB_X44_Y12_N14
 \rtl~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \rtl~4_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (!\KBD|U1|U1|A[1]~1_combout\ & \KBD|U1|U1|A[0]~0_combout\)))
+-- \rtl~4_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|A[1]~1_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000100000000000",
+	lut_mask => "0000000010000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
 	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
 	combout => \rtl~4_combout\);
 
--- Location: CLKCTRL_G0
+-- Location: CLKCTRL_G11
 \rtl~4clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -5632,132 +4873,40 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \rtl~4clkctrl_outclk\);
 
--- Location: LCCOMB_X46_Y20_N24
+-- Location: LCCOMB_X45_Y12_N24
 \KBD|U1|U2|ram~20\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~20_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~20_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111111000000",
+	lut_mask => "1010111110100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(0),
+	dataa => \KBD|U0|U0|U0|count\(0),
 	datac => \rtl~4clkctrl_outclk\,
 	datad => \KBD|U1|U2|ram~20_combout\,
 	combout => \KBD|U1|U2|ram~20_combout\);
 
--- Location: LCCOMB_X45_Y20_N24
-\rtl~7\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \rtl~7_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U1|A[1]~1_combout\ & \KBD|U1|U1|A[0]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \rtl~7_combout\);
-
--- Location: CLKCTRL_G4
-\rtl~7clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rtl~7clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rtl~7clkctrl_outclk\);
-
--- Location: LCCOMB_X45_Y20_N2
-\KBD|U1|U2|ram~28\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~28_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~28_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(0),
-	datac => \rtl~7clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~28_combout\,
-	combout => \KBD|U1|U2|ram~28_combout\);
-
--- Location: LCCOMB_X45_Y20_N28
-\rtl~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \rtl~5_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U1|A[1]~1_combout\ & !\KBD|U1|U1|A[0]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \rtl~5_combout\);
-
--- Location: CLKCTRL_G9
-\rtl~5clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rtl~5clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rtl~5clkctrl_outclk\);
-
--- Location: LCCOMB_X44_Y18_N6
-\KBD|U1|U2|ram~24\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~24_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~24_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(0),
-	datac => \rtl~5clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~24_combout\,
-	combout => \KBD|U1|U2|ram~24_combout\);
-
--- Location: LCCOMB_X45_Y20_N14
+-- Location: LCCOMB_X44_Y12_N10
 \rtl~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \rtl~6_combout\ = (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (!\KBD|U1|U1|A[1]~1_combout\ & !\KBD|U1|U1|A[0]~0_combout\)))
+-- \rtl~6_combout\ = (!\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|A[1]~1_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000001000",
+	lut_mask => "0000000001000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
 	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
 	combout => \rtl~6_combout\);
 
--- Location: CLKCTRL_G3
+-- Location: CLKCTRL_G12
 \rtl~6clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -5770,7 +4919,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \rtl~6clkctrl_outclk\);
 
--- Location: LCCOMB_X42_Y20_N0
+-- Location: LCCOMB_X44_Y12_N0
 \KBD|U1|U2|ram~16\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~16_combout\ = (GLOBAL(\rtl~6clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~6clkctrl_outclk\) & ((\KBD|U1|U2|ram~16_combout\)))
@@ -5786,57 +4935,367 @@ PORT MAP (
 	datad => \KBD|U1|U2|ram~16_combout\,
 	combout => \KBD|U1|U2|ram~16_combout\);
 
--- Location: LCCOMB_X45_Y20_N10
-\KBD|U1|U2|ram~32\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X44_Y12_N16
+\rtl~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U2|ram~32_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~24_combout\) # ((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U2|ram~16_combout\ & !\KBD|U1|U1|A[0]~0_combout\))))
+-- \rtl~5_combout\ = (!\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & \KBD|U1|U1|A[1]~1_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110010111000",
+	lut_mask => "0100000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U2|ram~24_combout\,
-	datab => \KBD|U1|U1|A[1]~1_combout\,
-	datac => \KBD|U1|U2|ram~16_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U1|A[2]~2_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \rtl~5_combout\);
+
+-- Location: CLKCTRL_G10
+\rtl~5clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \rtl~5clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \rtl~5clkctrl_outclk\);
+
+-- Location: LCCOMB_X44_Y12_N30
+\KBD|U1|U2|ram~24\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~24_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~24_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(0),
+	datac => \KBD|U1|U2|ram~24_combout\,
+	datad => \rtl~5clkctrl_outclk\,
+	combout => \KBD|U1|U2|ram~24_combout\);
+
+-- Location: LCCOMB_X44_Y12_N26
+\KBD|U1|U2|ram~32\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~32_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~24_combout\))) # (!\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~16_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U2|ram~16_combout\,
+	datac => \KBD|U1|U2|ram~24_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
 	combout => \KBD|U1|U2|ram~32_combout\);
 
--- Location: LCCOMB_X45_Y20_N12
+-- Location: LCCOMB_X44_Y12_N4
+\rtl~7\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \rtl~7_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & \KBD|U1|U1|A[1]~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U1|A[2]~2_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \rtl~7_combout\);
+
+-- Location: CLKCTRL_G13
+\rtl~7clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \rtl~7clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \rtl~7clkctrl_outclk\);
+
+-- Location: LCCOMB_X44_Y12_N2
+\KBD|U1|U2|ram~28\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~28_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~28_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(0),
+	datac => \rtl~7clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~28_combout\,
+	combout => \KBD|U1|U2|ram~28_combout\);
+
+-- Location: LCCOMB_X44_Y12_N28
 \KBD|U1|U2|ram~33\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~33_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~32_combout\ & ((\KBD|U1|U2|ram~28_combout\))) # (!\KBD|U1|U2|ram~32_combout\ & (\KBD|U1|U2|ram~20_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U2|ram~32_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111010110001000",
+	lut_mask => "1111100001011000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \KBD|U1|U1|A[0]~0_combout\,
 	datab => \KBD|U1|U2|ram~20_combout\,
-	datac => \KBD|U1|U2|ram~28_combout\,
-	datad => \KBD|U1|U2|ram~32_combout\,
+	datac => \KBD|U1|U2|ram~32_combout\,
+	datad => \KBD|U1|U2|ram~28_combout\,
 	combout => \KBD|U1|U2|ram~33_combout\);
 
--- Location: LCCOMB_X45_Y20_N0
-\KBD|U1|U2|ram~36\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X44_Y12_N20
+\rtl~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U2|ram~36_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~33_combout\))) # (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~35_combout\))
+-- \rtl~3_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & \KBD|U1|U1|A[1]~1_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110000110000",
+	lut_mask => "0010000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
 	datab => \KBD|U1|U1|A[2]~2_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \rtl~3_combout\);
+
+-- Location: CLKCTRL_G17
+\rtl~3clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \rtl~3clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \rtl~3clkctrl_outclk\);
+
+-- Location: LCCOMB_X45_Y8_N6
+\KBD|U1|U2|ram~12\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~12_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~12_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(0),
+	datac => \rtl~3clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~12_combout\,
+	combout => \KBD|U1|U2|ram~12_combout\);
+
+-- Location: LCCOMB_X44_Y12_N8
+\rtl~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \rtl~1_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|A[1]~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U1|A[2]~2_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \rtl~1_combout\);
+
+-- Location: CLKCTRL_G2
+\rtl~1clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \rtl~1clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \rtl~1clkctrl_outclk\);
+
+-- Location: LCCOMB_X45_Y8_N18
+\KBD|U1|U2|ram~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~4_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \rtl~1clkctrl_outclk\,
+	datab => \KBD|U0|U0|U0|count\(0),
+	datad => \KBD|U1|U2|ram~4_combout\,
+	combout => \KBD|U1|U2|ram~4_combout\);
+
+-- Location: LCCOMB_X44_Y12_N18
+\rtl~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \rtl~2_combout\ = (!\KBD|U1|U1|A[0]~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & !\KBD|U1|U1|A[1]~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U1|A[2]~2_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \rtl~2_combout\);
+
+-- Location: CLKCTRL_G8
+\rtl~2clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \rtl~2clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \rtl~2clkctrl_outclk\);
+
+-- Location: LCCOMB_X45_Y8_N20
+\KBD|U1|U2|ram~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~0_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(0),
+	datac => \rtl~2clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~0_combout\,
+	combout => \KBD|U1|U2|ram~0_combout\);
+
+-- Location: LCCOMB_X45_Y8_N24
+\KBD|U1|U2|ram~34\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~34_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U2|ram~4_combout\)) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110010111100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[1]~1_combout\,
+	datab => \KBD|U1|U2|ram~4_combout\,
+	datac => \KBD|U1|U1|A[0]~0_combout\,
+	datad => \KBD|U1|U2|ram~0_combout\,
+	combout => \KBD|U1|U2|ram~34_combout\);
+
+-- Location: LCCOMB_X44_Y12_N22
+\rtl~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \rtl~0_combout\ = (!\KBD|U1|U1|A[0]~0_combout\ & (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\ & \KBD|U1|U1|A[1]~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U1|A[2]~2_combout\,
+	datac => \KBD|U1|U0|CurrentState.STATE_STORING_STAGE2~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \rtl~0_combout\);
+
+-- Location: CLKCTRL_G3
+\rtl~0clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \rtl~0clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \rtl~0clkctrl_outclk\);
+
+-- Location: LCCOMB_X45_Y9_N18
+\KBD|U1|U2|ram~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~8_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(0))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~8_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \rtl~0clkctrl_outclk\,
+	datab => \KBD|U0|U0|U0|count\(0),
+	datad => \KBD|U1|U2|ram~8_combout\,
+	combout => \KBD|U1|U2|ram~8_combout\);
+
+-- Location: LCCOMB_X45_Y8_N10
+\KBD|U1|U2|ram~35\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~35_combout\ = (\KBD|U1|U2|ram~34_combout\ & ((\KBD|U1|U2|ram~12_combout\) # ((!\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U2|ram~34_combout\ & (((\KBD|U1|U2|ram~8_combout\ & \KBD|U1|U1|A[1]~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~12_combout\,
+	datab => \KBD|U1|U2|ram~34_combout\,
+	datac => \KBD|U1|U2|ram~8_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \KBD|U1|U2|ram~35_combout\);
+
+-- Location: LCCOMB_X44_Y12_N24
+\KBD|U1|U2|ram~36\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~36_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~33_combout\)) # (!\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~35_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U1|U2|ram~33_combout\,
 	datac => \KBD|U1|U2|ram~35_combout\,
-	datad => \KBD|U1|U2|ram~33_combout\,
+	datad => \KBD|U1|U1|A[2]~2_combout\,
 	combout => \KBD|U1|U2|ram~36_combout\);
 
--- Location: FF_X45_Y20_N1
+-- Location: FF_X44_Y12_N25
 \KBD|U2|U0|buff[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -5850,276 +5309,32 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U2|U0|buff\(0));
 
--- Location: LCCOMB_X42_Y19_N12
-\KBD|U1|U2|ram~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~1_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~1_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \rtl~2clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~1_combout\,
-	combout => \KBD|U1|U2|ram~1_combout\);
-
--- Location: LCCOMB_X44_Y18_N22
-\KBD|U1|U2|ram~13\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~13_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~13_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \KBD|U1|U2|ram~13_combout\,
-	datad => \rtl~3clkctrl_outclk\,
-	combout => \KBD|U1|U2|ram~13_combout\);
-
--- Location: LCCOMB_X43_Y18_N0
-\KBD|U1|U2|ram~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~5_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~5_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \rtl~1clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~5_combout\,
-	combout => \KBD|U1|U2|ram~5_combout\);
-
--- Location: LCCOMB_X43_Y18_N4
-\KBD|U1|U2|ram~39\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~39_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~13_combout\)) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~5_combout\))))) # (!\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101101011010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U1|A[0]~0_combout\,
-	datab => \KBD|U1|U2|ram~13_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U2|ram~5_combout\,
-	combout => \KBD|U1|U2|ram~39_combout\);
-
--- Location: LCCOMB_X41_Y19_N0
-\KBD|U1|U2|ram~9\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~9_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~9_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \rtl~0clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~9_combout\,
-	combout => \KBD|U1|U2|ram~9_combout\);
-
--- Location: LCCOMB_X42_Y19_N10
-\KBD|U1|U2|ram~40\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~40_combout\ = (\KBD|U1|U2|ram~39_combout\ & (((\KBD|U1|U2|ram~9_combout\) # (\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~39_combout\ & (\KBD|U1|U2|ram~1_combout\ & ((!\KBD|U1|U1|A[0]~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~1_combout\,
-	datab => \KBD|U1|U2|ram~39_combout\,
-	datac => \KBD|U1|U2|ram~9_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \KBD|U1|U2|ram~40_combout\);
-
--- Location: LCCOMB_X43_Y18_N6
-\KBD|U1|U2|ram~29\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~29_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~29_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \rtl~7clkctrl_outclk\,
-	datac => \KBD|U0|U0|U0|count\(1),
-	datad => \KBD|U1|U2|ram~29_combout\,
-	combout => \KBD|U1|U2|ram~29_combout\);
-
--- Location: LCCOMB_X44_Y18_N20
-\KBD|U1|U2|ram~25\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~25_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~25_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \rtl~5clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~25_combout\,
-	combout => \KBD|U1|U2|ram~25_combout\);
-
--- Location: LCCOMB_X43_Y19_N16
-\KBD|U1|U2|ram~17\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~17_combout\ = (GLOBAL(\rtl~6clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~6clkctrl_outclk\) & ((\KBD|U1|U2|ram~17_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \rtl~6clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~17_combout\,
-	combout => \KBD|U1|U2|ram~17_combout\);
-
--- Location: LCCOMB_X43_Y18_N16
-\KBD|U1|U2|ram~37\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~37_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~25_combout\) # ((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U2|ram~17_combout\ & !\KBD|U1|U1|A[0]~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110010111000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~25_combout\,
-	datab => \KBD|U1|U1|A[1]~1_combout\,
-	datac => \KBD|U1|U2|ram~17_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \KBD|U1|U2|ram~37_combout\);
-
--- Location: LCCOMB_X43_Y18_N20
-\KBD|U1|U2|ram~21\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~21_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~21_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datac => \rtl~4clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~21_combout\,
-	combout => \KBD|U1|U2|ram~21_combout\);
-
--- Location: LCCOMB_X43_Y18_N10
-\KBD|U1|U2|ram~38\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~38_combout\ = (\KBD|U1|U2|ram~37_combout\ & ((\KBD|U1|U2|ram~29_combout\) # ((!\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~37_combout\ & (((\KBD|U1|U1|A[0]~0_combout\ & \KBD|U1|U2|ram~21_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1011110010001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~29_combout\,
-	datab => \KBD|U1|U2|ram~37_combout\,
-	datac => \KBD|U1|U1|A[0]~0_combout\,
-	datad => \KBD|U1|U2|ram~21_combout\,
-	combout => \KBD|U1|U2|ram~38_combout\);
-
--- Location: LCCOMB_X42_Y19_N0
-\KBD|U1|U2|ram~41\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~41_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~38_combout\))) # (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~40_combout\))
-
+-- Location: LCCOMB_X47_Y24_N24
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
 	lut_mask => "1110001011100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U2|ram~40_combout\,
-	datab => \KBD|U1|U1|A[2]~2_combout\,
-	datac => \KBD|U1|U2|ram~38_combout\,
-	combout => \KBD|U1|U2|ram~41_combout\);
-
--- Location: FF_X42_Y19_N1
-\KBD|U2|U0|buff[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\,
-	d => \KBD|U1|U2|ram~41_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U2|U0|buff\(1));
-
--- Location: LCCOMB_X43_Y31_N18
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datad => \KBD|U2|U0|buff\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3_combout\);
-
--- Location: FF_X43_Y31_N19
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1));
-
--- Location: LCCOMB_X43_Y31_N0
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
 	datac => \KBD|U2|U0|buff\(0),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0_combout\);
 
--- Location: FF_X43_Y31_N1
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[0]\ : dffeas
+-- Location: LCCOMB_X46_Y23_N18
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \altera_internal_jtag~TDIUTAP\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder_combout\);
+
+-- Location: FF_X46_Y23_N19
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -6127,41 +5342,336 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[9]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0));
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(9));
 
--- Location: LCCOMB_X42_Y31_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6\ : fiftyfivenm_lcell_comb
+-- Location: FF_X46_Y23_N29
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[8]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(9),
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	sload => VCC,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(8));
+
+-- Location: LCCOMB_X46_Y23_N22
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(8),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder_combout\);
+
+-- Location: FF_X46_Y23_N23
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[7]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(7));
+
+-- Location: LCCOMB_X46_Y23_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(7),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder_combout\);
+
+-- Location: FF_X46_Y23_N9
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[6]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(6));
+
+-- Location: FF_X46_Y23_N21
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[5]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(6),
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	sload => VCC,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(5));
+
+-- Location: LCCOMB_X46_Y23_N30
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(5),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder_combout\);
+
+-- Location: FF_X46_Y23_N31
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[4]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(4));
+
+-- Location: LCCOMB_X46_Y23_N2
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder_combout\);
+
+-- Location: FF_X46_Y23_N3
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[3]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(3));
+
+-- Location: LCCOMB_X46_Y23_N24
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0_combout\);
+
+-- Location: FF_X46_Y23_N25
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2]~0_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(2));
+
+-- Location: LCCOMB_X46_Y23_N26
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(2),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder_combout\);
+
+-- Location: FF_X46_Y23_N27
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1));
+
+-- Location: LCCOMB_X46_Y23_N12
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1_combout\);
+
+-- Location: FF_X46_Y23_N13
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[0]~1_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(11),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(0));
+
+-- Location: LCCOMB_X46_Y23_N20
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(4),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(2),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(5),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\);
+
+-- Location: LCCOMB_X46_Y23_N28
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(6),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(9),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(7),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\);
+
+-- Location: LCCOMB_X49_Y23_N26
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
 	lut_mask => "0000010000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6_combout\);
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(0),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0_combout\);
 
--- Location: LCCOMB_X42_Y30_N16
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~7\ : fiftyfivenm_lcell_comb
+-- Location: FF_X49_Y23_N27
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101011110000",
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal1~0_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_dr_scan_proc~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\);
+
+-- Location: LCCOMB_X50_Y24_N22
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000010000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(5),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datac => \altera_internal_jtag~TMSUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(7),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\);
+
+-- Location: LCCOMB_X51_Y24_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6_combout\);
+
+-- Location: LCCOMB_X50_Y24_N24
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~7\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101100011011000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~6_combout\,
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(0),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]~7_combout\);
 
--- Location: FF_X42_Y30_N17
+-- Location: FF_X50_Y24_N25
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6176,37 +5686,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(0));
 
--- Location: LCCOMB_X42_Y30_N18
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(0),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7_combout\);
-
--- Location: LCCOMB_X42_Y30_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8_combout\);
-
--- Location: LCCOMB_X43_Y18_N24
+-- Location: LCCOMB_X45_Y8_N0
 \KBD|U0|U0|U0|count[2]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U0|U0|count[2]~2_combout\ = \KBD|U0|U0|U0|count\(2) $ (((\KBD|U0|U0|U0|count\(0) & (\KBD|U0|U0|U0|count\(1) & !\KBD|U0|U1|CurrentState~q\))))
+-- \KBD|U0|U0|U0|count[2]~2_combout\ = \KBD|U0|U0|U0|count\(2) $ (((\KBD|U0|U0|U0|count\(1) & (\KBD|U0|U0|U0|count\(0) & !\KBD|U0|U1|CurrentState~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6214,13 +5697,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(0),
-	datab => \KBD|U0|U0|U0|count\(1),
+	dataa => \KBD|U0|U0|U0|count\(1),
+	datab => \KBD|U0|U0|U0|count\(0),
 	datac => \KBD|U0|U0|U0|count\(2),
 	datad => \KBD|U0|U1|CurrentState~q\,
 	combout => \KBD|U0|U0|U0|count[2]~2_combout\);
 
--- Location: FF_X43_Y18_N25
+-- Location: FF_X45_Y8_N1
 \KBD|U0|U0|U0|count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6234,10 +5717,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U0|U0|U0|count\(2));
 
--- Location: LCCOMB_X43_Y18_N14
+-- Location: LCCOMB_X45_Y8_N22
 \KBD|U0|U0|U0|count[3]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U0|U0|count[3]~0_combout\ = (\KBD|U0|U0|U0|count\(1) & (\KBD|U0|U0|U0|count\(2) & (\KBD|U0|U0|U0|count\(0) & !\KBD|U0|U1|CurrentState~q\)))
+-- \KBD|U0|U0|U0|count[3]~0_combout\ = (\KBD|U0|U0|U0|count\(0) & (\KBD|U0|U0|U0|count\(1) & (\KBD|U0|U0|U0|count\(2) & !\KBD|U0|U1|CurrentState~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6245,13 +5728,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(1),
-	datab => \KBD|U0|U0|U0|count\(2),
-	datac => \KBD|U0|U0|U0|count\(0),
+	dataa => \KBD|U0|U0|U0|count\(0),
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \KBD|U0|U0|U0|count\(2),
 	datad => \KBD|U0|U1|CurrentState~q\,
 	combout => \KBD|U0|U0|U0|count[3]~0_combout\);
 
--- Location: LCCOMB_X43_Y15_N0
+-- Location: LCCOMB_X44_Y8_N0
 \KBD|U0|U0|U0|count[3]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U0|U0|U0|count[3]~1_combout\ = \KBD|U0|U0|U0|count\(3) $ (\KBD|U0|U0|U0|count[3]~0_combout\)
@@ -6266,7 +5749,7 @@ PORT MAP (
 	datad => \KBD|U0|U0|U0|count[3]~0_combout\,
 	combout => \KBD|U0|U0|U0|count[3]~1_combout\);
 
--- Location: FF_X43_Y15_N1
+-- Location: FF_X44_Y8_N1
 \KBD|U0|U0|U0|count[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6280,23 +5763,55 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U0|U0|U0|count\(3));
 
--- Location: LCCOMB_X42_Y17_N10
+-- Location: LCCOMB_X44_Y11_N6
+\KBD|U1|U2|ram~23\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~23_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~23_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(3),
+	datac => \rtl~4clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~23_combout\,
+	combout => \KBD|U1|U2|ram~23_combout\);
+
+-- Location: LCCOMB_X44_Y11_N18
 \KBD|U1|U2|ram~31\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~31_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~31_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111111000000",
+	lut_mask => "1010111110100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(3),
+	dataa => \KBD|U0|U0|U0|count\(3),
 	datac => \rtl~7clkctrl_outclk\,
 	datad => \KBD|U1|U2|ram~31_combout\,
 	combout => \KBD|U1|U2|ram~31_combout\);
 
--- Location: LCCOMB_X43_Y15_N10
+-- Location: LCCOMB_X44_Y11_N0
+\KBD|U1|U2|ram~27\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~27_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~27_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011101110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(3),
+	datab => \rtl~5clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~27_combout\,
+	combout => \KBD|U1|U2|ram~27_combout\);
+
+-- Location: LCCOMB_X43_Y10_N0
 \KBD|U1|U2|ram~19\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~19_combout\ = (GLOBAL(\rtl~6clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~6clkctrl_outclk\) & ((\KBD|U1|U2|ram~19_combout\)))
@@ -6312,89 +5827,73 @@ PORT MAP (
 	datad => \KBD|U1|U2|ram~19_combout\,
 	combout => \KBD|U1|U2|ram~19_combout\);
 
--- Location: LCCOMB_X43_Y15_N16
-\KBD|U1|U2|ram~27\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~27_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~27_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \rtl~5clkctrl_outclk\,
-	datab => \KBD|U0|U0|U0|count\(3),
-	datad => \KBD|U1|U2|ram~27_combout\,
-	combout => \KBD|U1|U2|ram~27_combout\);
-
--- Location: LCCOMB_X43_Y15_N24
+-- Location: LCCOMB_X44_Y11_N26
 \KBD|U1|U2|ram~47\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U2|ram~47_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~27_combout\))) # (!\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~19_combout\))))
+-- \KBD|U1|U2|ram~47_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~27_combout\)) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~19_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110000001010",
+	lut_mask => "1110111001010000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U2|ram~19_combout\,
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
 	datab => \KBD|U1|U2|ram~27_combout\,
-	datac => \KBD|U1|U1|A[0]~0_combout\,
+	datac => \KBD|U1|U2|ram~19_combout\,
 	datad => \KBD|U1|U1|A[1]~1_combout\,
 	combout => \KBD|U1|U2|ram~47_combout\);
 
--- Location: LCCOMB_X42_Y17_N0
-\KBD|U1|U2|ram~23\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~23_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~23_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(3),
-	datac => \rtl~4clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~23_combout\,
-	combout => \KBD|U1|U2|ram~23_combout\);
-
--- Location: LCCOMB_X43_Y17_N10
+-- Location: LCCOMB_X44_Y11_N12
 \KBD|U1|U2|ram~48\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U2|ram~48_combout\ = (\KBD|U1|U2|ram~47_combout\ & ((\KBD|U1|U2|ram~31_combout\) # ((!\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~47_combout\ & (((\KBD|U1|U2|ram~23_combout\ & \KBD|U1|U1|A[0]~0_combout\))))
+-- \KBD|U1|U2|ram~48_combout\ = (\KBD|U1|U2|ram~47_combout\ & (((\KBD|U1|U2|ram~31_combout\) # (!\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~47_combout\ & (\KBD|U1|U2|ram~23_combout\ & ((\KBD|U1|U1|A[0]~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011100011001100",
+	lut_mask => "1100101011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U2|ram~31_combout\,
-	datab => \KBD|U1|U2|ram~47_combout\,
-	datac => \KBD|U1|U2|ram~23_combout\,
+	dataa => \KBD|U1|U2|ram~23_combout\,
+	datab => \KBD|U1|U2|ram~31_combout\,
+	datac => \KBD|U1|U2|ram~47_combout\,
 	datad => \KBD|U1|U1|A[0]~0_combout\,
 	combout => \KBD|U1|U2|ram~48_combout\);
 
--- Location: LCCOMB_X43_Y16_N6
-\KBD|U1|U2|ram~7\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X43_Y11_N10
+\KBD|U1|U2|ram~15\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U2|ram~7_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~7_combout\)))
+-- \KBD|U1|U2|ram~15_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~15_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111111000000",
+	lut_mask => "1010111110100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(3),
-	datac => \rtl~1clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~7_combout\,
-	combout => \KBD|U1|U2|ram~7_combout\);
+	dataa => \KBD|U0|U0|U0|count\(3),
+	datac => \rtl~3clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~15_combout\,
+	combout => \KBD|U1|U2|ram~15_combout\);
 
--- Location: LCCOMB_X43_Y16_N16
+-- Location: LCCOMB_X43_Y11_N24
+\KBD|U1|U2|ram~11\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~11_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~11_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(3),
+	datac => \rtl~0clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~11_combout\,
+	combout => \KBD|U1|U2|ram~11_combout\);
+
+-- Location: LCCOMB_X43_Y10_N2
 \KBD|U1|U2|ram~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~3_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~3_combout\)))
@@ -6410,43 +5909,10 @@ PORT MAP (
 	datad => \KBD|U1|U2|ram~3_combout\,
 	combout => \KBD|U1|U2|ram~3_combout\);
 
--- Location: LCCOMB_X43_Y16_N10
-\KBD|U1|U2|ram~49\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X44_Y8_N6
+\KBD|U1|U2|ram~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U1|U2|ram~49_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~7_combout\) # ((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U2|ram~3_combout\ & !\KBD|U1|U1|A[1]~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~7_combout\,
-	datab => \KBD|U1|U2|ram~3_combout\,
-	datac => \KBD|U1|U1|A[0]~0_combout\,
-	datad => \KBD|U1|U1|A[1]~1_combout\,
-	combout => \KBD|U1|U2|ram~49_combout\);
-
--- Location: LCCOMB_X43_Y16_N2
-\KBD|U1|U2|ram~15\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~15_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~15_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \rtl~3clkctrl_outclk\,
-	datab => \KBD|U0|U0|U0|count\(3),
-	datad => \KBD|U1|U2|ram~15_combout\,
-	combout => \KBD|U1|U2|ram~15_combout\);
-
--- Location: LCCOMB_X43_Y15_N20
-\KBD|U1|U2|ram~11\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~11_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~11_combout\)))
+-- \KBD|U1|U2|ram~7_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(3))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~7_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6455,44 +5921,61 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datab => \KBD|U0|U0|U0|count\(3),
-	datac => \rtl~0clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~11_combout\,
-	combout => \KBD|U1|U2|ram~11_combout\);
+	datac => \rtl~1clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~7_combout\,
+	combout => \KBD|U1|U2|ram~7_combout\);
 
--- Location: LCCOMB_X43_Y16_N28
+-- Location: LCCOMB_X44_Y11_N22
+\KBD|U1|U2|ram~49\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~49_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~7_combout\))) # (!\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U2|ram~3_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~3_combout\,
+	datab => \KBD|U1|U1|A[1]~1_combout\,
+	datac => \KBD|U1|U2|ram~7_combout\,
+	datad => \KBD|U1|U1|A[0]~0_combout\,
+	combout => \KBD|U1|U2|ram~49_combout\);
+
+-- Location: LCCOMB_X44_Y11_N24
 \KBD|U1|U2|ram~50\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~50_combout\ = (\KBD|U1|U2|ram~49_combout\ & ((\KBD|U1|U2|ram~15_combout\) # ((!\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U2|ram~49_combout\ & (((\KBD|U1|U2|ram~11_combout\ & \KBD|U1|U1|A[1]~1_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1101100010101010",
+	lut_mask => "1010110011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U1|U2|ram~49_combout\,
-	datab => \KBD|U1|U2|ram~15_combout\,
-	datac => \KBD|U1|U2|ram~11_combout\,
+	dataa => \KBD|U1|U2|ram~15_combout\,
+	datab => \KBD|U1|U2|ram~11_combout\,
+	datac => \KBD|U1|U2|ram~49_combout\,
 	datad => \KBD|U1|U1|A[1]~1_combout\,
 	combout => \KBD|U1|U2|ram~50_combout\);
 
--- Location: LCCOMB_X43_Y17_N8
+-- Location: LCCOMB_X44_Y11_N8
 \KBD|U1|U2|ram~51\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U1|U2|ram~51_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~48_combout\)) # (!\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~50_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101011110000",
+	lut_mask => "1010101011001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \KBD|U1|U2|ram~48_combout\,
-	datac => \KBD|U1|U2|ram~50_combout\,
+	datab => \KBD|U1|U2|ram~50_combout\,
 	datad => \KBD|U1|U1|A[2]~2_combout\,
 	combout => \KBD|U1|U2|ram~51_combout\);
 
--- Location: FF_X43_Y17_N9
+-- Location: FF_X44_Y11_N9
 \KBD|U2|U0|buff[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6506,20 +5989,45 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \KBD|U2|U0|buff\(3));
 
--- Location: LCCOMB_X43_Y31_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~12\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X51_Y24_N0
+\~GND\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \~GND~combout\ = GND
+
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110000001100",
+	lut_mask => "0000000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	combout => \~GND~combout\);
+
+-- Location: IOIBUF_X51_Y54_N29
+\inputPort[0]~input\ : fiftyfivenm_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_inputPort(0),
+	o => \inputPort[0]~input_o\);
+
+-- Location: LCCOMB_X51_Y24_N6
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~12\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
 	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(7),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datad => \~GND~combout\,
+	datad => \inputPort[0]~input_o\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~12_combout\);
 
--- Location: FF_X43_Y31_N11
+-- Location: FF_X51_Y24_N7
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6535,20 +6043,20 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(6));
 
--- Location: LCCOMB_X43_Y31_N12
+-- Location: LCCOMB_X51_Y24_N12
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~11\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101000001010",
+	lut_mask => "1101110110001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(6),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datad => \~GND~combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \~GND~combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(6),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~11_combout\);
 
--- Location: FF_X43_Y31_N13
+-- Location: FF_X51_Y24_N13
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6564,7 +6072,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(5));
 
--- Location: LCCOMB_X43_Y31_N8
+-- Location: LCCOMB_X51_Y24_N18
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~10\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -6577,7 +6085,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(5),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~10_combout\);
 
--- Location: FF_X43_Y31_N9
+-- Location: FF_X51_Y24_N19
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6593,35 +6101,62 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(4));
 
--- Location: LCCOMB_X43_Y31_N4
+-- Location: LCCOMB_X50_Y24_N12
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~6\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000100011110000",
+	lut_mask => "1101010110000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\,
-	datab => \KBD|U2|U0|buff\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\,
+	datac => \KBD|U2|U0|buff\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~6_combout\);
 
--- Location: LCCOMB_X42_Y30_N14
+-- Location: LCCOMB_X50_Y24_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101001010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7_combout\);
+
+-- Location: LCCOMB_X50_Y24_N20
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111111001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~7_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8_combout\);
+
+-- Location: LCCOMB_X50_Y24_N2
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~9\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111100001110000",
+	lut_mask => "1011100011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~6_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~8_combout\,
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~6_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]~9_combout\);
 
--- Location: FF_X42_Y30_N15
+-- Location: FF_X50_Y24_N3
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6636,247 +6171,35 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3));
 
--- Location: LCCOMB_X43_Y15_N12
-\KBD|U1|U2|ram~18\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~18_combout\ = (GLOBAL(\rtl~6clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~6clkctrl_outclk\) & ((\KBD|U1|U2|ram~18_combout\)))
-
+-- Location: LCCOMB_X50_Y24_N4
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010111110100000",
+	lut_mask => "1110111000100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(2),
-	datac => \rtl~6clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~18_combout\,
-	combout => \KBD|U1|U2|ram~18_combout\);
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(0),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\);
 
--- Location: LCCOMB_X43_Y15_N2
-\KBD|U1|U2|ram~26\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~26_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~26_combout\)))
-
+-- Location: LCCOMB_X50_Y24_N26
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111010110100000",
+	lut_mask => "1110000001000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \rtl~5clkctrl_outclk\,
-	datac => \KBD|U0|U0|U0|count\(2),
-	datad => \KBD|U1|U2|ram~26_combout\,
-	combout => \KBD|U1|U2|ram~26_combout\);
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~1_combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\);
 
--- Location: LCCOMB_X43_Y15_N14
-\KBD|U1|U2|ram~42\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~42_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~26_combout\))) # (!\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~18_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~18_combout\,
-	datab => \KBD|U1|U2|ram~26_combout\,
-	datac => \KBD|U1|U1|A[0]~0_combout\,
-	datad => \KBD|U1|U1|A[1]~1_combout\,
-	combout => \KBD|U1|U2|ram~42_combout\);
-
--- Location: LCCOMB_X43_Y18_N28
-\KBD|U1|U2|ram~30\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~30_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~30_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \rtl~7clkctrl_outclk\,
-	datab => \KBD|U0|U0|U0|count\(2),
-	datad => \KBD|U1|U2|ram~30_combout\,
-	combout => \KBD|U1|U2|ram~30_combout\);
-
--- Location: LCCOMB_X43_Y18_N18
-\KBD|U1|U2|ram~22\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~22_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~22_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(2),
-	datac => \rtl~4clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~22_combout\,
-	combout => \KBD|U1|U2|ram~22_combout\);
-
--- Location: LCCOMB_X43_Y18_N22
-\KBD|U1|U2|ram~43\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~43_combout\ = (\KBD|U1|U2|ram~42_combout\ & ((\KBD|U1|U2|ram~30_combout\) # ((!\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~42_combout\ & (((\KBD|U1|U1|A[0]~0_combout\ & \KBD|U1|U2|ram~22_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101101010001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~42_combout\,
-	datab => \KBD|U1|U2|ram~30_combout\,
-	datac => \KBD|U1|U1|A[0]~0_combout\,
-	datad => \KBD|U1|U2|ram~22_combout\,
-	combout => \KBD|U1|U2|ram~43_combout\);
-
--- Location: LCCOMB_X43_Y15_N6
-\KBD|U1|U2|ram~10\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~10_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~10_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U0|U0|U0|count\(2),
-	datac => \rtl~0clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~10_combout\,
-	combout => \KBD|U1|U2|ram~10_combout\);
-
--- Location: LCCOMB_X42_Y18_N16
-\KBD|U1|U2|ram~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~2_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~2_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \KBD|U0|U0|U0|count\(2),
-	datac => \rtl~2clkctrl_outclk\,
-	datad => \KBD|U1|U2|ram~2_combout\,
-	combout => \KBD|U1|U2|ram~2_combout\);
-
--- Location: LCCOMB_X43_Y18_N30
-\KBD|U1|U2|ram~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~6_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U0|U0|U0|count\(2)))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U1|U2|ram~6_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \rtl~1clkctrl_outclk\,
-	datac => \KBD|U1|U2|ram~6_combout\,
-	datad => \KBD|U0|U0|U0|count\(2),
-	combout => \KBD|U1|U2|ram~6_combout\);
-
--- Location: LCCOMB_X43_Y18_N8
-\KBD|U1|U2|ram~44\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~44_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~6_combout\))) # (!\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U2|ram~2_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~2_combout\,
-	datab => \KBD|U1|U1|A[1]~1_combout\,
-	datac => \KBD|U1|U2|ram~6_combout\,
-	datad => \KBD|U1|U1|A[0]~0_combout\,
-	combout => \KBD|U1|U2|ram~44_combout\);
-
--- Location: LCCOMB_X44_Y18_N0
-\KBD|U1|U2|ram~14\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~14_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~14_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \rtl~3clkctrl_outclk\,
-	datac => \KBD|U0|U0|U0|count\(2),
-	datad => \KBD|U1|U2|ram~14_combout\,
-	combout => \KBD|U1|U2|ram~14_combout\);
-
--- Location: LCCOMB_X43_Y18_N2
-\KBD|U1|U2|ram~45\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~45_combout\ = (\KBD|U1|U2|ram~44_combout\ & (((\KBD|U1|U2|ram~14_combout\) # (!\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U2|ram~44_combout\ & (\KBD|U1|U2|ram~10_combout\ & (\KBD|U1|U1|A[1]~1_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110110000101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~10_combout\,
-	datab => \KBD|U1|U2|ram~44_combout\,
-	datac => \KBD|U1|U1|A[1]~1_combout\,
-	datad => \KBD|U1|U2|ram~14_combout\,
-	combout => \KBD|U1|U2|ram~45_combout\);
-
--- Location: LCCOMB_X43_Y18_N26
-\KBD|U1|U2|ram~46\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \KBD|U1|U2|ram~46_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~43_combout\)) # (!\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~45_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010110010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \KBD|U1|U2|ram~43_combout\,
-	datab => \KBD|U1|U2|ram~45_combout\,
-	datac => \KBD|U1|U1|A[2]~2_combout\,
-	combout => \KBD|U1|U2|ram~46_combout\);
-
--- Location: FF_X43_Y18_N27
-\KBD|U2|U0|buff[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\,
-	d => \KBD|U1|U2|ram~46_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \KBD|U2|U0|buff\(2));
-
--- Location: LCCOMB_X43_Y31_N26
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datad => \KBD|U2|U0|buff\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4_combout\);
-
--- Location: FF_X43_Y31_N27
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]\ : dffeas
+-- Location: FF_X47_Y24_N25
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -6884,68 +6207,68 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4_combout\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~0_combout\,
 	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
 	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2));
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0));
 
--- Location: LCCOMB_X42_Y31_N18
+-- Location: LCCOMB_X46_Y24_N30
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000000000000",
+	lut_mask => "1000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~0_combout\);
 
--- Location: LCCOMB_X42_Y31_N12
+-- Location: LCCOMB_X46_Y24_N8
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000001000000",
+	lut_mask => "0011000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state~8_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~1_combout\);
 
--- Location: LCCOMB_X42_Y31_N14
+-- Location: LCCOMB_X46_Y24_N2
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~2\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000110010011000",
+	lut_mask => "1111000000100100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~2_combout\);
 
--- Location: LCCOMB_X42_Y31_N24
+-- Location: LCCOMB_X46_Y24_N26
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~3\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111100001111000",
+	lut_mask => "1011110011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~1_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~2_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~0_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~1_combout\,
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~0_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~2_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]~3_combout\);
 
--- Location: FF_X42_Y31_N25
+-- Location: FF_X46_Y24_N27
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6960,30 +6283,19 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1));
 
--- Location: LCCOMB_X42_Y31_N0
+-- Location: LCCOMB_X46_Y24_N4
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~4\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000001010101",
+	lut_mask => "0000010100000101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~4_combout\);
 
--- Location: LCCOMB_X43_Y30_N12
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~feeder_combout\);
-
--- Location: FF_X43_Y30_N13
+-- Location: FF_X50_Y24_N29
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -6992,12 +6304,13 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~feeder_combout\,
+	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\,
+	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~q\);
 
--- Location: LCCOMB_X43_Y30_N24
+-- Location: LCCOMB_X49_Y24_N12
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~5\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -7011,7 +6324,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg~q\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]~5_combout\);
 
--- Location: FF_X43_Y30_N25
+-- Location: FF_X49_Y24_N13
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7026,19 +6339,19 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(2));
 
--- Location: LCCOMB_X42_Y30_N4
+-- Location: LCCOMB_X50_Y24_N6
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg_proc~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000000000000",
+	lut_mask => "1100110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(1),
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_mode_reg\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg_proc~0_combout\);
 
--- Location: FF_X42_Y30_N5
+-- Location: FF_X50_Y24_N7
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7052,7 +6365,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~q\);
 
--- Location: FF_X42_Y30_N9
+-- Location: FF_X49_Y24_N9
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7070,60 +6383,718 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8));
 
--- Location: LCCOMB_X40_Y31_N22
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X51_Y24_N24
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101100011011000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \inputPort[1]~input_o\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13_combout\);
+
+-- Location: FF_X51_Y24_N25
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~13_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(7));
+
+-- Location: LCCOMB_X51_Y24_N14
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(7),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder_combout\);
+
+-- Location: LCCOMB_X50_Y24_N16
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010000010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|reset_ena_reg_proc~0_combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\);
+
+-- Location: FF_X51_Y24_N15
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~feeder_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\);
+
+-- Location: LCCOMB_X49_Y8_N24
+\KBD|U2|U1|CurrentState.state_bit_0~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U2|U1|CurrentState.state_bit_0~1_combout\ = (\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\) # ((\KBD|U2|U1|CurrentState.state_bit_0~0_combout\) # ((\KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\ & 
+-- !\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101011111110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
+	datab => \KBD|U2|U1|CurrentState.STATE_SEND_WAIT_STAGE1~0_combout\,
+	datac => \KBD|U2|U1|CurrentState.state_bit_0~0_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\,
+	combout => \KBD|U2|U1|CurrentState.state_bit_0~1_combout\);
+
+-- Location: FF_X49_Y8_N25
+\KBD|U2|U1|CurrentState.state_bit_0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U2|U1|CurrentState.state_bit_0~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U2|U1|CurrentState.state_bit_0~q\);
+
+-- Location: LCCOMB_X49_Y8_N10
+\KBD|U2|U1|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U2|U1|CurrentState.state_bit_1~0_combout\ = (\KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\) # ((\KBD|U2|U1|CurrentState.state_bit_1~q\ & ((\KBD|U2|U1|CurrentState.state_bit_0~q\) # 
+-- (\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101011101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\,
+	datab => \KBD|U2|U1|CurrentState.state_bit_0~q\,
+	datac => \KBD|U2|U1|CurrentState.state_bit_1~q\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][7]~q\,
+	combout => \KBD|U2|U1|CurrentState.state_bit_1~0_combout\);
+
+-- Location: FF_X49_Y8_N11
+\KBD|U2|U1|CurrentState.state_bit_1\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \KBD|U2|U1|CurrentState.state_bit_1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U2|U1|CurrentState.state_bit_1~q\);
+
+-- Location: LCCOMB_X49_Y8_N6
+\KBD|U2|U1|CurrentState.STATE_RECEIVING~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\ = LCELL((!\KBD|U2|U1|CurrentState.state_bit_1~q\ & \KBD|U2|U1|CurrentState.state_bit_0~q\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101010100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U2|U1|CurrentState.state_bit_1~q\,
+	datad => \KBD|U2|U1|CurrentState.state_bit_0~q\,
+	combout => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0_combout\);
+
+-- Location: CLKCTRL_G15
+\KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\);
+
+-- Location: LCCOMB_X45_Y11_N24
+\KBD|U1|U2|ram~22\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~22_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~22_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \rtl~4clkctrl_outclk\,
+	datac => \KBD|U0|U0|U0|count\(2),
+	datad => \KBD|U1|U2|ram~22_combout\,
+	combout => \KBD|U1|U2|ram~22_combout\);
+
+-- Location: LCCOMB_X45_Y11_N2
+\KBD|U1|U2|ram~18\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~18_combout\ = (GLOBAL(\rtl~6clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~6clkctrl_outclk\) & ((\KBD|U1|U2|ram~18_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(2),
+	datac => \rtl~6clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~18_combout\,
+	combout => \KBD|U1|U2|ram~18_combout\);
+
+-- Location: LCCOMB_X44_Y11_N2
+\KBD|U1|U2|ram~26\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~26_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~26_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111001111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \rtl~5clkctrl_outclk\,
+	datac => \KBD|U0|U0|U0|count\(2),
+	datad => \KBD|U1|U2|ram~26_combout\,
+	combout => \KBD|U1|U2|ram~26_combout\);
+
+-- Location: LCCOMB_X45_Y11_N22
+\KBD|U1|U2|ram~42\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~42_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~26_combout\))) # (!\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~18_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U2|ram~18_combout\,
+	datac => \KBD|U1|U2|ram~26_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \KBD|U1|U2|ram~42_combout\);
+
+-- Location: LCCOMB_X44_Y11_N20
+\KBD|U1|U2|ram~30\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~30_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~30_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(2),
+	datac => \rtl~7clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~30_combout\,
+	combout => \KBD|U1|U2|ram~30_combout\);
+
+-- Location: LCCOMB_X45_Y11_N16
+\KBD|U1|U2|ram~43\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~43_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~42_combout\ & ((\KBD|U1|U2|ram~30_combout\))) # (!\KBD|U1|U2|ram~42_combout\ & (\KBD|U1|U2|ram~22_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U2|ram~42_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111100001011000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U2|ram~22_combout\,
+	datac => \KBD|U1|U2|ram~42_combout\,
+	datad => \KBD|U1|U2|ram~30_combout\,
+	combout => \KBD|U1|U2|ram~43_combout\);
+
+-- Location: LCCOMB_X45_Y13_N6
+\KBD|U1|U2|ram~6\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~6_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~6_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \rtl~1clkctrl_outclk\,
+	datac => \KBD|U0|U0|U0|count\(2),
+	datad => \KBD|U1|U2|ram~6_combout\,
+	combout => \KBD|U1|U2|ram~6_combout\);
+
+-- Location: LCCOMB_X45_Y13_N24
+\KBD|U1|U2|ram~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~2_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(2),
+	datac => \rtl~2clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~2_combout\,
+	combout => \KBD|U1|U2|ram~2_combout\);
+
+-- Location: LCCOMB_X45_Y13_N10
+\KBD|U1|U2|ram~44\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~44_combout\ = (\KBD|U1|U1|A[1]~1_combout\ & (((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U1|A[0]~0_combout\ & (\KBD|U1|U2|ram~6_combout\)) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U2|ram~2_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~6_combout\,
+	datab => \KBD|U1|U2|ram~2_combout\,
+	datac => \KBD|U1|U1|A[1]~1_combout\,
+	datad => \KBD|U1|U1|A[0]~0_combout\,
+	combout => \KBD|U1|U2|ram~44_combout\);
+
+-- Location: LCCOMB_X45_Y13_N2
+\KBD|U1|U2|ram~14\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~14_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~14_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(2),
+	datac => \rtl~3clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~14_combout\,
+	combout => \KBD|U1|U2|ram~14_combout\);
+
+-- Location: LCCOMB_X45_Y10_N16
+\KBD|U1|U2|ram~10\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~10_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(2))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~10_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U0|U0|U0|count\(2),
+	datac => \rtl~0clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~10_combout\,
+	combout => \KBD|U1|U2|ram~10_combout\);
+
+-- Location: LCCOMB_X45_Y13_N12
+\KBD|U1|U2|ram~45\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~45_combout\ = (\KBD|U1|U2|ram~44_combout\ & ((\KBD|U1|U2|ram~14_combout\) # ((!\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U2|ram~44_combout\ & (((\KBD|U1|U1|A[1]~1_combout\ & \KBD|U1|U2|ram~10_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101101010001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~44_combout\,
+	datab => \KBD|U1|U2|ram~14_combout\,
+	datac => \KBD|U1|U1|A[1]~1_combout\,
+	datad => \KBD|U1|U2|ram~10_combout\,
+	combout => \KBD|U1|U2|ram~45_combout\);
+
+-- Location: LCCOMB_X45_Y13_N16
+\KBD|U1|U2|ram~46\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~46_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~43_combout\)) # (!\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~45_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[2]~2_combout\,
+	datab => \KBD|U1|U2|ram~43_combout\,
+	datad => \KBD|U1|U2|ram~45_combout\,
+	combout => \KBD|U1|U2|ram~46_combout\);
+
+-- Location: FF_X45_Y13_N17
+\KBD|U2|U0|buff[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\,
+	d => \KBD|U1|U2|ram~46_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U2|U0|buff\(2));
+
+-- Location: LCCOMB_X51_Y24_N16
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datac => \KBD|U2|U0|buff\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4_combout\);
+
+-- Location: FF_X51_Y24_N17
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~4_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2));
+
+-- Location: LCCOMB_X45_Y9_N6
+\KBD|U1|U2|ram~9\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~9_combout\ = (GLOBAL(\rtl~0clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~0clkctrl_outclk\) & ((\KBD|U1|U2|ram~9_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \rtl~0clkctrl_outclk\,
+	datab => \KBD|U0|U0|U0|count\(1),
+	datad => \KBD|U1|U2|ram~9_combout\,
+	combout => \KBD|U1|U2|ram~9_combout\);
+
+-- Location: LCCOMB_X45_Y9_N24
+\KBD|U1|U2|ram~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~1_combout\ = (GLOBAL(\rtl~2clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~2clkctrl_outclk\) & ((\KBD|U1|U2|ram~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \rtl~2clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~1_combout\,
+	combout => \KBD|U1|U2|ram~1_combout\);
+
+-- Location: LCCOMB_X45_Y8_N26
+\KBD|U1|U2|ram~5\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~5_combout\ = (GLOBAL(\rtl~1clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~1clkctrl_outclk\) & ((\KBD|U1|U2|ram~5_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \KBD|U1|U2|ram~5_combout\,
+	datad => \rtl~1clkctrl_outclk\,
+	combout => \KBD|U1|U2|ram~5_combout\);
+
+-- Location: LCCOMB_X45_Y8_N16
+\KBD|U1|U2|ram~13\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~13_combout\ = (GLOBAL(\rtl~3clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~3clkctrl_outclk\) & ((\KBD|U1|U2|ram~13_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \rtl~3clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~13_combout\,
+	combout => \KBD|U1|U2|ram~13_combout\);
+
+-- Location: LCCOMB_X45_Y8_N12
+\KBD|U1|U2|ram~39\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~39_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~13_combout\))) # (!\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~5_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~5_combout\,
+	datab => \KBD|U1|U2|ram~13_combout\,
+	datac => \KBD|U1|U1|A[0]~0_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \KBD|U1|U2|ram~39_combout\);
+
+-- Location: LCCOMB_X45_Y9_N0
+\KBD|U1|U2|ram~40\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~40_combout\ = (\KBD|U1|U2|ram~39_combout\ & ((\KBD|U1|U2|ram~9_combout\) # ((\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~39_combout\ & (((\KBD|U1|U2|ram~1_combout\ & !\KBD|U1|U1|A[0]~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~9_combout\,
+	datab => \KBD|U1|U2|ram~1_combout\,
+	datac => \KBD|U1|U2|ram~39_combout\,
+	datad => \KBD|U1|U1|A[0]~0_combout\,
+	combout => \KBD|U1|U2|ram~40_combout\);
+
+-- Location: LCCOMB_X45_Y11_N6
+\KBD|U1|U2|ram~29\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~29_combout\ = (GLOBAL(\rtl~7clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~7clkctrl_outclk\) & ((\KBD|U1|U2|ram~29_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \rtl~7clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~29_combout\,
+	combout => \KBD|U1|U2|ram~29_combout\);
+
+-- Location: LCCOMB_X45_Y11_N18
+\KBD|U1|U2|ram~21\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~21_combout\ = (GLOBAL(\rtl~4clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~4clkctrl_outclk\) & ((\KBD|U1|U2|ram~21_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \rtl~4clkctrl_outclk\,
+	datab => \KBD|U0|U0|U0|count\(1),
+	datad => \KBD|U1|U2|ram~21_combout\,
+	combout => \KBD|U1|U2|ram~21_combout\);
+
+-- Location: LCCOMB_X45_Y11_N20
+\KBD|U1|U2|ram~17\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~17_combout\ = (GLOBAL(\rtl~6clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~6clkctrl_outclk\) & ((\KBD|U1|U2|ram~17_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \rtl~6clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~17_combout\,
+	combout => \KBD|U1|U2|ram~17_combout\);
+
+-- Location: LCCOMB_X45_Y9_N20
+\KBD|U1|U2|ram~25\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~25_combout\ = (GLOBAL(\rtl~5clkctrl_outclk\) & (\KBD|U0|U0|U0|count\(1))) # (!GLOBAL(\rtl~5clkctrl_outclk\) & ((\KBD|U1|U2|ram~25_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(1),
+	datac => \rtl~5clkctrl_outclk\,
+	datad => \KBD|U1|U2|ram~25_combout\,
+	combout => \KBD|U1|U2|ram~25_combout\);
+
+-- Location: LCCOMB_X45_Y11_N26
+\KBD|U1|U2|ram~37\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~37_combout\ = (\KBD|U1|U1|A[0]~0_combout\ & (((\KBD|U1|U1|A[1]~1_combout\)))) # (!\KBD|U1|U1|A[0]~0_combout\ & ((\KBD|U1|U1|A[1]~1_combout\ & ((\KBD|U1|U2|ram~25_combout\))) # (!\KBD|U1|U1|A[1]~1_combout\ & (\KBD|U1|U2|ram~17_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U1|A[0]~0_combout\,
+	datab => \KBD|U1|U2|ram~17_combout\,
+	datac => \KBD|U1|U2|ram~25_combout\,
+	datad => \KBD|U1|U1|A[1]~1_combout\,
+	combout => \KBD|U1|U2|ram~37_combout\);
+
+-- Location: LCCOMB_X45_Y11_N12
+\KBD|U1|U2|ram~38\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~38_combout\ = (\KBD|U1|U2|ram~37_combout\ & ((\KBD|U1|U2|ram~29_combout\) # ((!\KBD|U1|U1|A[0]~0_combout\)))) # (!\KBD|U1|U2|ram~37_combout\ & (((\KBD|U1|U2|ram~21_combout\ & \KBD|U1|U1|A[0]~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010110011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KBD|U1|U2|ram~29_combout\,
+	datab => \KBD|U1|U2|ram~21_combout\,
+	datac => \KBD|U1|U2|ram~37_combout\,
+	datad => \KBD|U1|U1|A[0]~0_combout\,
+	combout => \KBD|U1|U2|ram~38_combout\);
+
+-- Location: LCCOMB_X45_Y11_N0
+\KBD|U1|U2|ram~41\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \KBD|U1|U2|ram~41_combout\ = (\KBD|U1|U1|A[2]~2_combout\ & ((\KBD|U1|U2|ram~38_combout\))) # (!\KBD|U1|U1|A[2]~2_combout\ & (\KBD|U1|U2|ram~40_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \KBD|U1|U2|ram~40_combout\,
+	datac => \KBD|U1|U1|A[2]~2_combout\,
+	datad => \KBD|U1|U2|ram~38_combout\,
+	combout => \KBD|U1|U2|ram~41_combout\);
+
+-- Location: FF_X45_Y11_N1
+\KBD|U2|U0|buff[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \KBD|U2|U1|CurrentState.STATE_RECEIVING~0clkctrl_outclk\,
+	d => \KBD|U1|U2|ram~41_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \KBD|U2|U0|buff\(1));
+
+-- Location: LCCOMB_X47_Y24_N2
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100101011001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
+	datab => \KBD|U2|U0|buff\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3_combout\);
+
+-- Location: FF_X47_Y24_N3
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg~3_combout\,
+	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1));
+
+-- Location: LCCOMB_X51_Y20_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
 	lut_mask => "0101010110101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
 	datad => VCC,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~10\);
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~8\);
 
--- Location: LCCOMB_X41_Y31_N4
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X51_Y20_N14
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\);
-
--- Location: LCCOMB_X40_Y31_N26
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
+	lut_mask => "0011110011001111",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
 	datad => VCC,
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~12\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~15\);
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~10\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~12\);
 
--- Location: LCCOMB_X40_Y31_N28
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X51_Y20_N16
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~13\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110000111111",
+	lut_mask => "1100001100000011",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
 	datad => VCC,
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~15\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~17\);
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~12\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~13_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~14\);
 
--- Location: LCCOMB_X40_Y30_N26
+-- Location: LCCOMB_X49_Y23_N12
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~2\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -7133,11 +7104,11 @@ GENERIC MAP (
 PORT MAP (
 	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(0),
 	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~1_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~0_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|Equal0~2_combout\);
 
--- Location: FF_X40_Y30_N27
+-- Location: FF_X49_Y23_N13
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7153,663 +7124,21 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\);
 
--- Location: LCCOMB_X40_Y31_N4
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\);
-
--- Location: FF_X40_Y31_N29
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16_combout\,
-	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3));
-
--- Location: LCCOMB_X40_Y31_N30
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010110100101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4),
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~17\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18_combout\);
-
--- Location: FF_X40_Y31_N31
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18_combout\,
-	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4));
-
--- Location: LCCOMB_X40_Y31_N18
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\);
-
--- Location: LCCOMB_X40_Y31_N0
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101010101110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\);
-
--- Location: FF_X40_Y31_N23
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9_combout\,
-	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0));
-
--- Location: LCCOMB_X40_Y31_N24
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
-	datad => VCC,
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~10\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~12\);
-
--- Location: FF_X40_Y31_N25
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11_combout\,
-	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1));
-
--- Location: FF_X40_Y31_N27
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14_combout\,
-	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2));
-
--- Location: LCCOMB_X40_Y31_N12
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\);
-
--- Location: LCCOMB_X40_Y31_N6
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10_combout\);
-
--- Location: LCCOMB_X40_Y31_N16
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100010000001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12_combout\);
-
--- Location: LCCOMB_X40_Y31_N2
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13_combout\);
-
--- Location: LCCOMB_X40_Y31_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \altera_internal_jtag~TDIUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14_combout\);
-
--- Location: LCCOMB_X41_Y31_N0
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111011101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\);
-
--- Location: FF_X40_Y31_N11
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(3));
-
--- Location: LCCOMB_X40_Y31_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(3),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8_combout\);
-
--- Location: LCCOMB_X41_Y31_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000001000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9_combout\);
-
--- Location: LCCOMB_X40_Y31_N14
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110110011101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9_combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11_combout\);
-
--- Location: FF_X40_Y31_N15
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(2));
-
--- Location: LCCOMB_X40_Y31_N8
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7_combout\);
-
--- Location: FF_X40_Y31_N9
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(1));
-
--- Location: LCCOMB_X41_Y31_N16
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010000010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(1),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4_combout\);
-
--- Location: FF_X41_Y31_N17
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(0));
-
--- Location: LCCOMB_X41_Y31_N22
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011000000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datac => \altera_internal_jtag~TDIUTAP\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3_combout\);
-
--- Location: LCCOMB_X42_Y31_N8
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\);
-
--- Location: FF_X41_Y31_N23
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(3));
-
--- Location: LCCOMB_X41_Y31_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111110101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2_combout\);
-
--- Location: FF_X41_Y31_N11
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(2));
-
--- Location: LCCOMB_X41_Y31_N6
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1_combout\);
-
--- Location: FF_X41_Y31_N7
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(1));
-
--- Location: LCCOMB_X41_Y31_N26
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0_combout\);
-
--- Location: FF_X41_Y31_N27
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(0));
-
--- Location: LCCOMB_X40_Y29_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datad => VCC,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~8\);
-
--- Location: LCCOMB_X40_Y29_N26
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~13\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100000101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datad => VCC,
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~12\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~13_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~14\);
-
--- Location: LCCOMB_X40_Y29_N28
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~14\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15_combout\);
-
--- Location: LCCOMB_X41_Y31_N24
+-- Location: LCCOMB_X50_Y24_N8
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110101011000000",
+	lut_mask => "1110110010100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\);
 
--- Location: FF_X40_Y29_N29
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15_combout\,
-	asdata => VCC,
-	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4));
-
--- Location: LCCOMB_X40_Y29_N10
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111111110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17_combout\);
-
--- Location: LCCOMB_X40_Y30_N16
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110100000101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\);
-
--- Location: FF_X40_Y29_N21
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7_combout\,
-	asdata => VCC,
-	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0));
-
--- Location: LCCOMB_X40_Y29_N22
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100000101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
-	datad => VCC,
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~8\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~10\);
-
--- Location: FF_X40_Y29_N23
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9_combout\,
-	asdata => VCC,
-	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1));
-
--- Location: LCCOMB_X40_Y29_N24
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110011001111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
-	datad => VCC,
-	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~10\,
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11_combout\,
-	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~12\);
-
--- Location: FF_X40_Y29_N25
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11_combout\,
-	asdata => VCC,
-	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2));
-
--- Location: FF_X40_Y29_N27
+-- Location: FF_X51_Y20_N17
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7826,7 +7155,129 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3));
 
--- Location: LCCOMB_X40_Y29_N16
+-- Location: LCCOMB_X51_Y20_N18
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[3]~14\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15_combout\);
+
+-- Location: FF_X51_Y20_N19
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~15_combout\,
+	asdata => VCC,
+	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4));
+
+-- Location: LCCOMB_X51_Y20_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17_combout\);
+
+-- Location: LCCOMB_X50_Y24_N18
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000100010001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~17_combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\);
+
+-- Location: FF_X51_Y20_N11
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~7_combout\,
+	asdata => VCC,
+	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0));
+
+-- Location: LCCOMB_X51_Y20_N12
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100000101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
+	datad => VCC,
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[0]~8\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~10\);
+
+-- Location: FF_X51_Y20_N13
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[1]~9_combout\,
+	asdata => VCC,
+	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1));
+
+-- Location: FF_X51_Y20_N15
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]~11_combout\,
+	asdata => VCC,
+	sload => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~19_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2));
+
+-- Location: LCCOMB_X50_Y20_N8
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~4\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -7834,51 +7285,51 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~4_combout\);
 
--- Location: LCCOMB_X40_Y29_N4
+-- Location: LCCOMB_X51_Y20_N2
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~6\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010110100000000",
+	lut_mask => "1101000010010000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~6_combout\);
 
--- Location: LCCOMB_X40_Y29_N18
+-- Location: LCCOMB_X51_Y20_N24
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000000000000",
+	lut_mask => "1010101000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\);
 
--- Location: LCCOMB_X40_Y29_N6
+-- Location: LCCOMB_X51_Y20_N28
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~7\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000010111000",
+	lut_mask => "0000101011001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~4_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~6_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~6_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~7_combout\);
 
--- Location: LCCOMB_X39_Y30_N24
+-- Location: LCCOMB_X49_Y20_N22
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[3]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -7889,7 +7340,7 @@ PORT MAP (
 	datac => \altera_internal_jtag~TDIUTAP\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[3]~feeder_combout\);
 
--- Location: LCCOMB_X42_Y31_N28
+-- Location: LCCOMB_X46_Y24_N14
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -7897,26 +7348,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
 	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~0_combout\);
 
--- Location: LCCOMB_X39_Y30_N10
+-- Location: LCCOMB_X47_Y24_N30
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101000000000000",
+	lut_mask => "0000101000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~0_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~0_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~1_combout\);
 
--- Location: FF_X39_Y30_N25
+-- Location: FF_X49_Y20_N23
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7931,18 +7382,18 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(3));
 
--- Location: LCCOMB_X39_Y30_N28
+-- Location: LCCOMB_X49_Y20_N4
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[2]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100000000",
+	lut_mask => "1111000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(3),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[2]~feeder_combout\);
 
--- Location: FF_X39_Y30_N29
+-- Location: FF_X49_Y20_N5
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7957,18 +7408,18 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(2));
 
--- Location: LCCOMB_X39_Y30_N0
+-- Location: LCCOMB_X49_Y20_N2
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[1]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100000000",
+	lut_mask => "1111000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(2),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[1]~feeder_combout\);
 
--- Location: FF_X39_Y30_N1
+-- Location: FF_X49_Y20_N3
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -7983,7 +7434,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(1));
 
--- Location: LCCOMB_X39_Y30_N2
+-- Location: LCCOMB_X49_Y20_N16
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -7994,7 +7445,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(1),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~feeder_combout\);
 
--- Location: FF_X39_Y30_N3
+-- Location: FF_X49_Y20_N17
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8009,7 +7460,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(0));
 
--- Location: LCCOMB_X39_Y30_N8
+-- Location: LCCOMB_X47_Y20_N24
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[0]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8020,21 +7471,21 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[0]~feeder_combout\);
 
--- Location: LCCOMB_X39_Y30_N20
+-- Location: LCCOMB_X47_Y24_N20
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[0]~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000010000000000",
+	lut_mask => "0000000000001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~0_combout\,
 	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg[0]~0_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[0]~0_combout\);
 
--- Location: FF_X39_Y30_N9
+-- Location: FF_X47_Y20_N25
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8049,7 +7500,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(0));
 
--- Location: LCCOMB_X40_Y29_N8
+-- Location: LCCOMB_X51_Y20_N22
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8057,13 +7508,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
 	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\);
 
--- Location: LCCOMB_X41_Y29_N0
+-- Location: LCCOMB_X47_Y20_N16
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8076,18 +7527,18 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~0_combout\);
 
--- Location: LCCOMB_X39_Y30_N22
+-- Location: LCCOMB_X47_Y20_N10
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[1]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100000000",
+	lut_mask => "1111000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(1),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[1]~feeder_combout\);
 
--- Location: FF_X39_Y30_N23
+-- Location: FF_X47_Y20_N11
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8102,75 +7553,75 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(1));
 
--- Location: LCCOMB_X40_Y29_N12
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110011110010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9_combout\);
-
--- Location: LCCOMB_X40_Y29_N30
+-- Location: LCCOMB_X51_Y20_N6
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~10\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011001000100000",
+	lut_mask => "0000000011101000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~10_combout\);
 
--- Location: LCCOMB_X41_Y29_N24
+-- Location: LCCOMB_X51_Y20_N20
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110011001110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9_combout\);
+
+-- Location: LCCOMB_X51_Y20_N0
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~11\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001100111001100",
+	lut_mask => "1001100110101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~10_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~10_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~9_combout\,
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~11_combout\);
 
--- Location: LCCOMB_X41_Y29_N26
+-- Location: LCCOMB_X47_Y20_N26
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[1]~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1101110110001000",
+	lut_mask => "1011101110001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(1),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\,
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~11_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[1]~1_combout\);
 
--- Location: LCCOMB_X40_Y29_N0
+-- Location: LCCOMB_X51_Y20_N26
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~12\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000010110111111",
+	lut_mask => "1001110100011111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~12_combout\);
 
--- Location: FF_X39_Y29_N25
+-- Location: FF_X50_Y20_N27
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8186,62 +7637,34 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(2));
 
--- Location: LCCOMB_X39_Y29_N24
+-- Location: LCCOMB_X50_Y20_N26
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~13\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000000001000100",
+	lut_mask => "1000000000100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~5_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(2),
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~13_combout\);
 
--- Location: LCCOMB_X41_Y29_N4
+-- Location: LCCOMB_X47_Y20_N4
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[2]~2\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111000100010",
+	lut_mask => "1100110010101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~12_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~13_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~13_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[2]~2_combout\);
 
--- Location: LCCOMB_X40_Y29_N2
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000101110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14_combout\);
-
--- Location: LCCOMB_X40_Y29_N14
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000000110011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14_combout\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~4_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15_combout\);
-
--- Location: LCCOMB_X39_Y30_N30
+-- Location: LCCOMB_X47_Y20_N12
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[3]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8252,7 +7675,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|identity_contrib_shift_reg\(3),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[3]~feeder_combout\);
 
--- Location: FF_X39_Y30_N31
+-- Location: FF_X47_Y20_N13
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8267,45 +7690,73 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(3));
 
--- Location: LCCOMB_X41_Y29_N30
+-- Location: LCCOMB_X51_Y20_N4
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000001000011010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14_combout\);
+
+-- Location: LCCOMB_X51_Y20_N30
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000001110001011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~4_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(4),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~14_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15_combout\);
+
+-- Location: LCCOMB_X47_Y20_N30
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[3]~3\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110010101010",
+	lut_mask => "1011101110001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(3),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric_ident_writedata\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]~8_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg~15_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[3]~3_combout\);
 
--- Location: LCCOMB_X41_Y30_N20
+-- Location: LCCOMB_X47_Y24_N26
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_proc~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011001111111111",
+	lut_mask => "0000111111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_proc~0_combout\);
 
--- Location: LCCOMB_X41_Y31_N18
+-- Location: LCCOMB_X47_Y24_N6
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110011000000",
+	lut_mask => "1010101010100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~combout\);
 
--- Location: FF_X41_Y29_N31
+-- Location: FF_X47_Y20_N31
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8322,7 +7773,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\(3));
 
--- Location: FF_X41_Y29_N5
+-- Location: FF_X47_Y20_N5
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8339,7 +7790,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\(2));
 
--- Location: FF_X41_Y29_N27
+-- Location: FF_X47_Y20_N27
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8356,7 +7807,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\(1));
 
--- Location: FF_X41_Y29_N1
+-- Location: FF_X47_Y20_N17
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8373,48 +7824,608 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\(0));
 
--- Location: LCCOMB_X41_Y31_N28
+-- Location: LCCOMB_X46_Y23_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \altera_internal_jtag~TDIUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3_combout\);
+
+-- Location: LCCOMB_X46_Y24_N18
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\);
+
+-- Location: FF_X46_Y23_N11
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~3_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(3));
+
+-- Location: LCCOMB_X46_Y23_N0
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111110101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2_combout\);
+
+-- Location: FF_X46_Y23_N1
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~2_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(2));
+
+-- Location: LCCOMB_X46_Y23_N6
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1_combout\);
+
+-- Location: FF_X46_Y23_N7
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~1_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(1));
+
+-- Location: LCCOMB_X46_Y23_N16
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111110101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(1),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0_combout\);
+
+-- Location: FF_X46_Y23_N17
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg~0_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(0));
+
+-- Location: LCCOMB_X47_Y24_N22
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~4\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111110100000",
+	lut_mask => "1110011011000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(0),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|design_hash_reg\(0),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~4_combout\);
 
--- Location: LCCOMB_X41_Y31_N14
+-- Location: LCCOMB_X47_Y23_N0
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
+	datad => VCC,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~10\);
+
+-- Location: LCCOMB_X47_Y24_N0
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\);
+
+-- Location: LCCOMB_X47_Y23_N16
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\);
+
+-- Location: LCCOMB_X47_Y23_N14
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\);
+
+-- Location: FF_X47_Y23_N1
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~9_combout\,
+	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0));
+
+-- Location: LCCOMB_X47_Y23_N2
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000111111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
+	datad => VCC,
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[0]~10\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~12\);
+
+-- Location: FF_X47_Y23_N3
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~11_combout\,
+	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1));
+
+-- Location: LCCOMB_X47_Y23_N4
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
+	datad => VCC,
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~12\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~15\);
+
+-- Location: FF_X47_Y23_N5
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~14_combout\,
+	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2));
+
+-- Location: LCCOMB_X47_Y23_N6
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
+	datad => VCC,
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[2]~15\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16_combout\,
+	cout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~17\);
+
+-- Location: FF_X47_Y23_N7
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~16_combout\,
+	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3));
+
+-- Location: LCCOMB_X47_Y23_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001111000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4),
+	cin => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[3]~17\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18_combout\);
+
+-- Location: FF_X47_Y23_N9
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[4]~18_combout\,
+	sclr => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~13_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter[1]~20_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4));
+
+-- Location: LCCOMB_X47_Y23_N26
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\);
+
+-- Location: LCCOMB_X47_Y23_N20
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~5_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\);
+
+-- Location: LCCOMB_X47_Y23_N10
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001101100010001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(4),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12_combout\);
+
+-- Location: LCCOMB_X47_Y23_N12
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~12_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13_combout\);
+
+-- Location: LCCOMB_X47_Y23_N18
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~13_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	datac => \altera_internal_jtag~TDIUTAP\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14_combout\);
+
+-- Location: LCCOMB_X47_Y24_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111011101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_dr_scan_reg~q\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\);
+
+-- Location: FF_X47_Y23_N19
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~14_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(3));
+
+-- Location: LCCOMB_X47_Y23_N28
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(3),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8_combout\);
+
+-- Location: LCCOMB_X47_Y23_N30
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9_combout\);
+
+-- Location: LCCOMB_X47_Y23_N24
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|word_counter\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10_combout\);
+
+-- Location: LCCOMB_X47_Y23_N22
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~8_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~9_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~10_combout\,
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11_combout\);
+
+-- Location: FF_X47_Y23_N23
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~11_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(2));
+
+-- Location: LCCOMB_X47_Y24_N28
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~6_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|clear_signal~combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7_combout\);
+
+-- Location: FF_X47_Y24_N29
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~7_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(1));
+
+-- Location: LCCOMB_X47_Y24_N12
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(1),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4_combout\);
+
+-- Location: FF_X47_Y24_N13
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR~4_combout\,
+	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR[0]~15_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(0));
+
+-- Location: LCCOMB_X47_Y24_N16
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~5\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000000001100",
+	lut_mask => "1010010110100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(0),
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~4_combout\,
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~4_combout\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg|WORD_SR\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~5_combout\);
 
--- Location: LCCOMB_X42_Y31_N30
+-- Location: LCCOMB_X47_Y24_N18
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~6\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011101000010000",
+	lut_mask => "1111010000000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~5_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~5_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
 	datad => \~GND~combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~6_combout\);
 
--- Location: LCCOMB_X42_Y31_N22
+-- Location: LCCOMB_X46_Y24_N12
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000101000001110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2_combout\);
+
+-- Location: LCCOMB_X46_Y24_N22
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100100000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0_combout\);
+
+-- Location: LCCOMB_X46_Y24_N24
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~0\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8427,7 +8438,7 @@ PORT MAP (
 	datad => \altera_internal_jtag~TDIUTAP\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~0_combout\);
 
--- Location: FF_X42_Y31_N23
+-- Location: FF_X46_Y24_N25
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8441,77 +8452,49 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~q\);
 
--- Location: LCCOMB_X42_Y31_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100000010000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(4),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0_combout\);
-
--- Location: LCCOMB_X42_Y31_N26
+-- Location: LCCOMB_X46_Y24_N20
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~1\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110011111110",
+	lut_mask => "1111101011111110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~q\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~0_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~q\,
 	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(8),
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~1_combout\);
 
--- Location: LCCOMB_X42_Y31_N2
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101010100000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(8),
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2_combout\);
-
--- Location: LCCOMB_X42_Y31_N4
+-- Location: LCCOMB_X46_Y24_N6
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~3\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011101010101010",
+	lut_mask => "1100111011001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~1_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~q\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2_combout\,
+	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~2_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~1_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_bypass_reg~q\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~3_combout\);
 
--- Location: LCCOMB_X42_Y31_N16
+-- Location: LCCOMB_X46_Y24_N16
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~7\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001011110000",
+	lut_mask => "1111111100001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~6_combout\,
-	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~3_combout\,
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
+	datab => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|hub_info_reg_ena~0_combout\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|virtual_ir_scan_reg~q\,
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~3_combout\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo_mux_out~7_combout\);
 
--- Location: FF_X42_Y31_N17
+-- Location: FF_X46_Y24_N17
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|tdo\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8538,7 +8521,18 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\);
 
--- Location: FF_X43_Y31_N31
+-- Location: LCCOMB_X51_Y24_N2
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~feeder_combout\);
+
+-- Location: FF_X51_Y24_N3
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8547,15 +8541,25 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(0),
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~feeder_combout\,
 	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	sload => VCC,
 	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\);
 
--- Location: FF_X43_Y31_N15
+-- Location: LCCOMB_X51_Y24_N20
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~feeder_combout\);
+
+-- Location: FF_X51_Y24_N21
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8564,26 +8568,25 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(1),
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~feeder_combout\,
 	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	sload => VCC,
 	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~q\);
 
--- Location: LCCOMB_X43_Y31_N28
+-- Location: LCCOMB_X51_Y24_N22
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][2]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000011110000",
+	lut_mask => "1111111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(2),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][2]~feeder_combout\);
 
--- Location: FF_X43_Y31_N29
+-- Location: FF_X51_Y24_N23
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8599,18 +8602,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][2]~q\);
 
--- Location: LCCOMB_X43_Y31_N20
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~feeder\ : fiftyfivenm_lcell_comb
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
-	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~feeder_combout\);
-
--- Location: FF_X43_Y31_N21
+-- Location: FF_X50_Y24_N15
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8619,14 +8611,26 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~feeder_combout\,
+	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(3),
 	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
+	sload => VCC,
 	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\);
 
--- Location: FF_X43_Y31_N5
+-- Location: LCCOMB_X51_Y24_N8
+\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~feeder\ : fiftyfivenm_lcell_comb
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(4),
+	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~feeder_combout\);
+
+-- Location: FF_X51_Y24_N9
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8635,15 +8639,14 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \altera_internal_jtag~TCKUTAPclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(4),
+	d => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~feeder_combout\,
 	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_clr_reg~q\,
-	sload => VCC,
 	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\);
 
--- Location: LCCOMB_X43_Y31_N2
+-- Location: LCCOMB_X51_Y24_N26
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][5]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8654,7 +8657,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(5),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][5]~feeder_combout\);
 
--- Location: FF_X43_Y31_N3
+-- Location: FF_X51_Y24_N27
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8670,7 +8673,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][5]~q\);
 
--- Location: LCCOMB_X43_Y31_N24
+-- Location: LCCOMB_X51_Y24_N28
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][6]~feeder\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -8681,7 +8684,7 @@ PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irsr_reg\(6),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][6]~feeder_combout\);
 
--- Location: FF_X43_Y31_N25
+-- Location: FF_X51_Y24_N29
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8697,7 +8700,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][6]~q\);
 
--- Location: LCCOMB_X44_Y36_N24
+-- Location: LCCOMB_X35_Y32_N16
 \SLCDC|U2|tmp~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|tmp~0_combout\ = !\SLCDC|U2|tmp~q\
@@ -8711,7 +8714,7 @@ PORT MAP (
 	datac => \SLCDC|U2|tmp~q\,
 	combout => \SLCDC|U2|tmp~0_combout\);
 
--- Location: LCCOMB_X46_Y34_N4
+-- Location: LCCOMB_X36_Y32_N4
 \SLCDC|U2|Add0~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~4_combout\ = (\SLCDC|U2|count\(2) & (\SLCDC|U2|Add0~3\ $ (GND))) # (!\SLCDC|U2|count\(2) & (!\SLCDC|U2|Add0~3\ & VCC))
@@ -8729,22 +8732,22 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~4_combout\,
 	cout => \SLCDC|U2|Add0~5\);
 
--- Location: LCCOMB_X47_Y34_N20
+-- Location: LCCOMB_X35_Y32_N8
 \SLCDC|U2|count~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|count~1_combout\ = (!\SSC|U2|Equal0~10_combout\ & \SLCDC|U2|Add0~4_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000000110000",
+	lut_mask => "0000111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SSC|U2|Equal0~10_combout\,
-	datac => \SLCDC|U2|Add0~4_combout\,
+	datac => \SSC|U2|Equal0~10_combout\,
+	datad => \SLCDC|U2|Add0~4_combout\,
 	combout => \SLCDC|U2|count~1_combout\);
 
--- Location: FF_X47_Y34_N21
+-- Location: FF_X35_Y32_N9
 \SLCDC|U2|count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8758,7 +8761,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(2));
 
--- Location: LCCOMB_X46_Y34_N6
+-- Location: LCCOMB_X36_Y32_N6
 \SLCDC|U2|Add0~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~6_combout\ = (\SLCDC|U2|count\(3) & (!\SLCDC|U2|Add0~5\)) # (!\SLCDC|U2|count\(3) & ((\SLCDC|U2|Add0~5\) # (GND)))
@@ -8766,32 +8769,32 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101101001011111",
+	lut_mask => "0011110000111111",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U2|count\(3),
+	datab => \SLCDC|U2|count\(3),
 	datad => VCC,
 	cin => \SLCDC|U2|Add0~5\,
 	combout => \SLCDC|U2|Add0~6_combout\,
 	cout => \SLCDC|U2|Add0~7\);
 
--- Location: LCCOMB_X47_Y33_N22
+-- Location: LCCOMB_X35_Y32_N6
 \SLCDC|U2|count~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|count~0_combout\ = (!\SSC|U2|Equal0~10_combout\ & \SLCDC|U2|Add0~6_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000000110000",
+	lut_mask => "0000111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SSC|U2|Equal0~10_combout\,
-	datac => \SLCDC|U2|Add0~6_combout\,
+	datac => \SSC|U2|Equal0~10_combout\,
+	datad => \SLCDC|U2|Add0~6_combout\,
 	combout => \SLCDC|U2|count~0_combout\);
 
--- Location: FF_X47_Y33_N23
+-- Location: FF_X35_Y32_N7
 \SLCDC|U2|count[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8805,7 +8808,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(3));
 
--- Location: LCCOMB_X46_Y34_N8
+-- Location: LCCOMB_X36_Y32_N8
 \SLCDC|U2|Add0~8\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~8_combout\ = (\SLCDC|U2|count\(4) & (\SLCDC|U2|Add0~7\ $ (GND))) # (!\SLCDC|U2|count\(4) & (!\SLCDC|U2|Add0~7\ & VCC))
@@ -8823,7 +8826,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~8_combout\,
 	cout => \SLCDC|U2|Add0~9\);
 
--- Location: FF_X46_Y34_N9
+-- Location: FF_X36_Y32_N9
 \SLCDC|U2|count[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8837,7 +8840,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(4));
 
--- Location: LCCOMB_X46_Y34_N10
+-- Location: LCCOMB_X36_Y32_N10
 \SLCDC|U2|Add0~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~10_combout\ = (\SLCDC|U2|count\(5) & (!\SLCDC|U2|Add0~9\)) # (!\SLCDC|U2|count\(5) & ((\SLCDC|U2|Add0~9\) # (GND)))
@@ -8855,7 +8858,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~10_combout\,
 	cout => \SLCDC|U2|Add0~11\);
 
--- Location: FF_X46_Y34_N11
+-- Location: FF_X36_Y32_N11
 \SLCDC|U2|count[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8869,7 +8872,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(5));
 
--- Location: LCCOMB_X46_Y34_N12
+-- Location: LCCOMB_X36_Y32_N12
 \SLCDC|U2|Add0~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~12_combout\ = (\SLCDC|U2|count\(6) & (\SLCDC|U2|Add0~11\ $ (GND))) # (!\SLCDC|U2|count\(6) & (!\SLCDC|U2|Add0~11\ & VCC))
@@ -8887,7 +8890,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~12_combout\,
 	cout => \SLCDC|U2|Add0~13\);
 
--- Location: FF_X46_Y34_N13
+-- Location: FF_X36_Y32_N13
 \SLCDC|U2|count[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8901,7 +8904,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(6));
 
--- Location: LCCOMB_X46_Y34_N14
+-- Location: LCCOMB_X36_Y32_N14
 \SLCDC|U2|Add0~14\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~14_combout\ = (\SLCDC|U2|count\(7) & (!\SLCDC|U2|Add0~13\)) # (!\SLCDC|U2|count\(7) & ((\SLCDC|U2|Add0~13\) # (GND)))
@@ -8919,7 +8922,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~14_combout\,
 	cout => \SLCDC|U2|Add0~15\);
 
--- Location: FF_X46_Y34_N15
+-- Location: FF_X36_Y32_N15
 \SLCDC|U2|count[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8933,7 +8936,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(7));
 
--- Location: LCCOMB_X46_Y34_N16
+-- Location: LCCOMB_X36_Y32_N16
 \SLCDC|U2|Add0~16\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~16_combout\ = (\SLCDC|U2|count\(8) & (\SLCDC|U2|Add0~15\ $ (GND))) # (!\SLCDC|U2|count\(8) & (!\SLCDC|U2|Add0~15\ & VCC))
@@ -8951,7 +8954,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~16_combout\,
 	cout => \SLCDC|U2|Add0~17\);
 
--- Location: FF_X46_Y34_N17
+-- Location: FF_X36_Y32_N17
 \SLCDC|U2|count[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8965,7 +8968,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(8));
 
--- Location: LCCOMB_X46_Y34_N18
+-- Location: LCCOMB_X36_Y32_N18
 \SLCDC|U2|Add0~18\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~18_combout\ = (\SLCDC|U2|count\(9) & (!\SLCDC|U2|Add0~17\)) # (!\SLCDC|U2|count\(9) & ((\SLCDC|U2|Add0~17\) # (GND)))
@@ -8983,7 +8986,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~18_combout\,
 	cout => \SLCDC|U2|Add0~19\);
 
--- Location: FF_X46_Y34_N19
+-- Location: FF_X36_Y32_N19
 \SLCDC|U2|count[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -8997,7 +9000,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(9));
 
--- Location: LCCOMB_X46_Y34_N20
+-- Location: LCCOMB_X36_Y32_N20
 \SLCDC|U2|Add0~20\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~20_combout\ = (\SLCDC|U2|count\(10) & (\SLCDC|U2|Add0~19\ $ (GND))) # (!\SLCDC|U2|count\(10) & (!\SLCDC|U2|Add0~19\ & VCC))
@@ -9015,7 +9018,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~20_combout\,
 	cout => \SLCDC|U2|Add0~21\);
 
--- Location: FF_X46_Y34_N21
+-- Location: FF_X36_Y32_N21
 \SLCDC|U2|count[10]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9029,7 +9032,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(10));
 
--- Location: LCCOMB_X46_Y34_N22
+-- Location: LCCOMB_X36_Y32_N22
 \SLCDC|U2|Add0~22\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~22_combout\ = (\SLCDC|U2|count\(11) & (!\SLCDC|U2|Add0~21\)) # (!\SLCDC|U2|count\(11) & ((\SLCDC|U2|Add0~21\) # (GND)))
@@ -9047,7 +9050,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~22_combout\,
 	cout => \SLCDC|U2|Add0~23\);
 
--- Location: FF_X46_Y34_N23
+-- Location: FF_X36_Y32_N23
 \SLCDC|U2|count[11]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9061,7 +9064,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(11));
 
--- Location: LCCOMB_X46_Y34_N24
+-- Location: LCCOMB_X36_Y32_N24
 \SLCDC|U2|Add0~24\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~24_combout\ = (\SLCDC|U2|count\(12) & (\SLCDC|U2|Add0~23\ $ (GND))) # (!\SLCDC|U2|count\(12) & (!\SLCDC|U2|Add0~23\ & VCC))
@@ -9079,7 +9082,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~24_combout\,
 	cout => \SLCDC|U2|Add0~25\);
 
--- Location: FF_X46_Y34_N25
+-- Location: FF_X36_Y32_N25
 \SLCDC|U2|count[12]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9093,7 +9096,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(12));
 
--- Location: LCCOMB_X46_Y34_N26
+-- Location: LCCOMB_X36_Y32_N26
 \SLCDC|U2|Add0~26\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~26_combout\ = (\SLCDC|U2|count\(13) & (!\SLCDC|U2|Add0~25\)) # (!\SLCDC|U2|count\(13) & ((\SLCDC|U2|Add0~25\) # (GND)))
@@ -9111,7 +9114,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~26_combout\,
 	cout => \SLCDC|U2|Add0~27\);
 
--- Location: FF_X46_Y34_N27
+-- Location: FF_X36_Y32_N27
 \SLCDC|U2|count[13]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9125,7 +9128,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(13));
 
--- Location: LCCOMB_X46_Y34_N28
+-- Location: LCCOMB_X36_Y32_N28
 \SLCDC|U2|Add0~28\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~28_combout\ = (\SLCDC|U2|count\(14) & (\SLCDC|U2|Add0~27\ $ (GND))) # (!\SLCDC|U2|count\(14) & (!\SLCDC|U2|Add0~27\ & VCC))
@@ -9143,7 +9146,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~28_combout\,
 	cout => \SLCDC|U2|Add0~29\);
 
--- Location: FF_X46_Y34_N29
+-- Location: FF_X36_Y32_N29
 \SLCDC|U2|count[14]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9157,7 +9160,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(14));
 
--- Location: LCCOMB_X46_Y34_N30
+-- Location: LCCOMB_X36_Y32_N30
 \SLCDC|U2|Add0~30\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~30_combout\ = (\SLCDC|U2|count\(15) & (!\SLCDC|U2|Add0~29\)) # (!\SLCDC|U2|count\(15) & ((\SLCDC|U2|Add0~29\) # (GND)))
@@ -9175,7 +9178,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~30_combout\,
 	cout => \SLCDC|U2|Add0~31\);
 
--- Location: FF_X46_Y34_N31
+-- Location: FF_X36_Y32_N31
 \SLCDC|U2|count[15]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9189,7 +9192,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(15));
 
--- Location: LCCOMB_X46_Y33_N0
+-- Location: LCCOMB_X36_Y31_N0
 \SLCDC|U2|Add0~32\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~32_combout\ = (\SLCDC|U2|count\(16) & (\SLCDC|U2|Add0~31\ $ (GND))) # (!\SLCDC|U2|count\(16) & (!\SLCDC|U2|Add0~31\ & VCC))
@@ -9207,7 +9210,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~32_combout\,
 	cout => \SLCDC|U2|Add0~33\);
 
--- Location: FF_X46_Y33_N1
+-- Location: FF_X36_Y31_N1
 \SLCDC|U2|count[16]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9221,7 +9224,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(16));
 
--- Location: LCCOMB_X46_Y33_N2
+-- Location: LCCOMB_X36_Y31_N2
 \SLCDC|U2|Add0~34\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~34_combout\ = (\SLCDC|U2|count\(17) & (!\SLCDC|U2|Add0~33\)) # (!\SLCDC|U2|count\(17) & ((\SLCDC|U2|Add0~33\) # (GND)))
@@ -9239,7 +9242,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~34_combout\,
 	cout => \SLCDC|U2|Add0~35\);
 
--- Location: FF_X46_Y33_N3
+-- Location: FF_X36_Y31_N3
 \SLCDC|U2|count[17]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9253,7 +9256,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(17));
 
--- Location: LCCOMB_X46_Y33_N4
+-- Location: LCCOMB_X36_Y31_N4
 \SLCDC|U2|Add0~36\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~36_combout\ = (\SLCDC|U2|count\(18) & (\SLCDC|U2|Add0~35\ $ (GND))) # (!\SLCDC|U2|count\(18) & (!\SLCDC|U2|Add0~35\ & VCC))
@@ -9271,7 +9274,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~36_combout\,
 	cout => \SLCDC|U2|Add0~37\);
 
--- Location: FF_X46_Y33_N5
+-- Location: FF_X36_Y31_N5
 \SLCDC|U2|count[18]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9285,7 +9288,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(18));
 
--- Location: LCCOMB_X46_Y33_N6
+-- Location: LCCOMB_X36_Y31_N6
 \SLCDC|U2|Add0~38\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~38_combout\ = (\SLCDC|U2|count\(19) & (!\SLCDC|U2|Add0~37\)) # (!\SLCDC|U2|count\(19) & ((\SLCDC|U2|Add0~37\) # (GND)))
@@ -9303,7 +9306,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~38_combout\,
 	cout => \SLCDC|U2|Add0~39\);
 
--- Location: FF_X46_Y33_N7
+-- Location: FF_X36_Y31_N7
 \SLCDC|U2|count[19]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9317,7 +9320,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(19));
 
--- Location: LCCOMB_X46_Y33_N8
+-- Location: LCCOMB_X36_Y31_N8
 \SLCDC|U2|Add0~40\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~40_combout\ = (\SLCDC|U2|count\(20) & (\SLCDC|U2|Add0~39\ $ (GND))) # (!\SLCDC|U2|count\(20) & (!\SLCDC|U2|Add0~39\ & VCC))
@@ -9335,7 +9338,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~40_combout\,
 	cout => \SLCDC|U2|Add0~41\);
 
--- Location: FF_X46_Y33_N9
+-- Location: FF_X36_Y31_N9
 \SLCDC|U2|count[20]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9349,7 +9352,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(20));
 
--- Location: LCCOMB_X46_Y33_N10
+-- Location: LCCOMB_X36_Y31_N10
 \SLCDC|U2|Add0~42\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~42_combout\ = (\SLCDC|U2|count\(21) & (!\SLCDC|U2|Add0~41\)) # (!\SLCDC|U2|count\(21) & ((\SLCDC|U2|Add0~41\) # (GND)))
@@ -9367,7 +9370,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~42_combout\,
 	cout => \SLCDC|U2|Add0~43\);
 
--- Location: FF_X46_Y33_N11
+-- Location: FF_X36_Y31_N11
 \SLCDC|U2|count[21]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9381,7 +9384,24 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(21));
 
--- Location: LCCOMB_X46_Y33_N12
+-- Location: LCCOMB_X35_Y31_N10
+\SSC|U2|Equal0~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U2|Equal0~4_combout\ = (!\SLCDC|U2|count\(19) & (!\SLCDC|U2|count\(21) & (!\SLCDC|U2|count\(20) & !\SLCDC|U2|count\(18))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U2|count\(19),
+	datab => \SLCDC|U2|count\(21),
+	datac => \SLCDC|U2|count\(20),
+	datad => \SLCDC|U2|count\(18),
+	combout => \SSC|U2|Equal0~4_combout\);
+
+-- Location: LCCOMB_X36_Y31_N12
 \SLCDC|U2|Add0~44\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~44_combout\ = (\SLCDC|U2|count\(22) & (\SLCDC|U2|Add0~43\ $ (GND))) # (!\SLCDC|U2|count\(22) & (!\SLCDC|U2|Add0~43\ & VCC))
@@ -9399,7 +9419,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~44_combout\,
 	cout => \SLCDC|U2|Add0~45\);
 
--- Location: FF_X46_Y33_N13
+-- Location: FF_X36_Y31_N13
 \SLCDC|U2|count[22]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9413,7 +9433,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(22));
 
--- Location: LCCOMB_X46_Y33_N14
+-- Location: LCCOMB_X36_Y31_N14
 \SLCDC|U2|Add0~46\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~46_combout\ = (\SLCDC|U2|count\(23) & (!\SLCDC|U2|Add0~45\)) # (!\SLCDC|U2|count\(23) & ((\SLCDC|U2|Add0~45\) # (GND)))
@@ -9431,7 +9451,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~46_combout\,
 	cout => \SLCDC|U2|Add0~47\);
 
--- Location: FF_X46_Y33_N15
+-- Location: FF_X36_Y31_N15
 \SLCDC|U2|count[23]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9445,7 +9465,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(23));
 
--- Location: LCCOMB_X46_Y33_N16
+-- Location: LCCOMB_X36_Y31_N16
 \SLCDC|U2|Add0~48\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~48_combout\ = (\SLCDC|U2|count\(24) & (\SLCDC|U2|Add0~47\ $ (GND))) # (!\SLCDC|U2|count\(24) & (!\SLCDC|U2|Add0~47\ & VCC))
@@ -9463,7 +9483,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~48_combout\,
 	cout => \SLCDC|U2|Add0~49\);
 
--- Location: FF_X46_Y33_N17
+-- Location: FF_X36_Y31_N17
 \SLCDC|U2|count[24]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9477,7 +9497,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(24));
 
--- Location: LCCOMB_X46_Y33_N18
+-- Location: LCCOMB_X36_Y31_N18
 \SLCDC|U2|Add0~50\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~50_combout\ = (\SLCDC|U2|count\(25) & (!\SLCDC|U2|Add0~49\)) # (!\SLCDC|U2|count\(25) & ((\SLCDC|U2|Add0~49\) # (GND)))
@@ -9495,7 +9515,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~50_combout\,
 	cout => \SLCDC|U2|Add0~51\);
 
--- Location: FF_X46_Y33_N19
+-- Location: FF_X36_Y31_N19
 \SLCDC|U2|count[25]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9509,7 +9529,24 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(25));
 
--- Location: LCCOMB_X46_Y33_N20
+-- Location: LCCOMB_X35_Y31_N0
+\SSC|U2|Equal0~3\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U2|Equal0~3_combout\ = (!\SLCDC|U2|count\(24) & (!\SLCDC|U2|count\(23) & (!\SLCDC|U2|count\(22) & !\SLCDC|U2|count\(25))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U2|count\(24),
+	datab => \SLCDC|U2|count\(23),
+	datac => \SLCDC|U2|count\(22),
+	datad => \SLCDC|U2|count\(25),
+	combout => \SSC|U2|Equal0~3_combout\);
+
+-- Location: LCCOMB_X36_Y31_N20
 \SLCDC|U2|Add0~52\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~52_combout\ = (\SLCDC|U2|count\(26) & (\SLCDC|U2|Add0~51\ $ (GND))) # (!\SLCDC|U2|count\(26) & (!\SLCDC|U2|Add0~51\ & VCC))
@@ -9527,7 +9564,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~52_combout\,
 	cout => \SLCDC|U2|Add0~53\);
 
--- Location: FF_X46_Y33_N21
+-- Location: FF_X36_Y31_N21
 \SLCDC|U2|count[26]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9541,7 +9578,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(26));
 
--- Location: LCCOMB_X46_Y33_N22
+-- Location: LCCOMB_X36_Y31_N22
 \SLCDC|U2|Add0~54\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~54_combout\ = (\SLCDC|U2|count\(27) & (!\SLCDC|U2|Add0~53\)) # (!\SLCDC|U2|count\(27) & ((\SLCDC|U2|Add0~53\) # (GND)))
@@ -9559,7 +9596,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~54_combout\,
 	cout => \SLCDC|U2|Add0~55\);
 
--- Location: FF_X46_Y33_N23
+-- Location: FF_X36_Y31_N23
 \SLCDC|U2|count[27]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9573,7 +9610,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(27));
 
--- Location: LCCOMB_X46_Y33_N24
+-- Location: LCCOMB_X36_Y31_N24
 \SLCDC|U2|Add0~56\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~56_combout\ = (\SLCDC|U2|count\(28) & (\SLCDC|U2|Add0~55\ $ (GND))) # (!\SLCDC|U2|count\(28) & (!\SLCDC|U2|Add0~55\ & VCC))
@@ -9591,7 +9628,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~56_combout\,
 	cout => \SLCDC|U2|Add0~57\);
 
--- Location: FF_X46_Y33_N25
+-- Location: FF_X36_Y31_N25
 \SLCDC|U2|count[28]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9605,7 +9642,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(28));
 
--- Location: LCCOMB_X46_Y33_N26
+-- Location: LCCOMB_X36_Y31_N26
 \SLCDC|U2|Add0~58\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~58_combout\ = (\SLCDC|U2|count\(29) & (!\SLCDC|U2|Add0~57\)) # (!\SLCDC|U2|count\(29) & ((\SLCDC|U2|Add0~57\) # (GND)))
@@ -9623,7 +9660,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~58_combout\,
 	cout => \SLCDC|U2|Add0~59\);
 
--- Location: FF_X46_Y33_N27
+-- Location: FF_X36_Y31_N27
 \SLCDC|U2|count[29]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9637,24 +9674,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(29));
 
--- Location: LCCOMB_X47_Y33_N12
-\SSC|U2|Equal0~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U2|Equal0~1_combout\ = (!\SLCDC|U2|count\(28) & (!\SLCDC|U2|count\(27) & (!\SLCDC|U2|count\(29) & !\SLCDC|U2|count\(26))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U2|count\(28),
-	datab => \SLCDC|U2|count\(27),
-	datac => \SLCDC|U2|count\(29),
-	datad => \SLCDC|U2|count\(26),
-	combout => \SSC|U2|Equal0~1_combout\);
-
--- Location: LCCOMB_X46_Y33_N28
+-- Location: LCCOMB_X36_Y31_N28
 \SLCDC|U2|Add0~60\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~60_combout\ = (\SLCDC|U2|count\(30) & (\SLCDC|U2|Add0~59\ $ (GND))) # (!\SLCDC|U2|count\(30) & (!\SLCDC|U2|Add0~59\ & VCC))
@@ -9672,7 +9692,7 @@ PORT MAP (
 	combout => \SLCDC|U2|Add0~60_combout\,
 	cout => \SLCDC|U2|Add0~61\);
 
--- Location: FF_X46_Y33_N29
+-- Location: FF_X36_Y31_N29
 \SLCDC|U2|count[30]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9686,7 +9706,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(30));
 
--- Location: LCCOMB_X46_Y33_N30
+-- Location: LCCOMB_X36_Y31_N30
 \SLCDC|U2|Add0~62\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U2|Add0~62_combout\ = \SLCDC|U2|count\(31) $ (\SLCDC|U2|Add0~61\)
@@ -9701,7 +9721,7 @@ PORT MAP (
 	cin => \SLCDC|U2|Add0~61\,
 	combout => \SLCDC|U2|Add0~62_combout\);
 
--- Location: FF_X46_Y33_N31
+-- Location: FF_X36_Y31_N31
 \SLCDC|U2|count[31]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9715,78 +9735,44 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|count\(31));
 
--- Location: LCCOMB_X47_Y33_N6
+-- Location: LCCOMB_X37_Y31_N0
+\SSC|U2|Equal0~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U2|Equal0~1_combout\ = (!\SLCDC|U2|count\(28) & (!\SLCDC|U2|count\(27) & (!\SLCDC|U2|count\(29) & !\SLCDC|U2|count\(26))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U2|count\(28),
+	datab => \SLCDC|U2|count\(27),
+	datac => \SLCDC|U2|count\(29),
+	datad => \SLCDC|U2|count\(26),
+	combout => \SSC|U2|Equal0~1_combout\);
+
+-- Location: LCCOMB_X35_Y32_N22
 \SSC|U2|Equal0~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~2_combout\ = (\SSC|U2|Equal0~1_combout\ & (!\SLCDC|U2|count\(30) & (\SSC|U2|Equal0~0_combout\ & !\SLCDC|U2|count\(31))))
+-- \SSC|U2|Equal0~2_combout\ = (!\SLCDC|U2|count\(31) & (!\SLCDC|U2|count\(30) & (\SSC|U2|Equal0~1_combout\ & \SSC|U2|Equal0~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000100000",
+	lut_mask => "0001000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U2|Equal0~1_combout\,
+	dataa => \SLCDC|U2|count\(31),
 	datab => \SLCDC|U2|count\(30),
-	datac => \SSC|U2|Equal0~0_combout\,
-	datad => \SLCDC|U2|count\(31),
+	datac => \SSC|U2|Equal0~1_combout\,
+	datad => \SSC|U2|Equal0~0_combout\,
 	combout => \SSC|U2|Equal0~2_combout\);
 
--- Location: LCCOMB_X47_Y33_N24
-\SSC|U2|Equal0~3\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U2|Equal0~3_combout\ = (!\SLCDC|U2|count\(22) & (!\SLCDC|U2|count\(25) & (!\SLCDC|U2|count\(24) & !\SLCDC|U2|count\(23))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U2|count\(22),
-	datab => \SLCDC|U2|count\(25),
-	datac => \SLCDC|U2|count\(24),
-	datad => \SLCDC|U2|count\(23),
-	combout => \SSC|U2|Equal0~3_combout\);
-
--- Location: LCCOMB_X47_Y33_N10
-\SSC|U2|Equal0~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U2|Equal0~4_combout\ = (!\SLCDC|U2|count\(21) & (!\SLCDC|U2|count\(19) & (!\SLCDC|U2|count\(18) & !\SLCDC|U2|count\(20))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U2|count\(21),
-	datab => \SLCDC|U2|count\(19),
-	datac => \SLCDC|U2|count\(18),
-	datad => \SLCDC|U2|count\(20),
-	combout => \SSC|U2|Equal0~4_combout\);
-
--- Location: LCCOMB_X47_Y34_N6
-\SSC|U2|Equal0~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U2|Equal0~8_combout\ = (!\SLCDC|U2|count\(4) & (\SLCDC|U2|count\(2) & (\SLCDC|U2|count\(3) & !\SLCDC|U2|count\(5))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U2|count\(4),
-	datab => \SLCDC|U2|count\(2),
-	datac => \SLCDC|U2|count\(3),
-	datad => \SLCDC|U2|count\(5),
-	combout => \SSC|U2|Equal0~8_combout\);
-
--- Location: LCCOMB_X47_Y34_N24
+-- Location: LCCOMB_X35_Y32_N26
 \SSC|U2|Equal0~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~6_combout\ = (!\SLCDC|U2|count\(12) & (!\SLCDC|U2|count\(11) & (!\SLCDC|U2|count\(13) & !\SLCDC|U2|count\(10))))
+-- \SSC|U2|Equal0~6_combout\ = (!\SLCDC|U2|count\(12) & (!\SLCDC|U2|count\(13) & (!\SLCDC|U2|count\(10) & !\SLCDC|U2|count\(11))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9795,15 +9781,15 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \SLCDC|U2|count\(12),
-	datab => \SLCDC|U2|count\(11),
-	datac => \SLCDC|U2|count\(13),
-	datad => \SLCDC|U2|count\(10),
+	datab => \SLCDC|U2|count\(13),
+	datac => \SLCDC|U2|count\(10),
+	datad => \SLCDC|U2|count\(11),
 	combout => \SSC|U2|Equal0~6_combout\);
 
--- Location: LCCOMB_X47_Y33_N4
+-- Location: LCCOMB_X35_Y32_N24
 \SSC|U2|Equal0~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~5_combout\ = (!\SLCDC|U2|count\(16) & (!\SLCDC|U2|count\(15) & (!\SLCDC|U2|count\(14) & !\SLCDC|U2|count\(17))))
+-- \SSC|U2|Equal0~5_combout\ = (!\SLCDC|U2|count\(17) & (!\SLCDC|U2|count\(16) & (!\SLCDC|U2|count\(15) & !\SLCDC|U2|count\(14))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9811,16 +9797,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U2|count\(16),
-	datab => \SLCDC|U2|count\(15),
-	datac => \SLCDC|U2|count\(14),
-	datad => \SLCDC|U2|count\(17),
+	dataa => \SLCDC|U2|count\(17),
+	datab => \SLCDC|U2|count\(16),
+	datac => \SLCDC|U2|count\(15),
+	datad => \SLCDC|U2|count\(14),
 	combout => \SSC|U2|Equal0~5_combout\);
 
--- Location: LCCOMB_X47_Y34_N10
+-- Location: LCCOMB_X35_Y32_N4
 \SSC|U2|Equal0~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~7_combout\ = (!\SLCDC|U2|count\(7) & (!\SLCDC|U2|count\(9) & (!\SLCDC|U2|count\(8) & !\SLCDC|U2|count\(6))))
+-- \SSC|U2|Equal0~7_combout\ = (!\SLCDC|U2|count\(8) & (!\SLCDC|U2|count\(6) & (!\SLCDC|U2|count\(7) & !\SLCDC|U2|count\(9))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9828,16 +9814,33 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U2|count\(7),
-	datab => \SLCDC|U2|count\(9),
-	datac => \SLCDC|U2|count\(8),
-	datad => \SLCDC|U2|count\(6),
+	dataa => \SLCDC|U2|count\(8),
+	datab => \SLCDC|U2|count\(6),
+	datac => \SLCDC|U2|count\(7),
+	datad => \SLCDC|U2|count\(9),
 	combout => \SSC|U2|Equal0~7_combout\);
 
--- Location: LCCOMB_X47_Y34_N8
+-- Location: LCCOMB_X35_Y32_N18
+\SSC|U2|Equal0~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U2|Equal0~8_combout\ = (\SLCDC|U2|count\(3) & (\SLCDC|U2|count\(2) & (!\SLCDC|U2|count\(4) & !\SLCDC|U2|count\(5))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U2|count\(3),
+	datab => \SLCDC|U2|count\(2),
+	datac => \SLCDC|U2|count\(4),
+	datad => \SLCDC|U2|count\(5),
+	combout => \SSC|U2|Equal0~8_combout\);
+
+-- Location: LCCOMB_X35_Y32_N20
 \SSC|U2|Equal0~9\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~9_combout\ = (\SSC|U2|Equal0~8_combout\ & (\SSC|U2|Equal0~6_combout\ & (\SSC|U2|Equal0~5_combout\ & \SSC|U2|Equal0~7_combout\)))
+-- \SSC|U2|Equal0~9_combout\ = (\SSC|U2|Equal0~6_combout\ & (\SSC|U2|Equal0~5_combout\ & (\SSC|U2|Equal0~7_combout\ & \SSC|U2|Equal0~8_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9845,16 +9848,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U2|Equal0~8_combout\,
-	datab => \SSC|U2|Equal0~6_combout\,
-	datac => \SSC|U2|Equal0~5_combout\,
-	datad => \SSC|U2|Equal0~7_combout\,
+	dataa => \SSC|U2|Equal0~6_combout\,
+	datab => \SSC|U2|Equal0~5_combout\,
+	datac => \SSC|U2|Equal0~7_combout\,
+	datad => \SSC|U2|Equal0~8_combout\,
 	combout => \SSC|U2|Equal0~9_combout\);
 
--- Location: LCCOMB_X47_Y33_N8
+-- Location: LCCOMB_X35_Y32_N30
 \SSC|U2|Equal0~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U2|Equal0~10_combout\ = (\SSC|U2|Equal0~2_combout\ & (\SSC|U2|Equal0~3_combout\ & (\SSC|U2|Equal0~4_combout\ & \SSC|U2|Equal0~9_combout\)))
+-- \SSC|U2|Equal0~10_combout\ = (\SSC|U2|Equal0~4_combout\ & (\SSC|U2|Equal0~3_combout\ & (\SSC|U2|Equal0~2_combout\ & \SSC|U2|Equal0~9_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9862,13 +9865,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U2|Equal0~2_combout\,
+	dataa => \SSC|U2|Equal0~4_combout\,
 	datab => \SSC|U2|Equal0~3_combout\,
-	datac => \SSC|U2|Equal0~4_combout\,
+	datac => \SSC|U2|Equal0~2_combout\,
 	datad => \SSC|U2|Equal0~9_combout\,
 	combout => \SSC|U2|Equal0~10_combout\);
 
--- Location: FF_X44_Y36_N25
+-- Location: FF_X35_Y32_N17
 \SLCDC|U2|tmp\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9883,7 +9886,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U2|tmp~q\);
 
--- Location: CLKCTRL_G13
+-- Location: CLKCTRL_G0
 \SLCDC|U2|tmp~clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -9896,7 +9899,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \SLCDC|U2|tmp~clkctrl_outclk\);
 
--- Location: FF_X43_Y3_N29
+-- Location: FF_X39_Y8_N21
 \SLCDC|U1|dval_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9911,7 +9914,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U1|dval_reg~q\);
 
--- Location: LCCOMB_X43_Y3_N24
+-- Location: LCCOMB_X39_Y8_N24
 \SLCDC|U1|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|CurrentState.state_bit_0~0_combout\ = (!\SLCDC|U1|CurrentState.state_bit_1~q\ & ((\SLCDC|U1|CurrentState.state_bit_0~q\) # (!\SLCDC|U1|dval_reg~q\)))
@@ -9927,7 +9930,7 @@ PORT MAP (
 	datad => \SLCDC|U1|CurrentState.state_bit_1~q\,
 	combout => \SLCDC|U1|CurrentState.state_bit_0~0_combout\);
 
--- Location: FF_X43_Y3_N25
+-- Location: FF_X39_Y8_N25
 \SLCDC|U1|CurrentState.state_bit_0\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9942,7 +9945,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U1|CurrentState.state_bit_0~q\);
 
--- Location: LCCOMB_X43_Y3_N18
+-- Location: LCCOMB_X39_Y8_N18
 \SLCDC|U1|CurrentState.SEND~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|CurrentState.SEND~0_combout\ = (!\SLCDC|U1|CurrentState.state_bit_1~q\ & \SLCDC|U1|CurrentState.state_bit_0~q\)
@@ -9957,7 +9960,7 @@ PORT MAP (
 	datad => \SLCDC|U1|CurrentState.state_bit_0~q\,
 	combout => \SLCDC|U1|CurrentState.SEND~0_combout\);
 
--- Location: FF_X43_Y3_N19
+-- Location: FF_X39_Y8_N19
 \SLCDC|U1|CurrentState.state_bit_1\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -9972,38 +9975,8 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U1|CurrentState.state_bit_1~q\);
 
--- Location: LCCOMB_X43_Y3_N30
-\SLCDC|U0|U2|CurrentState.state_bit_2~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_2~q\ & !\SLCDC|U1|CurrentState.state_bit_1~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SLCDC|U1|CurrentState.state_bit_1~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\);
-
--- Location: LCCOMB_X43_Y3_N16
-\SLCDC|U0|U2|CurrentState.state_bit_1~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_1~2_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_2~q\ & \SLCDC|U1|CurrentState.state_bit_1~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SLCDC|U1|CurrentState.state_bit_1~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~2_combout\);
-
--- Location: FF_X42_Y7_N17
-\SLCDC|nSSsync\ : dffeas
+-- Location: FF_X40_Y8_N3
+\SLCDC|nssSync\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -10011,26 +9984,70 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\,
+	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \SLCDC|nSSsync~q\);
+	q => \SLCDC|nssSync~q\);
 
--- Location: CLKCTRL_G15
-\SLCDC|nSSsync~clkctrl\ : fiftyfivenm_clkctrl
+-- Location: LCCOMB_X40_Y8_N12
+\SLCDC|U0|U2|Selector3~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|Selector3~0_combout\ = (!\SLCDC|U1|CurrentState.state_bit_1~q\ & (!\SLCDC|nssSync~q\ & \SLCDC|U0|U2|CurrentState.state_bit_2~q\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U1|CurrentState.state_bit_1~q\,
+	datab => \SLCDC|nssSync~q\,
+	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
+	combout => \SLCDC|U0|U2|Selector3~0_combout\);
+
+-- Location: LCCOMB_X75_Y38_N24
+\SLCDC|sclkSync~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|sclkSync~feeder_combout\ = \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\,
+	combout => \SLCDC|sclkSync~feeder_combout\);
+
+-- Location: FF_X75_Y38_N25
+\SLCDC|sclkSync\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \SLCDC|sclkSync~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SLCDC|sclkSync~q\);
+
+-- Location: CLKCTRL_G7
+\SLCDC|sclkSync~clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
 	clock_type => "global clock",
 	ena_register_mode => "none")
 -- pragma translate_on
 PORT MAP (
-	inclk => \SLCDC|nSSsync~clkctrl_INCLK_bus\,
+	inclk => \SLCDC|sclkSync~clkctrl_INCLK_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	outclk => \SLCDC|nSSsync~clkctrl_outclk\);
+	outclk => \SLCDC|sclkSync~clkctrl_outclk\);
 
--- Location: LCCOMB_X41_Y7_N10
+-- Location: LCCOMB_X40_Y8_N30
 \SLCDC|U0|U0|count[0]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U0|U0|count[0]~3_combout\ = !\SLCDC|U0|U0|count\(0)
@@ -10044,98 +10061,40 @@ PORT MAP (
 	datac => \SLCDC|U0|U0|count\(0),
 	combout => \SLCDC|U0|U0|count[0]~3_combout\);
 
--- Location: LCCOMB_X41_Y7_N22
-\SLCDC|U0|U2|CurrentState.IDLE~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X40_Y8_N18
+\SLCDC|U0|U2|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U2|CurrentState.IDLE~1_combout\ = (!\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & !\SLCDC|U0|U2|CurrentState.state_bit_1~q\)
+-- \SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\ = (!\SLCDC|nssSync~q\ & (((!\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & \SLCDC|U0|U2|CurrentState.state_bit_1~q\)) # (!\SLCDC|U0|U2|CurrentState.state_bit_2~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000110011",
+	lut_mask => "0001000000110011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
-	datad => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
-	combout => \SLCDC|U0|U2|CurrentState.IDLE~1_combout\);
+	dataa => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
+	datab => \SLCDC|nssSync~q\,
+	datac => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\);
 
--- Location: FF_X41_Y7_N11
-\SLCDC|U0|U0|count[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
-	d => \SLCDC|U0|U0|count[0]~3_combout\,
-	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SLCDC|U0|U0|count\(0));
-
--- Location: LCCOMB_X41_Y7_N2
-\SLCDC|U0|U0|count[1]~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U0|count[1]~0_combout\ = \SLCDC|U0|U0|count\(1) $ (\SLCDC|U0|U0|count\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \SLCDC|U0|U0|count\(1),
-	datad => \SLCDC|U0|U0|count\(0),
-	combout => \SLCDC|U0|U0|count[1]~0_combout\);
-
--- Location: FF_X41_Y7_N3
-\SLCDC|U0|U0|count[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
-	d => \SLCDC|U0|U0|count[1]~0_combout\,
-	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SLCDC|U0|U0|count\(1));
-
--- Location: LCCOMB_X41_Y7_N6
-\SLCDC|U0|U2|CurrentState.RECEIVING~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & \SLCDC|U0|U2|CurrentState.state_bit_1~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
-	datad => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
-	combout => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\);
-
--- Location: LCCOMB_X41_Y7_N14
+-- Location: LCCOMB_X40_Y8_N20
 \SLCDC|U0|U0|count[2]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U0|count[2]~2_combout\ = \SLCDC|U0|U0|count\(2) $ (((\SLCDC|U0|U0|count\(1) & \SLCDC|U0|U0|count\(0))))
+-- \SLCDC|U0|U0|count[2]~2_combout\ = \SLCDC|U0|U0|count\(2) $ (((\SLCDC|U0|U0|count\(0) & \SLCDC|U0|U0|count\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110011110000",
+	lut_mask => "0101101011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SLCDC|U0|U0|count\(1),
+	dataa => \SLCDC|U0|U0|count\(0),
 	datac => \SLCDC|U0|U0|count\(2),
-	datad => \SLCDC|U0|U0|count\(0),
+	datad => \SLCDC|U0|U0|count\(1),
 	combout => \SLCDC|U0|U0|count[2]~2_combout\);
 
--- Location: FF_X41_Y7_N15
+-- Location: FF_X40_Y8_N21
 \SLCDC|U0|U0|count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10143,17 +10102,17 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	d => \SLCDC|U0|U0|count[2]~2_combout\,
-	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
+	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U0|count\(2));
 
--- Location: LCCOMB_X41_Y7_N12
-\SLCDC|U0|U0|count[3]~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X40_Y8_N16
+\SLCDC|U0|U0|count[3]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U0|count[3]~1_combout\ = \SLCDC|U0|U0|count\(3) $ (((\SLCDC|U0|U0|count\(0) & (\SLCDC|U0|U0|count\(2) & \SLCDC|U0|U0|count\(1)))))
+-- \SLCDC|U0|U0|count[3]~0_combout\ = \SLCDC|U0|U0|count\(3) $ (((\SLCDC|U0|U0|count\(0) & (\SLCDC|U0|U0|count\(2) & \SLCDC|U0|U0|count\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -10165,9 +10124,9 @@ PORT MAP (
 	datab => \SLCDC|U0|U0|count\(2),
 	datac => \SLCDC|U0|U0|count\(3),
 	datad => \SLCDC|U0|U0|count\(1),
-	combout => \SLCDC|U0|U0|count[3]~1_combout\);
+	combout => \SLCDC|U0|U0|count[3]~0_combout\);
 
--- Location: FF_X41_Y7_N13
+-- Location: FF_X40_Y8_N17
 \SLCDC|U0|U0|count[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10175,126 +10134,49 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
-	d => \SLCDC|U0|U0|count[3]~1_combout\,
-	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
+	d => \SLCDC|U0|U0|count[3]~0_combout\,
+	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U0|count\(3));
 
--- Location: LCCOMB_X42_Y7_N16
-\SLCDC|U0|comb~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X40_Y8_N28
+\SLCDC|U0|U5|Equal0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|comb~0_combout\ = (\SLCDC|U0|U0|count\(3) & (!\SLCDC|nSSsync~q\ & !\SLCDC|U0|U0|count\(2)))
+-- \SLCDC|U0|U5|Equal0~0_combout\ = (!\SLCDC|U0|U0|count\(1) & (\SLCDC|U0|U0|count\(3) & (\SLCDC|U0|U0|count\(0) & !\SLCDC|U0|U0|count\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000001010",
+	lut_mask => "0000000001000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U0|U0|count\(3),
-	datac => \SLCDC|nSSsync~q\,
+	dataa => \SLCDC|U0|U0|count\(1),
+	datab => \SLCDC|U0|U0|count\(3),
+	datac => \SLCDC|U0|U0|count\(0),
 	datad => \SLCDC|U0|U0|count\(2),
-	combout => \SLCDC|U0|comb~0_combout\);
+	combout => \SLCDC|U0|U5|Equal0~0_combout\);
 
--- Location: LCCOMB_X41_Y7_N30
-\SLCDC|U0|U2|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\ = (\SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\ & (((\SLCDC|U0|U0|count\(1)) # (!\SLCDC|U0|comb~0_combout\)) # (!\SLCDC|U0|U0|count\(0))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U0|U0|count\(0),
-	datab => \SLCDC|U0|U0|count\(1),
-	datac => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
-	datad => \SLCDC|U0|comb~0_combout\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\);
-
--- Location: FF_X44_Y35_N25
-\SLCDC|U0|U2|nEnRx_reg\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK~inputclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\,
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SLCDC|U0|U2|nEnRx_reg~q\);
-
--- Location: LCCOMB_X41_Y7_N26
-\SLCDC|U0|U2|CurrentState.state_bit_0~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_0~2_combout\ = (!\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & (\SLCDC|U0|U2|nEnRx_reg~q\ & !\SLCDC|U0|U2|CurrentState.state_bit_1~q\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
-	datac => \SLCDC|U0|U2|nEnRx_reg~q\,
-	datad => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_0~2_combout\);
-
--- Location: LCCOMB_X41_Y7_N8
+-- Location: LCCOMB_X40_Y8_N26
 \SLCDC|U0|U2|CurrentState.state_bit_0~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\ = ((!\SLCDC|U0|U0|count\(0) & (\SLCDC|U0|comb~0_combout\ & \SLCDC|U0|U0|count\(1)))) # 
--- (!\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\)
+-- \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\ & ((\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & (\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & !\SLCDC|U0|U5|Equal0~0_combout\)) # 
+-- (!\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & (!\SLCDC|U0|U2|CurrentState.state_bit_0~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U0|U0|count\(0),
-	datab => \SLCDC|U0|comb~0_combout\,
-	datac => \SLCDC|U0|U0|count\(1),
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\);
-
--- Location: LCCOMB_X41_Y7_N18
-\SLCDC|U0|U2|CurrentState.state_bit_0~3\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_0~3_combout\ = (\SLCDC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\) # ((\SLCDC|U0|U2|CurrentState.state_bit_0~2_combout\ & \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100100010001000",
+	lut_mask => "0000001010000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \SLCDC|U0|U2|CurrentState.state_bit_0~0_combout\,
-	datab => \SLCDC|U0|U2|CurrentState.IDLE~0_combout\,
-	datac => \SLCDC|U0|U2|CurrentState.state_bit_0~2_combout\,
-	datad => \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_0~3_combout\);
+	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
+	datac => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
+	datad => \SLCDC|U0|U5|Equal0~0_combout\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\);
 
--- Location: CLKCTRL_G11
-\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~clkctrl_outclk\);
-
--- Location: FF_X41_Y7_N19
+-- Location: FF_X40_Y8_N27
 \SLCDC|U0|U2|CurrentState.state_bit_0\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10303,64 +10185,119 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	d => \SLCDC|U0|U2|CurrentState.state_bit_0~3_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\,
+	d => \SLCDC|U0|U2|CurrentState.state_bit_0~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U2|CurrentState.state_bit_0~q\);
 
--- Location: LCCOMB_X41_Y7_N28
-\SLCDC|U0|U2|CurrentState.state_bit_1~3\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X40_Y8_N22
+\SLCDC|U0|U2|CurrentState.IDLE~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_1~3_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & (((\SLCDC|U0|U2|CurrentState.state_bit_2~q\)) # (!\SLCDC|U0|U2|CurrentState.state_bit_1~q\))) # (!\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & 
--- (!\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & ((\SLCDC|U0|U2|CurrentState.state_bit_2~q\) # (!\SLCDC|U0|U2|nEnRx_reg~q\))))
+-- \SLCDC|U0|U2|CurrentState.IDLE~1_combout\ = (!\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & !\SLCDC|U0|U2|CurrentState.state_bit_0~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011101100100011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
-	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
-	datac => \SLCDC|U0|U2|nEnRx_reg~q\,
-	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~3_combout\);
-
--- Location: LCCOMB_X41_Y7_N24
-\SLCDC|U0|U2|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & (!\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & !\SLCDC|U0|U2|CurrentState.state_bit_2~q\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000001100",
+	lut_mask => "0000001100000011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
 	datac => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
-	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\);
+	combout => \SLCDC|U0|U2|CurrentState.IDLE~1_combout\);
 
--- Location: LCCOMB_X41_Y7_N4
-\SLCDC|U0|U2|CurrentState.state_bit_1~1\ : fiftyfivenm_lcell_comb
+-- Location: CLKCTRL_G16
+\SLCDC|U0|U2|CurrentState.IDLE~1clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \SLCDC|U0|U2|CurrentState.IDLE~1clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \SLCDC|U0|U2|CurrentState.IDLE~1clkctrl_outclk\);
+
+-- Location: FF_X40_Y8_N31
+\SLCDC|U0|U0|count[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
+	d => \SLCDC|U0|U0|count[0]~3_combout\,
+	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SLCDC|U0|U0|count\(0));
+
+-- Location: LCCOMB_X40_Y8_N10
+\SLCDC|U0|U0|count[1]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\ = (!\SLCDC|U0|U0|count\(0) & (\SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\ & (\SLCDC|U0|U0|count\(1) & \SLCDC|U0|comb~0_combout\)))
+-- \SLCDC|U0|U0|count[1]~1_combout\ = \SLCDC|U0|U0|count\(0) $ (\SLCDC|U0|U0|count\(1))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000000000000",
+	lut_mask => "0101101001011010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \SLCDC|U0|U0|count\(0),
-	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\,
 	datac => \SLCDC|U0|U0|count\(1),
-	datad => \SLCDC|U0|comb~0_combout\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\);
+	combout => \SLCDC|U0|U0|count[1]~1_combout\);
 
--- Location: LCCOMB_X42_Y7_N18
+-- Location: FF_X40_Y8_N11
+\SLCDC|U0|U0|count[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
+	d => \SLCDC|U0|U0|count[1]~1_combout\,
+	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SLCDC|U0|U0|count\(1));
+
+-- Location: LCCOMB_X40_Y8_N8
+\SLCDC|U0|U2|CurrentState.state_bit_2~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\ = (\SLCDC|U0|U0|count\(1) & (\SLCDC|U0|U0|count\(3) & (!\SLCDC|U0|U0|count\(0) & !\SLCDC|U0|U0|count\(2))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U0|U0|count\(1),
+	datab => \SLCDC|U0|U0|count\(3),
+	datac => \SLCDC|U0|U0|count\(0),
+	datad => \SLCDC|U0|U0|count\(2),
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\);
+
+-- Location: LCCOMB_X40_Y8_N14
+\SLCDC|U0|U2|CurrentState.state_bit_2~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\ = (!\SLCDC|U0|U2|CurrentState.state_bit_0~q\ & (!\SLCDC|nssSync~q\ & (\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & !\SLCDC|U0|U2|CurrentState.state_bit_2~q\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
+	datab => \SLCDC|nssSync~q\,
+	datac => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\);
+
+-- Location: LCCOMB_X40_Y4_N10
 \SLCDC|U0|U1|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U0|U1|q~0_combout\ = !\SLCDC|U0|U1|q~q\
@@ -10374,7 +10311,35 @@ PORT MAP (
 	datac => \SLCDC|U0|U1|q~q\,
 	combout => \SLCDC|U0|U1|q~0_combout\);
 
--- Location: FF_X42_Y7_N19
+-- Location: LCCOMB_X50_Y40_N0
+\SLCDC|sdxSync~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|sdxSync~feeder_combout\ = \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\,
+	combout => \SLCDC|sdxSync~feeder_combout\);
+
+-- Location: FF_X50_Y40_N1
+\SLCDC|sdxSync\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \SLCDC|sdxSync~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SLCDC|sdxSync~q\);
+
+-- Location: FF_X40_Y4_N11
 \SLCDC|U0|U1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10382,32 +10347,64 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	d => \SLCDC|U0|U1|q~0_combout\,
-	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\,
+	clrn => \SLCDC|U0|U2|ALT_INV_CurrentState.IDLE~1clkctrl_outclk\,
+	ena => \SLCDC|sdxSync~q\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U1|q~q\);
 
--- Location: LCCOMB_X41_Y7_N20
-\SLCDC|U0|U2|CurrentState.state_bit_1~4\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X40_Y8_N2
+\SLCDC|U0|U2|Selector0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_1~4_combout\ = (!\SLCDC|U0|U2|CurrentState.state_bit_1~2_combout\ & (!\SLCDC|U0|U2|CurrentState.state_bit_1~3_combout\ & ((!\SLCDC|U0|U1|q~q\) # (!\SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\))))
+-- \SLCDC|U0|U2|Selector0~0_combout\ = (\SLCDC|nssSync~q\) # (\SLCDC|U0|U2|CurrentState.state_bit_0~q\ $ (\SLCDC|U0|U2|CurrentState.state_bit_1~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000100010001",
+	lut_mask => "1111011011110110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U0|U2|CurrentState.state_bit_1~2_combout\,
-	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~3_combout\,
-	datac => \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\,
-	datad => \SLCDC|U0|U1|q~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~4_combout\);
+	dataa => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
+	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
+	datac => \SLCDC|nssSync~q\,
+	combout => \SLCDC|U0|U2|Selector0~0_combout\);
 
--- Location: FF_X41_Y7_N21
+-- Location: LCCOMB_X41_Y8_N18
+\SLCDC|U0|U2|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\ = (\SLCDC|U0|U2|Selector0~0_combout\ & (((\SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\ & \SLCDC|U0|U1|q~q\)) # (!\SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011001100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\,
+	datab => \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\,
+	datac => \SLCDC|U0|U1|q~q\,
+	datad => \SLCDC|U0|U2|Selector0~0_combout\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\);
+
+-- Location: LCCOMB_X40_Y8_N4
+\SLCDC|U0|U2|CurrentState.state_bit_1~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\ = (\SLCDC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SLCDC|U0|U2|Selector3~0_combout\) # (!\SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U0|U2|Selector3~0_combout\,
+	datab => \SLCDC|U0|U2|CurrentState.IDLE~0_combout\,
+	datad => \SLCDC|U0|U2|CurrentState.state_bit_1~0_combout\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\);
+
+-- Location: FF_X40_Y8_N5
 \SLCDC|U0|U2|CurrentState.state_bit_1\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10416,13 +10413,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	d => \SLCDC|U0|U2|CurrentState.state_bit_1~4_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\,
+	d => \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U2|CurrentState.state_bit_1~q\);
 
--- Location: LCCOMB_X41_Y7_N16
+-- Location: LCCOMB_X40_Y8_N24
 \SLCDC|U0|U2|CurrentState.IDLE~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U0|U2|CurrentState.IDLE~0_combout\ = ((\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & !\SLCDC|U0|U2|CurrentState.state_bit_0~q\)) # (!\SLCDC|U0|U2|CurrentState.state_bit_2~q\)
@@ -10438,24 +10434,39 @@ PORT MAP (
 	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~q\,
 	combout => \SLCDC|U0|U2|CurrentState.IDLE~0_combout\);
 
--- Location: LCCOMB_X41_Y7_N0
-\SLCDC|U0|U2|CurrentState.state_bit_2~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X41_Y8_N24
+\SLCDC|U0|U2|CurrentState.state_bit_2~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\ = (\SLCDC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\) # ((\SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\ & !\SLCDC|U0|U1|q~q\))))
+-- \SLCDC|U0|U2|CurrentState.state_bit_2~2_combout\ = (!\SLCDC|U0|U1|q~q\ & \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000100011001000",
+	lut_mask => "0000111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\,
-	datab => \SLCDC|U0|U2|CurrentState.IDLE~0_combout\,
-	datac => \SLCDC|U0|U2|CurrentState.state_bit_1~1_combout\,
-	datad => \SLCDC|U0|U1|q~q\,
-	combout => \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\);
+	datac => \SLCDC|U0|U1|q~q\,
+	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_2~2_combout\);
 
--- Location: FF_X41_Y7_N1
+-- Location: LCCOMB_X40_Y8_N0
+\SLCDC|U0|U2|CurrentState.state_bit_2~3\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|CurrentState.state_bit_2~3_combout\ = (\SLCDC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SLCDC|U0|U2|Selector3~0_combout\) # ((\SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\ & \SLCDC|U0|U2|CurrentState.state_bit_2~2_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100100010001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SLCDC|U0|U2|Selector3~0_combout\,
+	datab => \SLCDC|U0|U2|CurrentState.IDLE~0_combout\,
+	datac => \SLCDC|U0|U2|CurrentState.state_bit_2~0_combout\,
+	datad => \SLCDC|U0|U2|CurrentState.state_bit_2~2_combout\,
+	combout => \SLCDC|U0|U2|CurrentState.state_bit_2~3_combout\);
+
+-- Location: FF_X40_Y8_N1
 \SLCDC|U0|U2|CurrentState.state_bit_2\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10464,13 +10475,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	d => \SLCDC|U0|U2|CurrentState.state_bit_2~1_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\,
+	d => \SLCDC|U0|U2|CurrentState.state_bit_2~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U2|CurrentState.state_bit_2~q\);
 
--- Location: LCCOMB_X43_Y3_N28
+-- Location: LCCOMB_X39_Y8_N20
 \SLCDC|U1|Din_b[8]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b[8]~0_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_2~q\ & (!\SLCDC|U1|dval_reg~q\ & !\SLCDC|U1|CurrentState.state_bit_0~q\))
@@ -10486,7 +10496,7 @@ PORT MAP (
 	datad => \SLCDC|U1|CurrentState.state_bit_0~q\,
 	combout => \SLCDC|U1|Din_b[8]~0_combout\);
 
--- Location: CLKCTRL_G16
+-- Location: CLKCTRL_G18
 \SLCDC|U1|Din_b[8]~0clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -10499,7 +10509,22 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \SLCDC|U1|Din_b[8]~0clkctrl_outclk\);
 
--- Location: FF_X37_Y4_N7
+-- Location: LCCOMB_X40_Y8_N6
+\SLCDC|U0|U2|CurrentState.RECEIVING~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\ = (\SLCDC|U0|U2|CurrentState.state_bit_1~q\ & \SLCDC|U0|U2|CurrentState.state_bit_0~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \SLCDC|U0|U2|CurrentState.state_bit_1~q\,
+	datac => \SLCDC|U0|U2|CurrentState.state_bit_0~q\,
+	combout => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\);
+
+-- Location: FF_X40_Y4_N7
 \SLCDC|U0|U3|data_b[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10507,15 +10532,15 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
+	asdata => \SLCDC|sdxSync~q\,
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(8));
 
--- Location: FF_X37_Y4_N29
+-- Location: FF_X40_Y4_N29
 \SLCDC|U0|U3|data_b[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10523,7 +10548,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(8),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10531,7 +10556,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(7));
 
--- Location: FF_X37_Y4_N11
+-- Location: FF_X40_Y4_N19
 \SLCDC|U0|U3|data_b[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10539,7 +10564,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(7),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10547,7 +10572,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(6));
 
--- Location: FF_X37_Y4_N17
+-- Location: FF_X40_Y4_N1
 \SLCDC|U0|U3|data_b[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10555,7 +10580,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(6),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10563,7 +10588,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(5));
 
--- Location: FF_X37_Y4_N31
+-- Location: FF_X40_Y4_N15
 \SLCDC|U0|U3|data_b[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10571,7 +10596,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(5),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10579,7 +10604,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(4));
 
--- Location: FF_X37_Y4_N13
+-- Location: FF_X40_Y4_N21
 \SLCDC|U0|U3|data_b[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10587,7 +10612,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(4),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10595,7 +10620,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(3));
 
--- Location: FF_X37_Y4_N27
+-- Location: FF_X40_Y4_N27
 \SLCDC|U0|U3|data_b[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10603,7 +10628,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(3),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10611,7 +10636,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(2));
 
--- Location: FF_X37_Y4_N25
+-- Location: FF_X40_Y4_N25
 \SLCDC|U0|U3|data_b[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10619,7 +10644,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(2),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -10627,7 +10652,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(1));
 
--- Location: LCCOMB_X37_Y4_N24
+-- Location: LCCOMB_X40_Y4_N24
 \SLCDC|U1|Din_b[1]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(1) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(1))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(1))))
@@ -10643,7 +10668,7 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(1),
 	combout => \SLCDC|U1|Din_b\(1));
 
--- Location: LCCOMB_X37_Y4_N26
+-- Location: LCCOMB_X40_Y4_N26
 \SLCDC|U1|Din_b[2]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(2) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(2))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(2))))
@@ -10659,7 +10684,7 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(2),
 	combout => \SLCDC|U1|Din_b\(2));
 
--- Location: LCCOMB_X37_Y4_N12
+-- Location: LCCOMB_X40_Y4_N20
 \SLCDC|U1|Din_b[3]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(3) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(3))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(3))))
@@ -10675,23 +10700,23 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(3),
 	combout => \SLCDC|U1|Din_b\(3));
 
--- Location: LCCOMB_X37_Y4_N30
+-- Location: LCCOMB_X40_Y4_N14
 \SLCDC|U1|Din_b[4]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SLCDC|U1|Din_b\(4) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(4))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(4))))
+-- \SLCDC|U1|Din_b\(4) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U0|U3|data_b\(4)))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U1|Din_b\(4)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111010110100000",
+	lut_mask => "1110010011100100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \SLCDC|U1|Din_b[8]~0clkctrl_outclk\,
+	datab => \SLCDC|U1|Din_b\(4),
 	datac => \SLCDC|U0|U3|data_b\(4),
-	datad => \SLCDC|U1|Din_b\(4),
 	combout => \SLCDC|U1|Din_b\(4));
 
--- Location: LCCOMB_X37_Y4_N16
+-- Location: LCCOMB_X40_Y4_N0
 \SLCDC|U1|Din_b[5]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(5) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(5))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(5))))
@@ -10707,7 +10732,7 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(5),
 	combout => \SLCDC|U1|Din_b\(5));
 
--- Location: LCCOMB_X37_Y4_N10
+-- Location: LCCOMB_X40_Y4_N18
 \SLCDC|U1|Din_b[6]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(6) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(6))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(6))))
@@ -10723,7 +10748,7 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(6),
 	combout => \SLCDC|U1|Din_b\(6));
 
--- Location: LCCOMB_X37_Y4_N28
+-- Location: LCCOMB_X40_Y4_N28
 \SLCDC|U1|Din_b[7]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(7) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(7))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(7))))
@@ -10739,7 +10764,7 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(7),
 	combout => \SLCDC|U1|Din_b\(7));
 
--- Location: LCCOMB_X37_Y4_N6
+-- Location: LCCOMB_X40_Y4_N6
 \SLCDC|U1|Din_b[8]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(8) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(8))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(8))))
@@ -10755,7 +10780,7 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(8),
 	combout => \SLCDC|U1|Din_b\(8));
 
--- Location: LCCOMB_X47_Y33_N26
+-- Location: LCCOMB_X35_Y32_N0
 \SSC|U2|tmp~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U2|tmp~0_combout\ = !\SSC|U2|tmp~q\
@@ -10769,7 +10794,7 @@ PORT MAP (
 	datac => \SSC|U2|tmp~q\,
 	combout => \SSC|U2|tmp~0_combout\);
 
--- Location: FF_X47_Y33_N27
+-- Location: FF_X35_Y32_N1
 \SSC|U2|tmp\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10784,7 +10809,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SSC|U2|tmp~q\);
 
--- Location: CLKCTRL_G6
+-- Location: CLKCTRL_G4
 \SSC|U2|tmp~clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -10797,54 +10822,38 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \SSC|U2|tmp~clkctrl_outclk\);
 
--- Location: LCCOMB_X45_Y35_N18
+-- Location: LCCOMB_X47_Y41_N26
 \SSC|U1|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U1|CurrentState.state_bit_1~0_combout\ = (\SSC|U1|CurrentState.SEND~0_combout\ & ((\SSC|U1|CurrentState.state_bit_0~q\) # (!\SSC|U1|CurrentState.state_bit_1~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101000001010",
+	lut_mask => "1100110000001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U1|CurrentState.SEND~0_combout\,
+	datab => \SSC|U1|CurrentState.SEND~0_combout\,
 	datac => \SSC|U1|CurrentState.state_bit_1~q\,
 	datad => \SSC|U1|CurrentState.state_bit_0~q\,
 	combout => \SSC|U1|CurrentState.state_bit_1~0_combout\);
 
--- Location: FF_X45_Y35_N19
-\SSC|U1|CurrentState.state_bit_1\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U2|tmp~clkctrl_outclk\,
-	d => \SSC|U1|CurrentState.state_bit_1~0_combout\,
-	clrn => \SSC|U0|U2|CurrentState.state_bit_2~q\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SSC|U1|CurrentState.state_bit_1~q\);
-
--- Location: LCCOMB_X44_Y35_N2
-\SSC|U0|U2|CurrentState.state_bit_1~2\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X50_Y40_N12
+\SSC|nssSync~feeder\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_1~2_combout\ = (\SSC|U0|U2|CurrentState.state_bit_2~q\ & \SSC|U1|CurrentState.state_bit_1~q\)
+-- \SSC|nssSync~feeder_combout\ = \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~q\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101000000000",
+	lut_mask => "1111111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SSC|U1|CurrentState.state_bit_1~q\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_1~2_combout\);
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][1]~q\,
+	combout => \SSC|nssSync~feeder_combout\);
 
--- Location: FF_X44_Y35_N3
-\SSC|nSSsync\ : dffeas
+-- Location: FF_X50_Y40_N13
+\SSC|nssSync\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -10852,26 +10861,130 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	asdata => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\,
-	sload => VCC,
+	d => \SSC|nssSync~feeder_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \SSC|nSSsync~q\);
+	q => \SSC|nssSync~q\);
 
--- Location: CLKCTRL_G12
-\SSC|nSSsync~clkctrl\ : fiftyfivenm_clkctrl
+-- Location: LCCOMB_X50_Y40_N30
+\SSC|U0|U2|Selector3~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U0|U2|Selector3~0_combout\ = (!\SSC|nssSync~q\ & (!\SSC|U1|CurrentState.state_bit_1~q\ & \SSC|U0|U2|CurrentState.state_bit_2~q\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000010100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|nssSync~q\,
+	datac => \SSC|U1|CurrentState.state_bit_1~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_2~q\,
+	combout => \SSC|U0|U2|Selector3~0_combout\);
+
+-- Location: LCCOMB_X50_Y40_N2
+\SSC|U0|U2|CurrentState.IDLE~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U0|U2|CurrentState.IDLE~0_combout\ = ((!\SSC|U0|U2|CurrentState.state_bit_0~q\ & \SSC|U0|U2|CurrentState.state_bit_1~q\)) # (!\SSC|U0|U2|CurrentState.state_bit_2~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \SSC|U0|U2|CurrentState.state_bit_0~q\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_2~q\,
+	combout => \SSC|U0|U2|CurrentState.IDLE~0_combout\);
+
+-- Location: LCCOMB_X75_Y38_N2
+\SSC|sclkSync~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|sclkSync~feeder_combout\ = \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]~q\,
+	combout => \SSC|sclkSync~feeder_combout\);
+
+-- Location: FF_X75_Y38_N3
+\SSC|sclkSync\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK~inputclkctrl_outclk\,
+	d => \SSC|sclkSync~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SSC|sclkSync~q\);
+
+-- Location: CLKCTRL_G9
+\SSC|sclkSync~clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
 	clock_type => "global clock",
 	ena_register_mode => "none")
 -- pragma translate_on
 PORT MAP (
-	inclk => \SSC|nSSsync~clkctrl_INCLK_bus\,
+	inclk => \SSC|sclkSync~clkctrl_INCLK_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	outclk => \SSC|nSSsync~clkctrl_outclk\);
+	outclk => \SSC|sclkSync~clkctrl_outclk\);
 
--- Location: LCCOMB_X44_Y35_N8
+-- Location: LCCOMB_X50_Y40_N24
+\SSC|U0|U1|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U0|U1|q~0_combout\ = !\SSC|U0|U1|q~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \SSC|U0|U1|q~q\,
+	combout => \SSC|U0|U1|q~0_combout\);
+
+-- Location: LCCOMB_X50_Y40_N4
+\SSC|U0|U2|CurrentState.IDLE~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U0|U2|CurrentState.IDLE~1_combout\ = (!\SSC|U0|U2|CurrentState.state_bit_1~q\ & !\SSC|U0|U2|CurrentState.state_bit_0~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_0~q\,
+	combout => \SSC|U0|U2|CurrentState.IDLE~1_combout\);
+
+-- Location: FF_X50_Y40_N25
+\SSC|U0|U1|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|sclkSync~clkctrl_outclk\,
+	d => \SSC|U0|U1|q~0_combout\,
+	clrn => \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
+	ena => \SLCDC|sdxSync~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SSC|U0|U1|q~q\);
+
+-- Location: LCCOMB_X51_Y40_N26
 \SSC|U0|U0|count[0]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U0|U0|count[0]~3_combout\ = !\SSC|U0|U0|count\(0)
@@ -10885,22 +10998,7 @@ PORT MAP (
 	datac => \SSC|U0|U0|count\(0),
 	combout => \SSC|U0|U0|count[0]~3_combout\);
 
--- Location: LCCOMB_X44_Y35_N4
-\SSC|U0|U2|CurrentState.IDLE~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U0|U2|CurrentState.IDLE~1_combout\ = (!\SSC|U0|U2|CurrentState.state_bit_0~q\ & !\SSC|U0|U2|CurrentState.state_bit_1~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001010101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_0~q\,
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~q\,
-	combout => \SSC|U0|U2|CurrentState.IDLE~1_combout\);
-
--- Location: FF_X44_Y35_N9
+-- Location: FF_X51_Y40_N27
 \SSC|U0|U0|count[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10908,29 +11006,29 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	d => \SSC|U0|U0|count[0]~3_combout\,
 	clrn => \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U0|count\(0));
 
--- Location: LCCOMB_X44_Y35_N0
+-- Location: LCCOMB_X51_Y40_N6
 \SSC|U0|U0|count[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U0|U0|count[1]~2_combout\ = \SSC|U0|U0|count\(0) $ (\SSC|U0|U0|count\(1))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110000111100",
+	lut_mask => "0101101001011010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SSC|U0|U0|count\(0),
+	dataa => \SSC|U0|U0|count\(0),
 	datac => \SSC|U0|U0|count\(1),
 	combout => \SSC|U0|U0|count[1]~2_combout\);
 
--- Location: FF_X44_Y35_N1
+-- Location: FF_X51_Y40_N7
 \SSC|U0|U0|count[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10938,30 +11036,30 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	d => \SSC|U0|U0|count[1]~2_combout\,
 	clrn => \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U0|count\(1));
 
--- Location: LCCOMB_X44_Y35_N18
+-- Location: LCCOMB_X51_Y40_N12
 \SSC|U0|U0|count[2]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U0|U0|count[2]~1_combout\ = \SSC|U0|U0|count\(2) $ (((\SSC|U0|U0|count\(0) & \SSC|U0|U0|count\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110011110000",
+	lut_mask => "0101101011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \SSC|U0|U0|count\(0),
+	dataa => \SSC|U0|U0|count\(0),
 	datac => \SSC|U0|U0|count\(2),
 	datad => \SSC|U0|U0|count\(1),
 	combout => \SSC|U0|U0|count[2]~1_combout\);
 
--- Location: FF_X44_Y35_N19
+-- Location: FF_X51_Y40_N13
 \SSC|U0|U0|count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -10969,14 +11067,14 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	d => \SSC|U0|U0|count[2]~1_combout\,
 	clrn => \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U0|count\(2));
 
--- Location: LCCOMB_X44_Y35_N22
+-- Location: LCCOMB_X51_Y40_N16
 \SSC|U0|U0|count[3]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U0|U0|count[3]~0_combout\ = \SSC|U0|U0|count\(3) $ (((\SSC|U0|U0|count\(0) & (\SSC|U0|U0|count\(1) & \SSC|U0|U0|count\(2)))))
@@ -10993,7 +11091,7 @@ PORT MAP (
 	datad => \SSC|U0|U0|count\(2),
 	combout => \SSC|U0|U0|count[3]~0_combout\);
 
--- Location: FF_X44_Y35_N23
+-- Location: FF_X51_Y40_N17
 \SSC|U0|U0|count[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11001,128 +11099,81 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	d => \SSC|U0|U0|count[3]~0_combout\,
 	clrn => \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U0|count\(3));
 
--- Location: LCCOMB_X44_Y35_N12
-\SSC|U0|comb~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X51_Y40_N24
+\SSC|U0|U2|CurrentState.state_bit_2~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|comb~0_combout\ = (\SSC|U0|U0|count\(3) & (!\SSC|U0|U0|count\(2) & (!\SSC|U0|U0|count\(0) & !\SSC|nSSsync~q\)))
+-- \SSC|U0|U2|CurrentState.state_bit_2~0_combout\ = (!\SSC|U0|U0|count\(2) & (\SSC|U0|U0|count\(3) & (!\SSC|U0|U0|count\(0) & !\SSC|U0|U0|count\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000000010",
+	lut_mask => "0000000000000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U0|count\(3),
-	datab => \SSC|U0|U0|count\(2),
+	dataa => \SSC|U0|U0|count\(2),
+	datab => \SSC|U0|U0|count\(3),
 	datac => \SSC|U0|U0|count\(0),
-	datad => \SSC|nSSsync~q\,
-	combout => \SSC|U0|comb~0_combout\);
+	datad => \SSC|U0|U0|count\(1),
+	combout => \SSC|U0|U2|CurrentState.state_bit_2~0_combout\);
 
--- Location: LCCOMB_X44_Y35_N6
+-- Location: LCCOMB_X50_Y40_N16
 \SSC|U0|U2|CurrentState.state_bit_1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_1~0_combout\ = (!\SSC|U0|U2|CurrentState.state_bit_0~q\ & (!\SSC|U0|U2|CurrentState.state_bit_2~q\ & \SSC|U0|U2|CurrentState.state_bit_1~q\))
+-- \SSC|U0|U2|CurrentState.state_bit_1~0_combout\ = (\SSC|U0|U2|CurrentState.state_bit_2~q\) # ((\SSC|U0|U1|q~q\ & \SSC|U0|U2|CurrentState.state_bit_2~0_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000010100000000",
+	lut_mask => "1110111010101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_0~q\,
-	datac => \SSC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	dataa => \SSC|U0|U2|CurrentState.state_bit_2~q\,
+	datab => \SSC|U0|U1|q~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_2~0_combout\,
 	combout => \SSC|U0|U2|CurrentState.state_bit_1~0_combout\);
 
--- Location: LCCOMB_X44_Y35_N26
+-- Location: LCCOMB_X50_Y40_N26
 \SSC|U0|U2|CurrentState.state_bit_1~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_1~1_combout\ = (\SSC|U0|comb~0_combout\ & (!\SSC|U0|U0|count\(1) & \SSC|U0|U2|CurrentState.state_bit_1~0_combout\))
+-- \SSC|U0|U2|CurrentState.state_bit_1~1_combout\ = (\SSC|U0|U2|CurrentState.state_bit_1~q\ & (\SSC|U0|U2|CurrentState.state_bit_1~0_combout\ & !\SSC|U0|U2|CurrentState.state_bit_0~q\)) # (!\SSC|U0|U2|CurrentState.state_bit_1~q\ & 
+-- ((\SSC|U0|U2|CurrentState.state_bit_0~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010001000000000",
+	lut_mask => "0000111111000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|comb~0_combout\,
-	datab => \SSC|U0|U0|count\(1),
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~0_combout\,
+	datab => \SSC|U0|U2|CurrentState.state_bit_1~0_combout\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_0~q\,
 	combout => \SSC|U0|U2|CurrentState.state_bit_1~1_combout\);
 
--- Location: LCCOMB_X44_Y35_N10
-\SSC|U0|U2|CurrentState.state_bit_1~3\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X50_Y40_N22
+\SSC|U0|U2|CurrentState.state_bit_1~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_1~3_combout\ = (\SSC|U0|U2|CurrentState.state_bit_0~q\ & (((\SSC|U0|U2|CurrentState.state_bit_2~q\)) # (!\SSC|U0|U2|CurrentState.state_bit_1~q\))) # (!\SSC|U0|U2|CurrentState.state_bit_0~q\ & 
--- (!\SSC|U0|U2|CurrentState.state_bit_1~q\ & ((\SSC|U0|U2|CurrentState.state_bit_2~q\) # (!\SLCDC|U0|U2|nEnRx_reg~q\))))
+-- \SSC|U0|U2|CurrentState.state_bit_1~2_combout\ = (\SSC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SSC|U0|U2|Selector3~0_combout\) # ((!\SSC|U0|U2|CurrentState.state_bit_1~1_combout\ & !\SSC|nssSync~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011001010110011",
+	lut_mask => "1000100010001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_0~q\,
-	datab => \SSC|U0|U2|CurrentState.state_bit_1~q\,
-	datac => \SSC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SLCDC|U0|U2|nEnRx_reg~q\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_1~3_combout\);
+	dataa => \SSC|U0|U2|Selector3~0_combout\,
+	datab => \SSC|U0|U2|CurrentState.IDLE~0_combout\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~1_combout\,
+	datad => \SSC|nssSync~q\,
+	combout => \SSC|U0|U2|CurrentState.state_bit_1~2_combout\);
 
--- Location: LCCOMB_X43_Y35_N0
-\SSC|U0|U1|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U0|U1|q~0_combout\ = !\SSC|U0|U1|q~q\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \SSC|U0|U1|q~q\,
-	combout => \SSC|U0|U1|q~0_combout\);
-
--- Location: FF_X43_Y35_N1
-\SSC|U0|U1|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
-	d => \SSC|U0|U1|q~0_combout\,
-	clrn => \SSC|U0|U2|ALT_INV_CurrentState.IDLE~1_combout\,
-	ena => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SSC|U0|U1|q~q\);
-
--- Location: LCCOMB_X43_Y35_N20
-\SSC|U0|U2|CurrentState.state_bit_1~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_1~4_combout\ = (!\SSC|U0|U2|CurrentState.state_bit_1~2_combout\ & (!\SSC|U0|U2|CurrentState.state_bit_1~3_combout\ & ((!\SSC|U0|U1|q~q\) # (!\SSC|U0|U2|CurrentState.state_bit_1~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000100000101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_1~2_combout\,
-	datab => \SSC|U0|U2|CurrentState.state_bit_1~1_combout\,
-	datac => \SSC|U0|U2|CurrentState.state_bit_1~3_combout\,
-	datad => \SSC|U0|U1|q~q\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_1~4_combout\);
-
--- Location: FF_X43_Y35_N21
+-- Location: FF_X50_Y40_N23
 \SSC|U0|U2|CurrentState.state_bit_1\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11131,34 +11182,32 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	d => \SSC|U0|U2|CurrentState.state_bit_1~4_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\,
+	d => \SSC|U0|U2|CurrentState.state_bit_1~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U2|CurrentState.state_bit_1~q\);
 
--- Location: LCCOMB_X44_Y35_N28
+-- Location: LCCOMB_X50_Y40_N14
 \SSC|U0|U2|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_0~0_combout\ = (\SLCDC|U0|U2|nEnRx_reg~q\ & (((\SSC|U0|comb~0_combout\ & !\SSC|U0|U0|count\(1))) # 
--- (!\auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\)))
+-- \SSC|U0|U2|CurrentState.state_bit_0~0_combout\ = (!\SSC|nssSync~q\ & (((!\SSC|U0|U2|CurrentState.state_bit_0~q\ & \SSC|U0|U2|CurrentState.state_bit_1~q\)) # (!\SSC|U0|U2|CurrentState.state_bit_2~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010111100000000",
+	lut_mask => "0001000001010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|comb~0_combout\,
-	datab => \SSC|U0|U0|count\(1),
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][0]~q\,
-	datad => \SLCDC|U0|U2|nEnRx_reg~q\,
+	dataa => \SSC|nssSync~q\,
+	datab => \SSC|U0|U2|CurrentState.state_bit_0~q\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_2~q\,
 	combout => \SSC|U0|U2|CurrentState.state_bit_0~0_combout\);
 
--- Location: LCCOMB_X44_Y35_N30
-\SSC|U0|comb~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X51_Y40_N18
+\SSC|U0|U5|Equal0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|comb~1_combout\ = (\SSC|U0|U0|count\(2) & (!\SSC|nSSsync~q\ & (\SSC|U0|U0|count\(0) & \SSC|U0|U0|count\(1))))
+-- \SSC|U0|U5|Equal0~0_combout\ = (\SSC|U0|U0|count\(2) & (!\SSC|U0|U0|count\(3) & (\SSC|U0|U0|count\(0) & \SSC|U0|U0|count\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -11167,47 +11216,30 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \SSC|U0|U0|count\(2),
-	datab => \SSC|nSSsync~q\,
+	datab => \SSC|U0|U0|count\(3),
 	datac => \SSC|U0|U0|count\(0),
 	datad => \SSC|U0|U0|count\(1),
-	combout => \SSC|U0|comb~1_combout\);
+	combout => \SSC|U0|U5|Equal0~0_combout\);
 
--- Location: LCCOMB_X44_Y35_N16
+-- Location: LCCOMB_X50_Y40_N20
 \SSC|U0|U2|CurrentState.state_bit_0~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_0~1_combout\ = (\SSC|U0|U2|CurrentState.IDLE~0_combout\ & (((\SSC|U0|U0|count\(3)) # (!\SSC|U0|U2|CurrentState.state_bit_1~q\)) # (!\SSC|U0|comb~1_combout\)))
+-- \SSC|U0|U2|CurrentState.state_bit_0~1_combout\ = (\SSC|U0|U2|CurrentState.state_bit_0~0_combout\ & ((\SSC|U0|U2|CurrentState.state_bit_1~q\ & (\SSC|U0|U2|CurrentState.state_bit_0~q\ & !\SSC|U0|U5|Equal0~0_combout\)) # 
+-- (!\SSC|U0|U2|CurrentState.state_bit_1~q\ & (!\SSC|U0|U2|CurrentState.state_bit_0~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100010011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U0|comb~1_combout\,
-	datab => \SSC|U0|U2|CurrentState.IDLE~0_combout\,
-	datac => \SSC|U0|U0|count\(3),
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~q\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_0~1_combout\);
-
--- Location: LCCOMB_X43_Y35_N10
-\SSC|U0|U2|CurrentState.state_bit_0~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_0~2_combout\ = (\SSC|U0|U2|CurrentState.state_bit_0~1_combout\ & ((\SSC|U0|U2|CurrentState.state_bit_1~q\ & ((\SSC|U0|U2|CurrentState.state_bit_0~q\))) # (!\SSC|U0|U2|CurrentState.state_bit_1~q\ & 
--- (\SSC|U0|U2|CurrentState.state_bit_0~0_combout\ & !\SSC|U0|U2|CurrentState.state_bit_0~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010000000000",
+	lut_mask => "0000010010000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \SSC|U0|U2|CurrentState.state_bit_1~q\,
 	datab => \SSC|U0|U2|CurrentState.state_bit_0~0_combout\,
 	datac => \SSC|U0|U2|CurrentState.state_bit_0~q\,
-	datad => \SSC|U0|U2|CurrentState.state_bit_0~1_combout\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_0~2_combout\);
+	datad => \SSC|U0|U5|Equal0~0_combout\,
+	combout => \SSC|U0|U2|CurrentState.state_bit_0~1_combout\);
 
--- Location: FF_X43_Y35_N11
+-- Location: FF_X50_Y40_N21
 \SSC|U0|U2|CurrentState.state_bit_0\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11216,61 +11248,61 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	d => \SSC|U0|U2|CurrentState.state_bit_0~2_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\,
+	d => \SSC|U0|U2|CurrentState.state_bit_0~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U2|CurrentState.state_bit_0~q\);
 
--- Location: LCCOMB_X43_Y35_N6
-\SSC|U0|U2|CurrentState.IDLE~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X50_Y40_N18
+\SSC|U0|U2|CurrentState.state_bit_2~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.IDLE~0_combout\ = ((!\SSC|U0|U2|CurrentState.state_bit_0~q\ & \SSC|U0|U2|CurrentState.state_bit_1~q\)) # (!\SSC|U0|U2|CurrentState.state_bit_2~q\)
+-- \SSC|U0|U2|CurrentState.state_bit_2~1_combout\ = (!\SSC|U0|U1|q~q\ & (\SSC|U0|U2|CurrentState.state_bit_1~q\ & !\SSC|nssSync~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0111011100110011",
+	lut_mask => "0000000000110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_0~q\,
-	datab => \SSC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~q\,
-	combout => \SSC|U0|U2|CurrentState.IDLE~0_combout\);
+	datab => \SSC|U0|U1|q~q\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SSC|nssSync~q\,
+	combout => \SSC|U0|U2|CurrentState.state_bit_2~1_combout\);
 
--- Location: LCCOMB_X44_Y35_N24
-\SSC|U0|U2|CurrentState.state_bit_2~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X50_Y40_N28
+\SSC|U0|U2|CurrentState.state_bit_2~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_2~0_combout\ = (\SSC|U0|U2|CurrentState.state_bit_2~q\ & !\SSC|U1|CurrentState.state_bit_1~q\)
+-- \SSC|U0|U2|CurrentState.state_bit_2~2_combout\ = (!\SSC|U0|U2|CurrentState.state_bit_2~q\ & (!\SSC|U0|U2|CurrentState.state_bit_0~q\ & (\SSC|U0|U2|CurrentState.state_bit_2~1_combout\ & \SSC|U0|U2|CurrentState.state_bit_2~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010101010",
+	lut_mask => "0001000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \SSC|U0|U2|CurrentState.state_bit_2~q\,
-	datad => \SSC|U1|CurrentState.state_bit_1~q\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_2~0_combout\);
+	datab => \SSC|U0|U2|CurrentState.state_bit_0~q\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_2~1_combout\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_2~0_combout\,
+	combout => \SSC|U0|U2|CurrentState.state_bit_2~2_combout\);
 
--- Location: LCCOMB_X43_Y35_N24
-\SSC|U0|U2|CurrentState.state_bit_2~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X50_Y40_N10
+\SSC|U0|U2|CurrentState.state_bit_2~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.state_bit_2~1_combout\ = (\SSC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SSC|U0|U2|CurrentState.state_bit_2~0_combout\) # ((!\SSC|U0|U1|q~q\ & \SSC|U0|U2|CurrentState.state_bit_1~1_combout\))))
+-- \SSC|U0|U2|CurrentState.state_bit_2~3_combout\ = (\SSC|U0|U2|CurrentState.IDLE~0_combout\ & ((\SSC|U0|U2|CurrentState.state_bit_2~2_combout\) # (\SSC|U0|U2|Selector3~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010001010100000",
+	lut_mask => "1111110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.IDLE~0_combout\,
-	datab => \SSC|U0|U1|q~q\,
-	datac => \SSC|U0|U2|CurrentState.state_bit_2~0_combout\,
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~1_combout\,
-	combout => \SSC|U0|U2|CurrentState.state_bit_2~1_combout\);
+	datab => \SSC|U0|U2|CurrentState.state_bit_2~2_combout\,
+	datac => \SSC|U0|U2|Selector3~0_combout\,
+	datad => \SSC|U0|U2|CurrentState.IDLE~0_combout\,
+	combout => \SSC|U0|U2|CurrentState.state_bit_2~3_combout\);
 
--- Location: FF_X43_Y35_N25
+-- Location: FF_X50_Y40_N11
 \SSC|U0|U2|CurrentState.state_bit_2\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11279,13 +11311,27 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK~inputclkctrl_outclk\,
-	d => \SSC|U0|U2|CurrentState.state_bit_2~1_combout\,
-	clrn => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|ALT_INV_irf_reg[1][0]~clkctrl_outclk\,
+	d => \SSC|U0|U2|CurrentState.state_bit_2~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U2|CurrentState.state_bit_2~q\);
 
--- Location: FF_X45_Y35_N23
+-- Location: FF_X47_Y41_N27
+\SSC|U1|CurrentState.state_bit_1\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U2|tmp~clkctrl_outclk\,
+	d => \SSC|U1|CurrentState.state_bit_1~0_combout\,
+	clrn => \SSC|U0|U2|CurrentState.state_bit_2~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SSC|U1|CurrentState.state_bit_1~q\);
+
+-- Location: FF_X47_Y41_N7
 \SSC|U1|dval_reg\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11300,23 +11346,23 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SSC|U1|dval_reg~q\);
 
--- Location: LCCOMB_X45_Y35_N24
+-- Location: LCCOMB_X47_Y41_N24
 \SSC|U1|CurrentState.state_bit_0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U1|CurrentState.state_bit_0~0_combout\ = (!\SSC|U1|CurrentState.state_bit_1~q\ & ((\SSC|U1|CurrentState.state_bit_0~q\) # (!\SSC|U1|dval_reg~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011110101",
+	lut_mask => "0101000001010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U1|dval_reg~q\,
+	dataa => \SSC|U1|CurrentState.state_bit_1~q\,
 	datac => \SSC|U1|CurrentState.state_bit_0~q\,
-	datad => \SSC|U1|CurrentState.state_bit_1~q\,
+	datad => \SSC|U1|dval_reg~q\,
 	combout => \SSC|U1|CurrentState.state_bit_0~0_combout\);
 
--- Location: FF_X45_Y35_N25
+-- Location: FF_X47_Y41_N25
 \SSC|U1|CurrentState.state_bit_0\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11331,19 +11377,19 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SSC|U1|CurrentState.state_bit_0~q\);
 
--- Location: LCCOMB_X45_Y35_N12
+-- Location: LCCOMB_X47_Y41_N28
 \SSC|U1|CurrentState.SEND~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U1|CurrentState.SEND~0_combout\ = LCELL((\SSC|U1|CurrentState.state_bit_0~q\ & !\SSC|U1|CurrentState.state_bit_1~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011001100",
+	lut_mask => "0000110000001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	datab => \SSC|U1|CurrentState.state_bit_0~q\,
-	datad => \SSC|U1|CurrentState.state_bit_1~q\,
+	datac => \SSC|U1|CurrentState.state_bit_1~q\,
 	combout => \SSC|U1|CurrentState.SEND~0_combout\);
 
 -- Location: CLKCTRL_G5
@@ -11359,10 +11405,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\);
 
--- Location: LCCOMB_X71_Y44_N10
+-- Location: LCCOMB_X71_Y44_N22
 \SSC|U0|U3|data_b[6]~feeder\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U3|data_b[6]~feeder_combout\ = \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\
+-- \SSC|U0|U3|data_b[6]~feeder_combout\ = \SLCDC|sdxSync~q\
 
 -- pragma translate_off
 GENERIC MAP (
@@ -11370,25 +11416,25 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][3]~q\,
+	datac => \SLCDC|sdxSync~q\,
 	combout => \SSC|U0|U3|data_b[6]~feeder_combout\);
 
--- Location: LCCOMB_X44_Y35_N20
+-- Location: LCCOMB_X50_Y40_N8
 \SSC|U0|U2|CurrentState.RECEIVING~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U0|U2|CurrentState.RECEIVING~0_combout\ = (\SSC|U0|U2|CurrentState.state_bit_0~q\ & \SSC|U0|U2|CurrentState.state_bit_1~q\)
+-- \SSC|U0|U2|CurrentState.RECEIVING~0_combout\ = (\SSC|U0|U2|CurrentState.state_bit_1~q\ & \SSC|U0|U2|CurrentState.state_bit_0~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101000000000",
+	lut_mask => "1111000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_0~q\,
-	datad => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datac => \SSC|U0|U2|CurrentState.state_bit_1~q\,
+	datad => \SSC|U0|U2|CurrentState.state_bit_0~q\,
 	combout => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\);
 
--- Location: FF_X71_Y44_N11
+-- Location: FF_X71_Y44_N23
 \SSC|U0|U3|data_b[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11396,75 +11442,17 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	d => \SSC|U0|U3|data_b[6]~feeder_combout\,
 	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \SSC|U0|U3|data_b\(6));
 
--- Location: LCCOMB_X71_Y44_N28
+-- Location: LCCOMB_X71_Y44_N26
 \SSC|U0|U3|data_b[5]~feeder\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U0|U3|data_b[5]~feeder_combout\ = \SSC|U0|U3|data_b\(6)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U0|U3|data_b\(6),
-	combout => \SSC|U0|U3|data_b[5]~feeder_combout\);
-
--- Location: FF_X71_Y44_N29
-\SSC|U0|U3|data_b[5]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
-	d => \SSC|U0|U3|data_b[5]~feeder_combout\,
-	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SSC|U0|U3|data_b\(5));
-
--- Location: LCCOMB_X71_Y44_N26
-\SSC|U0|U3|data_b[4]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U0|U3|data_b[4]~feeder_combout\ = \SSC|U0|U3|data_b\(5)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U0|U3|data_b\(5),
-	combout => \SSC|U0|U3|data_b[4]~feeder_combout\);
-
--- Location: FF_X71_Y44_N27
-\SSC|U0|U3|data_b[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
-	d => \SSC|U0|U3|data_b[4]~feeder_combout\,
-	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \SSC|U0|U3|data_b\(4));
-
--- Location: LCCOMB_X71_Y44_N12
-\SSC|U0|U3|data_b[3]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U0|U3|data_b[3]~feeder_combout\ = \SSC|U0|U3|data_b\(4)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -11472,41 +11460,70 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U0|U3|data_b\(4),
-	combout => \SSC|U0|U3|data_b[3]~feeder_combout\);
+	datac => \SSC|U0|U3|data_b\(6),
+	combout => \SSC|U0|U3|data_b[5]~feeder_combout\);
 
--- Location: FF_X71_Y44_N13
-\SSC|U0|U3|data_b[3]\ : dffeas
+-- Location: FF_X71_Y44_N27
+\SSC|U0|U3|data_b[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
-	d => \SSC|U0|U3|data_b[3]~feeder_combout\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
+	d => \SSC|U0|U3|data_b[5]~feeder_combout\,
 	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \SSC|U0|U3|data_b\(3));
+	q => \SSC|U0|U3|data_b\(5));
 
--- Location: LCCOMB_X45_Y35_N22
+-- Location: LCCOMB_X71_Y44_N18
+\SSC|U0|U3|data_b[4]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U0|U3|data_b[4]~feeder_combout\ = \SSC|U0|U3|data_b\(5)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \SSC|U0|U3|data_b\(5),
+	combout => \SSC|U0|U3|data_b[4]~feeder_combout\);
+
+-- Location: FF_X71_Y44_N19
+\SSC|U0|U3|data_b[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|sclkSync~clkctrl_outclk\,
+	d => \SSC|U0|U3|data_b[4]~feeder_combout\,
+	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SSC|U0|U3|data_b\(4));
+
+-- Location: LCCOMB_X47_Y41_N6
 \SSC|U1|Din_b[6]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U1|Din_b[6]~0_combout\ = (\SSC|U0|U2|CurrentState.state_bit_2~q\ & (!\SSC|U1|dval_reg~q\ & !\SSC|U1|CurrentState.state_bit_0~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000001010",
+	lut_mask => "0000000000001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U2|CurrentState.state_bit_2~q\,
+	datab => \SSC|U0|U2|CurrentState.state_bit_2~q\,
 	datac => \SSC|U1|dval_reg~q\,
 	datad => \SSC|U1|CurrentState.state_bit_0~q\,
 	combout => \SSC|U1|Din_b[6]~0_combout\);
 
--- Location: CLKCTRL_G10
+-- Location: CLKCTRL_G6
 \SSC|U1|Din_b[6]~0clkctrl\ : fiftyfivenm_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -11519,23 +11536,66 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \SSC|U1|Din_b[6]~0clkctrl_outclk\);
 
--- Location: LCCOMB_X75_Y44_N10
-\SSC|U1|Din_b[3]\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X70_Y44_N12
+\SSC|U1|Din_b[4]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \SSC|U1|Din_b\(3) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(3))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(3))))
+-- \SSC|U1|Din_b\(4) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(4))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(4))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010111110100000",
+	lut_mask => "1100111111000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U0|U3|data_b\(3),
+	datab => \SSC|U0|U3|data_b\(4),
 	datac => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
-	datad => \SSC|U1|Din_b\(3),
-	combout => \SSC|U1|Din_b\(3));
+	datad => \SSC|U1|Din_b\(4),
+	combout => \SSC|U1|Din_b\(4));
 
--- Location: FF_X71_Y44_N7
+-- Location: LCCOMB_X70_Y44_N6
+\Score|circuit_gen:0:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:0:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U1|Din_b\(4),
+	combout => \Score|circuit_gen:0:in_reg|u1|q~0_combout\);
+
+-- Location: LCCOMB_X71_Y44_N14
+\SSC|U0|U3|data_b[3]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U0|U3|data_b[3]~feeder_combout\ = \SSC|U0|U3|data_b\(4)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U0|U3|data_b\(4),
+	combout => \SSC|U0|U3|data_b[3]~feeder_combout\);
+
+-- Location: FF_X71_Y44_N15
+\SSC|U0|U3|data_b[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|sclkSync~clkctrl_outclk\,
+	d => \SSC|U0|U3|data_b[3]~feeder_combout\,
+	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \SSC|U0|U3|data_b\(3));
+
+-- Location: FF_X71_Y44_N21
 \SSC|U0|U3|data_b[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11543,7 +11603,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	asdata => \SSC|U0|U3|data_b\(3),
 	sload => VCC,
 	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -11551,23 +11611,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SSC|U0|U3|data_b\(2));
 
--- Location: LCCOMB_X71_Y44_N6
-\SSC|U1|Din_b[2]\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U1|Din_b\(2) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(2))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(2))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
-	datac => \SSC|U0|U3|data_b\(2),
-	datad => \SSC|U1|Din_b\(2),
-	combout => \SSC|U1|Din_b\(2));
-
--- Location: FF_X71_Y44_N1
+-- Location: FF_X71_Y44_N5
 \SSC|U0|U3|data_b[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11575,7 +11619,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	asdata => \SSC|U0|U3|data_b\(2),
 	sload => VCC,
 	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -11583,23 +11627,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SSC|U0|U3|data_b\(1));
 
--- Location: LCCOMB_X71_Y44_N0
-\SSC|U1|Din_b[1]\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U1|Din_b\(1) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(1))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
-	datac => \SSC|U0|U3|data_b\(1),
-	datad => \SSC|U1|Din_b\(1),
-	combout => \SSC|U1|Din_b\(1));
-
--- Location: FF_X71_Y44_N3
+-- Location: FF_X71_Y44_N7
 \SSC|U0|U3|data_b[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11607,7 +11635,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SSC|nSSsync~clkctrl_outclk\,
+	clk => \SSC|sclkSync~clkctrl_outclk\,
 	asdata => \SSC|U0|U3|data_b\(1),
 	sload => VCC,
 	ena => \SSC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -11615,7 +11643,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SSC|U0|U3|data_b\(0));
 
--- Location: LCCOMB_X71_Y44_N2
+-- Location: LCCOMB_X71_Y44_N6
 \SSC|U1|Din_b[0]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U1|Din_b\(0) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(0))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(0))))
@@ -11631,40 +11659,56 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(0),
 	combout => \SSC|U1|Din_b\(0));
 
+-- Location: LCCOMB_X71_Y44_N4
+\SSC|U1|Din_b[1]\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U1|Din_b\(1) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(1))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(1))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
+	datac => \SSC|U0|U3|data_b\(1),
+	datad => \SSC|U1|Din_b\(1),
+	combout => \SSC|U1|Din_b\(1));
+
 -- Location: LCCOMB_X71_Y44_N20
-\Score|clear_reg|q~0\ : fiftyfivenm_lcell_comb
+\SSC|U1|Din_b[2]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|clear_reg|q~0_combout\ = (\SSC|U1|Din_b\(2) & (\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(0)))
+-- \SSC|U1|Din_b\(2) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(2))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000100000000000",
+	lut_mask => "1111010110100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
-	combout => \Score|clear_reg|q~0_combout\);
+	dataa => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
+	datac => \SSC|U0|U3|data_b\(2),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \SSC|U1|Din_b\(2));
 
--- Location: LCCOMB_X75_Y44_N8
-\Score|clear_reg|q~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X71_Y44_N0
+\Score|decoder|dout[0]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|clear_reg|q~1_combout\ = (\Score|clear_reg|q~0_combout\ & (!\SSC|U1|Din_b\(3))) # (!\Score|clear_reg|q~0_combout\ & ((\Score|clear_reg|q~q\)))
+-- \Score|decoder|dout\(0) = (!\SSC|U1|Din_b\(0) & (!\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101010111110000",
+	lut_mask => "0000000000000101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U1|Din_b\(3),
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|clear_reg|q~0_combout\,
-	combout => \Score|clear_reg|q~1_combout\);
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \Score|decoder|dout\(0));
 
--- Location: FF_X75_Y44_N9
-\Score|clear_reg|q\ : dffeas
+-- Location: FF_X70_Y44_N7
+\Score|circuit_gen:0:in_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -11672,12 +11716,122 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|clear_reg|q~1_combout\,
+	d => \Score|circuit_gen:0:in_reg|u1|q~0_combout\,
+	ena => \Score|decoder|dout\(0),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|clear_reg|q~q\);
+	q => \Score|circuit_gen:0:in_reg|u1|q~q\);
 
--- Location: LCCOMB_X75_Y44_N16
+-- Location: LCCOMB_X71_Y44_N10
+\Score|decoder|dout[6]~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|decoder|dout[6]~0_combout\ = (!\SSC|U1|Din_b\(0) & (\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \Score|decoder|dout[6]~0_combout\);
+
+-- Location: FF_X69_Y50_N29
+\Score|circuit_gen:0:out_reg|u1|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:0:in_reg|u1|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:0:out_reg|u1|q~q\);
+
+-- Location: LCCOMB_X70_Y44_N10
+\SSC|U1|Din_b[5]\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U1|Din_b\(5) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(5))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(5))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \SSC|U0|U3|data_b\(5),
+	datac => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
+	datad => \SSC|U1|Din_b\(5),
+	combout => \SSC|U1|Din_b\(5));
+
+-- Location: LCCOMB_X70_Y44_N28
+\Score|circuit_gen:0:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:0:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U1|Din_b\(5),
+	combout => \Score|circuit_gen:0:in_reg|u2|q~0_combout\);
+
+-- Location: FF_X70_Y44_N29
+\Score|circuit_gen:0:in_reg|u2|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:0:in_reg|u2|q~0_combout\,
+	ena => \Score|decoder|dout\(0),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:0:in_reg|u2|q~q\);
+
+-- Location: FF_X69_Y50_N3
+\Score|circuit_gen:0:out_reg|u2|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:0:in_reg|u2|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:0:out_reg|u2|q~q\);
+
+-- Location: LCCOMB_X72_Y44_N12
+\SSC|U1|Din_b[3]\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \SSC|U1|Din_b\(3) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(3))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(3))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U0|U3|data_b\(3),
+	datac => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
+	datad => \SSC|U1|Din_b\(3),
+	combout => \SSC|U1|Din_b\(3));
+
+-- Location: LCCOMB_X70_Y44_N0
 \Score|circuit_gen:0:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
@@ -11691,23 +11845,7 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(3),
 	combout => \Score|circuit_gen:0:in_reg|u0|q~0_combout\);
 
--- Location: LCCOMB_X71_Y44_N30
-\Score|decoder|dout[0]\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|decoder|dout\(0) = (!\SSC|U1|Din_b\(2) & (!\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000010001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
-	combout => \Score|decoder|dout\(0));
-
--- Location: FF_X75_Y44_N17
+-- Location: FF_X70_Y44_N1
 \Score|circuit_gen:0:in_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11722,23 +11860,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:0:in_reg|u0|q~q\);
 
--- Location: LCCOMB_X71_Y44_N16
-\Score|decoder|dout[6]~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|decoder|dout[6]~0_combout\ = (\SSC|U1|Din_b\(2) & (\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
-	combout => \Score|decoder|dout[6]~0_combout\);
-
--- Location: FF_X74_Y50_N7
+-- Location: FF_X69_Y50_N23
 \Score|circuit_gen:0:out_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11755,67 +11877,6 @@ PORT MAP (
 	q => \Score|circuit_gen:0:out_reg|u0|q~q\);
 
 -- Location: LCCOMB_X71_Y44_N24
-\SSC|U1|Din_b[4]\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U1|Din_b\(4) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(4))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(4))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U0|U3|data_b\(4),
-	datac => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
-	datad => \SSC|U1|Din_b\(4),
-	combout => \SSC|U1|Din_b\(4));
-
--- Location: LCCOMB_X75_Y44_N14
-\Score|circuit_gen:0:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:0:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U1|Din_b\(4),
-	combout => \Score|circuit_gen:0:in_reg|u1|q~0_combout\);
-
--- Location: FF_X75_Y44_N15
-\Score|circuit_gen:0:in_reg|u1|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:0:in_reg|u1|q~0_combout\,
-	ena => \Score|decoder|dout\(0),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:0:in_reg|u1|q~q\);
-
--- Location: FF_X74_Y50_N5
-\Score|circuit_gen:0:out_reg|u1|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:0:in_reg|u1|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:0:out_reg|u1|q~q\);
-
--- Location: LCCOMB_X75_Y44_N20
 \SSC|U1|Din_b[6]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SSC|U1|Din_b\(6) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(6))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(6))))
@@ -11831,7 +11892,7 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(6),
 	combout => \SSC|U1|Din_b\(6));
 
--- Location: LCCOMB_X75_Y44_N26
+-- Location: LCCOMB_X70_Y44_N26
 \Score|circuit_gen:0:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
@@ -11845,7 +11906,7 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(6),
 	combout => \Score|circuit_gen:0:in_reg|u3|q~0_combout\);
 
--- Location: FF_X75_Y44_N27
+-- Location: FF_X70_Y44_N27
 \Score|circuit_gen:0:in_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11860,21 +11921,21 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:0:in_reg|u3|q~q\);
 
--- Location: LCCOMB_X74_Y50_N8
+-- Location: LCCOMB_X69_Y50_N24
 \Score|circuit_gen:0:out_reg|u3|q~feeder\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:out_reg|u3|q~feeder_combout\ = \Score|circuit_gen:0:in_reg|u3|q~q\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000011110000",
+	lut_mask => "1111111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|circuit_gen:0:in_reg|u3|q~q\,
+	datad => \Score|circuit_gen:0:in_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:out_reg|u3|q~feeder_combout\);
 
--- Location: FF_X74_Y50_N9
+-- Location: FF_X69_Y50_N25
 \Score|circuit_gen:0:out_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -11889,246 +11950,218 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:0:out_reg|u3|q~q\);
 
--- Location: LCCOMB_X75_Y44_N6
-\SSC|U1|Din_b[5]\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \SSC|U1|Din_b\(5) = (GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & (\SSC|U0|U3|data_b\(5))) # (!GLOBAL(\SSC|U1|Din_b[6]~0clkctrl_outclk\) & ((\SSC|U1|Din_b\(5))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \SSC|U0|U3|data_b\(5),
-	datac => \SSC|U1|Din_b[6]~0clkctrl_outclk\,
-	datad => \SSC|U1|Din_b\(5),
-	combout => \SSC|U1|Din_b\(5));
-
--- Location: LCCOMB_X75_Y44_N28
-\Score|circuit_gen:0:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:0:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U1|Din_b\(5),
-	combout => \Score|circuit_gen:0:in_reg|u2|q~0_combout\);
-
--- Location: FF_X75_Y44_N29
-\Score|circuit_gen:0:in_reg|u2|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:0:in_reg|u2|q~0_combout\,
-	ena => \Score|decoder|dout\(0),
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:0:in_reg|u2|q~q\);
-
--- Location: LCCOMB_X74_Y50_N10
-\Score|circuit_gen:0:out_reg|u2|q~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:0:out_reg|u2|q~feeder_combout\ = \Score|circuit_gen:0:in_reg|u2|q~q\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \Score|circuit_gen:0:in_reg|u2|q~q\,
-	combout => \Score|circuit_gen:0:out_reg|u2|q~feeder_combout\);
-
--- Location: FF_X74_Y50_N11
-\Score|circuit_gen:0:out_reg|u2|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:0:out_reg|u2|q~feeder_combout\,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:0:out_reg|u2|q~q\);
-
--- Location: LCCOMB_X74_Y50_N24
+-- Location: LCCOMB_X69_Y50_N8
 \Score|circuit_gen:0:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:0:out_reg|u3|q~q\ & (\Score|circuit_gen:0:out_reg|u1|q~q\ & (\Score|circuit_gen:0:out_reg|u0|q~q\ $ (\Score|circuit_gen:0:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:0:out_reg|u3|q~q\ 
+-- \Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:0:out_reg|u3|q~q\ & (\Score|circuit_gen:0:out_reg|u1|q~q\ & (\Score|circuit_gen:0:out_reg|u2|q~q\ $ (\Score|circuit_gen:0:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:0:out_reg|u3|q~q\ 
 -- & (((!\Score|circuit_gen:0:out_reg|u2|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000010001111",
+	lut_mask => "0010100000110011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:0:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:0:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:0:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datab => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:0:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:0:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\);
 
--- Location: LCCOMB_X74_Y50_N18
+-- Location: LCCOMB_X71_Y44_N2
+\Score|clear_reg|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|clear_reg|q~0_combout\ = (\SSC|U1|Din_b\(0) & (\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \Score|clear_reg|q~0_combout\);
+
+-- Location: LCCOMB_X70_Y44_N8
+\Score|clear_reg|q~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|clear_reg|q~1_combout\ = (\Score|clear_reg|q~0_combout\ & (!\SSC|U1|Din_b\(3))) # (!\Score|clear_reg|q~0_combout\ & ((\Score|clear_reg|q~q\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \SSC|U1|Din_b\(3),
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|clear_reg|q~0_combout\,
+	combout => \Score|clear_reg|q~1_combout\);
+
+-- Location: FF_X70_Y44_N9
+\Score|clear_reg|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|clear_reg|q~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|clear_reg|q~q\);
+
+-- Location: LCCOMB_X69_Y50_N26
 \Score|circuit_gen:0:hex_digit|Ndout[0]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[0]~1_combout\ = (\Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\,
+	datac => \Score|circuit_gen:0:hex_digit|Ndout[0]~0_combout\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[0]~1_combout\);
 
--- Location: LCCOMB_X74_Y50_N12
+-- Location: LCCOMB_X69_Y50_N12
 \Score|circuit_gen:0:hex_digit|Ndout[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:0:out_reg|u0|q~q\ & (!\Score|circuit_gen:0:out_reg|u2|q~q\ & ((!\Score|circuit_gen:0:out_reg|u3|q~q\) # (!\Score|circuit_gen:0:out_reg|u1|q~q\)))) # 
--- (!\Score|circuit_gen:0:out_reg|u0|q~q\ & ((\Score|circuit_gen:0:out_reg|u1|q~q\ & ((!\Score|circuit_gen:0:out_reg|u2|q~q\))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & (!\Score|circuit_gen:0:out_reg|u3|q~q\))))
+-- \Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & (!\Score|circuit_gen:0:out_reg|u2|q~q\ & ((!\Score|circuit_gen:0:out_reg|u3|q~q\) # (!\Score|circuit_gen:0:out_reg|u0|q~q\)))) # 
+-- (!\Score|circuit_gen:0:out_reg|u1|q~q\ & ((\Score|circuit_gen:0:out_reg|u0|q~q\ & (!\Score|circuit_gen:0:out_reg|u2|q~q\)) # (!\Score|circuit_gen:0:out_reg|u0|q~q\ & ((!\Score|circuit_gen:0:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000101101111",
+	lut_mask => "0001001000110111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:0:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:0:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:0:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datab => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:0:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:0:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\);
 
--- Location: LCCOMB_X74_Y50_N22
+-- Location: LCCOMB_X69_Y50_N30
 \Score|circuit_gen:0:hex_digit|Ndout[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[1]~3_combout\ = (\Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1010101011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\,
+	dataa => \Score|circuit_gen:0:hex_digit|Ndout[1]~2_combout\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[1]~3_combout\);
 
--- Location: LCCOMB_X74_Y50_N16
+-- Location: LCCOMB_X69_Y50_N16
 \Score|circuit_gen:0:hex_digit|Ndout[2]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & (((\Score|circuit_gen:0:out_reg|u3|q~q\) # (\Score|circuit_gen:0:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:0:out_reg|u0|q~q\ & ((!\Score|circuit_gen:0:out_reg|u2|q~q\))) # (!\Score|circuit_gen:0:out_reg|u0|q~q\ & (\Score|circuit_gen:0:out_reg|u3|q~q\))))
+-- \Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & ((\Score|circuit_gen:0:out_reg|u2|q~q\) # ((\Score|circuit_gen:0:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & 
+-- ((\Score|circuit_gen:0:out_reg|u0|q~q\ & (!\Score|circuit_gen:0:out_reg|u2|q~q\)) # (!\Score|circuit_gen:0:out_reg|u0|q~q\ & ((\Score|circuit_gen:0:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1101110011110010",
+	lut_mask => "1011111110011000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:0:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:0:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:0:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datab => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:0:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:0:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\);
 
--- Location: LCCOMB_X74_Y50_N26
+-- Location: LCCOMB_X69_Y50_N18
 \Score|circuit_gen:0:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:0:hex_digit|Ndout[2]~5_combout\ = (!\Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\) # (!\Score|clear_reg|q~q\)
+-- \Score|circuit_gen:0:hex_digit|Ndout[2]~5_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111111111111",
+	lut_mask => "0011001111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\,
+	datab => \Score|circuit_gen:0:hex_digit|Ndout[2]~4_combout\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[2]~5_combout\);
 
--- Location: LCCOMB_X74_Y50_N28
+-- Location: LCCOMB_X69_Y50_N20
 \Score|circuit_gen:0:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:0:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & (\Score|circuit_gen:0:out_reg|u0|q~q\ $ (((\Score|circuit_gen:0:out_reg|u2|q~q\))))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & 
+-- \Score|circuit_gen:0:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & (\Score|circuit_gen:0:out_reg|u2|q~q\ $ ((\Score|circuit_gen:0:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & 
 -- ((\Score|circuit_gen:0:out_reg|u2|q~q\ & ((!\Score|circuit_gen:0:out_reg|u3|q~q\))) # (!\Score|circuit_gen:0:out_reg|u2|q~q\ & (!\Score|circuit_gen:0:out_reg|u0|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100011110011001",
+	lut_mask => "0010100101101101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:0:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:0:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:0:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datab => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:0:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:0:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[3]~6_combout\);
 
--- Location: LCCOMB_X74_Y50_N14
+-- Location: LCCOMB_X69_Y50_N14
 \Score|circuit_gen:0:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:0:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1100110011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:0:hex_digit|Ndout[3]~6_combout\,
+	datab => \Score|circuit_gen:0:hex_digit|Ndout[3]~6_combout\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[3]~7_combout\);
 
--- Location: LCCOMB_X74_Y50_N0
+-- Location: LCCOMB_X69_Y50_N0
 \Score|circuit_gen:0:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & ((\Score|circuit_gen:0:out_reg|u2|q~q\ & (!\Score|circuit_gen:0:out_reg|u0|q~q\)) # (!\Score|circuit_gen:0:out_reg|u2|q~q\ & 
--- ((\Score|circuit_gen:0:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & (((!\Score|circuit_gen:0:out_reg|u3|q~q\)) # (!\Score|circuit_gen:0:out_reg|u0|q~q\)))
+-- ((\Score|circuit_gen:0:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & (((!\Score|circuit_gen:0:out_reg|u3|q~q\) # (!\Score|circuit_gen:0:out_reg|u0|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101011111010011",
+	lut_mask => "0010111101011101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:0:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:0:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:0:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datab => \Score|circuit_gen:0:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:0:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:0:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[4]~8_combout\);
 
--- Location: LCCOMB_X74_Y50_N2
+-- Location: LCCOMB_X69_Y50_N10
 \Score|circuit_gen:0:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:0:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1100110011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:0:hex_digit|Ndout[4]~8_combout\,
+	datab => \Score|circuit_gen:0:hex_digit|Ndout[4]~8_combout\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[4]~9_combout\);
 
--- Location: LCCOMB_X74_Y50_N4
+-- Location: LCCOMB_X69_Y50_N28
 \Score|circuit_gen:0:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:0:out_reg|u0|q~q\ & (!\Score|circuit_gen:0:out_reg|u1|q~q\ & ((\Score|circuit_gen:0:out_reg|u2|q~q\) # (!\Score|circuit_gen:0:out_reg|u3|q~q\)))) # 
@@ -12146,116 +12179,55 @@ PORT MAP (
 	datad => \Score|circuit_gen:0:out_reg|u2|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[5]~10_combout\);
 
--- Location: LCCOMB_X74_Y50_N20
+-- Location: LCCOMB_X69_Y50_N4
 \Score|circuit_gen:0:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:0:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111111001111",
+	lut_mask => "1100110011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	datab => \Score|circuit_gen:0:hex_digit|Ndout[5]~10_combout\,
-	datac => \Score|clear_reg|q~q\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[5]~11_combout\);
 
--- Location: LCCOMB_X74_Y50_N6
+-- Location: LCCOMB_X69_Y50_N22
 \Score|circuit_gen:0:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:0:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:0:out_reg|u2|q~q\ & (\Score|circuit_gen:0:out_reg|u3|q~q\ $ (((\Score|circuit_gen:0:out_reg|u1|q~q\))))) # (!\Score|circuit_gen:0:out_reg|u2|q~q\ & 
--- (\Score|circuit_gen:0:out_reg|u3|q~q\ & ((\Score|circuit_gen:0:out_reg|u0|q~q\) # (\Score|circuit_gen:0:out_reg|u1|q~q\))))
+-- \Score|circuit_gen:0:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:0:out_reg|u1|q~q\ & (\Score|circuit_gen:0:out_reg|u2|q~q\ $ (((\Score|circuit_gen:0:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:0:out_reg|u1|q~q\ & 
+-- (\Score|circuit_gen:0:out_reg|u3|q~q\ & ((\Score|circuit_gen:0:out_reg|u2|q~q\) # (\Score|circuit_gen:0:out_reg|u0|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011011001000",
+	lut_mask => "0111011010001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:0:out_reg|u2|q~q\,
-	datab => \Score|circuit_gen:0:out_reg|u3|q~q\,
+	dataa => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datab => \Score|circuit_gen:0:out_reg|u2|q~q\,
 	datac => \Score|circuit_gen:0:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:0:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:0:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[6]~12_combout\);
 
--- Location: LCCOMB_X74_Y50_N30
+-- Location: LCCOMB_X69_Y50_N6
 \Score|circuit_gen:0:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:0:hex_digit|Ndout[6]~13_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:0:hex_digit|Ndout[6]~12_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111100111111",
+	lut_mask => "0011001111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	datab => \Score|circuit_gen:0:hex_digit|Ndout[6]~12_combout\,
-	datac => \Score|clear_reg|q~q\,
+	datad => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:0:hex_digit|Ndout[6]~13_combout\);
 
--- Location: LCCOMB_X72_Y44_N30
-\Score|circuit_gen:1:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U1|Din_b\(3),
-	combout => \Score|circuit_gen:1:in_reg|u0|q~0_combout\);
-
--- Location: LCCOMB_X71_Y44_N4
-\Score|decoder|dout[1]~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|decoder|dout[1]~1_combout\ = (!\SSC|U1|Din_b\(2) & (!\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001000100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
-	combout => \Score|decoder|dout[1]~1_combout\);
-
--- Location: FF_X72_Y44_N31
-\Score|circuit_gen:1:in_reg|u0|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:1:in_reg|u0|q~0_combout\,
-	ena => \Score|decoder|dout[1]~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:1:in_reg|u0|q~q\);
-
--- Location: FF_X71_Y48_N21
-\Score|circuit_gen:1:out_reg|u0|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:1:in_reg|u0|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:1:out_reg|u0|q~q\);
-
--- Location: LCCOMB_X72_Y44_N10
+-- Location: LCCOMB_X72_Y44_N18
 \Score|circuit_gen:1:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:1:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
@@ -12269,7 +12241,23 @@ PORT MAP (
 	datac => \SSC|U1|Din_b\(5),
 	combout => \Score|circuit_gen:1:in_reg|u2|q~0_combout\);
 
--- Location: FF_X72_Y44_N11
+-- Location: LCCOMB_X71_Y44_N12
+\Score|decoder|dout[1]~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|decoder|dout[1]~1_combout\ = (\SSC|U1|Din_b\(0) & (!\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \Score|decoder|dout[1]~1_combout\);
+
+-- Location: FF_X72_Y44_N19
 \Score|circuit_gen:1:in_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12284,7 +12272,21 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:1:in_reg|u2|q~q\);
 
--- Location: FF_X71_Y44_N19
+-- Location: LCCOMB_X72_Y48_N10
+\Score|circuit_gen:1:out_reg|u2|q~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:out_reg|u2|q~feeder_combout\ = \Score|circuit_gen:1:in_reg|u2|q~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \Score|circuit_gen:1:in_reg|u2|q~q\,
+	combout => \Score|circuit_gen:1:out_reg|u2|q~feeder_combout\);
+
+-- Location: FF_X72_Y48_N11
 \Score|circuit_gen:1:out_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12293,14 +12295,71 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:1:in_reg|u2|q~q\,
-	sload => VCC,
+	d => \Score|circuit_gen:1:out_reg|u2|q~feeder_combout\,
 	ena => \Score|decoder|dout[6]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:1:out_reg|u2|q~q\);
 
--- Location: LCCOMB_X72_Y44_N12
+-- Location: LCCOMB_X72_Y44_N16
+\Score|circuit_gen:1:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U1|Din_b\(6),
+	combout => \Score|circuit_gen:1:in_reg|u3|q~0_combout\);
+
+-- Location: FF_X72_Y44_N17
+\Score|circuit_gen:1:in_reg|u3|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:1:in_reg|u3|q~0_combout\,
+	ena => \Score|decoder|dout[1]~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:1:in_reg|u3|q~q\);
+
+-- Location: LCCOMB_X72_Y48_N24
+\Score|circuit_gen:1:out_reg|u3|q~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\ = \Score|circuit_gen:1:in_reg|u3|q~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \Score|circuit_gen:1:in_reg|u3|q~q\,
+	combout => \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\);
+
+-- Location: FF_X72_Y48_N25
+\Score|circuit_gen:1:out_reg|u3|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:1:out_reg|u3|q~q\);
+
+-- Location: LCCOMB_X72_Y44_N4
 \Score|circuit_gen:1:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:1:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
@@ -12314,7 +12373,7 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(4),
 	combout => \Score|circuit_gen:1:in_reg|u1|q~0_combout\);
 
--- Location: FF_X72_Y44_N13
+-- Location: FF_X72_Y44_N5
 \Score|circuit_gen:1:in_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12329,7 +12388,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:1:in_reg|u1|q~q\);
 
--- Location: FF_X71_Y48_N19
+-- Location: FF_X72_Y48_N21
 \Score|circuit_gen:1:out_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12345,10 +12404,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:1:out_reg|u1|q~q\);
 
--- Location: LCCOMB_X72_Y44_N0
-\Score|circuit_gen:1:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X72_Y44_N14
+\Score|circuit_gen:1:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:1:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
+-- \Score|circuit_gen:1:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -12356,11 +12415,11 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \SSC|U1|Din_b\(6),
-	combout => \Score|circuit_gen:1:in_reg|u3|q~0_combout\);
+	datad => \SSC|U1|Din_b\(3),
+	combout => \Score|circuit_gen:1:in_reg|u0|q~0_combout\);
 
--- Location: FF_X72_Y44_N1
-\Score|circuit_gen:1:in_reg|u3|q\ : dffeas
+-- Location: FF_X72_Y44_N15
+\Score|circuit_gen:1:in_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -12368,28 +12427,14 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:1:in_reg|u3|q~0_combout\,
+	d => \Score|circuit_gen:1:in_reg|u0|q~0_combout\,
 	ena => \Score|decoder|dout[1]~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:1:in_reg|u3|q~q\);
+	q => \Score|circuit_gen:1:in_reg|u0|q~q\);
 
--- Location: LCCOMB_X71_Y48_N24
-\Score|circuit_gen:1:out_reg|u3|q~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\ = \Score|circuit_gen:1:in_reg|u3|q~q\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \Score|circuit_gen:1:in_reg|u3|q~q\,
-	combout => \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\);
-
--- Location: FF_X71_Y48_N25
-\Score|circuit_gen:1:out_reg|u3|q\ : dffeas
+-- Location: FF_X72_Y48_N31
+\Score|circuit_gen:1:out_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -12397,31 +12442,32 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:1:out_reg|u3|q~feeder_combout\,
+	asdata => \Score|circuit_gen:1:in_reg|u0|q~q\,
+	sload => VCC,
 	ena => \Score|decoder|dout[6]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:1:out_reg|u3|q~q\);
+	q => \Score|circuit_gen:1:out_reg|u0|q~q\);
 
--- Location: LCCOMB_X71_Y48_N6
+-- Location: LCCOMB_X72_Y48_N0
 \Score|circuit_gen:1:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:1:out_reg|u3|q~q\ & (\Score|circuit_gen:1:out_reg|u1|q~q\ & (\Score|circuit_gen:1:out_reg|u0|q~q\ $ (\Score|circuit_gen:1:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:1:out_reg|u3|q~q\ 
--- & (((!\Score|circuit_gen:1:out_reg|u2|q~q\))))
+-- \Score|circuit_gen:1:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:1:out_reg|u3|q~q\ & (\Score|circuit_gen:1:out_reg|u1|q~q\ & (\Score|circuit_gen:1:out_reg|u2|q~q\ $ (\Score|circuit_gen:1:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:1:out_reg|u3|q~q\ 
+-- & (!\Score|circuit_gen:1:out_reg|u2|q~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110000000110011",
+	lut_mask => "0101000110010001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u3|q~q\,
 	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:1:hex_digit|Ndout[0]~0_combout\);
 
--- Location: LCCOMB_X71_Y48_N0
+-- Location: LCCOMB_X72_Y48_N2
 \Score|circuit_gen:1:hex_digit|Ndout[0]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:1:hex_digit|Ndout[0]~1_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[0]~0_combout\) # (!\Score|clear_reg|q~q\)
@@ -12436,193 +12482,61 @@ PORT MAP (
 	datad => \Score|circuit_gen:1:hex_digit|Ndout[0]~0_combout\,
 	combout => \Score|circuit_gen:1:hex_digit|Ndout[0]~1_combout\);
 
--- Location: LCCOMB_X71_Y48_N10
+-- Location: LCCOMB_X72_Y48_N4
 \Score|circuit_gen:1:hex_digit|Ndout[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:1:out_reg|u0|q~q\ & (!\Score|circuit_gen:1:out_reg|u2|q~q\ & ((!\Score|circuit_gen:1:out_reg|u3|q~q\) # (!\Score|circuit_gen:1:out_reg|u1|q~q\)))) # 
--- (!\Score|circuit_gen:1:out_reg|u0|q~q\ & ((\Score|circuit_gen:1:out_reg|u1|q~q\ & (!\Score|circuit_gen:1:out_reg|u2|q~q\)) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & ((!\Score|circuit_gen:1:out_reg|u3|q~q\)))))
+-- \Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:1:out_reg|u2|q~q\ & (!\Score|circuit_gen:1:out_reg|u3|q~q\ & (!\Score|circuit_gen:1:out_reg|u1|q~q\ & !\Score|circuit_gen:1:out_reg|u0|q~q\))) # 
+-- (!\Score|circuit_gen:1:out_reg|u2|q~q\ & ((\Score|circuit_gen:1:out_reg|u1|q~q\ $ (\Score|circuit_gen:1:out_reg|u0|q~q\)) # (!\Score|circuit_gen:1:out_reg|u3|q~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001001000110111",
+	lut_mask => "0001010101010011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u3|q~q\,
 	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\);
 
--- Location: LCCOMB_X71_Y48_N12
+-- Location: LCCOMB_X72_Y48_N22
 \Score|circuit_gen:1:hex_digit|Ndout[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:1:hex_digit|Ndout[1]~3_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1100111111001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	datab => \Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\,
 	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:1:hex_digit|Ndout[1]~2_combout\,
 	combout => \Score|circuit_gen:1:hex_digit|Ndout[1]~3_combout\);
 
--- Location: LCCOMB_X71_Y48_N22
+-- Location: LCCOMB_X72_Y48_N16
 \Score|circuit_gen:1:hex_digit|Ndout[2]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:1:out_reg|u1|q~q\ & (((\Score|circuit_gen:1:out_reg|u2|q~q\) # (\Score|circuit_gen:1:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & 
+-- \Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:1:out_reg|u1|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\) # ((\Score|circuit_gen:1:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & 
 -- ((\Score|circuit_gen:1:out_reg|u0|q~q\ & (!\Score|circuit_gen:1:out_reg|u2|q~q\)) # (!\Score|circuit_gen:1:out_reg|u0|q~q\ & ((\Score|circuit_gen:1:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111011111000010",
+	lut_mask => "1110010111101100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u3|q~q\,
 	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\);
 
--- Location: LCCOMB_X71_Y48_N8
+-- Location: LCCOMB_X72_Y48_N18
 \Score|circuit_gen:1:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[2]~5_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101111101011111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\,
-	datac => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[2]~5_combout\);
-
--- Location: LCCOMB_X71_Y48_N26
-\Score|circuit_gen:1:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:1:out_reg|u2|q~q\ & ((\Score|circuit_gen:1:out_reg|u1|q~q\ & (!\Score|circuit_gen:1:out_reg|u0|q~q\)) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & 
--- ((!\Score|circuit_gen:1:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & (\Score|circuit_gen:1:out_reg|u0|q~q\ $ ((!\Score|circuit_gen:1:out_reg|u1|q~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110000101101101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\);
-
--- Location: LCCOMB_X71_Y48_N28
-\Score|circuit_gen:1:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\,
-	datac => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[3]~7_combout\);
-
--- Location: LCCOMB_X71_Y48_N30
-\Score|circuit_gen:1:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:1:out_reg|u1|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\ & (!\Score|circuit_gen:1:out_reg|u0|q~q\)) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & 
--- ((\Score|circuit_gen:1:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & (((!\Score|circuit_gen:1:out_reg|u3|q~q\)) # (!\Score|circuit_gen:1:out_reg|u0|q~q\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111010101001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\);
-
--- Location: LCCOMB_X71_Y48_N16
-\Score|circuit_gen:1:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\,
-	datac => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[4]~9_combout\);
-
--- Location: LCCOMB_X71_Y48_N18
-\Score|circuit_gen:1:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:1:out_reg|u0|q~q\ & (!\Score|circuit_gen:1:out_reg|u1|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\) # (!\Score|circuit_gen:1:out_reg|u3|q~q\)))) # 
--- (!\Score|circuit_gen:1:out_reg|u0|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\ & ((\Score|circuit_gen:1:out_reg|u3|q~q\))) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & ((!\Score|circuit_gen:1:out_reg|u3|q~q\) # (!\Score|circuit_gen:1:out_reg|u1|q~q\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100110100011011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\);
-
--- Location: LCCOMB_X71_Y48_N2
-\Score|circuit_gen:1:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[5]~11_combout\);
-
--- Location: LCCOMB_X71_Y48_N20
-\Score|circuit_gen:1:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:1:out_reg|u1|q~q\ & (\Score|circuit_gen:1:out_reg|u2|q~q\ $ (((\Score|circuit_gen:1:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & 
--- (\Score|circuit_gen:1:out_reg|u3|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\) # (\Score|circuit_gen:1:out_reg|u0|q~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111011010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:1:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:1:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:1:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
-	combout => \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\);
-
--- Location: LCCOMB_X71_Y48_N4
-\Score|circuit_gen:1:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:1:hex_digit|Ndout[6]~13_combout\ = (!\Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\) # (!\Score|clear_reg|q~q\)
+-- \Score|circuit_gen:1:hex_digit|Ndout[2]~5_combout\ = (!\Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -12631,41 +12545,173 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\,
+	datad => \Score|circuit_gen:1:hex_digit|Ndout[2]~4_combout\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[2]~5_combout\);
+
+-- Location: LCCOMB_X72_Y48_N28
+\Score|circuit_gen:1:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:1:out_reg|u2|q~q\ & ((\Score|circuit_gen:1:out_reg|u1|q~q\ & ((!\Score|circuit_gen:1:out_reg|u0|q~q\))) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & 
+-- (!\Score|circuit_gen:1:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & ((\Score|circuit_gen:1:out_reg|u1|q~q\ $ (!\Score|circuit_gen:1:out_reg|u0|q~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101001010100111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u0|q~q\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\);
+
+-- Location: LCCOMB_X72_Y48_N14
+\Score|circuit_gen:1:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:1:hex_digit|Ndout[3]~6_combout\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[3]~7_combout\);
+
+-- Location: LCCOMB_X72_Y48_N8
+\Score|circuit_gen:1:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:1:out_reg|u1|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\ & ((!\Score|circuit_gen:1:out_reg|u0|q~q\))) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:1:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:1:out_reg|u1|q~q\ & (((!\Score|circuit_gen:1:out_reg|u0|q~q\) # (!\Score|circuit_gen:1:out_reg|u3|q~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100001111101111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u0|q~q\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\);
+
+-- Location: LCCOMB_X72_Y48_N26
+\Score|circuit_gen:1:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \Score|circuit_gen:1:hex_digit|Ndout[4]~8_combout\,
+	datac => \Score|clear_reg|q~q\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[4]~9_combout\);
+
+-- Location: LCCOMB_X72_Y48_N20
+\Score|circuit_gen:1:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:1:out_reg|u0|q~q\ & (!\Score|circuit_gen:1:out_reg|u1|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\) # (!\Score|circuit_gen:1:out_reg|u3|q~q\)))) # 
+-- (!\Score|circuit_gen:1:out_reg|u0|q~q\ & ((\Score|circuit_gen:1:out_reg|u2|q~q\ & (\Score|circuit_gen:1:out_reg|u3|q~q\)) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & ((!\Score|circuit_gen:1:out_reg|u1|q~q\) # (!\Score|circuit_gen:1:out_reg|u3|q~q\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000101110011101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:1:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u0|q~q\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\);
+
+-- Location: LCCOMB_X69_Y50_N2
+\Score|circuit_gen:1:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \Score|circuit_gen:1:hex_digit|Ndout[5]~10_combout\,
+	datad => \Score|clear_reg|q~q\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[5]~11_combout\);
+
+-- Location: LCCOMB_X72_Y48_N30
+\Score|circuit_gen:1:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:1:out_reg|u2|q~q\ & (\Score|circuit_gen:1:out_reg|u1|q~q\ $ (((\Score|circuit_gen:1:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:1:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:1:out_reg|u3|q~q\ & ((\Score|circuit_gen:1:out_reg|u1|q~q\) # (\Score|circuit_gen:1:out_reg|u0|q~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111011010001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:1:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:1:out_reg|u1|q~q\,
+	datac => \Score|circuit_gen:1:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:1:out_reg|u3|q~q\,
+	combout => \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\);
+
+-- Location: LCCOMB_X72_Y48_N12
+\Score|circuit_gen:1:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:1:hex_digit|Ndout[6]~13_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101111101011111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:1:hex_digit|Ndout[6]~12_combout\,
+	datac => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:1:hex_digit|Ndout[6]~13_combout\);
 
--- Location: LCCOMB_X75_Y46_N6
-\Score|circuit_gen:2:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X74_Y44_N2
+\Score|circuit_gen:2:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:2:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
+-- \Score|circuit_gen:2:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U1|Din_b\(3),
-	combout => \Score|circuit_gen:2:in_reg|u0|q~0_combout\);
+	datad => \SSC|U1|Din_b\(5),
+	combout => \Score|circuit_gen:2:in_reg|u2|q~0_combout\);
 
--- Location: LCCOMB_X71_Y44_N22
+-- Location: LCCOMB_X71_Y44_N30
 \Score|decoder|dout[2]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|decoder|dout[2]~2_combout\ = (!\SSC|U1|Din_b\(2) & (\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(0)))
+-- \Score|decoder|dout[2]~2_combout\ = (!\SSC|U1|Din_b\(0) & (\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000001000100",
+	lut_mask => "0000000001010000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
 	combout => \Score|decoder|dout[2]~2_combout\);
 
--- Location: FF_X75_Y46_N7
-\Score|circuit_gen:2:in_reg|u0|q\ : dffeas
+-- Location: FF_X74_Y44_N3
+\Score|circuit_gen:2:in_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -12673,14 +12719,28 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:2:in_reg|u0|q~0_combout\,
+	d => \Score|circuit_gen:2:in_reg|u2|q~0_combout\,
 	ena => \Score|decoder|dout[2]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:2:in_reg|u0|q~q\);
+	q => \Score|circuit_gen:2:in_reg|u2|q~q\);
 
--- Location: FF_X76_Y46_N31
-\Score|circuit_gen:2:out_reg|u0|q\ : dffeas
+-- Location: LCCOMB_X74_Y47_N26
+\Score|circuit_gen:2:out_reg|u2|q~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\ = \Score|circuit_gen:2:in_reg|u2|q~q\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \Score|circuit_gen:2:in_reg|u2|q~q\,
+	combout => \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\);
+
+-- Location: FF_X74_Y47_N27
+\Score|circuit_gen:2:out_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -12688,28 +12748,27 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:2:in_reg|u0|q~q\,
-	sload => VCC,
+	d => \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\,
 	ena => \Score|decoder|dout[6]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:2:out_reg|u0|q~q\);
+	q => \Score|circuit_gen:2:out_reg|u2|q~q\);
 
--- Location: LCCOMB_X75_Y46_N4
+-- Location: LCCOMB_X74_Y44_N12
 \Score|circuit_gen:2:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U1|Din_b\(4),
+	datad => \SSC|U1|Din_b\(4),
 	combout => \Score|circuit_gen:2:in_reg|u1|q~0_combout\);
 
--- Location: FF_X75_Y46_N5
+-- Location: FF_X74_Y44_N13
 \Score|circuit_gen:2:in_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12724,7 +12783,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:2:in_reg|u1|q~q\);
 
--- Location: FF_X76_Y46_N29
+-- Location: FF_X74_Y47_N29
 \Score|circuit_gen:2:out_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12740,10 +12799,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:2:out_reg|u1|q~q\);
 
--- Location: LCCOMB_X75_Y46_N10
-\Score|circuit_gen:2:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X74_Y44_N14
+\Score|circuit_gen:2:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:2:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
+-- \Score|circuit_gen:2:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -12751,11 +12810,11 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \SSC|U1|Din_b\(5),
-	combout => \Score|circuit_gen:2:in_reg|u2|q~0_combout\);
+	datad => \SSC|U1|Din_b\(3),
+	combout => \Score|circuit_gen:2:in_reg|u0|q~0_combout\);
 
--- Location: FF_X75_Y46_N11
-\Score|circuit_gen:2:in_reg|u2|q\ : dffeas
+-- Location: FF_X74_Y44_N15
+\Score|circuit_gen:2:in_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -12763,28 +12822,14 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:2:in_reg|u2|q~0_combout\,
+	d => \Score|circuit_gen:2:in_reg|u0|q~0_combout\,
 	ena => \Score|decoder|dout[2]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:2:in_reg|u2|q~q\);
+	q => \Score|circuit_gen:2:in_reg|u0|q~q\);
 
--- Location: LCCOMB_X76_Y46_N26
-\Score|circuit_gen:2:out_reg|u2|q~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\ = \Score|circuit_gen:2:in_reg|u2|q~q\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \Score|circuit_gen:2:in_reg|u2|q~q\,
-	combout => \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\);
-
--- Location: FF_X76_Y46_N27
-\Score|circuit_gen:2:out_reg|u2|q\ : dffeas
+-- Location: FF_X74_Y47_N31
+\Score|circuit_gen:2:out_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -12792,27 +12837,28 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:2:out_reg|u2|q~feeder_combout\,
+	asdata => \Score|circuit_gen:2:in_reg|u0|q~q\,
+	sload => VCC,
 	ena => \Score|decoder|dout[6]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:2:out_reg|u2|q~q\);
+	q => \Score|circuit_gen:2:out_reg|u0|q~q\);
 
--- Location: LCCOMB_X75_Y46_N24
+-- Location: LCCOMB_X74_Y44_N16
 \Score|circuit_gen:2:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U1|Din_b\(6),
+	datad => \SSC|U1|Din_b\(6),
 	combout => \Score|circuit_gen:2:in_reg|u3|q~0_combout\);
 
--- Location: FF_X75_Y46_N25
+-- Location: FF_X74_Y44_N17
 \Score|circuit_gen:2:in_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12827,7 +12873,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:2:in_reg|u3|q~q\);
 
--- Location: LCCOMB_X76_Y46_N24
+-- Location: LCCOMB_X74_Y47_N24
 \Score|circuit_gen:2:out_reg|u3|q~feeder\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:out_reg|u3|q~feeder_combout\ = \Score|circuit_gen:2:in_reg|u3|q~q\
@@ -12841,7 +12887,7 @@ PORT MAP (
 	datad => \Score|circuit_gen:2:in_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:out_reg|u3|q~feeder_combout\);
 
--- Location: FF_X76_Y46_N25
+-- Location: FF_X74_Y47_N25
 \Score|circuit_gen:2:out_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -12856,172 +12902,172 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:2:out_reg|u3|q~q\);
 
--- Location: LCCOMB_X76_Y46_N8
+-- Location: LCCOMB_X74_Y47_N0
 \Score|circuit_gen:2:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:2:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:2:out_reg|u3|q~q\ & (\Score|circuit_gen:2:out_reg|u1|q~q\ & (\Score|circuit_gen:2:out_reg|u0|q~q\ $ (\Score|circuit_gen:2:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:2:out_reg|u3|q~q\ 
--- & (((!\Score|circuit_gen:2:out_reg|u2|q~q\))))
+-- \Score|circuit_gen:2:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:2:out_reg|u3|q~q\ & (\Score|circuit_gen:2:out_reg|u1|q~q\ & (\Score|circuit_gen:2:out_reg|u2|q~q\ $ (\Score|circuit_gen:2:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:2:out_reg|u3|q~q\ 
+-- & (!\Score|circuit_gen:2:out_reg|u2|q~q\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100100000001111",
+	lut_mask => "0100100001010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:2:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:2:out_reg|u2|q~q\,
 	datab => \Score|circuit_gen:2:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:2:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:2:out_reg|u0|q~q\,
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[0]~0_combout\);
 
--- Location: LCCOMB_X76_Y46_N10
+-- Location: LCCOMB_X74_Y47_N18
 \Score|circuit_gen:2:hex_digit|Ndout[0]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[0]~1_combout\ = (\Score|circuit_gen:2:hex_digit|Ndout[0]~0_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111110011",
+	lut_mask => "1111111101010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
-	datac => \Score|circuit_gen:2:hex_digit|Ndout[0]~0_combout\,
+	dataa => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:2:hex_digit|Ndout[0]~0_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[0]~1_combout\);
 
--- Location: LCCOMB_X76_Y46_N12
+-- Location: LCCOMB_X74_Y47_N12
 \Score|circuit_gen:2:hex_digit|Ndout[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:2:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:2:out_reg|u0|q~q\ & (!\Score|circuit_gen:2:out_reg|u2|q~q\ & ((!\Score|circuit_gen:2:out_reg|u3|q~q\) # (!\Score|circuit_gen:2:out_reg|u1|q~q\)))) # 
--- (!\Score|circuit_gen:2:out_reg|u0|q~q\ & ((\Score|circuit_gen:2:out_reg|u1|q~q\ & (!\Score|circuit_gen:2:out_reg|u2|q~q\)) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & ((!\Score|circuit_gen:2:out_reg|u3|q~q\)))))
+-- \Score|circuit_gen:2:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:2:out_reg|u2|q~q\ & (!\Score|circuit_gen:2:out_reg|u1|q~q\ & (!\Score|circuit_gen:2:out_reg|u0|q~q\ & !\Score|circuit_gen:2:out_reg|u3|q~q\))) # 
+-- (!\Score|circuit_gen:2:out_reg|u2|q~q\ & ((\Score|circuit_gen:2:out_reg|u1|q~q\ $ (\Score|circuit_gen:2:out_reg|u0|q~q\)) # (!\Score|circuit_gen:2:out_reg|u3|q~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000011000011111",
+	lut_mask => "0001010001010111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:2:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:2:out_reg|u2|q~q\,
 	datab => \Score|circuit_gen:2:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:2:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:2:out_reg|u0|q~q\,
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[1]~2_combout\);
 
--- Location: LCCOMB_X76_Y46_N22
+-- Location: LCCOMB_X74_Y47_N22
 \Score|circuit_gen:2:hex_digit|Ndout[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[1]~3_combout\ = (\Score|circuit_gen:2:hex_digit|Ndout[1]~2_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100110011",
+	lut_mask => "1111111101010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
+	dataa => \Score|clear_reg|q~q\,
 	datad => \Score|circuit_gen:2:hex_digit|Ndout[1]~2_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[1]~3_combout\);
 
--- Location: LCCOMB_X76_Y46_N16
+-- Location: LCCOMB_X74_Y47_N16
 \Score|circuit_gen:2:hex_digit|Ndout[2]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:2:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:2:out_reg|u1|q~q\ & (((\Score|circuit_gen:2:out_reg|u2|q~q\) # (\Score|circuit_gen:2:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & 
+-- \Score|circuit_gen:2:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:2:out_reg|u1|q~q\ & ((\Score|circuit_gen:2:out_reg|u2|q~q\) # ((\Score|circuit_gen:2:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & 
 -- ((\Score|circuit_gen:2:out_reg|u0|q~q\ & (!\Score|circuit_gen:2:out_reg|u2|q~q\)) # (!\Score|circuit_gen:2:out_reg|u0|q~q\ & ((\Score|circuit_gen:2:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1101111111000010",
+	lut_mask => "1101111110011000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:2:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:2:out_reg|u2|q~q\,
 	datab => \Score|circuit_gen:2:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:2:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:2:out_reg|u0|q~q\,
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[2]~4_combout\);
 
--- Location: LCCOMB_X76_Y46_N2
+-- Location: LCCOMB_X74_Y47_N2
 \Score|circuit_gen:2:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[2]~5_combout\ = (!\Score|circuit_gen:2:hex_digit|Ndout[2]~4_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011001111111111",
+	lut_mask => "0101010111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
+	dataa => \Score|clear_reg|q~q\,
 	datad => \Score|circuit_gen:2:hex_digit|Ndout[2]~4_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[2]~5_combout\);
 
--- Location: LCCOMB_X76_Y46_N4
+-- Location: LCCOMB_X74_Y47_N20
 \Score|circuit_gen:2:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:2:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:2:out_reg|u1|q~q\ & (\Score|circuit_gen:2:out_reg|u0|q~q\ $ ((\Score|circuit_gen:2:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:2:out_reg|u2|q~q\ & ((!\Score|circuit_gen:2:out_reg|u3|q~q\))) # (!\Score|circuit_gen:2:out_reg|u2|q~q\ & (!\Score|circuit_gen:2:out_reg|u0|q~q\))))
+-- \Score|circuit_gen:2:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:2:out_reg|u2|q~q\ & ((\Score|circuit_gen:2:out_reg|u1|q~q\ & (!\Score|circuit_gen:2:out_reg|u0|q~q\)) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & 
+-- ((!\Score|circuit_gen:2:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:2:out_reg|u2|q~q\ & (\Score|circuit_gen:2:out_reg|u1|q~q\ $ ((!\Score|circuit_gen:2:out_reg|u0|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100100101111001",
+	lut_mask => "0100100101101011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:2:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:2:out_reg|u2|q~q\,
 	datab => \Score|circuit_gen:2:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:2:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:2:out_reg|u0|q~q\,
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[3]~6_combout\);
 
--- Location: LCCOMB_X76_Y46_N14
+-- Location: LCCOMB_X74_Y47_N14
 \Score|circuit_gen:2:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:2:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111110011",
+	lut_mask => "1111111101010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
-	datac => \Score|circuit_gen:2:hex_digit|Ndout[3]~6_combout\,
+	dataa => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:2:hex_digit|Ndout[3]~6_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[3]~7_combout\);
 
--- Location: LCCOMB_X76_Y46_N0
+-- Location: LCCOMB_X74_Y47_N8
 \Score|circuit_gen:2:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:2:out_reg|u1|q~q\ & ((\Score|circuit_gen:2:out_reg|u2|q~q\ & (!\Score|circuit_gen:2:out_reg|u0|q~q\)) # (!\Score|circuit_gen:2:out_reg|u2|q~q\ & 
--- ((\Score|circuit_gen:2:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & (((!\Score|circuit_gen:2:out_reg|u3|q~q\)) # (!\Score|circuit_gen:2:out_reg|u0|q~q\)))
+-- ((\Score|circuit_gen:2:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:2:out_reg|u1|q~q\ & (((!\Score|circuit_gen:2:out_reg|u3|q~q\) # (!\Score|circuit_gen:2:out_reg|u0|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101110101110011",
+	lut_mask => "0100111100111011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:2:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:2:out_reg|u2|q~q\,
 	datab => \Score|circuit_gen:2:out_reg|u1|q~q\,
-	datac => \Score|circuit_gen:2:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:2:out_reg|u0|q~q\,
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[4]~8_combout\);
 
--- Location: LCCOMB_X76_Y46_N18
+-- Location: LCCOMB_X74_Y47_N10
 \Score|circuit_gen:2:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:2:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100110011",
+	lut_mask => "1111010111110101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:2:hex_digit|Ndout[4]~8_combout\,
+	dataa => \Score|clear_reg|q~q\,
+	datac => \Score|circuit_gen:2:hex_digit|Ndout[4]~8_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[4]~9_combout\);
 
--- Location: LCCOMB_X76_Y46_N28
+-- Location: LCCOMB_X74_Y47_N28
 \Score|circuit_gen:2:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:2:out_reg|u0|q~q\ & (!\Score|circuit_gen:2:out_reg|u1|q~q\ & ((\Score|circuit_gen:2:out_reg|u2|q~q\) # (!\Score|circuit_gen:2:out_reg|u3|q~q\)))) # 
@@ -13039,22 +13085,22 @@ PORT MAP (
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[5]~10_combout\);
 
--- Location: LCCOMB_X76_Y46_N20
+-- Location: LCCOMB_X77_Y43_N8
 \Score|circuit_gen:2:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:2:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111110011",
+	lut_mask => "1111111101010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
-	datac => \Score|circuit_gen:2:hex_digit|Ndout[5]~10_combout\,
+	dataa => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:2:hex_digit|Ndout[5]~10_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[5]~11_combout\);
 
--- Location: LCCOMB_X76_Y46_N30
+-- Location: LCCOMB_X74_Y47_N30
 \Score|circuit_gen:2:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:2:out_reg|u2|q~q\ & (\Score|circuit_gen:2:out_reg|u1|q~q\ $ (((\Score|circuit_gen:2:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:2:out_reg|u2|q~q\ & 
@@ -13072,83 +13118,22 @@ PORT MAP (
 	datad => \Score|circuit_gen:2:out_reg|u3|q~q\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[6]~12_combout\);
 
--- Location: LCCOMB_X76_Y46_N6
+-- Location: LCCOMB_X74_Y47_N4
 \Score|circuit_gen:2:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:2:hex_digit|Ndout[6]~13_combout\ = (!\Score|circuit_gen:2:hex_digit|Ndout[6]~12_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111100111111",
+	lut_mask => "0101111101011111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|clear_reg|q~q\,
+	dataa => \Score|clear_reg|q~q\,
 	datac => \Score|circuit_gen:2:hex_digit|Ndout[6]~12_combout\,
 	combout => \Score|circuit_gen:2:hex_digit|Ndout[6]~13_combout\);
 
--- Location: LCCOMB_X75_Y43_N30
-\Score|circuit_gen:3:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \SSC|U1|Din_b\(6),
-	combout => \Score|circuit_gen:3:in_reg|u3|q~0_combout\);
-
--- Location: LCCOMB_X71_Y44_N8
-\Score|decoder|dout[3]~3\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|decoder|dout[3]~3_combout\ = (!\SSC|U1|Din_b\(2) & (\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100010000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
-	combout => \Score|decoder|dout[3]~3_combout\);
-
--- Location: FF_X75_Y43_N31
-\Score|circuit_gen:3:in_reg|u3|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:3:in_reg|u3|q~0_combout\,
-	ena => \Score|decoder|dout[3]~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:3:in_reg|u3|q~q\);
-
--- Location: FF_X75_Y43_N11
-\Score|circuit_gen:3:out_reg|u3|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:3:in_reg|u3|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:3:out_reg|u3|q~q\);
-
--- Location: LCCOMB_X75_Y43_N14
+-- Location: LCCOMB_X77_Y41_N22
 \Score|circuit_gen:3:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:3:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
@@ -13162,7 +13147,23 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(5),
 	combout => \Score|circuit_gen:3:in_reg|u2|q~0_combout\);
 
--- Location: FF_X75_Y43_N15
+-- Location: LCCOMB_X71_Y44_N8
+\Score|decoder|dout[3]~3\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|decoder|dout[3]~3_combout\ = (\SSC|U1|Din_b\(0) & (\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \Score|decoder|dout[3]~3_combout\);
+
+-- Location: FF_X77_Y41_N23
 \Score|circuit_gen:3:in_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13177,7 +13178,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:3:in_reg|u2|q~q\);
 
--- Location: FF_X75_Y43_N29
+-- Location: FF_X77_Y41_N13
 \Score|circuit_gen:3:out_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13193,22 +13194,22 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:3:out_reg|u2|q~q\);
 
--- Location: LCCOMB_X75_Y43_N8
-\Score|circuit_gen:3:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X77_Y41_N30
+\Score|circuit_gen:3:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:3:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
+-- \Score|circuit_gen:3:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U1|Din_b\(4),
-	combout => \Score|circuit_gen:3:in_reg|u1|q~0_combout\);
+	datad => \SSC|U1|Din_b\(6),
+	combout => \Score|circuit_gen:3:in_reg|u3|q~0_combout\);
 
--- Location: FF_X75_Y43_N9
-\Score|circuit_gen:3:in_reg|u1|q\ : dffeas
+-- Location: FF_X77_Y41_N31
+\Score|circuit_gen:3:in_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -13216,14 +13217,14 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:3:in_reg|u1|q~0_combout\,
+	d => \Score|circuit_gen:3:in_reg|u3|q~0_combout\,
 	ena => \Score|decoder|dout[3]~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:3:in_reg|u1|q~q\);
+	q => \Score|circuit_gen:3:in_reg|u3|q~q\);
 
--- Location: FF_X75_Y43_N19
-\Score|circuit_gen:3:out_reg|u1|q\ : dffeas
+-- Location: FF_X77_Y41_N25
+\Score|circuit_gen:3:out_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -13231,28 +13232,28 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:3:in_reg|u1|q~q\,
+	asdata => \Score|circuit_gen:3:in_reg|u3|q~q\,
 	sload => VCC,
 	ena => \Score|decoder|dout[6]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \Score|circuit_gen:3:out_reg|u1|q~q\);
+	q => \Score|circuit_gen:3:out_reg|u3|q~q\);
 
--- Location: LCCOMB_X75_Y43_N4
+-- Location: LCCOMB_X77_Y41_N4
 \Score|circuit_gen:3:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:3:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U1|Din_b\(3),
+	datad => \SSC|U1|Din_b\(3),
 	combout => \Score|circuit_gen:3:in_reg|u0|q~0_combout\);
 
--- Location: FF_X75_Y43_N5
+-- Location: FF_X77_Y41_N5
 \Score|circuit_gen:3:in_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13267,7 +13268,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:3:in_reg|u0|q~q\);
 
--- Location: FF_X75_Y43_N17
+-- Location: FF_X77_Y41_N7
 \Score|circuit_gen:3:out_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13283,7 +13284,52 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:3:out_reg|u0|q~q\);
 
--- Location: LCCOMB_X75_Y43_N26
+-- Location: LCCOMB_X77_Y41_N26
+\Score|circuit_gen:3:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \SSC|U1|Din_b\(4),
+	combout => \Score|circuit_gen:3:in_reg|u1|q~0_combout\);
+
+-- Location: FF_X77_Y41_N27
+\Score|circuit_gen:3:in_reg|u1|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:3:in_reg|u1|q~0_combout\,
+	ena => \Score|decoder|dout[3]~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:3:in_reg|u1|q~q\);
+
+-- Location: FF_X77_Y41_N11
+\Score|circuit_gen:3:out_reg|u1|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:3:in_reg|u1|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:3:out_reg|u1|q~q\);
+
+-- Location: LCCOMB_X77_Y41_N2
 \Score|circuit_gen:3:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:3:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:3:out_reg|u3|q~q\ & (\Score|circuit_gen:3:out_reg|u1|q~q\ & (\Score|circuit_gen:3:out_reg|u2|q~q\ $ (\Score|circuit_gen:3:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:3:out_reg|u3|q~q\ 
@@ -13291,218 +13337,86 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000110010001",
+	lut_mask => "0101100100010001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:3:hex_digit|Ndout[0]~0_combout\);
 
--- Location: LCCOMB_X75_Y43_N2
+-- Location: LCCOMB_X77_Y41_N8
 \Score|circuit_gen:3:hex_digit|Ndout[0]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:3:hex_digit|Ndout[0]~1_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[0]~0_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000011111111",
+	lut_mask => "1111111100001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|circuit_gen:3:hex_digit|Ndout[0]~0_combout\,
-	datad => \Score|clear_reg|q~q\,
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:3:hex_digit|Ndout[0]~0_combout\,
 	combout => \Score|circuit_gen:3:hex_digit|Ndout[0]~1_combout\);
 
--- Location: LCCOMB_X75_Y43_N22
+-- Location: LCCOMB_X77_Y41_N20
 \Score|circuit_gen:3:hex_digit|Ndout[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:3:out_reg|u3|q~q\ & (!\Score|circuit_gen:3:out_reg|u2|q~q\ & (\Score|circuit_gen:3:out_reg|u1|q~q\ $ (\Score|circuit_gen:3:out_reg|u0|q~q\)))) # 
--- (!\Score|circuit_gen:3:out_reg|u3|q~q\ & (((!\Score|circuit_gen:3:out_reg|u1|q~q\ & !\Score|circuit_gen:3:out_reg|u0|q~q\)) # (!\Score|circuit_gen:3:out_reg|u2|q~q\)))
+-- \Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:3:out_reg|u2|q~q\ & (!\Score|circuit_gen:3:out_reg|u3|q~q\ & (!\Score|circuit_gen:3:out_reg|u0|q~q\ & !\Score|circuit_gen:3:out_reg|u1|q~q\))) # 
+-- (!\Score|circuit_gen:3:out_reg|u2|q~q\ & ((\Score|circuit_gen:3:out_reg|u0|q~q\ $ (\Score|circuit_gen:3:out_reg|u1|q~q\)) # (!\Score|circuit_gen:3:out_reg|u3|q~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001001100110101",
+	lut_mask => "0001010101010011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\);
 
--- Location: LCCOMB_X75_Y43_N0
+-- Location: LCCOMB_X77_Y41_N28
 \Score|circuit_gen:3:hex_digit|Ndout[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:3:hex_digit|Ndout[1]~3_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000011111111",
+	lut_mask => "1111111100001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\,
-	datad => \Score|clear_reg|q~q\,
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:3:hex_digit|Ndout[1]~2_combout\,
 	combout => \Score|circuit_gen:3:hex_digit|Ndout[1]~3_combout\);
 
--- Location: LCCOMB_X75_Y43_N12
+-- Location: LCCOMB_X77_Y41_N0
 \Score|circuit_gen:3:hex_digit|Ndout[2]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:3:out_reg|u1|q~q\ & ((\Score|circuit_gen:3:out_reg|u3|q~q\) # ((\Score|circuit_gen:3:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:3:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:3:out_reg|u0|q~q\ & ((!\Score|circuit_gen:3:out_reg|u2|q~q\))) # (!\Score|circuit_gen:3:out_reg|u0|q~q\ & (\Score|circuit_gen:3:out_reg|u3|q~q\))))
+-- \Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:3:out_reg|u1|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\) # ((\Score|circuit_gen:3:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:3:out_reg|u1|q~q\ & 
+-- ((\Score|circuit_gen:3:out_reg|u0|q~q\ & (!\Score|circuit_gen:3:out_reg|u2|q~q\)) # (!\Score|circuit_gen:3:out_reg|u0|q~q\ & ((\Score|circuit_gen:3:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110001111101010",
+	lut_mask => "1110111001011100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:3:out_reg|u0|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\);
-
--- Location: LCCOMB_X75_Y43_N6
-\Score|circuit_gen:3:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[2]~5_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101010111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\,
-	datad => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[2]~5_combout\);
-
--- Location: LCCOMB_X75_Y43_N10
-\Score|circuit_gen:3:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:3:out_reg|u1|q~q\ & (\Score|circuit_gen:3:out_reg|u2|q~q\ $ (((\Score|circuit_gen:3:out_reg|u0|q~q\))))) # (!\Score|circuit_gen:3:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:3:out_reg|u2|q~q\ & (!\Score|circuit_gen:3:out_reg|u3|q~q\)) # (!\Score|circuit_gen:3:out_reg|u2|q~q\ & ((!\Score|circuit_gen:3:out_reg|u0|q~q\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010011010011101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u2|q~q\,
-	datac => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:3:out_reg|u0|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\);
-
--- Location: LCCOMB_X75_Y43_N24
-\Score|circuit_gen:3:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\,
-	datad => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[3]~7_combout\);
-
--- Location: LCCOMB_X75_Y43_N28
-\Score|circuit_gen:3:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:3:out_reg|u1|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\ & ((!\Score|circuit_gen:3:out_reg|u0|q~q\))) # (!\Score|circuit_gen:3:out_reg|u2|q~q\ & 
--- (\Score|circuit_gen:3:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:3:out_reg|u1|q~q\ & (((!\Score|circuit_gen:3:out_reg|u0|q~q\)) # (!\Score|circuit_gen:3:out_reg|u3|q~q\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011101001110111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u0|q~q\,
-	datac => \Score|circuit_gen:3:out_reg|u2|q~q\,
-	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\);
-
--- Location: LCCOMB_X74_Y43_N8
-\Score|circuit_gen:3:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\,
-	datad => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[4]~9_combout\);
-
--- Location: LCCOMB_X75_Y43_N18
-\Score|circuit_gen:3:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:3:out_reg|u0|q~q\ & (!\Score|circuit_gen:3:out_reg|u1|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\) # (!\Score|circuit_gen:3:out_reg|u3|q~q\)))) # 
--- (!\Score|circuit_gen:3:out_reg|u0|q~q\ & ((\Score|circuit_gen:3:out_reg|u3|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\) # (!\Score|circuit_gen:3:out_reg|u1|q~q\))) # (!\Score|circuit_gen:3:out_reg|u3|q~q\ & ((!\Score|circuit_gen:3:out_reg|u2|q~q\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010111000010111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u0|q~q\,
-	datac => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:3:out_reg|u2|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\);
-
--- Location: LCCOMB_X74_Y43_N10
-\Score|circuit_gen:3:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\,
-	datad => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[5]~11_combout\);
-
--- Location: LCCOMB_X75_Y43_N16
-\Score|circuit_gen:3:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:3:out_reg|u2|q~q\ & (\Score|circuit_gen:3:out_reg|u3|q~q\ $ (((\Score|circuit_gen:3:out_reg|u1|q~q\))))) # (!\Score|circuit_gen:3:out_reg|u2|q~q\ & 
--- (\Score|circuit_gen:3:out_reg|u3|q~q\ & ((\Score|circuit_gen:3:out_reg|u0|q~q\) # (\Score|circuit_gen:3:out_reg|u1|q~q\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110011010101000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:3:out_reg|u3|q~q\,
-	datab => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u3|q~q\,
 	datac => \Score|circuit_gen:3:out_reg|u0|q~q\,
 	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
-	combout => \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\);
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\);
 
--- Location: LCCOMB_X75_Y43_N20
-\Score|circuit_gen:3:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X77_Y41_N18
+\Score|circuit_gen:3:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:3:hex_digit|Ndout[6]~13_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\)
+-- \Score|circuit_gen:3:hex_digit|Ndout[2]~5_combout\ = (!\Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -13510,72 +13424,143 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\,
-	datad => \Score|clear_reg|q~q\,
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:3:hex_digit|Ndout[2]~4_combout\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[2]~5_combout\);
+
+-- Location: LCCOMB_X77_Y41_N24
+\Score|circuit_gen:3:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:3:out_reg|u2|q~q\ & ((\Score|circuit_gen:3:out_reg|u1|q~q\ & (!\Score|circuit_gen:3:out_reg|u0|q~q\)) # (!\Score|circuit_gen:3:out_reg|u1|q~q\ & 
+-- ((!\Score|circuit_gen:3:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:3:out_reg|u2|q~q\ & (\Score|circuit_gen:3:out_reg|u0|q~q\ $ (((!\Score|circuit_gen:3:out_reg|u1|q~q\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110011000011011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	datac => \Score|circuit_gen:3:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\);
+
+-- Location: LCCOMB_X77_Y43_N2
+\Score|circuit_gen:3:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \Score|circuit_gen:3:hex_digit|Ndout[3]~6_combout\,
+	datac => \Score|clear_reg|q~q\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[3]~7_combout\);
+
+-- Location: LCCOMB_X77_Y41_N12
+\Score|circuit_gen:3:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:3:out_reg|u1|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\ & (!\Score|circuit_gen:3:out_reg|u0|q~q\)) # (!\Score|circuit_gen:3:out_reg|u2|q~q\ & 
+-- ((\Score|circuit_gen:3:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:3:out_reg|u1|q~q\ & (((!\Score|circuit_gen:3:out_reg|u3|q~q\)) # (!\Score|circuit_gen:3:out_reg|u0|q~q\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101110001110111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\);
+
+-- Location: LCCOMB_X77_Y41_N14
+\Score|circuit_gen:3:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \Score|circuit_gen:3:hex_digit|Ndout[4]~8_combout\,
+	datac => \Score|clear_reg|q~q\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[4]~9_combout\);
+
+-- Location: LCCOMB_X77_Y41_N10
+\Score|circuit_gen:3:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:3:out_reg|u0|q~q\ & (!\Score|circuit_gen:3:out_reg|u1|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\) # (!\Score|circuit_gen:3:out_reg|u3|q~q\)))) # 
+-- (!\Score|circuit_gen:3:out_reg|u0|q~q\ & ((\Score|circuit_gen:3:out_reg|u3|q~q\ & ((\Score|circuit_gen:3:out_reg|u2|q~q\) # (!\Score|circuit_gen:3:out_reg|u1|q~q\))) # (!\Score|circuit_gen:3:out_reg|u3|q~q\ & ((!\Score|circuit_gen:3:out_reg|u2|q~q\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100111000010111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:3:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\);
+
+-- Location: LCCOMB_X77_Y41_N16
+\Score|circuit_gen:3:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:3:hex_digit|Ndout[5]~10_combout\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[5]~11_combout\);
+
+-- Location: LCCOMB_X77_Y41_N6
+\Score|circuit_gen:3:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:3:out_reg|u2|q~q\ & (\Score|circuit_gen:3:out_reg|u3|q~q\ $ (((\Score|circuit_gen:3:out_reg|u1|q~q\))))) # (!\Score|circuit_gen:3:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:3:out_reg|u3|q~q\ & ((\Score|circuit_gen:3:out_reg|u0|q~q\) # (\Score|circuit_gen:3:out_reg|u1|q~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110011011001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:3:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:3:out_reg|u3|q~q\,
+	datac => \Score|circuit_gen:3:out_reg|u0|q~q\,
+	datad => \Score|circuit_gen:3:out_reg|u1|q~q\,
+	combout => \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\);
+
+-- Location: LCCOMB_X77_Y43_N4
+\Score|circuit_gen:3:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:3:hex_digit|Ndout[6]~13_combout\ = (!\Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:3:hex_digit|Ndout[6]~12_combout\,
 	combout => \Score|circuit_gen:3:hex_digit|Ndout[6]~13_combout\);
 
--- Location: LCCOMB_X77_Y43_N26
-\Score|circuit_gen:4:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:4:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U1|Din_b\(5),
-	combout => \Score|circuit_gen:4:in_reg|u2|q~0_combout\);
-
--- Location: LCCOMB_X71_Y44_N18
-\Score|decoder|dout[4]~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|decoder|dout[4]~4_combout\ = (\SSC|U1|Din_b\(2) & (!\SSC|U1|Din_b\(1) & !\SSC|U1|Din_b\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
-	combout => \Score|decoder|dout[4]~4_combout\);
-
--- Location: FF_X77_Y43_N27
-\Score|circuit_gen:4:in_reg|u2|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:4:in_reg|u2|q~0_combout\,
-	ena => \Score|decoder|dout[4]~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:4:in_reg|u2|q~q\);
-
--- Location: FF_X77_Y43_N9
-\Score|circuit_gen:4:out_reg|u2|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:4:in_reg|u2|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:4:out_reg|u2|q~q\);
-
--- Location: LCCOMB_X75_Y46_N8
+-- Location: LCCOMB_X77_Y40_N20
 \Score|circuit_gen:4:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:4:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
@@ -13589,7 +13574,23 @@ PORT MAP (
 	datac => \SSC|U1|Din_b\(6),
 	combout => \Score|circuit_gen:4:in_reg|u3|q~0_combout\);
 
--- Location: FF_X75_Y46_N9
+-- Location: LCCOMB_X71_Y44_N16
+\Score|decoder|dout[4]~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|decoder|dout[4]~4_combout\ = (!\SSC|U1|Din_b\(0) & (!\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000010100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
+	combout => \Score|decoder|dout[4]~4_combout\);
+
+-- Location: FF_X77_Y40_N21
 \Score|circuit_gen:4:in_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13604,7 +13605,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:4:in_reg|u3|q~q\);
 
--- Location: FF_X77_Y43_N23
+-- Location: FF_X77_Y40_N27
 \Score|circuit_gen:4:out_reg|u3|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13620,66 +13621,21 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:4:out_reg|u3|q~q\);
 
--- Location: LCCOMB_X75_Y46_N2
-\Score|circuit_gen:4:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:4:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \SSC|U1|Din_b\(4),
-	combout => \Score|circuit_gen:4:in_reg|u1|q~0_combout\);
-
--- Location: FF_X75_Y46_N3
-\Score|circuit_gen:4:in_reg|u1|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:4:in_reg|u1|q~0_combout\,
-	ena => \Score|decoder|dout[4]~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:4:in_reg|u1|q~q\);
-
--- Location: FF_X77_Y43_N1
-\Score|circuit_gen:4:out_reg|u1|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:4:in_reg|u1|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:4:out_reg|u1|q~q\);
-
--- Location: LCCOMB_X77_Y43_N14
+-- Location: LCCOMB_X77_Y40_N22
 \Score|circuit_gen:4:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:4:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SSC|U1|Din_b\(3),
+	datad => \SSC|U1|Din_b\(3),
 	combout => \Score|circuit_gen:4:in_reg|u0|q~0_combout\);
 
--- Location: FF_X77_Y43_N15
+-- Location: FF_X77_Y40_N23
 \Score|circuit_gen:4:in_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13694,7 +13650,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:4:in_reg|u0|q~q\);
 
--- Location: FF_X77_Y43_N25
+-- Location: FF_X77_Y40_N13
 \Score|circuit_gen:4:out_reg|u0|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13710,25 +13666,115 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:4:out_reg|u0|q~q\);
 
--- Location: LCCOMB_X77_Y43_N4
-\Score|circuit_gen:4:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X74_Y44_N8
+\Score|circuit_gen:4:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:4:out_reg|u3|q~q\ & (\Score|circuit_gen:4:out_reg|u1|q~q\ & (\Score|circuit_gen:4:out_reg|u2|q~q\ $ (\Score|circuit_gen:4:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:4:out_reg|u3|q~q\ 
--- & (!\Score|circuit_gen:4:out_reg|u2|q~q\))
+-- \Score|circuit_gen:4:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101000110010001",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u2|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	datad => \SSC|U1|Din_b\(5),
+	combout => \Score|circuit_gen:4:in_reg|u2|q~0_combout\);
+
+-- Location: FF_X74_Y44_N9
+\Score|circuit_gen:4:in_reg|u2|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:4:in_reg|u2|q~0_combout\,
+	ena => \Score|decoder|dout[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:4:in_reg|u2|q~q\);
+
+-- Location: FF_X77_Y40_N11
+\Score|circuit_gen:4:out_reg|u2|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:4:in_reg|u2|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:4:out_reg|u2|q~q\);
+
+-- Location: LCCOMB_X74_Y44_N10
+\Score|circuit_gen:4:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:4:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U1|Din_b\(4),
+	combout => \Score|circuit_gen:4:in_reg|u1|q~0_combout\);
+
+-- Location: FF_X74_Y44_N11
+\Score|circuit_gen:4:in_reg|u1|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:4:in_reg|u1|q~0_combout\,
+	ena => \Score|decoder|dout[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:4:in_reg|u1|q~q\);
+
+-- Location: FF_X77_Y40_N19
+\Score|circuit_gen:4:out_reg|u1|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:4:in_reg|u1|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:4:out_reg|u1|q~q\);
+
+-- Location: LCCOMB_X77_Y40_N4
+\Score|circuit_gen:4:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:4:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:4:out_reg|u3|q~q\ & (\Score|circuit_gen:4:out_reg|u1|q~q\ & (\Score|circuit_gen:4:out_reg|u0|q~q\ $ (\Score|circuit_gen:4:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:4:out_reg|u3|q~q\ 
+-- & (((!\Score|circuit_gen:4:out_reg|u2|q~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010110100000101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	datac => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[0]~0_combout\);
 
--- Location: LCCOMB_X77_Y43_N18
+-- Location: LCCOMB_X77_Y40_N14
 \Score|circuit_gen:4:hex_digit|Ndout[0]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:4:hex_digit|Ndout[0]~1_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[0]~0_combout\) # (!\Score|clear_reg|q~q\)
@@ -13743,25 +13789,25 @@ PORT MAP (
 	datac => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[0]~1_combout\);
 
--- Location: LCCOMB_X77_Y43_N10
+-- Location: LCCOMB_X77_Y40_N8
 \Score|circuit_gen:4:hex_digit|Ndout[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:4:out_reg|u2|q~q\ & (!\Score|circuit_gen:4:out_reg|u3|q~q\ & (!\Score|circuit_gen:4:out_reg|u1|q~q\ & !\Score|circuit_gen:4:out_reg|u0|q~q\))) # 
--- (!\Score|circuit_gen:4:out_reg|u2|q~q\ & ((\Score|circuit_gen:4:out_reg|u1|q~q\ $ (\Score|circuit_gen:4:out_reg|u0|q~q\)) # (!\Score|circuit_gen:4:out_reg|u3|q~q\)))
+-- \Score|circuit_gen:4:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:4:out_reg|u3|q~q\ & (!\Score|circuit_gen:4:out_reg|u2|q~q\ & (\Score|circuit_gen:4:out_reg|u0|q~q\ $ (\Score|circuit_gen:4:out_reg|u1|q~q\)))) # 
+-- (!\Score|circuit_gen:4:out_reg|u3|q~q\ & (((!\Score|circuit_gen:4:out_reg|u0|q~q\ & !\Score|circuit_gen:4:out_reg|u1|q~q\)) # (!\Score|circuit_gen:4:out_reg|u2|q~q\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001010101010011",
+	lut_mask => "0000011100011101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u2|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	datac => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[1]~2_combout\);
 
--- Location: LCCOMB_X77_Y43_N6
+-- Location: LCCOMB_X77_Y40_N28
 \Score|circuit_gen:4:hex_digit|Ndout[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:4:hex_digit|Ndout[1]~3_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[1]~2_combout\) # (!\Score|clear_reg|q~q\)
@@ -13776,25 +13822,25 @@ PORT MAP (
 	datad => \Score|circuit_gen:4:hex_digit|Ndout[1]~2_combout\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[1]~3_combout\);
 
--- Location: LCCOMB_X77_Y43_N12
+-- Location: LCCOMB_X77_Y40_N2
 \Score|circuit_gen:4:hex_digit|Ndout[2]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:4:out_reg|u1|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\) # ((\Score|circuit_gen:4:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:4:out_reg|u0|q~q\ & (!\Score|circuit_gen:4:out_reg|u2|q~q\)) # (!\Score|circuit_gen:4:out_reg|u0|q~q\ & ((\Score|circuit_gen:4:out_reg|u3|q~q\)))))
+-- \Score|circuit_gen:4:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:4:out_reg|u1|q~q\ & ((\Score|circuit_gen:4:out_reg|u3|q~q\) # ((\Score|circuit_gen:4:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & 
+-- ((\Score|circuit_gen:4:out_reg|u0|q~q\ & ((!\Score|circuit_gen:4:out_reg|u2|q~q\))) # (!\Score|circuit_gen:4:out_reg|u0|q~q\ & (\Score|circuit_gen:4:out_reg|u3|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110010111101100",
+	lut_mask => "1111101000101110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u2|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	datac => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[2]~4_combout\);
 
--- Location: LCCOMB_X77_Y43_N28
+-- Location: LCCOMB_X77_Y40_N24
 \Score|circuit_gen:4:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:4:hex_digit|Ndout[2]~5_combout\ = (!\Score|circuit_gen:4:hex_digit|Ndout[2]~4_combout\) # (!\Score|clear_reg|q~q\)
@@ -13809,94 +13855,28 @@ PORT MAP (
 	datad => \Score|circuit_gen:4:hex_digit|Ndout[2]~4_combout\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[2]~5_combout\);
 
--- Location: LCCOMB_X77_Y43_N22
+-- Location: LCCOMB_X77_Y40_N26
 \Score|circuit_gen:4:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:4:out_reg|u1|q~q\ & (\Score|circuit_gen:4:out_reg|u0|q~q\ $ (((\Score|circuit_gen:4:out_reg|u2|q~q\))))) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:4:out_reg|u2|q~q\ & ((!\Score|circuit_gen:4:out_reg|u3|q~q\))) # (!\Score|circuit_gen:4:out_reg|u2|q~q\ & (!\Score|circuit_gen:4:out_reg|u0|q~q\))))
+-- \Score|circuit_gen:4:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:4:out_reg|u2|q~q\ & ((\Score|circuit_gen:4:out_reg|u1|q~q\ & (!\Score|circuit_gen:4:out_reg|u0|q~q\)) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & 
+-- ((!\Score|circuit_gen:4:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:4:out_reg|u2|q~q\ & (\Score|circuit_gen:4:out_reg|u0|q~q\ $ (((!\Score|circuit_gen:4:out_reg|u1|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010011110011001",
+	lut_mask => "0110011000011101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u2|q~q\,
 	datac => \Score|circuit_gen:4:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[3]~6_combout\);
 
--- Location: LCCOMB_X77_Y43_N30
+-- Location: LCCOMB_X77_Y40_N0
 \Score|circuit_gen:4:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:4:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:4:hex_digit|Ndout[3]~6_combout\,
-	datac => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:4:hex_digit|Ndout[3]~7_combout\);
-
--- Location: LCCOMB_X77_Y43_N8
-\Score|circuit_gen:4:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:4:out_reg|u1|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\ & ((!\Score|circuit_gen:4:out_reg|u0|q~q\))) # (!\Score|circuit_gen:4:out_reg|u2|q~q\ & 
--- (\Score|circuit_gen:4:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & (((!\Score|circuit_gen:4:out_reg|u0|q~q\)) # (!\Score|circuit_gen:4:out_reg|u3|q~q\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001100111111101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:4:out_reg|u2|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u0|q~q\,
-	combout => \Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\);
-
--- Location: LCCOMB_X77_Y43_N2
-\Score|circuit_gen:4:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\,
-	datac => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:4:hex_digit|Ndout[4]~9_combout\);
-
--- Location: LCCOMB_X77_Y43_N0
-\Score|circuit_gen:4:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:4:out_reg|u0|q~q\ & (!\Score|circuit_gen:4:out_reg|u1|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\) # (!\Score|circuit_gen:4:out_reg|u3|q~q\)))) # 
--- (!\Score|circuit_gen:4:out_reg|u0|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\ & ((\Score|circuit_gen:4:out_reg|u3|q~q\))) # (!\Score|circuit_gen:4:out_reg|u2|q~q\ & ((!\Score|circuit_gen:4:out_reg|u3|q~q\) # (!\Score|circuit_gen:4:out_reg|u1|q~q\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010101100011101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u2|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u0|q~q\,
-	datac => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u3|q~q\,
-	combout => \Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\);
-
--- Location: LCCOMB_X77_Y43_N20
-\Score|circuit_gen:4:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -13905,43 +13885,109 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\,
+	datad => \Score|circuit_gen:4:hex_digit|Ndout[3]~6_combout\,
+	combout => \Score|circuit_gen:4:hex_digit|Ndout[3]~7_combout\);
+
+-- Location: LCCOMB_X77_Y40_N10
+\Score|circuit_gen:4:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:4:out_reg|u1|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\ & ((!\Score|circuit_gen:4:out_reg|u0|q~q\))) # (!\Score|circuit_gen:4:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:4:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & (((!\Score|circuit_gen:4:out_reg|u0|q~q\)) # (!\Score|circuit_gen:4:out_reg|u3|q~q\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011101001110111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	datac => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u1|q~q\,
+	combout => \Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\);
+
+-- Location: LCCOMB_X77_Y40_N6
+\Score|circuit_gen:4:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:4:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:4:hex_digit|Ndout[4]~8_combout\,
+	combout => \Score|circuit_gen:4:hex_digit|Ndout[4]~9_combout\);
+
+-- Location: LCCOMB_X77_Y40_N18
+\Score|circuit_gen:4:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:4:out_reg|u0|q~q\ & (!\Score|circuit_gen:4:out_reg|u1|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\) # (!\Score|circuit_gen:4:out_reg|u3|q~q\)))) # 
+-- (!\Score|circuit_gen:4:out_reg|u0|q~q\ & ((\Score|circuit_gen:4:out_reg|u3|q~q\ & ((\Score|circuit_gen:4:out_reg|u2|q~q\) # (!\Score|circuit_gen:4:out_reg|u1|q~q\))) # (!\Score|circuit_gen:4:out_reg|u3|q~q\ & (!\Score|circuit_gen:4:out_reg|u2|q~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000110110011011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:4:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u0|q~q\,
+	combout => \Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\);
+
+-- Location: LCCOMB_X77_Y40_N16
+\Score|circuit_gen:4:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:4:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110101111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:4:hex_digit|Ndout[5]~10_combout\,
+	datac => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[5]~11_combout\);
 
--- Location: LCCOMB_X77_Y43_N24
+-- Location: LCCOMB_X77_Y40_N12
 \Score|circuit_gen:4:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:4:out_reg|u1|q~q\ & (\Score|circuit_gen:4:out_reg|u3|q~q\ $ (((\Score|circuit_gen:4:out_reg|u2|q~q\))))) # (!\Score|circuit_gen:4:out_reg|u1|q~q\ & 
--- (\Score|circuit_gen:4:out_reg|u3|q~q\ & ((\Score|circuit_gen:4:out_reg|u0|q~q\) # (\Score|circuit_gen:4:out_reg|u2|q~q\))))
+-- \Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:4:out_reg|u2|q~q\ & (\Score|circuit_gen:4:out_reg|u3|q~q\ $ (((\Score|circuit_gen:4:out_reg|u1|q~q\))))) # (!\Score|circuit_gen:4:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:4:out_reg|u3|q~q\ & ((\Score|circuit_gen:4:out_reg|u0|q~q\) # (\Score|circuit_gen:4:out_reg|u1|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011011001000",
+	lut_mask => "0110011010101000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:4:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	dataa => \Score|circuit_gen:4:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:4:out_reg|u2|q~q\,
 	datac => \Score|circuit_gen:4:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:4:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:4:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\);
 
--- Location: LCCOMB_X77_Y43_N16
+-- Location: LCCOMB_X77_Y40_N30
 \Score|circuit_gen:4:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:4:hex_digit|Ndout[6]~13_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\)
+-- \Score|circuit_gen:4:hex_digit|Ndout[6]~13_combout\ = (!\Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101111101011111",
+	lut_mask => "0000111111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\,
 	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:4:hex_digit|Ndout[6]~12_combout\,
 	combout => \Score|circuit_gen:4:hex_digit|Ndout[6]~13_combout\);
 
--- Location: LCCOMB_X72_Y44_N8
+-- Location: LCCOMB_X72_Y44_N2
 \Score|circuit_gen:5:in_reg|u1|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:in_reg|u1|q~0_combout\ = !\SSC|U1|Din_b\(4)
@@ -13955,23 +14001,23 @@ PORT MAP (
 	datad => \SSC|U1|Din_b\(4),
 	combout => \Score|circuit_gen:5:in_reg|u1|q~0_combout\);
 
--- Location: LCCOMB_X71_Y44_N14
+-- Location: LCCOMB_X71_Y44_N28
 \Score|decoder|dout[5]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|decoder|dout[5]~5_combout\ = (\SSC|U1|Din_b\(2) & (!\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(0)))
+-- \Score|decoder|dout[5]~5_combout\ = (\SSC|U1|Din_b\(0) & (!\SSC|U1|Din_b\(1) & \SSC|U1|Din_b\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010001000000000",
+	lut_mask => "0000101000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SSC|U1|Din_b\(2),
-	datab => \SSC|U1|Din_b\(1),
-	datad => \SSC|U1|Din_b\(0),
+	dataa => \SSC|U1|Din_b\(0),
+	datac => \SSC|U1|Din_b\(1),
+	datad => \SSC|U1|Din_b\(2),
 	combout => \Score|decoder|dout[5]~5_combout\);
 
--- Location: FF_X72_Y44_N9
+-- Location: FF_X72_Y44_N3
 \Score|circuit_gen:5:in_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -13986,7 +14032,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:5:in_reg|u1|q~q\);
 
--- Location: FF_X76_Y42_N13
+-- Location: FF_X75_Y40_N27
 \Score|circuit_gen:5:out_reg|u1|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -14002,97 +14048,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:5:out_reg|u1|q~q\);
 
--- Location: LCCOMB_X75_Y42_N16
-\Score|circuit_gen:5:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:5:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U1|Din_b\(6),
-	combout => \Score|circuit_gen:5:in_reg|u3|q~0_combout\);
-
--- Location: FF_X75_Y42_N17
-\Score|circuit_gen:5:in_reg|u3|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:5:in_reg|u3|q~0_combout\,
-	ena => \Score|decoder|dout[5]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:5:in_reg|u3|q~q\);
-
--- Location: FF_X76_Y42_N25
-\Score|circuit_gen:5:out_reg|u3|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:5:in_reg|u3|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:5:out_reg|u3|q~q\);
-
--- Location: LCCOMB_X76_Y42_N4
-\Score|circuit_gen:5:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:5:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \SSC|U1|Din_b\(3),
-	combout => \Score|circuit_gen:5:in_reg|u0|q~0_combout\);
-
--- Location: FF_X76_Y42_N5
-\Score|circuit_gen:5:in_reg|u0|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	d => \Score|circuit_gen:5:in_reg|u0|q~0_combout\,
-	ena => \Score|decoder|dout[5]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:5:in_reg|u0|q~q\);
-
--- Location: FF_X76_Y42_N31
-\Score|circuit_gen:5:out_reg|u0|q\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
-	asdata => \Score|circuit_gen:5:in_reg|u0|q~q\,
-	sload => VCC,
-	ena => \Score|decoder|dout[6]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \Score|circuit_gen:5:out_reg|u0|q~q\);
-
--- Location: LCCOMB_X75_Y42_N26
+-- Location: LCCOMB_X75_Y40_N30
 \Score|circuit_gen:5:in_reg|u2|q~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:in_reg|u2|q~0_combout\ = !\SSC|U1|Din_b\(5)
@@ -14106,7 +14062,7 @@ PORT MAP (
 	datac => \SSC|U1|Din_b\(5),
 	combout => \Score|circuit_gen:5:in_reg|u2|q~0_combout\);
 
--- Location: FF_X75_Y42_N27
+-- Location: FF_X75_Y40_N31
 \Score|circuit_gen:5:in_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -14121,7 +14077,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:5:in_reg|u2|q~q\);
 
--- Location: FF_X76_Y42_N3
+-- Location: FF_X75_Y40_N25
 \Score|circuit_gen:5:out_reg|u2|q\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -14137,91 +14093,181 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \Score|circuit_gen:5:out_reg|u2|q~q\);
 
--- Location: LCCOMB_X76_Y42_N0
+-- Location: LCCOMB_X72_Y44_N24
+\Score|circuit_gen:5:in_reg|u3|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:5:in_reg|u3|q~0_combout\ = !\SSC|U1|Din_b\(6)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U1|Din_b\(6),
+	combout => \Score|circuit_gen:5:in_reg|u3|q~0_combout\);
+
+-- Location: FF_X72_Y44_N25
+\Score|circuit_gen:5:in_reg|u3|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:5:in_reg|u3|q~0_combout\,
+	ena => \Score|decoder|dout[5]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:5:in_reg|u3|q~q\);
+
+-- Location: FF_X75_Y40_N21
+\Score|circuit_gen:5:out_reg|u3|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:5:in_reg|u3|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:5:out_reg|u3|q~q\);
+
+-- Location: LCCOMB_X75_Y40_N6
+\Score|circuit_gen:5:in_reg|u0|q~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:5:in_reg|u0|q~0_combout\ = !\SSC|U1|Din_b\(3)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \SSC|U1|Din_b\(3),
+	combout => \Score|circuit_gen:5:in_reg|u0|q~0_combout\);
+
+-- Location: FF_X75_Y40_N7
+\Score|circuit_gen:5:in_reg|u0|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	d => \Score|circuit_gen:5:in_reg|u0|q~0_combout\,
+	ena => \Score|decoder|dout[5]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:5:in_reg|u0|q~q\);
+
+-- Location: FF_X75_Y40_N3
+\Score|circuit_gen:5:out_reg|u0|q\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \SSC|U1|CurrentState.SEND~0clkctrl_outclk\,
+	asdata => \Score|circuit_gen:5:in_reg|u0|q~q\,
+	sload => VCC,
+	ena => \Score|decoder|dout[6]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \Score|circuit_gen:5:out_reg|u0|q~q\);
+
+-- Location: LCCOMB_X75_Y40_N22
 \Score|circuit_gen:5:hex_digit|Ndout[0]~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:5:out_reg|u3|q~q\ & (\Score|circuit_gen:5:out_reg|u1|q~q\ & (\Score|circuit_gen:5:out_reg|u0|q~q\ $ (\Score|circuit_gen:5:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:5:out_reg|u3|q~q\ 
+-- \Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\ = (\Score|circuit_gen:5:out_reg|u3|q~q\ & (\Score|circuit_gen:5:out_reg|u1|q~q\ & (\Score|circuit_gen:5:out_reg|u2|q~q\ $ (\Score|circuit_gen:5:out_reg|u0|q~q\)))) # (!\Score|circuit_gen:5:out_reg|u3|q~q\ 
 -- & (((!\Score|circuit_gen:5:out_reg|u2|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000100010110011",
+	lut_mask => "0010001110000011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \Score|circuit_gen:5:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:5:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:5:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\);
 
--- Location: LCCOMB_X76_Y42_N10
+-- Location: LCCOMB_X75_Y40_N0
 \Score|circuit_gen:5:hex_digit|Ndout[0]~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[0]~1_combout\ = (\Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1010111110101111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	dataa => \Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\,
 	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:5:hex_digit|Ndout[0]~0_combout\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[0]~1_combout\);
 
--- Location: LCCOMB_X76_Y42_N28
+-- Location: LCCOMB_X75_Y40_N4
 \Score|circuit_gen:5:hex_digit|Ndout[1]~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[1]~2_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & (!\Score|circuit_gen:5:out_reg|u2|q~q\ & ((!\Score|circuit_gen:5:out_reg|u0|q~q\) # (!\Score|circuit_gen:5:out_reg|u3|q~q\)))) # 
--- (!\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u0|q~q\ & ((!\Score|circuit_gen:5:out_reg|u2|q~q\))) # (!\Score|circuit_gen:5:out_reg|u0|q~q\ & (!\Score|circuit_gen:5:out_reg|u3|q~q\))))
+-- (!\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u0|q~q\ & (!\Score|circuit_gen:5:out_reg|u2|q~q\)) # (!\Score|circuit_gen:5:out_reg|u0|q~q\ & ((!\Score|circuit_gen:5:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000101111011",
+	lut_mask => "0001001100100111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \Score|circuit_gen:5:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:5:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:5:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[1]~2_combout\);
 
--- Location: LCCOMB_X76_Y42_N14
+-- Location: LCCOMB_X75_Y40_N10
 \Score|circuit_gen:5:hex_digit|Ndout[1]~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[1]~3_combout\ = (\Score|circuit_gen:5:hex_digit|Ndout[1]~2_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1100111111001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	datab => \Score|circuit_gen:5:hex_digit|Ndout[1]~2_combout\,
 	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:5:hex_digit|Ndout[1]~2_combout\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[1]~3_combout\);
 
--- Location: LCCOMB_X76_Y42_N16
+-- Location: LCCOMB_X75_Y40_N28
 \Score|circuit_gen:5:hex_digit|Ndout[2]~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u3|q~q\) # ((\Score|circuit_gen:5:out_reg|u2|q~q\)))) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & 
--- ((\Score|circuit_gen:5:out_reg|u0|q~q\ & ((!\Score|circuit_gen:5:out_reg|u2|q~q\))) # (!\Score|circuit_gen:5:out_reg|u0|q~q\ & (\Score|circuit_gen:5:out_reg|u3|q~q\))))
+-- \Score|circuit_gen:5:hex_digit|Ndout[2]~4_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\) # ((\Score|circuit_gen:5:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & 
+-- ((\Score|circuit_gen:5:out_reg|u0|q~q\ & (!\Score|circuit_gen:5:out_reg|u2|q~q\)) # (!\Score|circuit_gen:5:out_reg|u0|q~q\ & ((\Score|circuit_gen:5:out_reg|u3|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010111011011100",
+	lut_mask => "1011100111111000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \Score|circuit_gen:5:out_reg|u1|q~q\,
-	datab => \Score|circuit_gen:5:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:5:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datab => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datac => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[2]~4_combout\);
 
--- Location: LCCOMB_X76_Y42_N18
+-- Location: LCCOMB_X75_Y40_N14
 \Score|circuit_gen:5:hex_digit|Ndout[2]~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[2]~5_combout\ = (!\Score|circuit_gen:5:hex_digit|Ndout[2]~4_combout\) # (!\Score|clear_reg|q~q\)
@@ -14236,28 +14282,61 @@ PORT MAP (
 	datad => \Score|circuit_gen:5:hex_digit|Ndout[2]~4_combout\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[2]~5_combout\);
 
--- Location: LCCOMB_X76_Y42_N24
+-- Location: LCCOMB_X75_Y40_N20
 \Score|circuit_gen:5:hex_digit|Ndout[3]~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:5:out_reg|u2|q~q\ & ((\Score|circuit_gen:5:out_reg|u1|q~q\ & (!\Score|circuit_gen:5:out_reg|u0|q~q\)) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & 
--- ((!\Score|circuit_gen:5:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:5:out_reg|u2|q~q\ & (\Score|circuit_gen:5:out_reg|u0|q~q\ $ (((!\Score|circuit_gen:5:out_reg|u1|q~q\)))))
+-- \Score|circuit_gen:5:hex_digit|Ndout[3]~6_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & (\Score|circuit_gen:5:out_reg|u2|q~q\ $ (((\Score|circuit_gen:5:out_reg|u0|q~q\))))) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & 
+-- ((\Score|circuit_gen:5:out_reg|u2|q~q\ & (!\Score|circuit_gen:5:out_reg|u3|q~q\)) # (!\Score|circuit_gen:5:out_reg|u2|q~q\ & ((!\Score|circuit_gen:5:out_reg|u0|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011000011101",
+	lut_mask => "0010011010011101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:5:out_reg|u0|q~q\,
+	dataa => \Score|circuit_gen:5:out_reg|u1|q~q\,
 	datab => \Score|circuit_gen:5:out_reg|u2|q~q\,
 	datac => \Score|circuit_gen:5:out_reg|u3|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u1|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u0|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[3]~6_combout\);
 
--- Location: LCCOMB_X76_Y42_N20
+-- Location: LCCOMB_X75_Y40_N16
 \Score|circuit_gen:5:hex_digit|Ndout[3]~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[3]~7_combout\ = (\Score|circuit_gen:5:hex_digit|Ndout[3]~6_combout\) # (!\Score|clear_reg|q~q\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \Score|clear_reg|q~q\,
+	datad => \Score|circuit_gen:5:hex_digit|Ndout[3]~6_combout\,
+	combout => \Score|circuit_gen:5:hex_digit|Ndout[3]~7_combout\);
+
+-- Location: LCCOMB_X75_Y40_N24
+\Score|circuit_gen:5:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\ & ((!\Score|circuit_gen:5:out_reg|u0|q~q\))) # (!\Score|circuit_gen:5:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:5:out_reg|u3|q~q\)))) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & (((!\Score|circuit_gen:5:out_reg|u0|q~q\)) # (!\Score|circuit_gen:5:out_reg|u3|q~q\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011101001110111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:5:out_reg|u0|q~q\,
+	datac => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u1|q~q\,
+	combout => \Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\);
+
+-- Location: LCCOMB_X75_Y40_N12
+\Score|circuit_gen:5:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \Score|circuit_gen:5:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -14265,110 +14344,77 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:5:hex_digit|Ndout[3]~6_combout\,
-	datac => \Score|clear_reg|q~q\,
-	combout => \Score|circuit_gen:5:hex_digit|Ndout[3]~7_combout\);
-
--- Location: LCCOMB_X76_Y42_N2
-\Score|circuit_gen:5:hex_digit|Ndout[4]~8\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\ & (!\Score|circuit_gen:5:out_reg|u0|q~q\)) # (!\Score|circuit_gen:5:out_reg|u2|q~q\ & 
--- ((\Score|circuit_gen:5:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & (((!\Score|circuit_gen:5:out_reg|u3|q~q\)) # (!\Score|circuit_gen:5:out_reg|u0|q~q\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101110001110111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Score|circuit_gen:5:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:5:out_reg|u3|q~q\,
-	datac => \Score|circuit_gen:5:out_reg|u2|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u1|q~q\,
-	combout => \Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\);
-
--- Location: LCCOMB_X76_Y42_N22
-\Score|circuit_gen:5:hex_digit|Ndout[4]~9\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[4]~9_combout\ = (\Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\) # (!\Score|clear_reg|q~q\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\,
+	dataa => \Score|circuit_gen:5:hex_digit|Ndout[4]~8_combout\,
 	datac => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[4]~9_combout\);
 
--- Location: LCCOMB_X76_Y42_N12
+-- Location: LCCOMB_X75_Y40_N26
 \Score|circuit_gen:5:hex_digit|Ndout[5]~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[5]~10_combout\ = (\Score|circuit_gen:5:out_reg|u0|q~q\ & (!\Score|circuit_gen:5:out_reg|u1|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\) # (!\Score|circuit_gen:5:out_reg|u3|q~q\)))) # 
--- (!\Score|circuit_gen:5:out_reg|u0|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\ & ((\Score|circuit_gen:5:out_reg|u3|q~q\))) # (!\Score|circuit_gen:5:out_reg|u2|q~q\ & ((!\Score|circuit_gen:5:out_reg|u3|q~q\) # (!\Score|circuit_gen:5:out_reg|u1|q~q\)))))
+-- (!\Score|circuit_gen:5:out_reg|u0|q~q\ & ((\Score|circuit_gen:5:out_reg|u3|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\) # (!\Score|circuit_gen:5:out_reg|u1|q~q\))) # (!\Score|circuit_gen:5:out_reg|u3|q~q\ & ((!\Score|circuit_gen:5:out_reg|u2|q~q\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100110100011011",
+	lut_mask => "0010111000010111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:5:out_reg|u0|q~q\,
-	datab => \Score|circuit_gen:5:out_reg|u2|q~q\,
+	dataa => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datab => \Score|circuit_gen:5:out_reg|u0|q~q\,
 	datac => \Score|circuit_gen:5:out_reg|u1|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u2|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[5]~10_combout\);
 
--- Location: LCCOMB_X76_Y42_N8
+-- Location: LCCOMB_X75_Y40_N18
 \Score|circuit_gen:5:hex_digit|Ndout[5]~11\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Score|circuit_gen:5:hex_digit|Ndout[5]~11_combout\ = (\Score|circuit_gen:5:hex_digit|Ndout[5]~10_combout\) # (!\Score|clear_reg|q~q\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111111001111",
+	lut_mask => "1010111110101111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \Score|circuit_gen:5:hex_digit|Ndout[5]~10_combout\,
+	dataa => \Score|circuit_gen:5:hex_digit|Ndout[5]~10_combout\,
 	datac => \Score|clear_reg|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[5]~11_combout\);
 
--- Location: LCCOMB_X76_Y42_N30
+-- Location: LCCOMB_X75_Y40_N2
 \Score|circuit_gen:5:hex_digit|Ndout[6]~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:5:out_reg|u1|q~q\ & (\Score|circuit_gen:5:out_reg|u2|q~q\ $ (((\Score|circuit_gen:5:out_reg|u3|q~q\))))) # (!\Score|circuit_gen:5:out_reg|u1|q~q\ & 
--- (\Score|circuit_gen:5:out_reg|u3|q~q\ & ((\Score|circuit_gen:5:out_reg|u2|q~q\) # (\Score|circuit_gen:5:out_reg|u0|q~q\))))
+-- \Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\ = (\Score|circuit_gen:5:out_reg|u2|q~q\ & (\Score|circuit_gen:5:out_reg|u3|q~q\ $ (((\Score|circuit_gen:5:out_reg|u1|q~q\))))) # (!\Score|circuit_gen:5:out_reg|u2|q~q\ & 
+-- (\Score|circuit_gen:5:out_reg|u3|q~q\ & ((\Score|circuit_gen:5:out_reg|u0|q~q\) # (\Score|circuit_gen:5:out_reg|u1|q~q\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0111011010001000",
+	lut_mask => "0110011010101000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Score|circuit_gen:5:out_reg|u1|q~q\,
+	dataa => \Score|circuit_gen:5:out_reg|u3|q~q\,
 	datab => \Score|circuit_gen:5:out_reg|u2|q~q\,
 	datac => \Score|circuit_gen:5:out_reg|u0|q~q\,
-	datad => \Score|circuit_gen:5:out_reg|u3|q~q\,
+	datad => \Score|circuit_gen:5:out_reg|u1|q~q\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\);
 
--- Location: LCCOMB_X76_Y42_N26
+-- Location: LCCOMB_X75_Y40_N8
 \Score|circuit_gen:5:hex_digit|Ndout[6]~13\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \Score|circuit_gen:5:hex_digit|Ndout[6]~13_combout\ = (!\Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\) # (!\Score|clear_reg|q~q\)
+-- \Score|circuit_gen:5:hex_digit|Ndout[6]~13_combout\ = (!\Score|clear_reg|q~q\) # (!\Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111111111111",
+	lut_mask => "0101111101011111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	dataa => \Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\,
 	datac => \Score|clear_reg|q~q\,
-	datad => \Score|circuit_gen:5:hex_digit|Ndout[6]~12_combout\,
 	combout => \Score|circuit_gen:5:hex_digit|Ndout[6]~13_combout\);
 
--- Location: FF_X37_Y4_N9
+-- Location: FF_X40_Y4_N17
 \SLCDC|U0|U3|data_b[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -14376,7 +14422,7 @@ GENERIC MAP (
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \SLCDC|nSSsync~clkctrl_outclk\,
+	clk => \SLCDC|sclkSync~clkctrl_outclk\,
 	asdata => \SLCDC|U0|U3|data_b\(1),
 	sload => VCC,
 	ena => \SLCDC|U0|U2|CurrentState.RECEIVING~0_combout\,
@@ -14384,7 +14430,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \SLCDC|U0|U3|data_b\(0));
 
--- Location: LCCOMB_X37_Y4_N8
+-- Location: LCCOMB_X40_Y4_N16
 \SLCDC|U1|Din_b[0]\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \SLCDC|U1|Din_b\(0) = (GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & (\SLCDC|U0|U3|data_b\(0))) # (!GLOBAL(\SLCDC|U1|Din_b[8]~0clkctrl_outclk\) & ((\SLCDC|U1|Din_b\(0))))
@@ -14400,49 +14446,49 @@ PORT MAP (
 	datad => \SLCDC|U1|Din_b\(0),
 	combout => \SLCDC|U1|Din_b\(0));
 
--- Location: LCCOMB_X43_Y15_N26
+-- Location: LCCOMB_X43_Y8_N24
 \KBD|U0|U0|U2|Mux3~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \KBD|U0|U0|U2|Mux3~0_combout\ = (\KBD|U0|U0|U0|count\(2)) # (\KBD|U0|U0|U0|count\(3))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111111110000",
+	lut_mask => "1111110011111100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \KBD|U0|U0|U0|count\(2),
-	datad => \KBD|U0|U0|U0|count\(3),
+	datab => \KBD|U0|U0|U0|count\(2),
+	datac => \KBD|U0|U0|U0|count\(3),
 	combout => \KBD|U0|U0|U2|Mux3~0_combout\);
 
--- Location: LCCOMB_X43_Y16_N24
+-- Location: LCCOMB_X44_Y8_N26
 \KBD|U0|U0|U2|Mux2~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U0|U2|Mux2~0_combout\ = (\KBD|U0|U0|U0|count\(2) & !\KBD|U0|U0|U0|count\(3))
+-- \KBD|U0|U0|U2|Mux2~0_combout\ = (!\KBD|U0|U0|U0|count\(3) & \KBD|U0|U0|U0|count\(2))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011110000",
+	lut_mask => "0011000000110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(3),
 	datac => \KBD|U0|U0|U0|count\(2),
-	datad => \KBD|U0|U0|U0|count\(3),
 	combout => \KBD|U0|U0|U2|Mux2~0_combout\);
 
--- Location: LCCOMB_X43_Y15_N28
+-- Location: LCCOMB_X44_Y8_N28
 \KBD|U0|U0|U2|Mux1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \KBD|U0|U0|U2|Mux1~0_combout\ = (!\KBD|U0|U0|U0|count\(2) & \KBD|U0|U0|U0|count\(3))
+-- \KBD|U0|U0|U2|Mux1~0_combout\ = (\KBD|U0|U0|U0|count\(3) & !\KBD|U0|U0|U0|count\(2))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100000000",
+	lut_mask => "0000110000001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	datab => \KBD|U0|U0|U0|count\(3),
 	datac => \KBD|U0|U0|U0|count\(2),
-	datad => \KBD|U0|U0|U0|count\(3),
 	combout => \KBD|U0|U0|U2|Mux1~0_combout\);
 
 -- Location: LCCOMB_X64_Y40_N0
@@ -14454,18 +14500,18 @@ GENERIC MAP (
 -- pragma translate_on
 ;
 
--- Location: LCCOMB_X43_Y31_N14
+-- Location: LCCOMB_X51_Y24_N4
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~_wirecell\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011111111",
+	lut_mask => "0000111100001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~q\,
+	datac => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~q\,
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|clr_reg~_wirecell_combout\);
 
--- Location: LCCOMB_X40_Y30_N2
+-- Location: LCCOMB_X49_Y23_N14
 \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[0]~_wirecell\ : fiftyfivenm_lcell_comb
 -- pragma translate_off
 GENERIC MAP (
@@ -14475,30 +14521,6 @@ GENERIC MAP (
 PORT MAP (
 	datad => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state\(0),
 	combout => \auto_hub|instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|instrumentation_fabric|alt_sld_fab|sldfabric|jtag_hub_gen:real_sld_jtag_hub|shadow_jsm|state[0]~_wirecell_combout\);
-
--- Location: IOIBUF_X51_Y54_N29
-\inputPort[0]~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_inputPort(0),
-	o => \inputPort[0]~input_o\);
-
--- Location: IOIBUF_X51_Y54_N22
-\inputPort[1]~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_inputPort(1),
-	o => \inputPort[1]~input_o\);
 
 -- Location: IOIBUF_X51_Y54_N1
 \inputPort[2]~input\ : fiftyfivenm_io_ibuf

@@ -45,12 +45,14 @@ architecture Structural of SerialController is
 	
 	signal D : std_logic_vector(data_width - 1 downto 0);
 	signal done, dx_val, dclk : std_logic;
-	signal nSSsync : std_logic;
+	signal sclkSync, nssSync, sdxSync  : std_logic;
 begin
 	process (clk)
     begin
 		  if rising_edge(clk) then
-            nSSsync <= sclk;
+            sclkSync <= sclk;
+				nssSync <= nss;
+				sdxSync <= sdx;
         end if;
     end process;
 
@@ -59,7 +61,7 @@ begin
             data_width => data_width
     )
 	port map(
-		clk => clk, reset => reset, sdx => sdx, sclk => nSSsync, nSS => nSS, accept => done, DX_val => dx_val, D => D
+		clk => clk, reset => reset, sdx => sdxSync, sclk => sclkSync, nSS => nssSync, accept => done, DX_val => dx_val, D => D
    );
 	
 	U1: SerialDispatcher

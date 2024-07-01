@@ -40,7 +40,8 @@ begin
                 NextState <= STATE_STORING_STAGE2;
 					 
             when STATE_STORING_STAGE2 =>
-                NextState <= STATE_STORED_WAIT;                
+                NextState <= STATE_STORED_WAIT;
+					 
             when STATE_STORED_WAIT =>
                 if (DAV = '0') then
                     NextState <= STATE_IDLE;
@@ -54,9 +55,6 @@ begin
 					 else
 						NextState <= STATE_RETRIEVING;
 					 end if;
-					 
-            when STATE_RETRIEVED =>
-                NextState <= STATE_IDLE;
                 
             when STATE_IDLE =>
                 if (empty = '0' and CTS = '1') then
@@ -73,7 +71,7 @@ begin
     
     -- Generate Outputs 
     Wr     <= '1' when (CurrentState = STATE_STORING_STAGE2) else '0';
-    selPG  <= '1' when (CurrentState = STATE_STORING_STAGE1 OR currentState = STATE_STORING_STAGE2) else '0';
+    selPG  <= '1' when (CurrentState = STATE_STORING_STAGE1 OR currentState = STATE_STORING_STAGE2 OR currentState = STATE_STORED_WAIT) else '0';
     Wreg   <= '1' when (CurrentState = STATE_RETRIEVING) else '0';
     DAC    <= '1' when (CurrentState = STATE_STORED_WAIT) else '0';
     incPut <= '1' when (CurrentState = STATE_STORING_STAGE2) else '0';
