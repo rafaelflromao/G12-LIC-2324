@@ -11,9 +11,10 @@ Name CurrentState.state_bit_2 CurrentState.state_bit_1 CurrentState.state_bit_0
 CurrentState.STATE_IDLE 0 0 0 
 CurrentState.STATE_STORING_STAGE1 0 0 1 
 CurrentState.STATE_STORING_STAGE2 0 1 1 
-CurrentState.STATE_STORED_WAIT 0 1 0 
-CurrentState.STATE_RETRIEVING 1 1 0 
-CurrentState.STATE_RETRIEVED 1 1 1 
+CurrentState.STATE_STORING_STAGE3 0 1 0 
+CurrentState.STATE_STORED_WAIT 1 1 0 
+CurrentState.STATE_RETRIEVING 1 1 1 
+CurrentState.STATE_RETRIEVED 1 0 1 
 
 State Machine - |SpaceInvadersGame|SerialController:SSC|SerialDispatcher:U1|CurrentState
 Name CurrentState.state_bit_1 CurrentState.state_bit_0 

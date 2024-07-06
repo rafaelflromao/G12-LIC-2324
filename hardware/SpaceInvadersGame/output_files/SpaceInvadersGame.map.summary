@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Jun 28 20:31:21 2024
+Analysis & Synthesis Status : Successful - Mon Jul  1 16:42:45 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : SpaceInvadersGame
 Top-level Entity Name : SpaceInvadersGame
 Family : MAX 10
-Total logic elements : 573
-    Total combinational functions : 502
+Total logic elements : 577
+    Total combinational functions : 506
     Dedicated logic registers : 267
 Total registers : 267
 Total pins : 82

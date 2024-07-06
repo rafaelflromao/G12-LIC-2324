@@ -11,7 +11,8 @@ architecture behavioral of rbc is
     type STATE_TYPE is (
         STATE_IDLE,         
         STATE_STORING_STAGE1,
-		  STATE_STORING_STAGE2,		  
+		  STATE_STORING_STAGE2,
+		  STATE_STORING_STAGE3,		  
         STATE_STORED_WAIT,  
         STATE_RETRIEVING,
         STATE_RETRIEVED
@@ -40,6 +41,9 @@ begin
                 NextState <= STATE_STORING_STAGE2;
 					 
             when STATE_STORING_STAGE2 =>
+					 NextState <= STATE_STORING_STAGE3;
+					 
+				when STATE_STORING_STAGE3 =>
                 NextState <= STATE_STORED_WAIT;
 					 
             when STATE_STORED_WAIT =>
@@ -71,10 +75,10 @@ begin
     
     -- Generate Outputs 
     Wr     <= '1' when (CurrentState = STATE_STORING_STAGE2) else '0';
-    selPG  <= '1' when (CurrentState = STATE_STORING_STAGE1 OR currentState = STATE_STORING_STAGE2 OR currentState = STATE_STORED_WAIT) else '0';
+    selPG  <= '1' when (CurrentState = STATE_STORING_STAGE1 OR currentState = STATE_STORING_STAGE2 OR currentState = STATE_STORING_STAGE3 OR currentState = STATE_STORED_WAIT) else '0';
     Wreg   <= '1' when (CurrentState = STATE_RETRIEVING) else '0';
     DAC    <= '1' when (CurrentState = STATE_STORED_WAIT) else '0';
-    incPut <= '1' when (CurrentState = STATE_STORING_STAGE2) else '0';
+    incPut <= '1' when (CurrentState = STATE_STORING_STAGE3) else '0';
     incGet <= '1' when (CurrentState = STATE_RETRIEVED) else '0';
         
 end behavioral;

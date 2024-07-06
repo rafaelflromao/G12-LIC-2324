@@ -56,6 +56,7 @@ private fun intro() {
         // Check Maintenance
         if (M.isMaintenance()) {
             maintenanceLoop()
+            updateMsg = false
         }
 
 
@@ -129,6 +130,7 @@ const val STATISTICS_TIME = 5000L
 // Key Constants
 const val SHOW_COUNT_KEY = '*'
 const val SHUTDOWN_KEY = '#'
+const val CLEAR_STAT_KEY = '#'
 
 private fun maintenanceLoop() {
     var updateMsg = true
@@ -149,7 +151,13 @@ private fun maintenanceLoop() {
 
             SHOW_COUNT_KEY -> {
                 TUI.showCount(Statistics.games, Statistics.coins)
-                Time.sleep(STATISTICS_TIME)
+                val key = TUI.waitForKey(STATISTICS_TIME)
+                when (key) {
+                    CLEAR_STAT_KEY -> {
+                        Statistics.reset()
+                        Statistics.save()
+                    }
+                }
                 updateMsg = true
             }
 
@@ -173,6 +181,7 @@ private const val INITIAL_DECREMENT = 0
 
 private fun gameLoop(): Int {
     TUI.clearDisplay()
+    ScoreDisplay.off(false)
     val invaders = InvadersMap()
     var score = INITIAL_SCORE
     var nextInvaderTime = Time.getTimeInMillis() + INVADER_SPAWN_TIME

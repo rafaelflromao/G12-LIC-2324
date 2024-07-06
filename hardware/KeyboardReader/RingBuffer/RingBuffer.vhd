@@ -47,7 +47,7 @@ begin
 		Wr => wr, selPG => selPG, Wreg => W_REg, DAC => dac, incPut => incput, incGet => incGet
 	 );
 	U1: mac port map (
-		putGet => selPG, incPut => incPut, incGet => incGet, mclk => clk, reset => '0', full => full, empty => empty, A => A
+		putGet => selPG, incPut => incPut, incGet => incGet, mclk => nclk, reset => '0', full => full, empty => empty, A => A
 	);
 	U2: ram port map (
 		address => A, wr => wr, din => D, dout => Q

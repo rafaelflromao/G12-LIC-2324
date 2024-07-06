@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpaceInvadersGame
-Fri Jun 28 20:31:21 2024
+Mon Jul  1 16:42:45 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -107,13 +107,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 28 20:31:21 2024          ;
+; Analysis & Synthesis Status        ; Successful - Mon Jul  1 16:42:45 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; SpaceInvadersGame                              ;
 ; Top-level Entity Name              ; SpaceInvadersGame                              ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 573                                            ;
-;     Total combinational functions  ; 502                                            ;
+; Total logic elements               ; 577                                            ;
+;     Total combinational functions  ; 506                                            ;
 ;     Dedicated logic registers      ; 267                                            ;
 ; Total registers                    ; 267                                            ;
 ; Total pins                         ; 82                                             ;
@@ -225,7 +225,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -289,16 +290,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 573                      ;
+; Estimated Total logic elements              ; 577                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 502                      ;
+; Total combinational functions               ; 506                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 175                      ;
-;     -- 3 input functions                    ; 123                      ;
+;     -- 4 input functions                    ; 177                      ;
+;     -- 3 input functions                    ; 125                      ;
 ;     -- <=2 input functions                  ; 204                      ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 430                      ;
+;     -- normal mode                          ; 434                      ;
 ;     -- arithmetic mode                      ; 72                       ;
 ;                                             ;                          ;
 ; Total registers                             ; 267                      ;
@@ -311,8 +312,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 107                      ;
-; Total fan-out                               ; 2312                     ;
-; Average fan-out                             ; 2.45                     ;
+; Total fan-out                               ; 2326                     ;
+; Average fan-out                             ; 2.46                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -321,11 +322,11 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                           ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |SpaceInvadersGame                                                                                                                      ; 502 (10)            ; 267 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 82   ; 0            ; 0          ; |SpaceInvadersGame                                                                                                                                                                                                                                                                                                                                            ; SpaceInvadersGame                 ; work         ;
-;    |KeyboardReader:KBD|                                                                                                                 ; 145 (0)             ; 55 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD                                                                                                                                                                                                                                                                                                                         ; KeyboardReader                    ; work         ;
+; |SpaceInvadersGame                                                                                                                      ; 506 (10)            ; 267 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 82   ; 0            ; 0          ; |SpaceInvadersGame                                                                                                                                                                                                                                                                                                                                            ; SpaceInvadersGame                 ; work         ;
+;    |KeyboardReader:KBD|                                                                                                                 ; 149 (0)             ; 55 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD                                                                                                                                                                                                                                                                                                                         ; KeyboardReader                    ; work         ;
 ;       |ClockDivider:U3|                                                                                                                 ; 48 (48)             ; 31 (31)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|ClockDivider:U3                                                                                                                                                                                                                                                                                                         ; ClockDivider                      ; work         ;
-;       |KeyDecode:U0|                                                                                                                    ; 12 (0)              ; 5 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0                                                                                                                                                                                                                                                                                                            ; KeyDecode                         ; work         ;
-;          |KeyControl:U1|                                                                                                                ; 2 (2)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1                                                                                                                                                                                                                                                                                              ; KeyControl                        ; work         ;
+;       |KeyDecode:U0|                                                                                                                    ; 11 (0)              ; 5 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0                                                                                                                                                                                                                                                                                                            ; KeyDecode                         ; work         ;
+;          |KeyControl:U1|                                                                                                                ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1                                                                                                                                                                                                                                                                                              ; KeyControl                        ; work         ;
 ;          |KeyScan:U0|                                                                                                                   ; 10 (0)              ; 4 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0                                                                                                                                                                                                                                                                                                 ; KeyScan                           ; work         ;
 ;             |counter:U0|                                                                                                                ; 5 (5)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|counter:U0                                                                                                                                                                                                                                                                                      ; counter                           ; work         ;
 ;             |dec2_4:U2|                                                                                                                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|dec2_4:U2                                                                                                                                                                                                                                                                                       ; dec2_4                            ; work         ;
@@ -333,13 +334,13 @@ https://fpgasoftware.intel.com/eula.
 ;       |OutputBuffer:U2|                                                                                                                 ; 5 (0)               ; 6 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2                                                                                                                                                                                                                                                                                                         ; OutputBuffer                      ; work         ;
 ;          |BufferControl:U1|                                                                                                             ; 5 (5)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2|BufferControl:U1                                                                                                                                                                                                                                                                                        ; BufferControl                     ; work         ;
 ;          |OutputRegister:U0|                                                                                                            ; 0 (0)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2|OutputRegister:U0                                                                                                                                                                                                                                                                                       ; OutputRegister                    ; work         ;
-;       |RingBuffer:U1|                                                                                                                   ; 80 (0)              ; 13 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1                                                                                                                                                                                                                                                                                                           ; RingBuffer                        ; work         ;
+;       |RingBuffer:U1|                                                                                                                   ; 85 (0)              ; 13 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1                                                                                                                                                                                                                                                                                                           ; RingBuffer                        ; work         ;
 ;          |RAM:U2|                                                                                                                       ; 52 (52)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|RAM:U2                                                                                                                                                                                                                                                                                                    ; RAM                               ; work         ;
-;          |mac:U1|                                                                                                                       ; 19 (7)              ; 10 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1                                                                                                                                                                                                                                                                                                    ; mac                               ; work         ;
-;             |counter:U0|                                                                                                                ; 4 (4)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
+;          |mac:U1|                                                                                                                       ; 19 (8)              ; 10 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1                                                                                                                                                                                                                                                                                                    ; mac                               ; work         ;
+;             |counter:U0|                                                                                                                ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
 ;             |counter:U1|                                                                                                                ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U1                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
 ;             |counter:U2|                                                                                                                ; 5 (5)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U2                                                                                                                                                                                                                                                                                         ; counter                           ; work         ;
-;          |rbc:U0|                                                                                                                       ; 9 (9)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|rbc:U0                                                                                                                                                                                                                                                                                                    ; rbc                               ; work         ;
+;          |rbc:U0|                                                                                                                       ; 14 (14)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|rbc:U0                                                                                                                                                                                                                                                                                                    ; rbc                               ; work         ;
 ;    |SerialController:SLCDC|                                                                                                             ; 67 (0)              ; 56 (3)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC                                                                                                                                                                                                                                                                                                                     ; SerialController                  ; work         ;
 ;       |ClockDivider:U2|                                                                                                                 ; 36 (36)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|ClockDivider:U2                                                                                                                                                                                                                                                                                                     ; ClockDivider                      ; work         ;
 ;       |SerialDispatcher:U1|                                                                                                             ; 12 (12)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SpaceInvadersGame|SerialController:SLCDC|SerialDispatcher:U1                                                                                                                                                                                                                                                                                                 ; SerialDispatcher                  ; work         ;
@@ -474,9 +475,10 @@ Encoding Type: Safe Gray Encoding
 ; CurrentState.STATE_IDLE           ; 0                        ; 0                        ; 0                        ;
 ; CurrentState.STATE_STORING_STAGE1 ; 0                        ; 0                        ; 1                        ;
 ; CurrentState.STATE_STORING_STAGE2 ; 0                        ; 1                        ; 1                        ;
-; CurrentState.STATE_STORED_WAIT    ; 0                        ; 1                        ; 0                        ;
-; CurrentState.STATE_RETRIEVING     ; 1                        ; 1                        ; 0                        ;
-; CurrentState.STATE_RETRIEVED      ; 1                        ; 1                        ; 1                        ;
+; CurrentState.STATE_STORING_STAGE3 ; 0                        ; 1                        ; 0                        ;
+; CurrentState.STATE_STORED_WAIT    ; 1                        ; 1                        ; 0                        ;
+; CurrentState.STATE_RETRIEVING     ; 1                        ; 1                        ; 1                        ;
+; CurrentState.STATE_RETRIEVED      ; 1                        ; 0                        ; 1                        ;
 +-----------------------------------+--------------------------+--------------------------+--------------------------+
 
 
@@ -727,7 +729,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; scoreDisplay:Score|reg_4bit:\circuit_gen:5:in_reg|FFD:u2|q                                                                                                                                                                                                                                                                      ; 1       ;
 ; scoreDisplay:Score|reg_4bit:\circuit_gen:5:in_reg|FFD:u1|q                                                                                                                                                                                                                                                                      ; 1       ;
 ; scoreDisplay:Score|reg_4bit:\circuit_gen:5:in_reg|FFD:u0|q                                                                                                                                                                                                                                                                      ; 1       ;
-; KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1|CurrentState                                                                                                                                                                                                                                                                      ; 7       ;
+; KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1|CurrentState                                                                                                                                                                                                                                                                      ; 8       ;
 ; SerialController:SLCDC|ClockDivider:U2|count[0]                                                                                                                                                                                                                                                                                 ; 3       ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
@@ -1276,16 +1278,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA               ; 69                          ;
 ;     ENA CLR           ; 2                           ;
 ;     plain             ; 98                          ;
-; cycloneiii_lcell_comb ; 383                         ;
+; cycloneiii_lcell_comb ; 387                         ;
 ;     arith             ; 64                          ;
 ;         2 data inputs ; 61                          ;
 ;         3 data inputs ; 3                           ;
-;     normal            ; 319                         ;
+;     normal            ; 323                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 35                          ;
 ;         2 data inputs ; 71                          ;
-;         3 data inputs ; 88                          ;
-;         4 data inputs ; 123                         ;
+;         3 data inputs ; 90                          ;
+;         4 data inputs ; 125                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
 ; Average LUT depth     ; 2.62                        ;
@@ -1307,7 +1309,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Jun 28 20:31:07 2024
+    Info: Processing started: Mon Jul  1 16:42:28 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpaceInvadersGame -c SpaceInvadersGame
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 32 processors detected
@@ -1512,7 +1514,6 @@ Info (12128): Elaborating entity "mux4" for hierarchy "KeyboardReader:KBD|KeyDec
 Info (12128): Elaborating entity "dec2_4" for hierarchy "KeyboardReader:KBD|KeyDecode:U0|KeyScan:U0|dec2_4:U2" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyScan/KeyScan.vhd Line: 48
 Info (12128): Elaborating entity "KeyControl" for hierarchy "KeyboardReader:KBD|KeyDecode:U0|KeyControl:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyDecode/KeyDecode.vhd Line: 39
 Info (12128): Elaborating entity "RingBuffer" for hierarchy "KeyboardReader:KBD|RingBuffer:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 57
-Warning (10036): Verilog HDL or VHDL warning at RingBuffer.vhd(41): object "nclk" assigned a value but never read File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 41
 Info (12128): Elaborating entity "rbc" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|rbc:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 45
 Info (12128): Elaborating entity "mac" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|mac:U1" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RingBuffer.vhd Line: 49
 Info (12128): Elaborating entity "counter" for hierarchy "KeyboardReader:KBD|RingBuffer:U1|mac:U1|counter:U0" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/MAC.vhd Line: 30
@@ -1525,7 +1526,7 @@ Info (12128): Elaborating entity "BufferControl" for hierarchy "KeyboardReader:K
 Info (12128): Elaborating entity "ClockDivider" for hierarchy "KeyboardReader:KBD|ClockDivider:U3" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/KeyboardReader.vhd Line: 63
 Warning (10492): VHDL Process Statement warning at ClockDivider.vhd(29): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/common/ClockDivider.vhd Line: 29
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2024.06.28.20:31:14 Progress: Loading slddd6c895e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2024.07.01.16:42:36 Progress: Loading slddd6c895e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1549,7 +1550,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slddd6c895e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/db/ip/slddd6c895e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Info (284007): State machine "|SpaceInvadersGame|KeyboardReader:KBD|OutputBuffer:U2|BufferControl:U1|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/OutputBuffer/BufferControl.vhd Line: 18
-Info (284007): State machine "|SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|rbc:U0|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RBC.vhd Line: 20
+Info (284007): State machine "|SpaceInvadersGame|KeyboardReader:KBD|RingBuffer:U1|rbc:U0|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/KeyboardReader/RingBuffer/RBC.vhd Line: 21
 Info (284007): State machine "|SpaceInvadersGame|SerialController:SSC|SerialDispatcher:U1|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 21
 Info (284007): State machine "|SpaceInvadersGame|SerialController:SSC|SerialReceiver:U0|SerialControl:U2|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialReceiver/SerialControl.vhd Line: 13
 Info (284007): State machine "|SpaceInvadersGame|SerialController:SLCDC|SerialDispatcher:U1|CurrentState" will be implemented as a safe state machine. File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/Serial/SerialDispatcher/SerialDispatcher.vhd Line: 21
@@ -1571,14 +1572,14 @@ Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "inputPort[5]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
     Warning (15610): No output dependent on input pin "inputPort[6]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
     Warning (15610): No output dependent on input pin "inputPort[7]" File: C:/Users/zebon/Downloads/LIC/G12-LIC-2324/hardware/SpaceInvadersGame/SpaceInvadersGame.vhd Line: 8
-Info (21057): Implemented 665 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 669 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 70 output pins
-    Info (21061): Implemented 578 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 4896 megabytes
-    Info: Processing ended: Fri Jun 28 20:31:21 2024
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:15
+    Info (21061): Implemented 582 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 4956 megabytes
+    Info: Processing ended: Mon Jul  1 16:42:45 2024
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:16
 
 
